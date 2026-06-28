@@ -7,8 +7,12 @@ import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQu
 // Vertical placement of the building's physical LED ticker band in the
 // background photo, expressed as % from the top of the image. Adjust these
 // two numbers if the photo is swapped.
-const LED_BAND_TOP_PCT = 14;
-const LED_BAND_BOTTOM_PCT = 26;
+const LED_BAND_TOP_PCT = 15;
+const LED_BAND_BOTTOM_PCT = 28;
+// The physical LED band in the photo is not perfectly level — the right side
+// sits slightly higher than the left. Match that tilt so the overlay sits ON
+// the band instead of floating off-axis.
+const LED_BAND_ROTATE_DEG = -1.6;
 
 const PRIVATE_EMPLOYERS = [
   "EY",
@@ -75,9 +79,11 @@ export function BrothersAtWork() {
   );
 
   // --- overlay ticker (sits on the building's LED band) ---
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.2, 0.6, 0.72], [0, 0.55, 1, 0]);
+  // Gentle fade-in so it appears to "light up" onto the LED band, then holds
+  // before the hero takeover wipes it away.
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.08, 0.5, 0.68], [0, 0.9, 1, 0]);
   const overlayGlow = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const overlayScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.04]);
+  const overlayScale = useTransform(scrollYProgress, [0, 0.5], [1.005, 1.03]);
 
   // --- hero (full-width) ticker takes over ---
   const heroOpacity = useTransform(scrollYProgress, [0.55, 0.78], [0, 1]);
@@ -125,12 +131,13 @@ export function BrothersAtWork() {
         {/* OVERLAY TICKER — pinned on top of the building's physical LED band */}
         <motion.div
           aria-hidden="true"
-          className="absolute left-0 right-0 overflow-hidden bg-black/45 border-y border-[#ff3b3b]/40"
+          className="absolute left-[-4%] right-[-4%] overflow-hidden bg-black/55 border-y border-[#ff3b3b]/40 shadow-[0_0_60px_rgba(255,60,60,0.25)]"
           style={{
             top: `${LED_BAND_TOP_PCT}%`,
             height: `${LED_BAND_BOTTOM_PCT - LED_BAND_TOP_PCT}%`,
             opacity: reduceMotion ? 0 : overlayOpacity,
             scale: reduceMotion ? 1 : overlayScale,
+            rotate: `${LED_BAND_ROTATE_DEG}deg`,
             transformOrigin: "center",
             willChange: "opacity, transform",
           }}
