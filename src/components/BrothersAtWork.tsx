@@ -7,8 +7,12 @@ import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQu
 // Vertical placement of the building's physical LED ticker band in the
 // background photo, expressed as % from the top of the image. Adjust these
 // two numbers if the photo is swapped.
-const LED_BAND_TOP_PCT = 14;
-const LED_BAND_BOTTOM_PCT = 26;
+const LED_BAND_TOP_PCT = 15;
+const LED_BAND_BOTTOM_PCT = 28;
+// The physical LED band in the photo is not perfectly level — the right side
+// sits slightly higher than the left. Match that tilt so the overlay sits ON
+// the band instead of floating off-axis.
+const LED_BAND_ROTATE_DEG = -1.6;
 
 const PRIVATE_EMPLOYERS = [
   "EY",
