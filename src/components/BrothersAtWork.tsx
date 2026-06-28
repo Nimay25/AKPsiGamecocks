@@ -131,12 +131,13 @@ export function BrothersAtWork() {
         {/* OVERLAY TICKER — pinned on top of the building's physical LED band */}
         <motion.div
           aria-hidden="true"
-          className="absolute left-0 right-0 overflow-hidden bg-black/45 border-y border-[#ff3b3b]/40"
+          className="absolute left-[-4%] right-[-4%] overflow-hidden bg-black/55 border-y border-[#ff3b3b]/40 shadow-[0_0_60px_rgba(255,60,60,0.25)]"
           style={{
             top: `${LED_BAND_TOP_PCT}%`,
             height: `${LED_BAND_BOTTOM_PCT - LED_BAND_TOP_PCT}%`,
             opacity: reduceMotion ? 0 : overlayOpacity,
             scale: reduceMotion ? 1 : overlayScale,
+            rotate: `${LED_BAND_ROTATE_DEG}deg`,
             transformOrigin: "center",
             willChange: "opacity, transform",
           }}
