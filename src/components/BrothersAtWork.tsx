@@ -102,6 +102,7 @@ export function BrothersAtWork() {
 
   // Photo band fades out → live data band fades in.
   const photoBandOpacity = useTransform(scrollYProgress, [0.6, 0.78], [1, 0]);
+  const photoBandScrimOpacity = useTransform(photoBandOpacity, (v) => 1 - v);
   const liveBandOpacity = useTransform(scrollYProgress, [0.62, 0.82], [0, 1]);
 
   // Outer photo opacity (helps the whole thing settle into pure black at the end).
