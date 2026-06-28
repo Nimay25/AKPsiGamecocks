@@ -7,12 +7,13 @@ import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQu
 // Vertical placement of the building's physical LED ticker band in the
 // background photo, expressed as % from the top of the image. Adjust these
 // two numbers if the photo is swapped.
-// Measured directly from the photo's main red LED row. The band drops ~35px
-// over 1920px from left → right, ≈ -1.05°. Keep these tight so the overlay
-// sits ON the prominent price row, not floating above it.
-const LED_BAND_TOP_PCT = 21;
-const LED_BAND_BOTTOM_PCT = 31;
-const LED_BAND_ROTATE_DEG = -1.05;
+// Measured directly from the source photo (1920x1280). The main red price
+// row spans roughly y=275 → y=420 and drops ~65px from left → right
+// (≈ -1.94°). Percentages are of the IMAGE, not the viewport — see the
+// aspect-locked wrapper below.
+const LED_BAND_TOP_PCT = 21.5;
+const LED_BAND_BOTTOM_PCT = 32.8;
+const LED_BAND_ROTATE_DEG = -1.94;
 
 const PRIVATE_EMPLOYERS = [
   "EY",
