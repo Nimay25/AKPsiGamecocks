@@ -79,9 +79,11 @@ export function BrothersAtWork() {
   );
 
   // --- overlay ticker (sits on the building's LED band) ---
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.2, 0.6, 0.72], [0, 0.55, 1, 0]);
+  // Gentle fade-in so it appears to "light up" onto the LED band, then holds
+  // before the hero takeover wipes it away.
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.08, 0.5, 0.68], [0, 0.9, 1, 0]);
   const overlayGlow = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const overlayScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.04]);
+  const overlayScale = useTransform(scrollYProgress, [0, 0.5], [1.005, 1.03]);
 
   // --- hero (full-width) ticker takes over ---
   const heroOpacity = useTransform(scrollYProgress, [0.55, 0.78], [0, 1]);
