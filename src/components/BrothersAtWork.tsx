@@ -11,11 +11,11 @@ import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQu
 // row spans roughly y=275 → y=420 and drops ~65px from left → right
 // (≈ -1.94°). Percentages are of the IMAGE, not the viewport — see the
 // aspect-locked wrapper below.
-const LED_BAND_TOP_PCT = 21.5;
-const LED_BAND_BOTTOM_PCT = 32.8;
-const LED_BAND_LEFT_PCT = -6;
+const LED_BAND_TOP_PCT = 15.38;
+const LED_BAND_BOTTOM_PCT = 27.55;
+const LED_BAND_LEFT_PCT = -1.64;
 const LED_BAND_WIDTH_PCT = 112;
-const LED_BAND_ROTATE_DEG = -1.94;
+const LED_BAND_ROTATE_DEG = -3.83;
 
 type TickerCalibration = {
   top: number;
