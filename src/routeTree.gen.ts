@@ -16,6 +16,7 @@ import { Route as BrothersRouteImport } from './routes/brothers'
 import { Route as AlumniRouteImport } from './routes/alumni'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiQuotesRouteImport } from './routes/api/quotes'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -52,6 +53,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiQuotesRoute = ApiQuotesRouteImport.update({
+  id: '/api/quotes',
+  path: '/api/quotes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/recruitment': typeof RecruitmentRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/quotes': typeof ApiQuotesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/recruitment': typeof RecruitmentRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/quotes': typeof ApiQuotesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/recruitment': typeof RecruitmentRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/quotes': typeof ApiQuotesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/recruitment'
     | '/sitemap.xml'
+    | '/api/quotes'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/recruitment'
     | '/sitemap.xml'
+    | '/api/quotes'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/recruitment'
     | '/sitemap.xml'
+    | '/api/quotes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +131,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   RecruitmentRoute: typeof RecruitmentRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiQuotesRoute: typeof ApiQuotesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/quotes': {
+      id: '/api/quotes'
+      path: '/api/quotes'
+      fullPath: '/api/quotes'
+      preLoaderRoute: typeof ApiQuotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   RecruitmentRoute: RecruitmentRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiQuotesRoute: ApiQuotesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
