@@ -46,7 +46,7 @@ function About() {
           </Reveal>
           <Reveal delay={100}>
             <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl">
-              A professional fraternity, <span className="italic text-[var(--gold)]">reimagined</span> for South Carolina.
+              A professional fraternity, <span className="italic text-[var(--gold)]">reimagined</span>{"\u00a0"} for South Carolina.
             </h1>
           </Reveal>
         </div>
