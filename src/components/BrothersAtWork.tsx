@@ -53,6 +53,7 @@ const PRIVATE_EMPLOYERS = [
 // so the scroll animation doesn't jump when real data arrives.
 const PLACEHOLDER_SYMBOLS = [
   "BAC", "WFC", "JPM", "GS", "GM", "BA", "KO", "HSBC", "PIPR",
+  "MSFT", "BLK", "XOM", "ALLY", "CFG", "JEF", "D", "LRLCY",
 ];
 
 function QuotePill({ q }: { q: LiveQuote }) {
