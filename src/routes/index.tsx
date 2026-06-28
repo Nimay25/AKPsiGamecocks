@@ -1,8 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Building2, Instagram } from "lucide-react";
-import heroCampus from "@/assets/hero-campus.jpg";
+import heroCampus from "@/assets/photos/chapter-mckissick.jpg";
+import gallery1 from "@/assets/photos/brothers-house.jpg";
+import gallery2 from "@/assets/photos/pledge-roses-1.jpg";
+import gallery3 from "@/assets/photos/pledge-roses-2.jpg";
+import gallery4 from "@/assets/photos/pledge-stairs.jpg";
+import gallery5 from "@/assets/photos/marquee-real.jpg";
+import gallery6 from "@/assets/photos/chapter-mckissick.jpg";
 import { Reveal, CountUp } from "@/components/Reveal";
 import { StockTicker } from "@/components/StockTicker";
+
+const GALLERY = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,7 +51,7 @@ function Home() {
           height={1280}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--navy-deep)]/90 via-[var(--navy)]/80 to-[var(--navy)]/95" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--navy-deep)]/85 via-[var(--navy)]/70 to-[var(--navy)]/90" />
 
         <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-6 pt-28 pb-20 md:px-10">
           <Reveal>
@@ -217,15 +225,12 @@ function Home() {
             </a>
           </div>
 
-          {/* EDIT: Drop in an Elfsight Instagram embed widget here when ready */}
-          <div className="mt-10 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
-            {Array.from({ length: 6 }).map((_, i) => (
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+            {GALLERY.map((src, i) => (
               <Reveal key={i} delay={i * 60}>
-                <div className="aspect-square rounded-xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] relative overflow-hidden group">
-                  <div className="absolute inset-0 grid place-items-center text-[var(--gold)]/30 font-display text-4xl">
-                    AKΨ
-                  </div>
-                  <div className="absolute inset-0 bg-[var(--gold)]/0 group-hover:bg-[var(--gold)]/20 transition" />
+                <div className="aspect-square overflow-hidden rounded-xl relative group">
+                  <img src={src} alt="Beta Upsilon brotherhood moment" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                  <div className="absolute inset-0 bg-[var(--navy)]/0 group-hover:bg-[var(--navy)]/30 transition" />
                 </div>
               </Reveal>
             ))}
