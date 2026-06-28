@@ -26,10 +26,10 @@ export function SiteNav() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        className={`sticky inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-[var(--navy)]/92 backdrop-blur-md shadow-[0_2px_20px_rgba(10,31,68,0.25)]"
-            : "bg-transparent"
+            : "bg-[var(--navy)]"
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
