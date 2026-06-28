@@ -7,12 +7,13 @@ import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQu
 // Vertical placement of the building's physical LED ticker band in the
 // background photo, expressed as % from the top of the image. Adjust these
 // two numbers if the photo is swapped.
-// Measured directly from the photo's main red LED row. The band drops ~35px
-// over 1920px from left → right, ≈ -1.05°. Keep these tight so the overlay
-// sits ON the prominent price row, not floating above it.
-const LED_BAND_TOP_PCT = 21;
-const LED_BAND_BOTTOM_PCT = 31;
-const LED_BAND_ROTATE_DEG = -1.05;
+// Measured directly from the source photo (1920x1280). The main red price
+// row spans roughly y=275 → y=420 and drops ~65px from left → right
+// (≈ -1.94°). Percentages are of the IMAGE, not the viewport — see the
+// aspect-locked wrapper below.
+const LED_BAND_TOP_PCT = 21.5;
+const LED_BAND_BOTTOM_PCT = 32.8;
+const LED_BAND_ROTATE_DEG = -1.94;
 
 const PRIVATE_EMPLOYERS = [
   "EY",
@@ -108,40 +109,52 @@ export function BrothersAtWork() {
       <style>{`@media (max-width: 768px){ section[aria-label="Brothers at Work — live market ticker for AKPSI employers"]{ height:150vh !important; } }`}</style>
 
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Background photo */}
-        <motion.div
-          className="absolute inset-0"
+        {/*
+          Aspect-locked stage: wrapper preserves the photo's 1920×1280 ratio
+          AND covers the viewport (both dims ≥ 100%). This lets the overlay
+          band be positioned in % of the IMAGE — so it stays welded to the
+          physical LED band at every viewport size.
+        */}
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           style={{
-            filter: reduceMotion ? "saturate(0) brightness(0.2)" : photoFilter,
-            opacity: reduceMotion ? 0.35 : photoOpacity,
-            willChange: "filter, opacity",
+            width: "max(100vw, calc(100vh * 1.5))",
+            height: "max(100vh, calc(100vw / 1.5))",
           }}
         >
-          <img
-            src={tradingFloor}
-            alt="Darla Moore School of Business trading room with LED stock ticker"
-            width={1920}
-            height={1280}
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/85 pointer-events-none" />
+          {/* Background photo */}
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              filter: reduceMotion ? "saturate(0) brightness(0.2)" : photoFilter,
+              opacity: reduceMotion ? 0.35 : photoOpacity,
+              willChange: "filter, opacity",
+            }}
+          >
+            <img
+              src={tradingFloor}
+              alt="Darla Moore School of Business trading room with LED stock ticker"
+              width={1920}
+              height={1280}
+              className="block h-full w-full"
+              loading="lazy"
+            />
+          </motion.div>
 
-        {/* OVERLAY TICKER — pinned on top of the building's physical LED band */}
-        <motion.div
-          aria-hidden="true"
-          className="absolute left-[-4%] right-[-4%] overflow-hidden bg-black/55 border-y border-[#ff3b3b]/40 shadow-[0_0_60px_rgba(255,60,60,0.25)]"
-          style={{
-            top: `${LED_BAND_TOP_PCT}%`,
-            height: `${LED_BAND_BOTTOM_PCT - LED_BAND_TOP_PCT}%`,
-            opacity: reduceMotion ? 0 : overlayOpacity,
-            scale: reduceMotion ? 1 : overlayScale,
-            rotate: `${LED_BAND_ROTATE_DEG}deg`,
-            transformOrigin: "center",
-            willChange: "opacity, transform",
-          }}
-        >
+          {/* OVERLAY TICKER — welded to the physical LED band in the image */}
+          <motion.div
+            aria-hidden="true"
+            className="absolute left-[-6%] right-[-6%] overflow-hidden bg-black/55 border-y border-[#ff3b3b]/40 shadow-[0_0_60px_rgba(255,60,60,0.25)]"
+            style={{
+              top: `${LED_BAND_TOP_PCT}%`,
+              height: `${LED_BAND_BOTTOM_PCT - LED_BAND_TOP_PCT}%`,
+              opacity: reduceMotion ? 0 : overlayOpacity,
+              scale: reduceMotion ? 1 : overlayScale,
+              rotate: `${LED_BAND_ROTATE_DEG}deg`,
+              transformOrigin: "center",
+              willChange: "opacity, transform",
+            }}
+          >
           <motion.div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -158,7 +171,12 @@ export function BrothersAtWork() {
               ),
             )}
           </div>
-        </motion.div>
+          </motion.div>
+        </div>
+        {/* Vignette sits above the aspect-locked stage so it always covers the viewport */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/85 pointer-events-none" />
+
+
 
         {/* HERO TICKER — full-width, dominant after photo fades */}
         <motion.div
