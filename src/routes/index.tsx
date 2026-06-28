@@ -9,6 +9,7 @@ import gallery5 from "@/assets/photos/marquee-real.jpg";
 import gallery6 from "@/assets/photos/chapter-mckissick.jpg";
 import { Reveal, CountUp } from "@/components/Reveal";
 import { StockTicker } from "@/components/StockTicker";
+import { BrothersAtWork } from "@/components/BrothersAtWork";
 
 const GALLERY = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6];
 
@@ -34,10 +35,8 @@ const PILLARS = [
   { title: "Unity", text: "One chapter, every major, every background." },
 ];
 
-const EMPLOYERS = [
-  "EY", "Bank of America", "Wells Fargo", "JPMorgan", "Goldman Sachs",
-  "PwC", "General Motors", "Boeing", "PepsiCo", "HSBC", "Chick-fil-A", "Coca-Cola",
-];
+
+
 
 function Home() {
   return (
@@ -134,42 +133,9 @@ function Home() {
         </div>
       </section>
 
-      {/* WHERE WE'RE WORKING */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal>
-            <p className="eyebrow"><span className="gold-rule" />Career Placement</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="mt-3 max-w-2xl font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">
-              Where we're working.
-            </h2>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="mt-4 max-w-xl text-[var(--navy)]/70">
-              Beta Upsilon brothers intern and start careers at firms across
-              finance, consulting, tech, and Fortune 500 industry leaders.
-            </p>
-          </Reveal>
+      {/* BROTHERS @ WORK — scroll-driven LED ticker reveal */}
+      <BrothersAtWork />
 
-          <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-3 lg:grid-cols-4">
-            {EMPLOYERS.map((e) => (
-              <div
-                key={e}
-                className="group flex h-28 items-center justify-center bg-white p-6 text-center text-[var(--navy)]/55 transition hover:bg-[var(--cream)] hover:text-[var(--navy)]"
-              >
-                <span className="font-display text-lg font-semibold tracking-tight group-hover:scale-105 transition">
-                  {e}
-                </span>
-              </div>
-            ))}
-          </div>
-          <p className="mt-6 text-xs text-[var(--navy)]/50">
-            {/* EDIT: replace with real company wordmarks/logo files when available */}
-            Text logos shown — replace with real wordmarks as available.
-          </p>
-        </div>
-      </section>
 
       {/* PILLARS PREVIEW */}
       <section className="bg-[var(--navy)] py-24 text-[var(--cream)]">

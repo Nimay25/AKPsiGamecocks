@@ -186,3 +186,42 @@
 @utility flicker {
   animation: marquee-flicker 3s ease-in-out infinite;
 }
+
+/* LED ticker — used by the Brothers @ Work scroll-reveal section
+   and the slim site-wide ticker bar. */
+@keyframes ticker-fast {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@utility animate-ticker-fast {
+  animation: ticker-fast 28s linear infinite;
+  will-change: transform;
+}
+@utility animate-ticker-hero {
+  animation: ticker-fast 38s linear infinite;
+  will-change: transform;
+}
+@utility led-text {
+  font-family: ui-monospace, "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+@utility led-glow-up {
+  color: #34f5a3;
+  text-shadow:
+    0 0 4px rgba(52, 245, 163, 0.55),
+    0 0 12px rgba(52, 245, 163, 0.35);
+}
+@utility led-glow-down {
+  color: #ff5d6c;
+  text-shadow:
+    0 0 4px rgba(255, 93, 108, 0.55),
+    0 0 12px rgba(255, 93, 108, 0.35);
+}
+@utility led-glow-amber {
+  color: #ffc857;
+  text-shadow:
+    0 0 4px rgba(255, 200, 87, 0.55),
+    0 0 14px rgba(255, 200, 87, 0.4);
+}
+

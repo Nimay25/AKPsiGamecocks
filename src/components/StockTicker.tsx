@@ -1,92 +1,71 @@
-import { useEffect, useState } from "react";
-import { TrendingUp, TrendingDown } from "lucide-react";
+import { ArrowDown, ArrowUp, Minus } from "lucide-react";
+import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQuotes";
 
-// Companies where Beta Upsilon brothers work
-const COMPANIES = [
-  { symbol: "EY",   name: "Ernst & Young", private: true },
-  { symbol: "BAC",  name: "Bank of America" },
-  { symbol: "WFC",  name: "Wells Fargo" },
-  { symbol: "JPM",  name: "JPMorgan Chase" },
-  { symbol: "GS",   name: "Goldman Sachs" },
-  { symbol: "PWC",  name: "PwC", private: true },
-  { symbol: "GM",   name: "General Motors" },
-  { symbol: "BA",   name: "Boeing" },
-  { symbol: "PEP",  name: "PepsiCo" },
-  { symbol: "HSBC", name: "HSBC" },
-  { symbol: "CFA",  name: "Chick-fil-A", private: true },
-  { symbol: "KO",   name: "Coca-Cola" },
-  { symbol: "PIPR", name: "Piper Sandler" },
+// Slim, always-on site-wide ticker. Public companies only — feeds from the
+// same shared `useLiveQuotes` source as the Brothers @ Work hero section,
+// so the two never disagree. Private/non-profit employers are shown in the
+// hero section's "Brothers also at" strip, never here.
+
+type Placeholder = { kind: "placeholder"; symbol: string; name: string };
+type Real = { kind: "real" } & LiveQuote;
+
+const PLACEHOLDERS: Placeholder[] = [
+  { kind: "placeholder", symbol: "BAC",  name: "Bank of America" },
+  { kind: "placeholder", symbol: "WFC",  name: "Wells Fargo" },
+  { kind: "placeholder", symbol: "JPM",  name: "JPMorgan Chase" },
+  { kind: "placeholder", symbol: "GS",   name: "Goldman Sachs" },
+  { kind: "placeholder", symbol: "GM",   name: "General Motors" },
+  { kind: "placeholder", symbol: "BA",   name: "Boeing" },
+  { kind: "placeholder", symbol: "KO",   name: "Coca-Cola" },
+  { kind: "placeholder", symbol: "HSBC", name: "HSBC" },
+  { kind: "placeholder", symbol: "PIPR", name: "Piper Sandler" },
 ];
 
-type Quote = { symbol: string; name: string; price: number; change: number; changePct: number };
-
-// Seed pseudo prices so we always have something. Try to hydrate from a free API.
-function seedQuote(c: { symbol: string; name: string }): Quote {
-  // Fully deterministic so SSR + client match (no hydration mismatch)
-  const seed = [...c.symbol].reduce((a, ch) => a + ch.charCodeAt(0), 0);
-  const price = 50 + (seed % 350) + (seed % 17) * 0.31;
-  const change = ((seed % 13) - 6) * 0.42;
-  return {
-    symbol: c.symbol,
-    name: c.name,
-    price: +price.toFixed(2),
-    change: +change.toFixed(2),
-    changePct: +((change / price) * 100).toFixed(2),
-  };
-}
-
 export function StockTicker() {
-  const [quotes, setQuotes] = useState<Quote[]>(() => COMPANIES.map(seedQuote));
+  const { quotes } = useLiveQuotes();
+  const marketOpen = isUSMarketOpen();
 
-  useEffect(() => {
-    let cancelled = false;
-    const load = async () => {
-      try {
-        const res = await fetch("/api/quotes");
-        if (!res.ok) return;
-        const json = (await res.json()) as {
-          quotes: { symbol: string; price: number; change: number; changePct: number }[];
-        };
-        if (cancelled || !json?.quotes?.length) return;
-        const map = new Map(json.quotes.map((q) => [q.symbol, q]));
-        setQuotes((prev) =>
-          prev.map((q) => {
-            const live = map.get(q.symbol);
-            return live ? { ...q, price: live.price, change: live.change, changePct: live.changePct } : q;
-          }),
-        );
-      } catch {
-        /* keep seeded prices */
-      }
-    };
-    load();
-    const id = setInterval(load, 60_000);
-    return () => {
-      cancelled = true;
-      clearInterval(id);
-    };
-  }, []);
-
-
-  // duplicate list so the marquee can loop seamlessly
-  const loop = [...quotes, ...quotes];
+  const real: Real[] = quotes.map((q) => ({ kind: "real", ...q }));
+  const loop: (Real | Placeholder)[] =
+    real.length > 0 ? [...real, ...real] : [...PLACEHOLDERS, ...PLACEHOLDERS];
 
   return (
     <div className="relative overflow-hidden border-y border-[var(--gold)]/30 bg-[var(--ink)] text-[var(--cream)]">
       <div className="absolute left-0 top-0 z-10 flex h-full items-center gap-2 bg-[var(--gold)] px-4 text-xs font-bold uppercase tracking-widest text-[var(--navy)]">
         <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--navy)]" />
         Brothers @ Work
+        {!marketOpen && (
+          <span className="ml-2 hidden sm:inline rounded-sm border border-[var(--navy)]/30 px-1.5 py-0.5 text-[9px] tracking-widest">
+            CLOSED
+          </span>
+        )}
       </div>
-      <div className="flex animate-ticker whitespace-nowrap py-3 pl-56">
+      <div className="flex animate-ticker-fast whitespace-nowrap py-3 pl-56">
         {loop.map((q, i) => {
-          const up = q.change >= 0;
+          if (q.kind === "placeholder") {
+            return (
+              <div key={`p-${q.symbol}-${i}`} className="flex items-center gap-3 px-6 text-sm led-text">
+                <span className="font-semibold text-[var(--gold)]">{q.symbol}</span>
+                <span className="text-[var(--cream)]/60">{q.name}</span>
+                <span className="text-[var(--cream)]/40 animate-pulse">— — —</span>
+                <span className="text-[var(--gold)]/40">•</span>
+              </div>
+            );
+          }
+          const up = q.change > 0;
+          const flat = q.change === 0;
+          const Arrow = flat ? Minus : up ? ArrowUp : ArrowDown;
           return (
-            <div key={`${q.symbol}-${i}`} className="flex items-center gap-3 px-6 text-sm">
-              <span className="font-mono font-semibold text-[var(--gold)]">{q.symbol}</span>
+            <div key={`${q.symbol}-${i}`} className="flex items-center gap-3 px-6 text-sm led-text">
+              <span className="font-semibold text-[var(--gold)]">{q.symbol}</span>
               <span className="text-[var(--cream)]/70">{q.name}</span>
-              <span className="font-mono">${q.price.toFixed(2)}</span>
-              <span className={`flex items-center gap-1 font-mono ${up ? "text-emerald-400" : "text-rose-400"}`}>
-                {up ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
+              <span>${q.price.toFixed(2)}</span>
+              <span
+                className={`flex items-center gap-1 ${
+                  flat ? "text-amber-300" : up ? "text-emerald-400" : "text-rose-400"
+                }`}
+              >
+                <Arrow className="h-3.5 w-3.5" strokeWidth={3} />
                 {up ? "+" : ""}{q.change.toFixed(2)} ({up ? "+" : ""}{q.changePct.toFixed(2)}%)
               </span>
               <span className="text-[var(--gold)]/40">•</span>
