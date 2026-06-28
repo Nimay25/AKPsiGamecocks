@@ -35,10 +35,8 @@ const PILLARS = [
   { title: "Unity", text: "One chapter, every major, every background." },
 ];
 
-const EMPLOYERS = [
-  "EY", "Bank of America", "Wells Fargo", "JPMorgan", "Goldman Sachs",
-  "PwC", "General Motors", "Boeing", "PepsiCo", "HSBC", "Chick-fil-A", "Coca-Cola",
-];
+
+
 
 function Home() {
   return (
