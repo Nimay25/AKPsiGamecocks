@@ -10,15 +10,23 @@ type Placeholder = { kind: "placeholder"; symbol: string; name: string };
 type Real = { kind: "real" } & LiveQuote;
 
 const PLACEHOLDERS: Placeholder[] = [
-  { kind: "placeholder", symbol: "BAC",  name: "Bank of America" },
-  { kind: "placeholder", symbol: "WFC",  name: "Wells Fargo" },
-  { kind: "placeholder", symbol: "JPM",  name: "JPMorgan Chase" },
-  { kind: "placeholder", symbol: "GS",   name: "Goldman Sachs" },
-  { kind: "placeholder", symbol: "GM",   name: "General Motors" },
-  { kind: "placeholder", symbol: "BA",   name: "Boeing" },
-  { kind: "placeholder", symbol: "KO",   name: "Coca-Cola" },
-  { kind: "placeholder", symbol: "HSBC", name: "HSBC" },
-  { kind: "placeholder", symbol: "PIPR", name: "Piper Sandler" },
+  { kind: "placeholder", symbol: "BAC",   name: "Bank of America" },
+  { kind: "placeholder", symbol: "WFC",   name: "Wells Fargo" },
+  { kind: "placeholder", symbol: "JPM",   name: "JPMorgan Chase" },
+  { kind: "placeholder", symbol: "GS",    name: "Goldman Sachs" },
+  { kind: "placeholder", symbol: "MSFT",  name: "Microsoft" },
+  { kind: "placeholder", symbol: "BLK",   name: "BlackRock" },
+  { kind: "placeholder", symbol: "XOM",   name: "Exxon Mobil" },
+  { kind: "placeholder", symbol: "ALLY",  name: "Ally Financial" },
+  { kind: "placeholder", symbol: "CFG",   name: "Citizens Financial" },
+  { kind: "placeholder", symbol: "JEF",   name: "Jefferies" },
+  { kind: "placeholder", symbol: "D",     name: "Dominion Energy" },
+  { kind: "placeholder", symbol: "OR.PA", name: "L'Oréal" },
+  { kind: "placeholder", symbol: "BA",    name: "Boeing" },
+  { kind: "placeholder", symbol: "GM",    name: "General Motors" },
+  { kind: "placeholder", symbol: "KO",    name: "Coca-Cola" },
+  { kind: "placeholder", symbol: "HSBC",  name: "HSBC" },
+  { kind: "placeholder", symbol: "PIPR",  name: "Piper Sandler" },
 ];
 
 export function StockTicker() {

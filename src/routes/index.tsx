@@ -8,8 +8,6 @@ import gallery4 from "@/assets/photos/pledge-stairs.jpg";
 import gallery5 from "@/assets/photos/marquee-real.jpg";
 import gallery6 from "@/assets/photos/chapter-mckissick.jpg";
 import { Reveal, CountUp } from "@/components/Reveal";
-import { StockTicker } from "@/components/StockTicker";
-import { BrothersAtWork } from "@/components/BrothersAtWork";
 
 const GALLERY = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6];
 
@@ -89,9 +87,6 @@ function Home() {
         </div>
       </section>
 
-      {/* STOCK TICKER */}
-      <StockTicker />
-
       {/* AWARD BADGE BAND */}
       <section className="bg-[var(--navy)] py-14 text-[var(--cream)]">
         <div className="mx-auto max-w-5xl px-6 text-center">
@@ -133,8 +128,7 @@ function Home() {
         </div>
       </section>
 
-      {/* BROTHERS @ WORK — scroll-driven LED ticker reveal */}
-      <BrothersAtWork />
+
 
 
       {/* PILLARS PREVIEW */}
