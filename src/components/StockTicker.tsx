@@ -1,31 +1,33 @@
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
-import { useLiveQuotes, isUSMarketOpen } from "@/hooks/useLiveQuotes";
+import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQuotes";
 
 // Slim, always-on site-wide ticker. Public companies only — feeds from the
 // same shared `useLiveQuotes` source as the Brothers @ Work hero section,
 // so the two never disagree. Private/non-profit employers are shown in the
 // hero section's "Brothers also at" strip, never here.
 
-const PLACEHOLDERS = [
-  { symbol: "BAC", name: "Bank of America" },
-  { symbol: "WFC", name: "Wells Fargo" },
-  { symbol: "JPM", name: "JPMorgan Chase" },
-  { symbol: "GS",  name: "Goldman Sachs" },
-  { symbol: "GM",  name: "General Motors" },
-  { symbol: "BA",  name: "Boeing" },
-  { symbol: "KO",  name: "Coca-Cola" },
-  { symbol: "HSBC", name: "HSBC" },
-  { symbol: "PIPR", name: "Piper Sandler" },
+type Placeholder = { kind: "placeholder"; symbol: string; name: string };
+type Real = { kind: "real" } & LiveQuote;
+
+const PLACEHOLDERS: Placeholder[] = [
+  { kind: "placeholder", symbol: "BAC",  name: "Bank of America" },
+  { kind: "placeholder", symbol: "WFC",  name: "Wells Fargo" },
+  { kind: "placeholder", symbol: "JPM",  name: "JPMorgan Chase" },
+  { kind: "placeholder", symbol: "GS",   name: "Goldman Sachs" },
+  { kind: "placeholder", symbol: "GM",   name: "General Motors" },
+  { kind: "placeholder", symbol: "BA",   name: "Boeing" },
+  { kind: "placeholder", symbol: "KO",   name: "Coca-Cola" },
+  { kind: "placeholder", symbol: "HSBC", name: "HSBC" },
+  { kind: "placeholder", symbol: "PIPR", name: "Piper Sandler" },
 ];
 
 export function StockTicker() {
   const { quotes } = useLiveQuotes();
   const marketOpen = isUSMarketOpen();
 
-  const items = quotes.length > 0 ? quotes : null;
-  const loop = items
-    ? [...items, ...items]
-    : [...PLACEHOLDERS, ...PLACEHOLDERS];
+  const real: Real[] = quotes.map((q) => ({ kind: "real", ...q }));
+  const loop: (Real | Placeholder)[] =
+    real.length > 0 ? [...real, ...real] : [...PLACEHOLDERS, ...PLACEHOLDERS];
 
   return (
     <div className="relative overflow-hidden border-y border-[var(--gold)]/30 bg-[var(--ink)] text-[var(--cream)]">
@@ -40,7 +42,7 @@ export function StockTicker() {
       </div>
       <div className="flex animate-ticker-fast whitespace-nowrap py-3 pl-56">
         {loop.map((q, i) => {
-          if (!("price" in q)) {
+          if (q.kind === "placeholder") {
             return (
               <div key={`p-${q.symbol}-${i}`} className="flex items-center gap-3 px-6 text-sm led-text">
                 <span className="font-semibold text-[var(--gold)]">{q.symbol}</span>
