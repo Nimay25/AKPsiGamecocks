@@ -194,7 +194,6 @@ export function BrothersAtWork() {
             className="pointer-events-none absolute inset-x-0 top-[4vh] z-10 flex flex-col items-center px-6 text-center"
             style={{
               clipPath: reduceMotion ? "none" : textClip,
-              WebkitClipPath: reduceMotion ? "none" : (textClip as unknown as string),
             }}
           >
             <p className="led-text text-xs sm:text-sm uppercase tracking-[0.4em] led-glow-amber">
