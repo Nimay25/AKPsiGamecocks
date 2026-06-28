@@ -170,11 +170,14 @@ export function BrothersAtWork() {
             }}
           >
             <p className="led-text text-xs sm:text-sm uppercase tracking-[0.4em] led-glow-amber">
-              ● Live · Powered by Finnhub
+              ● LIVE · POWERED BY LIVE DATA
               {!marketOpen && (
-                <span className="ml-3 rounded-sm border border-white/30 px-2 py-0.5 text-[10px] tracking-widest text-white/70">
-                  MARKET CLOSED
-                </span>
+                <>
+                  <span className="ml-3 rounded-sm border border-white/30 px-2 py-0.5 text-[10px] tracking-widest text-white/70">
+                    MARKET CLOSED
+                  </span>
+                  &nbsp;&nbsp;●
+                </>
               )}
             </p>
             <h2 className="mt-4 font-display text-5xl sm:text-7xl lg:text-8xl font-medium leading-none">
