@@ -188,6 +188,13 @@ function TickerCalibrationControls({
     window.setTimeout(() => setCopied(false), 1400);
   };
 
+  const exitCalibration = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("tickerCalibrate");
+    window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    window.dispatchEvent(new CustomEvent("ticker-calibration-toggle", { detail: false }));
+  };
+
   return (
     <div
       ref={stageRef}
@@ -244,7 +251,14 @@ function TickerCalibrationControls({
         </button>
       </div>
 
-      <div className="absolute bottom-5 right-5 max-w-sm border border-cyan-300/50 bg-black/85 p-4 font-mono text-xs text-white shadow-2xl backdrop-blur">
+      <div
+        data-calibration-panel
+        className="absolute z-[80] max-w-sm border border-cyan-300/50 bg-black/85 p-4 font-mono text-xs text-white shadow-2xl backdrop-blur"
+        style={{
+          right: "calc((100% - 100vw) / 2 + 1.25rem)",
+          bottom: "calc((100% - 100vh) / 2 + 1.25rem)",
+        }}
+      >
         <p className="font-bold uppercase tracking-widest text-cyan-200">Ticker calibration mode</p>
         <p className="mt-2 text-white/70">Drag the cyan box, pull its handles, or use the red knob to rotate. Copy these values when it lines up.</p>
         <pre className="mt-3 whitespace-pre-wrap rounded-sm bg-white/10 p-3 text-cyan-100">{exportText}</pre>
@@ -254,6 +268,9 @@ function TickerCalibrationControls({
           </button>
           <button type="button" className="border border-white/25 px-3 py-2 text-white" onClick={() => commit(DEFAULT_CALIBRATION)}>
             Reset
+          </button>
+          <button type="button" className="border border-white/25 px-3 py-2 text-white" onClick={exitCalibration}>
+            Done
           </button>
         </div>
       </div>
@@ -298,20 +315,38 @@ export function BrothersAtWork() {
   const marketOpen = isUSMarketOpen();
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const enabled = params.has("tickerCalibrate");
-    setCalibrationEnabled(enabled);
+    const syncFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const enabled = params.has("tickerCalibrate");
+      setCalibrationEnabled(enabled);
+      return enabled;
+    };
 
-    if (!enabled) return;
+    const enabled = syncFromUrl();
+
+    const onToggle = (event: Event) => {
+      const next = (event as CustomEvent<boolean>).detail;
+      setCalibrationEnabled(Boolean(next));
+    };
+
+    window.addEventListener("ticker-calibration-toggle", onToggle as EventListener);
+
+    if (!enabled) {
+      return () => window.removeEventListener("ticker-calibration-toggle", onToggle as EventListener);
+    }
 
     const saved = window.localStorage.getItem(CALIBRATION_STORAGE_KEY);
-    if (!saved) return;
+    if (!saved) {
+      return () => window.removeEventListener("ticker-calibration-toggle", onToggle as EventListener);
+    }
 
     try {
       setCalibration({ ...DEFAULT_CALIBRATION, ...JSON.parse(saved) });
     } catch {
       window.localStorage.removeItem(CALIBRATION_STORAGE_KEY);
     }
+
+    return () => window.removeEventListener("ticker-calibration-toggle", onToggle as EventListener);
   }, []);
 
   useEffect(() => {
@@ -321,6 +356,15 @@ export function BrothersAtWork() {
 
   // Build a loopable rail (duplicated for seamless marquee).
   const rail = quotes.length > 0 ? [...quotes, ...quotes] : null;
+
+  const openCalibration = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("tickerCalibrate", "1");
+    url.hash = "brothers-at-work";
+    window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    setCalibrationEnabled(true);
+    requestAnimationFrame(() => sectionRef.current?.scrollIntoView({ block: "start" }));
+  };
 
   return (
     <section
@@ -404,6 +448,16 @@ export function BrothersAtWork() {
             <TickerCalibrationControls value={calibration} onChange={setCalibration} />
           )}
         </div>
+
+        {!calibrationEnabled && (
+          <button
+            type="button"
+            onClick={openCalibration}
+            className="absolute bottom-6 right-6 z-30 border border-white/20 bg-black/70 px-4 py-2 font-mono text-xs uppercase tracking-widest text-white shadow-2xl backdrop-blur transition hover:bg-black"
+          >
+            Align ticker
+          </button>
+        )}
         {/* Vignette sits above the aspect-locked stage so it always covers the viewport */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/85 pointer-events-none" />
 
