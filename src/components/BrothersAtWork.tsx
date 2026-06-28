@@ -373,10 +373,10 @@ export function BrothersAtWork() {
       ref={sectionRef}
       aria-label="Brothers at Work — live market ticker for AKPSI employers"
       className="relative bg-black text-white"
-      style={{ height: "200vh" }}
+      style={{ height: "320vh" }}
     >
       {/* Mobile shortens the scroll distance for snappier feel */}
-      <style>{`@media (max-width: 768px){ section[aria-label="Brothers at Work — live market ticker for AKPSI employers"]{ height:150vh !important; } }`}</style>
+      <style>{`@media (max-width: 768px){ section[aria-label="Brothers at Work — live market ticker for AKPSI employers"]{ height:230vh !important; } }`}</style>
 
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/*
