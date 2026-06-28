@@ -4,23 +4,15 @@ import { createFileRoute } from "@tanstack/react-router";
 // Special Olympics, gov/judicial roles) are handled separately as a
 // static "Brothers also at:" strip in the UI.
 const SYMBOLS: { symbol: string; name: string }[] = [
-  { symbol: "BAC",   name: "Bank of America" },
-  { symbol: "WFC",   name: "Wells Fargo" },
-  { symbol: "JPM",   name: "JPMorgan Chase" },
-  { symbol: "GS",    name: "Goldman Sachs" },
-  { symbol: "MSFT",  name: "Microsoft" },
-  { symbol: "BLK",   name: "BlackRock" },
-  { symbol: "XOM",   name: "Exxon Mobil" },
-  { symbol: "ALLY",  name: "Ally Financial" },
-  { symbol: "CFG",   name: "Citizens Financial" },
-  { symbol: "JEF",   name: "Jefferies" },
-  { symbol: "D",     name: "Dominion Energy" },
-  { symbol: "OR.PA", name: "L'Oréal" },
-  { symbol: "BA",    name: "Boeing" },
-  { symbol: "GM",    name: "General Motors" },
-  { symbol: "KO",    name: "Coca-Cola" },
-  { symbol: "HSBC",  name: "HSBC" },
-  { symbol: "PIPR",  name: "Piper Sandler" },
+  { symbol: "BAC",  name: "Bank of America" },
+  { symbol: "WFC",  name: "Wells Fargo" },
+  { symbol: "JPM",  name: "JPMorgan Chase" },
+  { symbol: "GS",   name: "Goldman Sachs" },
+  { symbol: "GM",   name: "General Motors" },
+  { symbol: "BA",   name: "Boeing" },
+  { symbol: "KO",   name: "Coca-Cola" },
+  { symbol: "HSBC", name: "HSBC" },
+  { symbol: "PIPR", name: "Piper Sandler" },
 ];
 
 type Quote = {
