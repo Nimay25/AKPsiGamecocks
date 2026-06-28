@@ -197,7 +197,7 @@ export function BrothersAtWork() {
             style={{
               top: `${LED_BAND_TOP_PCT}%`,
               height: `${LED_BAND_HEIGHT_PCT}%`,
-              opacity: reduceMotion ? 1 : useTransform(photoBandOpacity, (v) => 1 - v),
+              opacity: reduceMotion ? 1 : photoBandScrimOpacity,
             }}
             aria-hidden="true"
           />
