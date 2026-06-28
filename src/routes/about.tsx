@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronDown, Users, BookOpen, Shield, HandHeart, Sparkles } from "lucide-react";
-import aboutBrothers from "@/assets/about-brothers.jpg";
+import aboutBrothers from "@/assets/photos/pledge-roses-1.jpg";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/about")({

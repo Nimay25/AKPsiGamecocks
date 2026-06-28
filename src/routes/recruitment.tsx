@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Ticket, Clapperboard, Film, ChevronDown, ArrowRight } from "lucide-react";
-import heroMarquee from "@/assets/hero-marquee.jpg";
+import heroMarquee from "@/assets/photos/marquee-real.jpg";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/recruitment")({
@@ -48,8 +48,8 @@ function Recruitment() {
     <>
       {/* HERO — cinema marquee */}
       <section className="relative isolate min-h-[100svh] overflow-hidden bg-[var(--ink)] text-[var(--cream)]">
-        <img src={heroMarquee} alt="Lit cinema marquee at night" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-50" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--ink)]/70 via-[var(--ink)]/85 to-[var(--ink)]" />
+        <img src={heroMarquee} alt="AKPSI cinema marquee — Now Casting Fall 2026 Rush" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-70" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--ink)]/60 via-[var(--ink)]/80 to-[var(--ink)]" />
 
         {/* marquee bulbs */}
         <div className="absolute inset-x-0 top-0 marquee-bulbs h-5 flicker opacity-80" />

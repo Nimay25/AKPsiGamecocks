@@ -22,10 +22,10 @@ type Quote = { symbol: string; name: string; price: number; change: number; chan
 
 // Seed pseudo prices so we always have something. Try to hydrate from a free API.
 function seedQuote(c: { symbol: string; name: string }): Quote {
-  // deterministic-ish seed by symbol
+  // Fully deterministic so SSR + client match (no hydration mismatch)
   const seed = [...c.symbol].reduce((a, ch) => a + ch.charCodeAt(0), 0);
-  const price = 50 + (seed % 350) + Math.random() * 5;
-  const change = (Math.random() - 0.5) * 4;
+  const price = 50 + (seed % 350) + (seed % 17) * 0.31;
+  const change = ((seed % 13) - 6) * 0.42;
   return {
     symbol: c.symbol,
     name: c.name,
