@@ -251,7 +251,7 @@ function TickerCalibrationControls({
         </button>
       </div>
 
-      <div className="absolute bottom-5 right-5 max-w-sm border border-cyan-300/50 bg-black/85 p-4 font-mono text-xs text-white shadow-2xl backdrop-blur">
+      <div className="fixed bottom-5 right-5 z-[80] max-w-sm border border-cyan-300/50 bg-black/85 p-4 font-mono text-xs text-white shadow-2xl backdrop-blur">
         <p className="font-bold uppercase tracking-widest text-cyan-200">Ticker calibration mode</p>
         <p className="mt-2 text-white/70">Drag the cyan box, pull its handles, or use the red knob to rotate. Copy these values when it lines up.</p>
         <pre className="mt-3 whitespace-pre-wrap rounded-sm bg-white/10 p-3 text-cyan-100">{exportText}</pre>
