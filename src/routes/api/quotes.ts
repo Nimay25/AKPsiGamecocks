@@ -13,6 +13,14 @@ const SYMBOLS: { symbol: string; name: string }[] = [
   { symbol: "KO",   name: "Coca-Cola" },
   { symbol: "HSBC", name: "HSBC" },
   { symbol: "PIPR", name: "Piper Sandler" },
+  { symbol: "MSFT", name: "Microsoft" },
+  { symbol: "BLK",  name: "BlackRock" },
+  { symbol: "XOM",  name: "ExxonMobil" },
+  { symbol: "ALLY", name: "Ally Financial" },
+  { symbol: "CFG",  name: "Citizens Financial" },
+  { symbol: "JEF",  name: "Jefferies" },
+  { symbol: "D",    name: "Dominion Energy" },
+  { symbol: "LRLCY", name: "L'Oréal" },
 ];
 
 type Quote = {
