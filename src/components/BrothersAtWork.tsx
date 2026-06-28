@@ -52,7 +52,8 @@ const PRIVATE_EMPLOYERS = [
 // Placeholder rail content while the first poll lands — keeps geometry stable
 // so the scroll animation doesn't jump when real data arrives.
 const PLACEHOLDER_SYMBOLS = [
-  "BAC", "WFC", "JPM", "GS", "GM", "BA", "KO", "HSBC", "PIPR",
+  "BAC", "WFC", "JPM", "GS", "MSFT", "BLK", "XOM", "ALLY",
+  "CFG", "JEF", "D", "OR.PA", "BA", "GM", "KO", "HSBC", "PIPR",
 ];
 
 function QuotePill({ q }: { q: LiveQuote }) {
@@ -301,15 +302,16 @@ export function BrothersAtWork() {
   // --- overlay ticker (sits on the building's LED band) ---
   // Gentle fade-in so it appears to "light up" onto the LED band, then holds
   // before the hero takeover wipes it away.
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.08, 0.5, 0.68], [0, 0.9, 1, 0]);
-  const overlayGlow = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const overlayScale = useTransform(scrollYProgress, [0, 0.5], [1.005, 1.03]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.06, 0.38, 0.52], [0, 0.9, 1, 0]);
+  const overlayGlow = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
+  const overlayScale = useTransform(scrollYProgress, [0, 0.4], [1.005, 1.03]);
 
-  // --- hero (full-width) ticker takes over ---
-  const heroOpacity = useTransform(scrollYProgress, [0.55, 0.78], [0, 1]);
-  const heroY = useTransform(scrollYProgress, [0.55, 0.85], [40, 0]);
-  const headlineOpacity = useTransform(scrollYProgress, [0.7, 0.92], [0, 1]);
-  const headlineY = useTransform(scrollYProgress, [0.7, 0.92], [24, 0]);
+  // --- hero (full-width) ticker takes over and HOLDS through the rest of
+  // the scroll so it survives several scroll ticks before unpinning.
+  const heroOpacity = useTransform(scrollYProgress, [0.45, 0.62], [0, 1]);
+  const heroY = useTransform(scrollYProgress, [0.45, 0.7], [40, 0]);
+  const headlineOpacity = useTransform(scrollYProgress, [0.55, 0.72], [0, 1]);
+  const headlineY = useTransform(scrollYProgress, [0.55, 0.72], [24, 0]);
 
   const { quotes, loading } = useLiveQuotes();
   const marketOpen = isUSMarketOpen();
@@ -372,10 +374,10 @@ export function BrothersAtWork() {
       ref={sectionRef}
       aria-label="Brothers at Work — live market ticker for AKPSI employers"
       className="relative bg-black text-white"
-      style={{ height: "200vh" }}
+      style={{ height: "320vh" }}
     >
       {/* Mobile shortens the scroll distance for snappier feel */}
-      <style>{`@media (max-width: 768px){ section[aria-label="Brothers at Work — live market ticker for AKPSI employers"]{ height:150vh !important; } }`}</style>
+      <style>{`@media (max-width: 768px){ section[aria-label="Brothers at Work — live market ticker for AKPSI employers"]{ height:230vh !important; } }`}</style>
 
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/*
