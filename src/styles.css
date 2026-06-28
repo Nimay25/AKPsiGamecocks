@@ -164,8 +164,9 @@
   to { transform: translateX(-50%); }
 }
 @utility animate-ticker {
-  animation: ticker 60s linear infinite;
+  animation: ticker 30s linear infinite;
 }
+
 
 @keyframes reveal-up {
   from { opacity: 0; transform: translateY(24px); }

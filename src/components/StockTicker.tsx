@@ -39,40 +39,34 @@ export function StockTicker() {
   const [quotes, setQuotes] = useState<Quote[]>(() => COMPANIES.map(seedQuote));
 
   useEffect(() => {
-    // Try Stooq (free, no auth, CORS-friendly CSV). Fallback to seeded prices.
-    const fetchOne = async (c: typeof COMPANIES[number]): Promise<Quote | null> => {
-      if (c.private) return null;
+    let cancelled = false;
+    const load = async () => {
       try {
-        const res = await fetch(`https://stooq.com/q/l/?s=${c.symbol.toLowerCase()}.us&f=sd2t2ohlcv&h&e=csv`);
-        if (!res.ok) return null;
-        const text = await res.text();
-        const rows = text.trim().split("\n");
-        if (rows.length < 2) return null;
-        const cells = rows[1].split(",");
-        // Symbol,Date,Time,Open,High,Low,Close,Volume
-        const open = parseFloat(cells[3]);
-        const close = parseFloat(cells[6]);
-        if (!isFinite(close) || !isFinite(open)) return null;
-        const change = +(close - open).toFixed(2);
-        return {
-          symbol: c.symbol,
-          name: c.name,
-          price: +close.toFixed(2),
-          change,
-          changePct: +((change / open) * 100).toFixed(2),
+        const res = await fetch("/api/quotes");
+        if (!res.ok) return;
+        const json = (await res.json()) as {
+          quotes: { symbol: string; price: number; change: number; changePct: number }[];
         };
+        if (cancelled || !json?.quotes?.length) return;
+        const map = new Map(json.quotes.map((q) => [q.symbol, q]));
+        setQuotes((prev) =>
+          prev.map((q) => {
+            const live = map.get(q.symbol);
+            return live ? { ...q, price: live.price, change: live.change, changePct: live.changePct } : q;
+          }),
+        );
       } catch {
-        return null;
+        /* keep seeded prices */
       }
     };
-
-    (async () => {
-      const results = await Promise.all(COMPANIES.map(fetchOne));
-      setQuotes((prev) =>
-        prev.map((q, i) => results[i] ?? q)
-      );
-    })();
+    load();
+    const id = setInterval(load, 60_000);
+    return () => {
+      cancelled = true;
+      clearInterval(id);
+    };
   }, []);
+
 
   // duplicate list so the marquee can loop seamlessly
   const loop = [...quotes, ...quotes];
