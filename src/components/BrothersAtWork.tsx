@@ -171,7 +171,12 @@ export function BrothersAtWork() {
               ),
             )}
           </div>
-        </motion.div>
+          </motion.div>
+        </div>
+        {/* Vignette sits above the aspect-locked stage so it always covers the viewport */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/85 pointer-events-none" />
+
+
 
         {/* HERO TICKER — full-width, dominant after photo fades */}
         <motion.div
