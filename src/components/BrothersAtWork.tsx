@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type PointerEvent } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
 import tradingFloor from "@/assets/trading-floor.jpg";
@@ -114,7 +114,7 @@ function TickerCalibrationControls({
 
   const startDrag = (
     mode: NonNullable<typeof dragRef.current>["mode"],
-    event: React.PointerEvent<HTMLElement>,
+    event: PointerEvent<HTMLElement>,
   ) => {
     const rect = stageRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -131,7 +131,7 @@ function TickerCalibrationControls({
     };
   };
 
-  const moveDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+  const moveDrag = (event: PointerEvent<HTMLDivElement>) => {
     const drag = dragRef.current;
     if (!drag) return;
 
@@ -169,9 +169,8 @@ function TickerCalibrationControls({
     commit(next);
   };
 
-  const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+  const endDrag = (event: PointerEvent<HTMLDivElement>) => {
     if (!dragRef.current) return;
-    event.currentTarget.releasePointerCapture(event.pointerId);
     dragRef.current = null;
   };
 
