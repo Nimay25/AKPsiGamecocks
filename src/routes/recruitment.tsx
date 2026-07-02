@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Ticket, Clapperboard, Film, ChevronDown, ArrowRight } from "lucide-react";
 import heroMarquee from "@/assets/recruitment-hero.jpg";
+import curtainsImg from "@/assets/theater-curtains.webp";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/recruitment")({
