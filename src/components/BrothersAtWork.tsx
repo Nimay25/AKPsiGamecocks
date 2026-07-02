@@ -126,6 +126,9 @@ export function BrothersAtWork() {
   // Red ambient glow grows as it leaves the building and becomes the hero bar.
   const tickerGlow = useTransform(scrollYProgress, [0.0, 0.32], [0.25, 1]);
 
+  // Ticker fades in once the section is sticky, welded onto the LED band.
+  const tickerOpacity = useTransform(scrollYProgress, [0.0, 0.04, 0.12], [0, 0.4, 1]);
+
   // --- Text reveal/erase clip — appears behind/above the falling ticker ---
   // Reveal (top→bottom): bottom inset shrinks from 100% to 0%.
   const textBottomInset = useTransform(scrollYProgress, [0.30, 0.58], [100, 0]);
