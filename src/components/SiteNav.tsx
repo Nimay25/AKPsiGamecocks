@@ -79,9 +79,9 @@ export function SiteNav() {
 
       {/* Mobile fullscreen menu */}
       <div
-        className={`fixed inset-0 z-[60] bg-[var(--navy)] transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-[60] transition-opacity duration-300 lg:hidden ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        } ${isRecruitment ? "bg-gradient-to-b from-red-900 to-red-950" : "bg-[var(--navy)]"}`}
       >
         <div className="flex items-center justify-between px-5 py-4">
           <span className="font-display text-lg text-[var(--cream)]">AKΨ · Beta Upsilon</span>
