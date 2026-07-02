@@ -47,51 +47,9 @@ const FAQ = [
 function Recruitment() {
   return (
     <>
-      {/* HERO — cinema marquee */}
-      <section className="relative isolate min-h-[100svh] overflow-hidden bg-[var(--ink)] text-[var(--cream)]">
-        <img src={heroMarquee} alt="Empty theater stage lit by a single spotlight — Now Casting Fall 2026 Rush" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--ink)]/10 via-[var(--ink)]/25 to-[var(--ink)]/85" />
+      <CurtainHero />
 
-        {/* red carpet accent — top */}
-        <div className="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-red-900 via-red-600 to-red-900 z-10" />
-        {/* marquee bulbs */}
-        <div className="absolute inset-x-0 top-3 marquee-bulbs h-5 flicker opacity-80" />
-        <div className="absolute inset-x-0 bottom-3 marquee-bulbs h-5 flicker opacity-80" />
 
-        <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-6 pt-32 pb-24 text-center">
-          <Reveal>
-            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/50 bg-black/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[var(--gold)] flicker">
-              <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" /> Now Casting
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="mt-8 font-display text-5xl font-medium leading-[0.95] sm:text-7xl lg:text-8xl">
-              Alpha Kappa Psi
-              <span className="block mt-3 text-[var(--gold)] italic">Fall 2026 Rush.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={250}>
-            <p className="mx-auto mt-8 max-w-2xl text-lg text-[var(--cream)]/85 sm:text-xl">
-              AKPSI is going full Hollywood. Bring your best outfits, lots of
-              popcorn, and your friends when we roll out the red carpet this
-              semester.
-            </p>
-          </Reveal>
-          <Reveal delay={400}>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <a href={APPLY_URL} target="_blank" rel="noreferrer" className="btn-gold btn-gold-hover">
-                Apply for Fall 2026 <ArrowRight className="h-4 w-4" />
-              </a>
-              <a href={REMIND_URL} target="_blank" rel="noreferrer" className="btn-outline-light hover:bg-white/10">
-                Get Rush Text Updates
-              </a>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* red carpet accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-red-900 via-red-600 to-red-900" />
-      </section>
 
       <FilmDivider />
 
