@@ -206,7 +206,135 @@ function Recruitment() {
   );
 }
 
+function CurtainHero() {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0); // 0 closed → 1 fully open
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = wrapRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = el.offsetHeight - window.innerHeight;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      setProgress(total > 0 ? scrolled / total : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  // Curtains open through the first 70% of scroll, then hold open
+  const openP = Math.min(progress / 0.7, 1);
+  const eased = 1 - Math.pow(1 - openP, 3); // easeOutCubic
+  const contentP = Math.min(Math.max((openP - 0.35) / 0.5, 0), 1);
+
+  return (
+    <section
+      ref={wrapRef}
+      className="relative bg-[var(--ink)]"
+      style={{ height: "220vh" }}
+      aria-label="Now Casting Fall 2026 Rush"
+    >
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden text-[var(--cream)]">
+        {/* Backdrop image */}
+        <img
+          src={heroMarquee}
+          alt="Empty theater stage lit by a single spotlight — Now Casting Fall 2026 Rush"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--ink)]/10 via-[var(--ink)]/25 to-[var(--ink)]/85" />
+
+        {/* red carpet + marquee bulbs */}
+        <div className="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-red-900 via-red-600 to-red-900 z-30" />
+        <div className="absolute inset-x-0 top-3 marquee-bulbs h-5 flicker opacity-80 z-30" />
+        <div className="absolute inset-x-0 bottom-3 marquee-bulbs h-5 flicker opacity-80 z-30" />
+        <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-red-900 via-red-600 to-red-900 z-30" />
+
+        {/* HERO content */}
+        <div
+          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 pt-32 pb-24 text-center transition-opacity"
+          style={{ opacity: contentP }}
+        >
+          <div>
+            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/50 bg-black/30 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[var(--gold)] flicker">
+              <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" /> Now Casting
+            </div>
+          </div>
+          <h1 className="mt-8 font-display text-5xl font-medium leading-[0.95] sm:text-7xl lg:text-8xl">
+            Alpha Kappa Psi
+            <span className="block mt-3 text-[var(--gold)] italic">Fall 2026 Rush.</span>
+          </h1>
+          <p className="mx-auto mt-8 max-w-2xl text-lg text-[var(--cream)]/85 sm:text-xl">
+            AKPSI is going full Hollywood. Bring your best outfits, lots of
+            popcorn, and your friends when we roll out the red carpet this
+            semester.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <a href={APPLY_URL} target="_blank" rel="noreferrer" className="btn-gold btn-gold-hover">
+              Apply for Fall 2026 <ArrowRight className="h-4 w-4" />
+            </a>
+            <a href={REMIND_URL} target="_blank" rel="noreferrer" className="btn-outline-light hover:bg-white/10">
+              Get Rush Text Updates
+            </a>
+          </div>
+        </div>
+
+        {/* Curtain valance (top) — always visible, sits above curtain panels */}
+        <div
+          className="pointer-events-none absolute left-1/2 top-3 z-20 h-[38%] w-[120%] -translate-x-1/2 bg-no-repeat"
+          style={{
+            backgroundImage: `url(${curtainsImg})`,
+            backgroundSize: "100% auto",
+            backgroundPosition: "center top",
+            WebkitMaskImage: "linear-gradient(to bottom, #000 55%, transparent 100%)",
+            maskImage: "linear-gradient(to bottom, #000 55%, transparent 100%)",
+          }}
+        />
+
+        {/* Left curtain panel */}
+        <div
+          className="pointer-events-none absolute top-0 left-0 z-20 h-full w-[62%] will-change-transform"
+          style={{
+            transform: `translateX(${-eased * 102}%)`,
+            backgroundImage: `url(${curtainsImg})`,
+            backgroundSize: "170% 115%",
+            backgroundPosition: "left center",
+            backgroundRepeat: "no-repeat",
+            filter: "drop-shadow(8px 0 24px rgba(0,0,0,0.55))",
+          }}
+        />
+        {/* Right curtain panel */}
+        <div
+          className="pointer-events-none absolute top-0 right-0 z-20 h-full w-[62%] will-change-transform"
+          style={{
+            transform: `translateX(${eased * 102}%)`,
+            backgroundImage: `url(${curtainsImg})`,
+            backgroundSize: "170% 115%",
+            backgroundPosition: "right center",
+            backgroundRepeat: "no-repeat",
+            filter: "drop-shadow(-8px 0 24px rgba(0,0,0,0.55))",
+          }}
+        />
+
+        {/* Scroll hint */}
+        <div
+          className="pointer-events-none absolute bottom-8 left-1/2 z-30 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-[var(--cream)]/70 transition-opacity"
+          style={{ opacity: 1 - openP }}
+        >
+          Scroll to open the curtains ↓
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FilmDivider() {
+
   return (
     <div className="relative h-10 bg-[var(--ink)]">
       <div className="film-strip absolute inset-x-0 top-0 h-10 opacity-70" />
