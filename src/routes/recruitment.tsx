@@ -48,12 +48,14 @@ function Recruitment() {
     <>
       {/* HERO — cinema marquee */}
       <section className="relative isolate min-h-[100svh] overflow-hidden bg-[var(--ink)] text-[var(--cream)]">
-        <img src={heroMarquee} alt="Empty theater stage lit by a single spotlight — Now Casting Fall 2026 Rush" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-90" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--ink)]/40 via-[var(--ink)]/55 to-[var(--ink)]" />
+        <img src={heroMarquee} alt="Empty theater stage lit by a single spotlight — Now Casting Fall 2026 Rush" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--ink)]/10 via-[var(--ink)]/25 to-[var(--ink)]/85" />
 
+        {/* red carpet accent — top */}
+        <div className="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-red-900 via-red-600 to-red-900 z-10" />
         {/* marquee bulbs */}
-        <div className="absolute inset-x-0 top-0 marquee-bulbs h-5 flicker opacity-80" />
-        <div className="absolute inset-x-0 bottom-0 marquee-bulbs h-5 flicker opacity-80" />
+        <div className="absolute inset-x-0 top-3 marquee-bulbs h-5 flicker opacity-80" />
+        <div className="absolute inset-x-0 bottom-3 marquee-bulbs h-5 flicker opacity-80" />
 
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-6 pt-32 pb-24 text-center">
           <Reveal>
