@@ -230,7 +230,8 @@ export function BrothersAtWork() {
               rotate: reduceMotion ? `${LED_BAND_ROTATE_DEG}deg` : tickerRotate,
               transformOrigin: "center",
               boxShadow: "0 0 60px rgba(255,60,60,0.35)",
-              willChange: "transform, top, left, width, height",
+              opacity: reduceMotion ? 1 : tickerOpacity,
+              willChange: "transform, top, left, width, height, opacity",
             }}
           >
             <motion.div
