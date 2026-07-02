@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/photos/akpsi-logo.png";
@@ -15,6 +15,8 @@ const links = [
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { state } = useRouter();
+  const isRecruitment = state.location.pathname === "/recruitment";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -23,13 +25,19 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const headerBase = isRecruitment
+    ? "bg-gradient-to-r from-red-950 via-red-900 to-red-950"
+    : "bg-[var(--navy)]";
+
+  const scrolledBg = isRecruitment
+    ? "bg-gradient-to-r from-red-950 via-red-900 to-red-950/95 backdrop-blur-md shadow-[0_2px_20px_rgba(153,27,27,0.35)]"
+    : "bg-[var(--navy)]/92 backdrop-blur-md shadow-[0_2px_20px_rgba(10,31,68,0.25)]";
+
   return (
     <>
       <header
         className={`sticky inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-[var(--navy)]/92 backdrop-blur-md shadow-[0_2px_20px_rgba(10,31,68,0.25)]"
-            : "bg-[var(--navy)]"
+          scrolled ? scrolledBg : headerBase
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
@@ -71,9 +79,9 @@ export function SiteNav() {
 
       {/* Mobile fullscreen menu */}
       <div
-        className={`fixed inset-0 z-[60] bg-[var(--navy)] transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-[60] transition-opacity duration-300 lg:hidden ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        } ${isRecruitment ? "bg-gradient-to-b from-red-900 to-red-950" : "bg-[var(--navy)]"}`}
       >
         <div className="flex items-center justify-between px-5 py-4">
           <span className="font-display text-lg text-[var(--cream)]">AKΨ · Beta Upsilon</span>
