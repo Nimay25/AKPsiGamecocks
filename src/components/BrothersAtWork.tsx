@@ -50,7 +50,7 @@ export function BrothersAtWork() {
   const { quotes, loading } = useLiveQuotes();
   const marketOpen = isUSMarketOpen();
 
-  const rail = quotes.length > 0 ? [...quotes, ...quotes] : null;
+  const rail = quotes.length > 0 ? [...quotes, ...quotes, ...quotes, ...quotes] : null;
 
   return (
     <section
@@ -58,20 +58,13 @@ export function BrothersAtWork() {
       aria-label="Brothers at Work — live market ticker for AKPSI employers"
       className="relative bg-black text-white"
     >
-      {/* Faster marquee just for this hero ticker */}
-      <style>{`
-        @keyframes bawTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .baw-ticker-rail { animation: bawTicker 18s linear infinite; will-change: transform; }
-        @media (max-width: 768px) { .baw-ticker-rail { animation-duration: 14s; } }
-      `}</style>
-
       {/* Ticker bar */}
       <div
         className="relative overflow-hidden bg-black border-y border-[#ff3b3b]/50"
         style={{ boxShadow: "0 0 60px rgba(255,60,60,0.35), inset 0 0 60px rgba(255,60,60,0.25)" }}
       >
-        <div className="flex items-center py-4 whitespace-nowrap baw-ticker-rail">
-          {(rail ?? PLACEHOLDER_SYMBOLS.concat(PLACEHOLDER_SYMBOLS)).map((item, i) =>
+        <div className="flex items-center py-4 whitespace-nowrap animate-baw-ticker">
+          {(rail ?? PLACEHOLDER_SYMBOLS.concat(PLACEHOLDER_SYMBOLS, PLACEHOLDER_SYMBOLS, PLACEHOLDER_SYMBOLS)).map((item, i) =>
             typeof item === "string" ? (
               <PlaceholderPill key={`p-${i}`} symbol={item} />
             ) : (
