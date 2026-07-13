@@ -84,7 +84,7 @@ export function BrothersAtWork() {
       {/* Content */}
       <div className="mx-auto max-w-4xl px-6 py-20 sm:py-28 text-center">
         <p className="led-text text-xs sm:text-sm uppercase tracking-[0.4em] led-glow-amber">
-          ● LIVE · POWERED BY LIVE DATA
+          ● LIVE · POWERED BY REAL DATA
           {!marketOpen && (
             <span className="ml-3 rounded-sm border border-white/30 px-2 py-0.5 text-[10px] tracking-widest text-white/70">
               MARKET CLOSED
