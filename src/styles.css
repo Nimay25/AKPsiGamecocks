@@ -225,3 +225,18 @@
     0 0 14px rgba(255, 200, 87, 0.4);
 }
 
+/* Brothers @ Work hero ticker — seamless infinite loop */
+@keyframes baw-ticker-loop {
+  from { transform: translateX(0); }
+  to { transform: translateX(-25%); }
+}
+@utility animate-baw-ticker {
+  animation: baw-ticker-loop 12s linear infinite;
+  will-change: transform;
+}
+@media (max-width: 768px) {
+  .animate-baw-ticker {
+    animation-duration: 9s;
+  }
+}
+
