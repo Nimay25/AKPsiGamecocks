@@ -112,10 +112,9 @@ function Home() {
       {/* STATS */}
       <section className="bg-[var(--cream)] py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-10 sm:grid-cols-3 mx-auto max-w-5xl">
             {[
               { n: 150, suffix: "+", label: "Active Brothers" },
-              { n: 18, label: "Years #1 at USC" },
               { n: 90, suffix: "%+", label: "Internship Placement" },
               { n: 500, suffix: "+", label: "Alumni Network" },
             ].map((s, i) => (
