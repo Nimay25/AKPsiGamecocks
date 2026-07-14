@@ -140,37 +140,70 @@ function Recruitment() {
           <Reveal delay={100}>
             <h2 className="mt-3 font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">Dress Guide.</h2>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              { name: "Men", casual: "Polo or button-down + chinos + clean shoes.", pro: "Suit, tie, dress shoes, polished belt." },
-              { name: "Women", casual: "Blouse or sweater + slacks or modest skirt + flats.", pro: "Blazer, blouse, slacks or pencil skirt, closed-toe heels or flats." },
-              { name: "Gender-neutral", casual: "Tailored top + slacks/chinos + clean shoes.", pro: "Tailored suit or blazer + slacks, in any cut that fits you." },
-            ].map((d, i) => (
-              <Reveal key={d.name} delay={i * 80}>
-                <article className="group rounded-2xl border border-[var(--border)] overflow-hidden bg-[var(--cream)]">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] grid place-items-center text-[var(--gold)]/40 font-display text-3xl">
-                    {/* EDIT: photo of brothers in this attire */}
-                    {d.name}
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-display text-2xl text-[var(--navy)]">{d.name}</h3>
-                    <dl className="mt-4 space-y-3 text-sm">
-                      <div>
-                        <dt className="text-[var(--gold)] uppercase tracking-widest text-xs">Business Casual</dt>
-                        <dd className="mt-1 text-[var(--navy)]/75">{d.casual}</dd>
-                      </div>
-                      <div>
-                        <dt className="text-[var(--gold)] uppercase tracking-widest text-xs">Business Professional</dt>
-                        <dd className="mt-1 text-[var(--navy)]/75">{d.pro}</dd>
-                      </div>
-                    </dl>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+          <Reveal delay={200}>
+            <p className="mt-4 max-w-2xl text-[var(--navy)]/70">
+              Two dress codes. Three ways to wear them. Pick whichever style fits you —
+              show up polished and comfortable.
+            </p>
+          </Reveal>
+
+          {/* Business Professional */}
+          <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
+            <Reveal>
+              <div className="grid grid-cols-2 gap-4">
+                <img src={dressPro1.url} alt="Brothers in business professional attire" className="col-span-2 aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-soft)]" />
+                <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="col-span-2 aspect-[16/9] w-full rounded-2xl object-cover shadow-[var(--shadow-soft)]" />
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div>
+                <p className="eyebrow"><span className="gold-rule" />Business Professional</p>
+                <h3 className="mt-3 font-display text-3xl text-[var(--navy)]">Think conservative.</h3>
+                <p className="mt-3 text-[var(--navy)]/75">Navy, black, grey, or nude suit — jacket matches pants or skirt. Closed-toe shoes, minimal jewelry, polished throughout.</p>
+                <div className="mt-6 space-y-5">
+                  {[
+                    { name: "Feminine", body: "Soft-colored blouse or button-down under a matching blazer. Navy, black, grey, or brown dress pants or knee-length skirt. Closed-toe nude or black flats/pumps under 3 inches. One simple necklace, bracelet, or ring." },
+                    { name: "Masculine", body: "Solid or subtly patterned button-down with a matching suit jacket. Solid or subtly patterned tie that complements the suit. Matching pants and belt. Brown or black loafers or dress shoes. Watch, simple ring — nothing loud." },
+                    { name: "Gender-neutral", body: "Matched suit — jacket, pants, and belt in one palette. Soft solid or subtly patterned button-down. Closed-toe brown or black loafers or dress shoes. Keep accessories minimal so nothing distracts from your presence." },
+                  ].map((s) => (
+                    <div key={s.name} className="rounded-xl border border-[var(--border)] bg-[var(--cream)] p-5">
+                      <dt className="text-xs uppercase tracking-widest text-[var(--gold)]">{s.name} style</dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-[var(--navy)]/80">{s.body}</dd>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Business Casual */}
+          <div className="mt-20 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-start">
+            <Reveal>
+              <div>
+                <p className="eyebrow"><span className="gold-rule" />Business Casual</p>
+                <h3 className="mt-3 font-display text-3xl text-[var(--navy)]">Think moderate.</h3>
+                <p className="mt-3 text-[var(--navy)]/75">Brighter colors, subtle patterns, a complementary blazer or cardigan. Clean, put-together, and a little more you.</p>
+                <div className="mt-6 space-y-5">
+                  {[
+                    { name: "Feminine", body: "Colored or patterned blouse, button-down, or dress paired with a blazer, sweater, or cardigan. Ankle-length pants or knee-length skirt. Flats or heels under 4 inches. Statement jewelry that completes the look." },
+                    { name: "Masculine", body: "Colored or patterned long-sleeve button-down under a navy, black, grey, or nude blazer. Nude or colored khakis or suit pants with a belt. Brown or black dress shoes. Patterned socks welcome. Watch, simple ring." },
+                    { name: "Gender-neutral", body: "Clean, put-together top — colored or subtly patterned — with pants that complement (khaki, nude, black, or grey) and a matching belt. Dress shoes that don't distract. Fun socks encouraged. Minimal jewelry." },
+                  ].map((s) => (
+                    <div key={s.name} className="rounded-xl border border-[var(--border)] bg-[var(--cream)] p-5">
+                      <dt className="text-xs uppercase tracking-widest text-[var(--gold)]">{s.name} style</dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-[var(--navy)]/80">{s.body}</dd>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <img src={dressCasual.url} alt="Brothers in business casual attire in front of the AKPSI house" className="w-full rounded-2xl object-cover shadow-[var(--shadow-soft)]" />
+            </Reveal>
           </div>
         </div>
       </section>
+
 
       {/* FAQ */}
       <section className="bg-[var(--cream)] py-24">
