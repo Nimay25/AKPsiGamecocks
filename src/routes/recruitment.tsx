@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { Ticket, Clapperboard, Film, ChevronDown, ArrowRight } from "lucide-react";
 import heroMarquee from "@/assets/recruitment-hero.jpg";
 import curtainsImg from "@/assets/theater-curtains.png";
+import dressPro1 from "@/assets/dress-pro-1.png.asset.json";
+import dressPro2 from "@/assets/dress-pro-2.png.asset.json";
+import dressCasual from "@/assets/dress-casual.png.asset.json";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/recruitment")({
