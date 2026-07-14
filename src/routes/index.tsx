@@ -232,17 +232,16 @@ function RushCtaSweep() {
     };
   }, []);
 
-  // Sweep: image travels from off-screen left (-60vw) to off-screen right (+60vw)
-  // Zoom peaks in the middle
-  const eased = p; // linear feels smoother tied to scroll
-  const translateX = -60 + eased * 120; // vw
-  const scale = 0.6 + Math.sin(Math.PI * Math.min(Math.max(eased, 0), 1)) * 0.9; // peaks ~1.5 at mid
-  // Text fade: fully visible at p=0, gone by p≈0.35, reappears symmetrically after p≈0.65
+  // Sweep: image travels from off-screen left to off-screen right, subtle zoom at midpoint
+  const eased = p;
+  const translateX = -80 + eased * 160; // vw — enters fully off left, exits fully off right
+  const scale = 0.75 + Math.sin(Math.PI * Math.min(Math.max(eased, 0), 1)) * 0.35; // peaks ~1.1 mid
+  // Text fully fades before sign arrives at center, reappears after it leaves
   const textOpacity =
-    eased < 0.35
-      ? 1 - eased / 0.35
-      : eased > 0.65
-        ? (eased - 0.65) / 0.35
+    eased < 0.3
+      ? 1 - eased / 0.3
+      : eased > 0.7
+        ? (eased - 0.7) / 0.3
         : 0;
 
   return (
@@ -275,21 +274,20 @@ function RushCtaSweep() {
           </Link>
         </div>
 
-        {/* Auditions neon sweep */}
-        <div
-          className="pointer-events-none absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 will-change-transform"
-          style={{
-            transform: `translate(-50%, -50%) translateX(${translateX}vw) scale(${scale})`,
-          }}
-        >
+        {/* Auditions neon sweep — anchored dead-center */}
+        <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
           <img
             src={auditionsNeon.url}
             alt="Neon auditions sign"
-            className="h-auto w-[70vw] max-w-[900px] drop-shadow-[0_0_40px_rgba(255,40,80,0.55)]"
+            className="h-auto w-[45vw] max-w-[560px] will-change-transform drop-shadow-[0_0_40px_rgba(255,40,80,0.55)]"
+            style={{
+              transform: `translateX(${translateX}vw) scale(${scale})`,
+            }}
           />
         </div>
       </div>
     </section>
   );
 }
+
 
