@@ -85,7 +85,6 @@ function Home() {
         </div>
 
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[var(--cream)]/50 text-xs tracking-[0.3em] uppercase">
-          Scroll
         </div>
       </section>
 
