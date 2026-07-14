@@ -30,16 +30,20 @@ const DIRECTORY = [
 function Contact() {
   return (
     <>
-      <section className="bg-[var(--navy)] pt-40 pb-20 text-[var(--cream)]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative overflow-hidden pt-40 pb-20 text-[var(--cream)] min-h-[70vh] flex items-end">
+        <div className="absolute inset-0 -z-10">
+          <img src={contactClassroom.url} alt="Classroom at the Darla Moore School of Business" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/80 via-[var(--navy)]/60 to-[var(--navy)]/85" />
+        </div>
+        <div className="mx-auto max-w-7xl px-6 w-full">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Contact</p></Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl">
+            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
               Say <span className="italic text-[var(--gold)]">hello</span>.
             </h1>
           </Reveal>
           <Reveal delay={200}>
-            <p className="mt-6 max-w-xl text-[var(--cream)]/80">
+            <p className="mt-6 max-w-xl text-[var(--cream)]/90">
               Questions about rush, alumni mentorship, sponsorships, or anything else?
               We'd love to hear from you.
             </p>
