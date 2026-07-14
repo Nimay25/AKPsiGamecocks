@@ -151,7 +151,7 @@ function Recruitment() {
           <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
             <Reveal>
               <div className="grid grid-cols-2 gap-4">
-                <img src={dressPro1.url} alt="Brothers in business professional attire" className="col-span-2 aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-soft)]" />
+                <img src={dressPro1.url} alt="Brothers in business professional attire" className="col-span-2 aspect-[4/3] w-full rounded-2xl object-contain bg-[var(--cream)] shadow-[var(--shadow-soft)]" />
                 <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="col-span-2 aspect-[16/9] w-full rounded-2xl object-cover shadow-[var(--shadow-soft)]" />
               </div>
             </Reveal>
