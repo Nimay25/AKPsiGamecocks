@@ -131,7 +131,9 @@ function Section({ eyebrow, title, bg, children }: { eyebrow: string; title: str
         <Reveal delay={100}>
           <h2 className={`mt-3 font-display text-4xl font-medium sm:text-5xl ${titleColor}`}>{title}</h2>
         </Reveal>
-        <div className="mt-12">{children}</div>
+        <Reveal delay={200}>
+          <div className="mt-12">{children}</div>
+        </Reveal>
       </div>
     </section>
   );
@@ -166,21 +168,25 @@ function ActiveBrothers() {
   );
   return (
     <>
-      <div className="relative max-w-md">
-        <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--navy)]/40" />
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search brothers…"
-          className="w-full rounded-full border border-[var(--border)] bg-white py-3 pl-11 pr-4 text-sm outline-none focus:border-[var(--gold)]"
-        />
-      </div>
+      <Reveal>
+        <div className="relative max-w-md">
+          <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--navy)]/40" />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search brothers…"
+            className="w-full rounded-full border border-[var(--border)] bg-white py-3 pl-11 pr-4 text-sm outline-none focus:border-[var(--gold)]"
+          />
+        </div>
+      </Reveal>
       <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {filtered.map((b) => (
-          <div key={b} className="flex items-center justify-between rounded-xl border border-[var(--border)] bg-white px-5 py-4 hover:border-[var(--gold)] transition">
-            <span className="text-[var(--navy)] truncate">{b}</span>
-            <Linkedin className="h-4 w-4 text-[var(--navy)]/50 shrink-0" />
-          </div>
+        {filtered.map((b, i) => (
+          <Reveal key={b} delay={i * 40}>
+            <div className="flex items-center justify-between rounded-xl border border-[var(--border)] bg-white px-5 py-4 hover:border-[var(--gold)] transition">
+              <span className="text-[var(--navy)] truncate">{b}</span>
+              <Linkedin className="h-4 w-4 text-[var(--navy)]/50 shrink-0" />
+            </div>
+          </Reveal>
         ))}
         {filtered.length === 0 && <p className="text-sm text-[var(--navy)]/60">No matches.</p>}
       </div>
