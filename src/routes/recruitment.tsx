@@ -26,12 +26,12 @@ const APPLY_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfCgCYZZ8K5KUr3uVBS8
 const REMIND_URL = "https://www.remind.com/join/akpsi2025";
 
 const SCHEDULE = [
-  { title: "Info Night", dress: "Business Casual", desc: "Meet the brotherhood and learn what AKPSI is about." },
-  { title: "Meet the Brothers", dress: "Business Casual", desc: "Casual conversations, no pressure." },
-  { title: "Professional Night", dress: "Business Professional", desc: "Resume reviews and a guest speaker." },
-  { title: "Social Night", dress: "Business Casual", desc: "Games and group activities with the brotherhood." },
-  { title: "Interviews", dress: "Business Professional", desc: "One-on-one conversations with active brothers." },
-  { title: "Bid Day", dress: "Surprise & Celebrate", desc: "Receive your bid and meet your pledge class." },
+  { title: "Info Session", dress: "Business Casual", desc: "Get an inside look at AKPSI — what we do, who we are, and what rush looks like.", date: "Aug 27", time: "7:00 PM" },
+  { title: "Speed Dating", dress: "Business Casual", desc: "Quick, low-pressure intros with the brotherhood — meet as many brothers as you can.", date: "Aug 31", time: "TBA" },
+  { title: "Mingling", dress: "Business Casual", desc: "Relaxed hangout to keep the conversations going and get to know brothers deeper.", date: "Sep 1", time: "TBA" },
+  { title: "Case Competition", dress: "Business Professional", desc: "Team up on a real business case and present your recommendation to a panel.", date: "Sep 2", time: "TBA" },
+  { title: "Passion Pitch", dress: "Business Professional", desc: "Three minutes, one story — pitch what drives you.", date: "Sep 3", time: "TBA" },
+  { title: "Final Interview", dress: "Business Professional", desc: "One-on-one conversations with active brothers to close out the process.", date: "Sep 4", time: "TBA" },
 ];
 
 const TESTIMONIALS = [
