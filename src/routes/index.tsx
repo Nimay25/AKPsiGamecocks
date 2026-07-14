@@ -238,9 +238,9 @@ function RushCtaSweep() {
   const translateXVw = signCenterVw - 50; // relative to natural center (50vw)
   const scale = 0.9 + Math.sin(Math.PI * Math.min(Math.max(p, 0), 1)) * 0.2;
 
-  // Text "paints" in behind the sign: reveal from left up to sign's current center.
-  // Use a soft mask edge so the reveal looks like it's being drawn.
-  const revealPct = Math.min(Math.max(signCenterVw, 0), 100);
+  // Text "paints" in behind the sign: reveal from left up to the BACK (tail) of the arrow.
+  // The sign is ~45vw wide, so subtract half its width from the center to hit the left edge.
+  const revealPct = Math.min(Math.max(signCenterVw - 22.5, 0), 100);
   const softEdge = 4; // vw
   const maskImage = `linear-gradient(to right, #000 0, #000 calc(${revealPct}vw - ${softEdge}vw), transparent calc(${revealPct}vw + ${softEdge}vw), transparent 100%)`;
 
