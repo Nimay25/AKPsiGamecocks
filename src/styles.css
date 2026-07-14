@@ -172,11 +172,21 @@
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
+@keyframes reveal-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 @utility reveal {
   opacity: 0;
 }
 @utility reveal-in {
   animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@utility reveal-fade {
+  opacity: 0;
+}
+@utility reveal-fade-in {
+  animation: reveal-fade 0.6s ease-out forwards;
 }
 
 @keyframes marquee-flicker {
