@@ -64,8 +64,8 @@ function Brothers() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" aria-hidden />
         <div className="relative mx-auto max-w-7xl px-6">
-          <Reveal><p className="eyebrow"><span className="gold-rule" />The Brotherhood</p></Reveal>
-          <Reveal delay={100}>
+          <Reveal variant="fade"><p className="eyebrow"><span className="gold-rule" />The Brotherhood</p></Reveal>
+          <Reveal variant="fade" delay={100}>
             <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl">
               The brothers behind <span className="italic text-[var(--gold)]">Alpha Kappa Psi</span>.
             </h1>
