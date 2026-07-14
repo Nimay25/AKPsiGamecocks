@@ -98,8 +98,7 @@ function Recruitment() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-4 max-w-xl text-[var(--cream)]/70">
-              Dates TBA — check back soon. All events on USC's campus unless noted.
-              {/* EDIT: replace dates/locations when announced */}
+              Six scenes. One week. All events on USC's campus unless noted.
             </p>
           </Reveal>
 
@@ -115,10 +114,15 @@ function Recruitment() {
                     <span className="font-mono text-xs text-[var(--cream)]/50">EVENT #{(i + 1).toString().padStart(2, "0")}</span>
                   </div>
                   <h3 className="mt-4 font-display text-2xl">{e.title}</h3>
-                  <p className="mt-2 text-sm text-[var(--cream)]/70">{e.desc}</p>
+                  <div className="mt-2 flex items-baseline gap-2 font-mono text-sm">
+                    <span className="text-[var(--gold)]">{e.date}</span>
+                    <span className="text-[var(--cream)]/40">·</span>
+                    <span className="text-[var(--cream)]/70">{e.time}</span>
+                  </div>
+                  <p className="mt-3 text-sm text-[var(--cream)]/70">{e.desc}</p>
                   <div className="mt-6 flex items-center justify-between border-t border-dashed border-[var(--gold)]/30 pt-4 text-xs">
                     <span className="text-[var(--gold)] uppercase tracking-widest">{e.dress}</span>
-                    <span className="text-[var(--cream)]/40">Date TBA</span>
+                    <span className="text-[var(--cream)]/40">USC Campus</span>
                   </div>
                 </div>
               </Reveal>
