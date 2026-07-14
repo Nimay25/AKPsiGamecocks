@@ -251,3 +251,24 @@
   }
 }
 
+/* Site-wide subtle hover lift for card-like elements
+   (any element combining rounded-2xl with a border class). */
+:where(.rounded-2xl.border, .rounded-2xl[class*="border-"]) {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+:where(.rounded-2xl.border, .rounded-2xl[class*="border-"]):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -18px oklch(0.74 0.12 85 / 0.45);
+  border-color: color-mix(in oklab, var(--gold) 65%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(.rounded-2xl.border, .rounded-2xl[class*="border-"]),
+  :where(.rounded-2xl.border, .rounded-2xl[class*="border-"]):hover {
+    transition: none;
+    transform: none;
+  }
+}
+

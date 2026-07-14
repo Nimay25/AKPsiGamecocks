@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Mail, ExternalLink } from "lucide-react";
-import alumniMap from "@/assets/alumni-map.jpg";
+import alumniMap from "@/assets/alumni-flags.jpg.asset.json";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/alumni")({
@@ -40,7 +40,7 @@ function Alumni() {
 
       {/* Network map */}
       <section className="relative overflow-hidden bg-[var(--navy-deep)] py-24 text-[var(--cream)]">
-        <img src={alumniMap} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" loading="lazy" />
+        <img src={alumniMap.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy-deep)]/70 to-[var(--navy-deep)]" />
         <div className="relative mx-auto max-w-7xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />The Network</p></Reveal>
