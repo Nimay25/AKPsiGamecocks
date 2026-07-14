@@ -101,7 +101,7 @@ export function BrothersAtWork() {
             {PRIVATE_EMPLOYERS.map((name) => (
               <li
                 key={name}
-                className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-xs sm:text-sm text-white/80"
+                className="cursor-default rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-xs sm:text-sm text-white/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#ffc857] hover:bg-[#ffc857]/15 hover:text-[#ffc857] hover:shadow-[0_0_20px_rgba(255,200,87,0.45)]"
               >
                 {name}
               </li>
