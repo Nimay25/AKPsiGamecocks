@@ -69,7 +69,7 @@ function Home() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--cream)]/85 sm:text-xl">
-              USC's premier, co-ed, professional fraternity — creating opportunities
+              USC's premier Professional Business Fraternity — creating opportunities
               to develop professionalism, foster leadership, build networks, and
               enhance the individual abilities of our members.
             </p>
