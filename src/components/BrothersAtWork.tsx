@@ -50,7 +50,8 @@ export function BrothersAtWork() {
   const { quotes, loading } = useLiveQuotes();
   const marketOpen = isUSMarketOpen();
 
-  const rail = quotes.length > 0 ? [...quotes, ...quotes, ...quotes, ...quotes] : null;
+  const rail = quotes.length > 0 ? [...quotes, ...quotes] : null;
+  const placeholderRail = [...PLACEHOLDER_SYMBOLS, ...PLACEHOLDER_SYMBOLS];
 
   return (
     <section
@@ -63,8 +64,8 @@ export function BrothersAtWork() {
         className="relative overflow-hidden bg-black border-y border-[#ff3b3b]/50"
         style={{ boxShadow: "0 0 60px rgba(255,60,60,0.35), inset 0 0 60px rgba(255,60,60,0.25)" }}
       >
-        <div className="flex items-center py-4 whitespace-nowrap animate-baw-ticker">
-          {(rail ?? PLACEHOLDER_SYMBOLS.concat(PLACEHOLDER_SYMBOLS, PLACEHOLDER_SYMBOLS, PLACEHOLDER_SYMBOLS)).map((item, i) =>
+        <div className="flex items-center py-4 whitespace-nowrap animate-baw-ticker w-max">
+          {(rail ?? placeholderRail).map((item, i) =>
             typeof item === "string" ? (
               <PlaceholderPill key={`p-${i}`} symbol={item} />
             ) : (
@@ -73,6 +74,7 @@ export function BrothersAtWork() {
           )}
         </div>
       </div>
+
 
       {/* Content */}
       <div className="mx-auto max-w-4xl px-6 py-20 sm:py-28 text-center">
