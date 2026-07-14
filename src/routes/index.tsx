@@ -18,10 +18,10 @@ const GALLERY = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6];
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alpha Kappa Psi · Beta Upsilon — USC's Premier Professional Fraternity" },
+      { title: "Alpha Kappa Psi · USC's Premier Professional Fraternity" },
       { name: "description", content: "Voted #1 professional business fraternity at USC for 18 consecutive years. Develop professionalism, leadership, and lifelong networks." },
-      { property: "og:title", content: "Alpha Kappa Psi · Beta Upsilon at USC" },
-      { property: "og:description", content: "USC's premier co-ed professional business fraternity." },
+      { property: "og:title", content: "Alpha Kappa Psi · USC's Premier Professional Fraternity" },
+      { property: "og:description", content: "Voted #1 professional business fraternity at USC for 18 consecutive years. Develop professionalism, leadership, and lifelong networks." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
