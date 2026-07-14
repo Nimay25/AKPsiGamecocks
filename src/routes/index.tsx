@@ -98,7 +98,7 @@ function Home() {
             <Award className="mx-auto h-10 w-10 text-[var(--gold)]" />
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-4 eyebrow">A Trophy Earned · Eighteen Times Over</p>
+            <p className="mt-4 eyebrow">{"\n"}</p>
           </Reveal>
           <Reveal delay={200}>
             <h2 className="mt-3 font-display text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
