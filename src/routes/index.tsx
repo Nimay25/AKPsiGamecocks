@@ -46,11 +46,11 @@ function Home() {
       {/* HERO */}
       <section className="relative isolate min-h-[100svh] overflow-hidden">
         <img
-          src={heroCampus}
-          alt="AKPSI brothers in business professional attire on USC's historic campus"
+          src={heroCampus.url}
+          alt="AKPSI Beta Upsilon pledge class on the chapter stairs with yellow roses"
           width={1920}
           height={1280}
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-top"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--navy-deep)]/85 via-[var(--navy)]/70 to-[var(--navy)]/90" />
 
