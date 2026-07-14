@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Building2, Instagram } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import auditionsNeon from "@/assets/auditions-neon.png.asset.json";
+import heroCampus from "@/assets/home-hero-roses.png.asset.json";
 
-import heroCampus from "@/assets/photos/chapter-mckissick.jpg";
 import gallery1 from "@/assets/photos/brothers-house.jpg";
 import gallery2 from "@/assets/photos/pledge-roses-1.jpg";
 import gallery3 from "@/assets/photos/pledge-roses-2.jpg";
@@ -46,11 +46,11 @@ function Home() {
       {/* HERO */}
       <section className="relative isolate min-h-[100svh] overflow-hidden">
         <img
-          src={heroCampus}
-          alt="AKPSI brothers in business professional attire on USC's historic campus"
+          src={heroCampus.url}
+          alt="AKPSI Beta Upsilon pledge class on the chapter stairs with yellow roses"
           width={1920}
           height={1280}
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-top"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--navy-deep)]/85 via-[var(--navy)]/70 to-[var(--navy)]/90" />
 
@@ -69,7 +69,7 @@ function Home() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--cream)]/85 sm:text-xl">
-              USC's premier, co-ed, professional fraternity — creating opportunities
+              USC's premier Professional Business Fraternity — creating opportunities
               to develop professionalism, foster leadership, build networks, and
               enhance the individual abilities of our members.
             </p>
