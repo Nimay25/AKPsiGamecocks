@@ -50,7 +50,7 @@ function Home() {
           alt="AKPSI Beta Upsilon pledge class on the chapter stairs with yellow roses"
           width={1920}
           height={1280}
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-top"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-[center_75%] scale-125"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--navy-deep)]/85 via-[var(--navy)]/70 to-[var(--navy)]/90" />
 
