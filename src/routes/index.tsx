@@ -251,9 +251,11 @@ function RushCtaSweep() {
       style={{ height: "170vh" }}
       aria-label="Fall 2026 Rush"
     >
-      {/* Pin to viewport BOTTOM so the section's bottom edge tracks with viewport bottom,
-          giving a clean handoff to the next (cream) section when it releases. */}
-      <div className="sticky bottom-0 h-[100svh] w-full overflow-hidden text-[var(--cream)]">
+      {/* Sticky pins the animation stage to the top of the viewport for the scroll duration.
+          Shorter parent = snappier release; when it un-pins, the section's bottom edge hands
+          off cleanly to the next (cream) section below. */}
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden text-[var(--cream)]">
+
         <div className="absolute inset-x-0 top-0 marquee-bulbs h-4 opacity-60 z-10" />
         <div className="absolute inset-x-0 bottom-0 marquee-bulbs h-4 opacity-60 z-10" />
 
