@@ -227,16 +227,17 @@
 
 /* Brothers @ Work hero ticker — seamless infinite loop */
 @keyframes baw-ticker-loop {
-  from { transform: translateX(0); }
-  to { transform: translateX(-25%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 @utility animate-baw-ticker {
-  animation: baw-ticker-loop 12s linear infinite;
+  animation: baw-ticker-loop 90s linear infinite;
   will-change: transform;
+  backface-visibility: hidden;
 }
 @media (max-width: 768px) {
   .animate-baw-ticker {
-    animation-duration: 9s;
+    animation-duration: 60s;
   }
 }
 
