@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronDown, Users, BookOpen, Shield, HandHeart, Sparkles } from "lucide-react";
 import aboutBrothers from "@/assets/photos/pledge-roses-1.jpg";
+import mooreAtrium from "@/assets/moore-atrium.jpg.asset.json";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/about")({
@@ -39,18 +40,23 @@ const FAQS = [
 function About() {
   return (
     <>
-      <section className="relative pt-40 pb-20 bg-[var(--navy)] text-[var(--cream)] overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative pt-40 pb-20 text-[var(--cream)] overflow-hidden min-h-[80vh] flex items-end">
+        <div className="absolute inset-0 -z-10">
+          <img src={mooreAtrium.url} alt="Darla Moore School of Business atrium" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/85 via-[var(--navy)]/70 to-[var(--navy)]/90" />
+        </div>
+        <div className="mx-auto max-w-7xl px-6 w-full">
           <Reveal>
             <p className="eyebrow"><span className="gold-rule" />About</p>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl">
+            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
               A professional fraternity, <span className="italic text-[var(--gold)]">reimagined</span>{"\u00a0"} for South Carolina.
             </h1>
           </Reveal>
         </div>
       </section>
+
 
       {/* Our Chapter */}
       <section id="chapter" className="bg-[var(--cream)] py-24">
