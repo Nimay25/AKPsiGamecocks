@@ -257,11 +257,11 @@ function CurtainHero() {
 
         {/* HERO content */}
         <div
-          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 pt-32 pb-24 text-center transition-opacity"
+          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 pt-44 pb-24 text-center transition-opacity"
           style={{ opacity: contentP }}
         >
-          <div>
-            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[var(--gold)] bg-black/70 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)] shadow-[0_0_20px_rgba(212,175,55,0.35)] backdrop-blur-sm">
+          <div className="mt-6">
+            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[var(--gold)] bg-black/70 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)] shadow-[0_0_20px_rgba(212,175,55,0.35)] backdrop-blur-sm">
               <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.9)]" /> Now Casting
             </div>
           </div>
