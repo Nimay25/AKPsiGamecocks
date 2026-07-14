@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Linkedin, Search } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import darlaMoore from "@/assets/darla-moore.jpg.asset.json";
 
 export const Route = createFileRoute("/brothers")({
   head: () => ({
@@ -17,32 +18,31 @@ export const Route = createFileRoute("/brothers")({
   component: Brothers,
 });
 
-// EDIT: replace all brother data with brotherhood-census export
 const EBOARD = [
-  { name: "Alexandra Reed", role: "President", brief: "Finance · '26 · NYC summer at JPM." },
-  { name: "Marcus Chen", role: "VP Finance", brief: "Accounting · '26 · EY incoming." },
-  { name: "Priya Patel", role: "VP Education", brief: "Marketing · '26 · case champion." },
-  { name: "Jordan Williams", role: "VP Recruitment", brief: "IB · '27 · Goldman SLP." },
-  { name: "Sofia Martinez", role: "VP Member Resources", brief: "OSCM · '26 · GM rotation." },
-  { name: "Ethan Brooks", role: "VP Service", brief: "Risk Mgmt · '27 · CFA candidate." },
+  { name: "John Doe", role: "President", brief: "Placeholder · '26 · Placeholder bio." },
+  { name: "Jane Doe", role: "VP Finance", brief: "Placeholder · '26 · Placeholder bio." },
+  { name: "John Smith", role: "VP Education", brief: "Placeholder · '26 · Placeholder bio." },
+  { name: "Jane Smith", role: "VP Recruitment", brief: "Placeholder · '27 · Placeholder bio." },
+  { name: "Alex Doe", role: "VP Member Resources", brief: "Placeholder · '26 · Placeholder bio." },
+  { name: "Sam Doe", role: "VP Service", brief: "Placeholder · '27 · Placeholder bio." },
 ];
 
 const LEADERSHIP = [
-  { name: "Riley Thompson", role: "Director of Alumni Relations", group: "Director" },
-  { name: "Sam Nakamura", role: "Director of Recruitment", group: "Director" },
-  { name: "Olivia Grant", role: "Director of Professional Development", group: "Director" },
-  { name: "Aiden Park", role: "Chair, Brotherhood", group: "Chair" },
-  { name: "Bella Hughes", role: "Chair, Case Competition", group: "Chair" },
-  { name: "Carson Lee", role: "Chair, Community Service", group: "Chair" },
-  { name: "Diego Alvarez", role: "Chair, Finance", group: "Chair" },
-  { name: "Emma Wright", role: "Chair, Marketing", group: "Chair" },
+  { name: "Placeholder One", role: "Director of Alumni Relations", group: "Director" },
+  { name: "Placeholder Two", role: "Director of Recruitment", group: "Director" },
+  { name: "Placeholder Three", role: "Director of Professional Development", group: "Director" },
+  { name: "Placeholder Four", role: "Chair, Brotherhood", group: "Chair" },
+  { name: "Placeholder Five", role: "Chair, Case Competition", group: "Chair" },
+  { name: "Placeholder Six", role: "Chair, Community Service", group: "Chair" },
+  { name: "Placeholder Seven", role: "Chair, Finance", group: "Chair" },
+  { name: "Placeholder Eight", role: "Chair, Marketing", group: "Chair" },
 ];
 
 const BROTHERS = [
-  "Avery Brooks '27", "Brandon Hayes '26", "Cameron Liu '28", "Devon Singh '27",
-  "Elena Rivera '26", "Frances Kim '28", "Gabriel Ortiz '27", "Hannah Cole '26",
-  "Isaac Morgan '28", "Julia Schwartz '27", "Kai Robinson '26", "Lily Tran '28",
-  "Mason Greene '27", "Nora Bennett '26", "Owen Park '28", "Paige Sutton '27",
+  "John Doe '27", "Jane Doe '26", "John Smith '28", "Jane Smith '27",
+  "Alex Doe '26", "Sam Doe '28", "Chris Doe '27", "Pat Doe '26",
+  "Taylor Doe '28", "Jordan Doe '27", "Morgan Doe '26", "Casey Doe '28",
+  "Riley Doe '27", "Avery Doe '26", "Quinn Doe '28", "Reese Doe '27",
 ];
 
 const PLEDGE_CLASSES = [
@@ -56,26 +56,29 @@ const PLEDGE_CLASSES = [
 function Brothers() {
   return (
     <>
-      <section className="bg-[var(--navy)] pt-40 pb-20 text-[var(--cream)]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative pt-40 pb-20 text-[var(--cream)] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${darlaMoore.url})` }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />The Brotherhood</p></Reveal>
           <Reveal delay={100}>
             <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl">
-              The brothers behind <span className="italic text-[var(--gold)]">Beta Upsilon</span>.
+              The brothers behind <span className="italic text-[var(--gold)]">Alpha Kappa Psi</span>.
             </h1>
           </Reveal>
-          {/* EDIT: photos, names, roles, and LinkedIns populate from a future brotherhood census export */}
         </div>
       </section>
 
-      {/* E-Board */}
       <Section eyebrow="Leadership" title="Executive Board" bg="cream">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {EBOARD.map((b, i) => <BrotherCard key={b.name} {...b} delay={i * 60} />)}
         </div>
       </Section>
 
-      {/* Leadership */}
       <Section eyebrow="Operations" title="Leadership Team" bg="white">
         <h3 className="font-display text-xl text-[var(--navy)]">Directors</h3>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -91,12 +94,10 @@ function Brothers() {
         </div>
       </Section>
 
-      {/* Active Brothers */}
       <Section eyebrow="Roster" title="Current Brothers" bg="cream">
         <ActiveBrothers />
       </Section>
 
-      {/* Pledge Classes */}
       <Section eyebrow="History" title="Pledge Classes" bg="navy">
         <div className="space-y-6">
           {PLEDGE_CLASSES.map((p, i) => (
@@ -108,7 +109,7 @@ function Brothers() {
                 <div className="min-w-0">
                   <p className="eyebrow">{p.term}</p>
                   <h3 className="mt-2 font-display text-2xl">{p.count} new brothers initiated</h3>
-                  <p className="mt-1 text-sm text-[var(--cream)]/65">{/* EDIT: short class blurb */}A class that brought new energy, talent, and leadership to Beta Upsilon.</p>
+                  <p className="mt-1 text-sm text-[var(--cream)]/65">Placeholder class description.</p>
                 </div>
                 <span className="hidden text-[var(--gold)] font-display text-xl sm:block">→</span>
               </div>
@@ -142,7 +143,6 @@ function BrotherCard({ name, role, brief, delay = 0 }: { name: string; role: str
     <Reveal delay={delay}>
       <article className="group rounded-2xl border border-[var(--border)] bg-white p-5 transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]">
         <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)]">
-          {/* EDIT: real headshot */}
           <div className="absolute inset-0 grid place-items-center font-display text-6xl text-[var(--gold)]/40">{initials}</div>
         </div>
         <div className="mt-5">
