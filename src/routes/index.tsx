@@ -176,11 +176,11 @@ function Home() {
             <div>
               <p className="eyebrow"><span className="gold-rule" />Latest</p>
               <h2 className="mt-3 font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">
-                Follow <span className="text-[var(--gold)]">@akpsi_usc</span>
+                Follow <span className="text-[var(--gold)]">@akpsigamecocks</span>
               </h2>
             </div>
             <a
-              href="https://instagram.com/akpsi_usc"
+              href="https://instagram.com/akpsigamecocks"
               target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-2 text-sm font-medium text-[var(--navy)] hover:text-[var(--gold)]"
             >
