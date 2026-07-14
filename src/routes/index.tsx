@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Building2, Instagram } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import auditionsNeon from "@/assets/auditions-neon.png.asset.json";
+
 import heroCampus from "@/assets/photos/chapter-mckissick.jpg";
 import gallery1 from "@/assets/photos/brothers-house.jpg";
 import gallery2 from "@/assets/photos/pledge-roses-1.jpg";
