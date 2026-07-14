@@ -101,7 +101,7 @@ function Brothers() {
       <Section eyebrow="History" title="Pledge Classes" bg="navy">
         <div className="space-y-6">
           {PLEDGE_CLASSES.map((p, i) => (
-            <Reveal key={p.term} delay={i * 80}>
+            <Reveal key={p.term} variant="fade" delay={i * 80}>
               <div className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:bg-white/[0.06] sm:grid-cols-[200px_minmax(0,1fr)_auto]">
                 <div className="aspect-[16/9] sm:aspect-[3/2] rounded-xl bg-gradient-to-br from-[var(--navy-deep)] to-[var(--ink)] grid place-items-center text-[var(--gold)]/30 font-display text-2xl sm:col-span-1 col-span-2">
                   Class Photo
@@ -127,11 +127,11 @@ function Section({ eyebrow, title, bg, children }: { eyebrow: string; title: str
   return (
     <section className={`${bgClass} py-24`}>
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal><p className="eyebrow"><span className="gold-rule" />{eyebrow}</p></Reveal>
-        <Reveal delay={100}>
+        <Reveal variant="fade"><p className="eyebrow"><span className="gold-rule" />{eyebrow}</p></Reveal>
+        <Reveal variant="fade" delay={100}>
           <h2 className={`mt-3 font-display text-4xl font-medium sm:text-5xl ${titleColor}`}>{title}</h2>
         </Reveal>
-        <Reveal delay={200}>
+        <Reveal variant="fade" delay={200}>
           <div className="mt-12">{children}</div>
         </Reveal>
       </div>
@@ -142,7 +142,7 @@ function Section({ eyebrow, title, bg, children }: { eyebrow: string; title: str
 function BrotherCard({ name, role, brief, delay = 0 }: { name: string; role: string; brief?: string; delay?: number }) {
   const initials = name.split(" ").map(n => n[0]).join("").slice(0,2);
   return (
-    <Reveal delay={delay}>
+    <Reveal variant="fade" delay={delay}>
       <article className="group rounded-2xl border border-[var(--border)] bg-white p-5 transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]">
         <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)]">
           <div className="absolute inset-0 grid place-items-center font-display text-6xl text-[var(--gold)]/40">{initials}</div>
@@ -168,7 +168,7 @@ function ActiveBrothers() {
   );
   return (
     <>
-      <Reveal>
+      <Reveal variant="fade">
         <div className="relative max-w-md">
           <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--navy)]/40" />
           <input
@@ -181,7 +181,7 @@ function ActiveBrothers() {
       </Reveal>
       <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filtered.map((b, i) => (
-          <Reveal key={b} delay={i * 40}>
+          <Reveal key={b} variant="fade" delay={i * 40}>
             <div className="flex items-center justify-between rounded-xl border border-[var(--border)] bg-white px-5 py-4 hover:border-[var(--gold)] transition">
               <span className="text-[var(--navy)] truncate">{b}</span>
               <Linkedin className="h-4 w-4 text-[var(--navy)]/50 shrink-0" />
