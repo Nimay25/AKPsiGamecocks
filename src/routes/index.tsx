@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Building2, Instagram } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import auditionsNeon from "@/assets/auditions-neon.png.asset.json";
+
 import heroCampus from "@/assets/photos/chapter-mckissick.jpg";
 import gallery1 from "@/assets/photos/brothers-house.jpg";
 import gallery2 from "@/assets/photos/pledge-roses-1.jpg";
@@ -201,35 +204,92 @@ function Home() {
         </div>
       </section>
 
-      {/* RUSH CTA */}
-      <section className="relative overflow-hidden bg-[var(--ink)] py-24 text-[var(--cream)]">
-        <div className="absolute inset-x-0 top-0 marquee-bulbs h-4 opacity-60" />
-        <div className="absolute inset-x-0 bottom-0 marquee-bulbs h-4 opacity-60" />
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <Reveal>
-            <Building2 className="mx-auto h-9 w-9 text-[var(--gold)]" />
-          </Reveal>
-          <Reveal delay={100}>
-            <p className="mt-4 eyebrow">Now Casting</p>
-          </Reveal>
-          <Reveal delay={200}>
-            <h2 className="mt-3 font-display text-5xl font-medium sm:text-6xl">
-              Fall 2026 <span className="italic text-[var(--gold)]">Rush.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={300}>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--cream)]/75">
-              We're rolling out the red carpet this semester. Find your seat
-              under the marquee — and step onto the stage.
-            </p>
-          </Reveal>
-          <Reveal delay={400}>
-            <Link to="/recruitment" className="mt-10 btn-gold btn-gold-hover">
-              Explore Recruitment <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
+      {/* RUSH CTA — scroll-driven auditions neon sweep */}
+      <RushCtaSweep />
     </>
   );
 }
+
+function RushCtaSweep() {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [p, setP] = useState(0); // 0 → 1 as section scrolls through viewport
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = wrapRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = el.offsetHeight - window.innerHeight;
+      const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
+      setP(total > 0 ? scrolled / total : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  // Sweep: image travels from off-screen left (-60vw) to off-screen right (+60vw)
+  // Zoom peaks in the middle
+  const eased = p; // linear feels smoother tied to scroll
+  const translateX = -60 + eased * 120; // vw
+  const scale = 0.6 + Math.sin(Math.PI * Math.min(Math.max(eased, 0), 1)) * 0.9; // peaks ~1.5 at mid
+  // Text fade: fully visible at p=0, gone by p≈0.35, reappears symmetrically after p≈0.65
+  const textOpacity =
+    eased < 0.35
+      ? 1 - eased / 0.35
+      : eased > 0.65
+        ? (eased - 0.65) / 0.35
+        : 0;
+
+  return (
+    <section
+      ref={wrapRef}
+      className="relative bg-[var(--ink)]"
+      style={{ height: "220vh" }}
+      aria-label="Fall 2026 Rush"
+    >
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden text-[var(--cream)]">
+        <div className="absolute inset-x-0 top-0 marquee-bulbs h-4 opacity-60 z-10" />
+        <div className="absolute inset-x-0 bottom-0 marquee-bulbs h-4 opacity-60 z-10" />
+
+        {/* Text layer */}
+        <div
+          className="relative z-0 mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center transition-opacity"
+          style={{ opacity: textOpacity }}
+        >
+          <Building2 className="mx-auto h-9 w-9 text-[var(--gold)]" />
+          <p className="mt-4 eyebrow">Now Casting</p>
+          <h2 className="mt-3 font-display text-5xl font-medium sm:text-6xl">
+            Fall 2026 <span className="italic text-[var(--gold)]">Rush.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--cream)]/75">
+            We're rolling out the red carpet this semester. Find your seat
+            under the marquee — and step onto the stage.
+          </p>
+          <Link to="/recruitment" className="mt-10 btn-gold btn-gold-hover">
+            Explore Recruitment <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        {/* Auditions neon sweep */}
+        <div
+          className="pointer-events-none absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 will-change-transform"
+          style={{
+            transform: `translate(-50%, -50%) translateX(${translateX}vw) scale(${scale})`,
+          }}
+        >
+          <img
+            src={auditionsNeon.url}
+            alt="Neon auditions sign"
+            className="h-auto w-[70vw] max-w-[900px] drop-shadow-[0_0_40px_rgba(255,40,80,0.55)]"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
