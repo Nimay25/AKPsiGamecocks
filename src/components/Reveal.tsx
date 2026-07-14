@@ -5,9 +5,10 @@ interface RevealProps {
   delay?: number;
   className?: string;
   as?: keyof React.JSX.IntrinsicElements;
+  variant?: "up" | "fade";
 }
 
-export function Reveal({ children, delay = 0, className = "", as: Tag = "div" }: RevealProps) {
+export function Reveal({ children, delay = 0, className = "", as: Tag = "div", variant = "up" }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -28,11 +29,12 @@ export function Reveal({ children, delay = 0, className = "", as: Tag = "div" }:
   }, []);
 
   const Comp = Tag as React.ElementType;
+  const animClass = variant === "fade" ? (visible ? "reveal-fade-in" : "reveal-fade") : (visible ? "reveal-in" : "reveal");
   return (
     <Comp
       ref={ref as React.Ref<HTMLElement>}
       style={{ animationDelay: `${delay}ms` }}
-      className={`${visible ? "reveal-in" : "reveal"} ${className}`}
+      className={`${animClass} ${className}`}
     >
       {children}
     </Comp>
