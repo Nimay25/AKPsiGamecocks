@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, MapPin, Instagram, Send } from "lucide-react";
+import contactClassroom from "@/assets/contact-classroom.jpg.asset.json";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/contact")({
