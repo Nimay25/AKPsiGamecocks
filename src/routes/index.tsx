@@ -232,56 +232,65 @@ function RushCtaSweep() {
     };
   }, []);
 
-  // Sweep: image travels from off-screen left to off-screen right, subtle zoom at midpoint
-  const eased = p;
-  const translateX = -80 + eased * 160; // vw — enters fully off left, exits fully off right
-  const scale = 0.75 + Math.sin(Math.PI * Math.min(Math.max(eased, 0), 1)) * 0.35; // peaks ~1.1 mid
-  // Text fully fades before sign arrives at center, reappears after it leaves
-  const textOpacity =
-    eased < 0.3
-      ? 1 - eased / 0.3
-      : eased > 0.7
-        ? (eased - 0.7) / 0.3
-        : 0;
+  // Sign starts on the LEFT (per initial reference), sweeps to fully off the right.
+  // Sign center in viewport, in vw: 25 → 120
+  const signCenterVw = 25 + p * 95;
+  const translateXVw = signCenterVw - 50; // relative to natural center (50vw)
+  const scale = 0.9 + Math.sin(Math.PI * Math.min(Math.max(p, 0), 1)) * 0.2;
+
+  // Text "paints" in behind the sign: reveal from left up to sign's current center.
+  // Use a soft mask edge so the reveal looks like it's being drawn.
+  const revealPct = Math.min(Math.max(signCenterVw, 0), 100);
+  const softEdge = 4; // vw
+  const maskImage = `linear-gradient(to right, #000 0, #000 calc(${revealPct}vw - ${softEdge}vw), transparent calc(${revealPct}vw + ${softEdge}vw), transparent 100%)`;
 
   return (
     <section
       ref={wrapRef}
       className="relative bg-[var(--ink)]"
-      style={{ height: "220vh" }}
+      style={{ height: "170vh" }}
       aria-label="Fall 2026 Rush"
     >
+      {/* Sticky pins the animation stage to the top of the viewport for the scroll duration.
+          Shorter parent = snappier release; when it un-pins, the section's bottom edge hands
+          off cleanly to the next (cream) section below. */}
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden text-[var(--cream)]">
+
         <div className="absolute inset-x-0 top-0 marquee-bulbs h-4 opacity-60 z-10" />
         <div className="absolute inset-x-0 bottom-0 marquee-bulbs h-4 opacity-60 z-10" />
 
-        {/* Text layer */}
+        {/* Text layer — masked so it "paints in" from the left as the sign sweeps across */}
         <div
-          className="relative z-0 mx-auto flex h-full max-w-4xl flex-col items-center justify-center px-6 text-center transition-opacity"
-          style={{ opacity: textOpacity }}
+          className="absolute inset-0 z-0 flex items-center justify-center px-6 text-center will-change-[mask-image]"
+          style={{
+            WebkitMaskImage: maskImage,
+            maskImage: maskImage,
+          }}
         >
-          <Building2 className="mx-auto h-9 w-9 text-[var(--gold)]" />
-          <p className="mt-4 eyebrow">Now Casting</p>
-          <h2 className="mt-3 font-display text-5xl font-medium sm:text-6xl">
-            Fall 2026 <span className="italic text-[var(--gold)]">Rush.</span>
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--cream)]/75">
-            We're rolling out the red carpet this semester. Find your seat
-            under the marquee — and step onto the stage.
-          </p>
-          <Link to="/recruitment" className="mt-10 btn-gold btn-gold-hover">
-            Explore Recruitment <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="mx-auto max-w-4xl">
+            <Building2 className="mx-auto h-9 w-9 text-[var(--gold)]" />
+            <p className="mt-4 eyebrow">Now Casting</p>
+            <h2 className="mt-3 font-display text-5xl font-medium sm:text-6xl">
+              Fall 2026 <span className="italic text-[var(--gold)]">Rush.</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--cream)]/75">
+              We're rolling out the red carpet this semester. Find your seat
+              under the marquee — and step onto the stage.
+            </p>
+            <Link to="/recruitment" className="mt-10 btn-gold btn-gold-hover">
+              Explore Recruitment <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
 
-        {/* Auditions neon sweep — anchored dead-center */}
+        {/* Auditions neon sweep */}
         <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
           <img
             src={auditionsNeon.url}
             alt="Neon auditions sign"
             className="h-auto w-[45vw] max-w-[560px] will-change-transform drop-shadow-[0_0_40px_rgba(255,40,80,0.55)]"
             style={{
-              transform: `translateX(${translateX}vw) scale(${scale})`,
+              transform: `translateX(${translateXVw}vw) scale(${scale})`,
             }}
           />
         </div>
@@ -289,5 +298,6 @@ function RushCtaSweep() {
     </section>
   );
 }
+
 
 
