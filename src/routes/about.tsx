@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Users, BookOpen, Shield, HandHeart, Sparkles } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import aboutBrothers from "@/assets/photos/pledge-roses-1.jpg";
 import mooreAtrium from "@/assets/moore-atrium.jpg.asset.json";
 import { Reveal } from "@/components/Reveal";
@@ -9,23 +9,15 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — AKPSI Beta Upsilon at USC" },
-      { name: "description", content: "Our chapter, mission, pillars, and commitment to diversity at USC." },
+      { name: "description", content: "Our chapter, mission, and commitment to diversity at USC." },
       { property: "og:title", content: "About AKPSI Beta Upsilon" },
-      { property: "og:description", content: "Learn about Beta Upsilon's mission, pillars, and DOI commitment." },
+      { property: "og:description", content: "Learn about Beta Upsilon's mission and DOI commitment." },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
   component: About,
 });
-
-const PILLARS = [
-  { icon: Users, title: "Brotherhood", text: "A bond beyond business — built through shared work, mentorship, and friendship that outlasts graduation." },
-  { icon: BookOpen, title: "Knowledge", text: "We learn relentlessly — through case studies, professional speakers, and rigorous peer review." },
-  { icon: Shield, title: "Integrity", text: "Every brother is trusted to represent Beta Upsilon and AKPSI with honesty and accountability." },
-  { icon: HandHeart, title: "Service", text: "We invest in our Columbia community and AKPSI's national philanthropy partners." },
-  { icon: Sparkles, title: "Unity", text: "Every major, every background, one chapter. Difference is our edge." },
-];
 
 const FAQS = [
   { q: "What is Alpha Kappa Psi?", a: "Alpha Kappa Psi is the oldest and largest co-ed professional business fraternity in the United States, founded in 1904. Beta Upsilon is our chapter at the University of South Carolina." },
@@ -104,32 +96,6 @@ function About() {
               <img src={aboutBrothers} alt="Beta Upsilon brothers holding yellow roses" className="h-full w-full object-cover" loading="lazy" />
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Pillars */}
-      <section id="pillars" className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal>
-            <p className="eyebrow"><span className="gold-rule" />Our Pillars</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="mt-3 max-w-2xl font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">
-              The values that shape every brother.
-            </h2>
-          </Reveal>
-          {/* EDIT: confirm the official five pillars wording with VPE */}
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {PILLARS.map((p, i) => (
-              <Reveal key={p.title} delay={i * 80}>
-                <article className="group h-full rounded-2xl border border-[var(--border)] bg-[var(--cream)] p-8 transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]">
-                  <p.icon className="h-7 w-7 text-[var(--gold)]" />
-                  <h3 className="mt-5 font-display text-2xl text-[var(--navy)]">{p.title}</h3>
-                  <p className="mt-3 text-[var(--navy)]/75 leading-relaxed">{p.text}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
