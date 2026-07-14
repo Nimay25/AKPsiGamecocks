@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Users, BookOpen, Shield, HandHeart, Sparkles } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import aboutBrothers from "@/assets/photos/pledge-roses-1.jpg";
 import mooreAtrium from "@/assets/moore-atrium.jpg.asset.json";
 import { Reveal } from "@/components/Reveal";
@@ -9,23 +9,15 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — AKPSI Beta Upsilon at USC" },
-      { name: "description", content: "Our chapter, mission, pillars, and commitment to diversity at USC." },
+      { name: "description", content: "Our chapter, mission, and commitment to diversity at USC." },
       { property: "og:title", content: "About AKPSI Beta Upsilon" },
-      { property: "og:description", content: "Learn about Beta Upsilon's mission, pillars, and DOI commitment." },
+      { property: "og:description", content: "Learn about Beta Upsilon's mission and DOI commitment." },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
   component: About,
 });
-
-const PILLARS = [
-  { icon: Users, title: "Brotherhood", text: "A bond beyond business — built through shared work, mentorship, and friendship that outlasts graduation." },
-  { icon: BookOpen, title: "Knowledge", text: "We learn relentlessly — through case studies, professional speakers, and rigorous peer review." },
-  { icon: Shield, title: "Integrity", text: "Every brother is trusted to represent Beta Upsilon and AKPSI with honesty and accountability." },
-  { icon: HandHeart, title: "Service", text: "We invest in our Columbia community and AKPSI's national philanthropy partners." },
-  { icon: Sparkles, title: "Unity", text: "Every major, every background, one chapter. Difference is our edge." },
-];
 
 const FAQS = [
   { q: "What is Alpha Kappa Psi?", a: "Alpha Kappa Psi is the oldest and largest co-ed professional business fraternity in the United States, founded in 1904. Beta Upsilon is our chapter at the University of South Carolina." },
