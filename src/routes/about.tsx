@@ -111,13 +111,8 @@ function About() {
               </h2>
             </Reveal>
             <Reveal delay={200}>
-              <p className="mt-6 max-w-xl text-lg text-[var(--cream)]/80 leading-relaxed">
-                We recruit, mentor, and support brothers of every background — because
-                brotherhood without inclusion isn't brotherhood at all.
-              </p>
-            </Reveal>
-            <Reveal delay={300}>
               <blockquote className="mt-8 max-w-xl border-l-2 border-[var(--gold)] pl-6">
+
                 <p className="font-display text-2xl leading-snug text-[var(--cream)] sm:text-3xl">
                   "No brother should feel like they have to leave part of themselves at the door."
                 </p>
