@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import aboutBrothers from "@/assets/photos/pledge-roses-1.jpg";
 import mooreAtrium from "@/assets/moore-atrium.jpg.asset.json";
+import doiDirector from "@/assets/doi-director.jpg.asset.json";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/about")({
@@ -101,23 +102,48 @@ function About() {
 
       {/* DOI */}
       <section id="doi" className="bg-[var(--navy)] py-24 text-[var(--cream)]">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <Reveal><p className="eyebrow"><span className="gold-rule" />Diversity, Opportunity &amp; Inclusion</p></Reveal>
-          <Reveal delay={100}>
-            <h2 className="mt-4 font-display text-4xl font-medium sm:text-5xl">
-              Every brother belongs here.
-            </h2>
-          </Reveal>
+        <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div>
+            <Reveal><p className="eyebrow"><span className="gold-rule" />Diversity, Opportunity &amp; Inclusion</p></Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-4 font-display text-4xl font-medium sm:text-5xl">
+                Every brother belongs here.
+              </h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="mt-6 max-w-xl text-lg text-[var(--cream)]/80 leading-relaxed">
+                We recruit, mentor, and support brothers of every background — because
+                brotherhood without inclusion isn't brotherhood at all.
+              </p>
+            </Reveal>
+            <Reveal delay={300}>
+              <blockquote className="mt-8 max-w-xl border-l-2 border-[var(--gold)] pl-6">
+                <p className="font-display text-2xl leading-snug text-[var(--cream)] sm:text-3xl">
+                  "No brother should feel like they have to leave part of themselves at the door."
+                </p>
+                <footer className="mt-4 text-xs uppercase tracking-widest text-[var(--gold)]">
+                  Director of Diversity, Opportunity &amp; Inclusion
+                </footer>
+              </blockquote>
+            </Reveal>
+          </div>
           <Reveal delay={200}>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--cream)]/80 leading-relaxed">
-              Beta Upsilon is committed to building a chapter that reflects the
-              world our brothers will lead in. We actively recruit, mentor, and
-              support members of every background, identity, and lived experience —
-              because brotherhood without inclusion isn't brotherhood at all.
-            </p>
+            <figure className="relative mx-auto w-full max-w-[320px]">
+              <div className="rounded-2xl border-4 border-[var(--gold)] p-1.5 shadow-[0_25px_60px_-25px_rgba(0,0,0,0.7)]">
+                <div className="overflow-hidden rounded-xl border border-[var(--gold)]/60">
+                  <img
+                    src={doiDirector.url}
+                    alt="Director of Diversity, Opportunity and Inclusion"
+                    className="aspect-[4/5] w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </figure>
           </Reveal>
         </div>
       </section>
+
 
       {/* FAQ */}
       <section id="faq" className="bg-[var(--cream)] py-24">
