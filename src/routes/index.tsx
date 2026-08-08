@@ -69,7 +69,7 @@ function Home() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--cream)]/85 sm:text-xl">
-              Professional Business Fraternity
+              The Professional Business Fraternity
             </p>
           </Reveal>
           <Reveal delay={350}>
