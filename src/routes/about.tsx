@@ -43,7 +43,7 @@ function About() {
           </Reveal>
           <Reveal delay={100}>
             <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
-              A professional fraternity, <span className="italic text-[var(--gold)]">reimagined</span>{"\u00a0"} for South Carolina.
+              Shaping{"\u00a0"}people,{"\u00a0"}<br /><br />Shaping{"\u00a0"}business{"\u00a0"} since 2007
             </h1>
           </Reveal>
         </div>
