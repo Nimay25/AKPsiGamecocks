@@ -43,9 +43,10 @@ function About() {
             <p className="eyebrow"><span className="gold-rule" />About</p>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
-              Shaping{"\u00a0"}people,{"\u00a0"}<br /><br />Shaping{"\u00a0"}business{"\u00a0"} since 2007
+            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-[1.1] sm:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
+              Shaping{"\u00a0"}people,{"\u00a0"}<br />Shaping{"\u00a0"}business{"\u00a0"}<span className="text-[var(--gold)]"> since 2007</span>
             </h1>
+            <div className="mt-8 h-1 w-24 bg-[var(--gold)]" />
           </Reveal>
         </div>
       </section>
