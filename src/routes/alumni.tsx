@@ -28,8 +28,8 @@ function Alumni() {
   return (
     <>
       <section className="relative overflow-hidden bg-[var(--navy)] pt-40 pb-20 text-[var(--cream)]">
-        <img src={alumniMap.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/80 via-[var(--navy)]/70 to-[var(--navy)]" />
+        <img src={alumniMap.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/70 via-[var(--navy)]/60 to-[var(--navy)]/90" />
         <div className="relative mx-auto max-w-7xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Alumni</p></Reveal>
           <Reveal delay={100}>
