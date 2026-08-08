@@ -122,7 +122,7 @@ function About() {
                   "No brother should feel like they have to leave part of themselves at the door."
                 </p>
                 <footer className="mt-4 text-xs uppercase tracking-widest text-[var(--gold)]">
-                  Director of Diversity, Opportunity &amp; Inclusion
+                  -DIRECTOR OF DOI
                 </footer>
               </blockquote>
             </Reveal>
