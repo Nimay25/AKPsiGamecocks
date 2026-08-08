@@ -30,11 +30,11 @@ export const Route = createFileRoute("/")({
 });
 
 const PILLARS = [
-  { title: "Brotherhood", text: "A lifelong network of principled peers and mentors." },
-  { title: "Knowledge", text: "Workshops, case studies, and real-world business exposure." },
-  { title: "Integrity", text: "Doing the right thing — always, even when no one's watching." },
-  { title: "Service", text: "Giving back to Columbia and our national philanthropy partners." },
-  { title: "Unity", text: "One chapter, every major, every background." },
+  { title: "Brotherhood", text: "An extensive network of principled peers and mentors." },
+  { title: "Integrity", text: "Maintaining high ethical standards in all facets of life." },
+  { title: "Service", text: "Improving the communities around us all across the globe." },
+  { title: "Unity", text: "Every major. Every background. One chapter." },
+  { title: "Knowledge", text: "Dedication to lifelong learning in and out of the classroom." },
 ];
 
 
