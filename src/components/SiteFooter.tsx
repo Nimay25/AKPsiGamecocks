@@ -12,8 +12,8 @@ export function SiteFooter() {
             </div>
             <p className="mt-3 max-w-md text-sm text-[var(--cream)]/70">
               USC's premier co-ed professional business fraternity. Developing
-              principled business leaders since 1904 — at South Carolina since
-              our chartering.
+              principled business leaders since 1904 — rechartered at South
+              Carolina in 2007.
             </p>
             <div className="mt-6 flex gap-3">
               {/* EDIT: real social links */}
