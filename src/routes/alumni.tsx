@@ -27,8 +27,10 @@ const QUOTES = [
 function Alumni() {
   return (
     <>
-      <section className="bg-[var(--navy)] pt-40 pb-20 text-[var(--cream)]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative overflow-hidden bg-[var(--navy)] pt-40 pb-20 text-[var(--cream)]">
+        <img src={alumniMap.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/80 via-[var(--navy)]/70 to-[var(--navy)]" />
+        <div className="relative mx-auto max-w-7xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Alumni</p></Reveal>
           <Reveal delay={100}>
             <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl">
@@ -39,10 +41,8 @@ function Alumni() {
       </section>
 
       {/* Network map */}
-      <section className="relative overflow-hidden bg-[var(--navy-deep)] py-24 text-[var(--cream)]">
-        <img src={alumniMap.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy-deep)]/70 to-[var(--navy-deep)]" />
-        <div className="relative mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--navy-deep)] py-24 text-[var(--cream)]">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />The Network</p></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-3 max-w-2xl font-display text-4xl font-medium sm:text-5xl">
