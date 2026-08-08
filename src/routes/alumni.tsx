@@ -137,7 +137,7 @@ function Alumni() {
                 professional development and educational opportunities. Every
                 gift, of every size, opens a door for a future brother.
               </p>
-              <a href="#" className="mt-6 btn-gold btn-gold-hover">Donate</a>
+              <a href="https://gofund.me/415ba0039" target="_blank" rel="noopener noreferrer" className="mt-6 btn-gold btn-gold-hover">Donate</a>
               {/* EDIT: real donation link */}
             </div>
           </Reveal>
