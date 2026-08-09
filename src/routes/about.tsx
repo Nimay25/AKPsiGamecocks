@@ -158,7 +158,7 @@ function About() {
                   "No brother should feel like they have to leave part of themselves at the door."
                 </p>
                 <footer className="mt-4 text-xs uppercase tracking-widest text-[var(--gold)]">
-                  -DIRECTOR OF DOI
+                  -Nimay Ankireddypalli, Director of DOI
                 </footer>
               </blockquote>
             </Reveal>
