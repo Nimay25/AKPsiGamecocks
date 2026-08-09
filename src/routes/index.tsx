@@ -169,7 +169,12 @@ function Home() {
       </section>
 
       {/* INSTAGRAM */}
-      <section className="bg-[var(--cream)] py-24">
+      <a
+        href="https://instagram.com/akpsigamecocks"
+        target="_blank"
+        rel="noreferrer"
+        className="block bg-[var(--cream)] py-24 transition-colors hover:bg-[var(--cream)]/90"
+      >
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -178,13 +183,9 @@ function Home() {
                 Follow <span className="text-[var(--gold)]">@akpsigamecocks</span>
               </h2>
             </div>
-            <a
-              href="https://instagram.com/akpsigamecocks"
-              target="_blank" rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[var(--navy)] hover:text-[var(--gold)]"
-            >
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--navy)] group-hover:text-[var(--gold)]">
               <Instagram className="h-4 w-4" /> Open Instagram
-            </a>
+            </span>
           </div>
 
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
@@ -198,7 +199,7 @@ function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </a>
 
       {/* RUSH CTA — scroll-driven auditions neon sweep */}
       <RushCtaSweep />
