@@ -356,6 +356,68 @@ function CurtainHero() {
   );
 }
 
+type ScheduleEvent = (typeof SCHEDULE)[number];
+
+const TIER_STYLES: Record<string, { metal: string; label: string; ink: string; sub: string; rule: string }> = {
+  bronze: { metal: "metal-bronze", label: "Bronze", ink: "text-[#2a1408]", sub: "text-[#2a1408]/75", rule: "border-[#2a1408]/30" },
+  silver: { metal: "metal-silver", label: "Silver", ink: "text-[#1b1f24]", sub: "text-[#1b1f24]/75", rule: "border-[#1b1f24]/30" },
+  gold: { metal: "metal-gold", label: "Gold", ink: "text-[#241a03]", sub: "text-[#241a03]/75", rule: "border-[#241a03]/30" },
+};
+
+function ScheduleCard({ e, i }: { e: ScheduleEvent; i: number }) {
+  const tier = e.tier ? TIER_STYLES[e.tier] : null;
+
+  if (tier) {
+    return (
+      <div
+        className={`metal-card group relative flex h-full flex-col rounded-2xl p-6 ring-1 ring-black/25 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.9)] transition hover:-translate-y-1 ${tier.metal}`}
+      >
+        <div className="pointer-events-none absolute inset-[6px] rounded-xl border border-black/25" />
+        <div className={`relative flex items-center justify-between ${tier.ink}`}>
+          <Clapperboard className="h-5 w-5 opacity-80" />
+          <span className="font-mono text-xs opacity-70">EVENT #{(i + 1).toString().padStart(2, "0")}</span>
+        </div>
+        <p className={`relative mt-4 text-[10px] font-semibold uppercase tracking-[0.28em] ${tier.sub}`}>
+          Private Screening · Closed Invite
+        </p>
+        <h3 className={`relative mt-2 font-display text-2xl ${tier.ink}`}>{e.title}</h3>
+        <div className={`relative mt-2 flex items-baseline gap-2 font-mono text-sm ${tier.ink}`}>
+          <span className="font-semibold">{e.date}</span>
+          <span className="opacity-50">·</span>
+          <span className="opacity-80">{e.time}</span>
+        </div>
+        <p className={`relative mt-3 text-sm ${tier.sub}`}>{e.desc}</p>
+        <div className={`relative mt-auto flex items-center justify-between border-t pt-4 text-xs ${tier.rule} ${tier.ink}`}>
+          <span className="uppercase tracking-widest font-semibold">{e.dress}</span>
+          <span className="opacity-70">USC Campus</span>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="group relative flex h-full flex-col rounded-2xl border border-[var(--gold)]/30 bg-gradient-to-br from-white/[0.04] to-transparent p-6 transition hover:border-[var(--gold)]/70 hover:-translate-y-1">
+      <div className="absolute -left-2 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-[var(--ink)] border border-[var(--gold)]/30" />
+      <div className="absolute -right-2 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-[var(--ink)] border border-[var(--gold)]/30" />
+      <div className="flex items-center justify-between">
+        <Clapperboard className="h-5 w-5 text-[var(--gold)]" />
+        <span className="font-mono text-xs text-[var(--cream)]/50">EVENT #{(i + 1).toString().padStart(2, "0")}</span>
+      </div>
+      <h3 className="mt-4 font-display text-2xl">{e.title}</h3>
+      <div className="mt-2 flex items-baseline gap-2 font-mono text-sm">
+        <span className="text-[var(--gold)]">{e.date}</span>
+        <span className="text-[var(--cream)]/40">·</span>
+        <span className="text-[var(--cream)]/70">{e.time}</span>
+      </div>
+      <p className="mt-3 text-sm text-[var(--cream)]/70">{e.desc}</p>
+      <div className="mt-auto flex items-center justify-between border-t border-dashed border-[var(--gold)]/30 pt-4 text-xs">
+        <span className="text-[var(--gold)] uppercase tracking-widest">{e.dress}</span>
+        <span className="text-[var(--cream)]/40">USC Campus</span>
+      </div>
+    </div>
+  );
+}
+
 function FilmDivider() {
 
   return (
