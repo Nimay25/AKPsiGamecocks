@@ -20,6 +20,14 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
+const PILLARS = [
+  { title: "Brotherhood", text: "An extensive network of principled peers and mentors built through shared work, mentorship programs, and bonds that stand the test of time." },
+  { title: "Integrity", text: "Maintaining high ethical standards in all facets of life." },
+  { title: "Service", text: "Improving the communities around us all across the globe." },
+  { title: "Unity", text: "Every major. Every background. One chapter." },
+  { title: "Knowledge", text: "Dedication to lifelong learning in and out of the classroom." },
+];
+
 const FAQS = [
   { q: "What is Alpha Kappa Psi?", a: "Alpha Kappa Psi is the oldest and largest co-ed professional business fraternity in the United States, founded in 1904. Beta Upsilon is our chapter at the University of South Carolina." },
   { q: "Who can join?", a: "Any USC student in good academic standing, of any major or year. We welcome candidates from every college on campus." },
