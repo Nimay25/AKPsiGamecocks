@@ -137,8 +137,7 @@ function Alumni() {
                 professional development and educational opportunities. Every
                 gift, of every size, opens a door for a future brother.
               </p>
-              <a href="https://gofund.me/415ba0039" target="_blank" rel="noopener noreferrer" className="mt-6 btn-gold btn-gold-hover">Donate</a>
-              {/* EDIT: real donation link */}
+              <a href="https://www.gofundme.com/f/donate-to-the-wilson-a-crone-exceptional-character-award" target="_blank" rel="noopener noreferrer" className="mt-6 btn-gold btn-gold-hover">Donate</a>
             </div>
           </Reveal>
         </div>
