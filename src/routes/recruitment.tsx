@@ -386,7 +386,7 @@ function ScheduleCard({ e, i }: { e: ScheduleEvent; i: number }) {
           <span className="opacity-50">·</span>
           <span className="opacity-80">{e.time}</span>
         </div>
-        <p className={`relative mt-3 text-sm ${tier.sub}`}>{e.desc}</p>
+        <p className={`relative mt-3 mb-5 text-sm ${tier.sub}`}>{e.desc}</p>
         <div className={`relative mt-auto flex items-center justify-between border-t pt-4 text-xs ${tier.rule} ${tier.ink}`}>
           <span className="uppercase tracking-widest font-semibold">{e.dress}</span>
           <span className="opacity-70">USC Campus</span>
