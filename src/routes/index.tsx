@@ -46,8 +46,8 @@ function Home() {
       {/* HERO */}
       <section className="relative isolate min-h-[100svh] overflow-hidden">
         <img
-          src={heroCampus}
-          alt="AKPSI brothers in business professional attire on USC's historic campus"
+          src={heroGroup.url}
+          alt="Alpha Kappa Psi Beta Upsilon chapter photo on the steps in business professional attire"
           width={1920}
           height={1280}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
