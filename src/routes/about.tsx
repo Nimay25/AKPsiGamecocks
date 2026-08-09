@@ -109,6 +109,36 @@ function About() {
         </div>
       </section>
 
+      {/* PILLARS */}
+      <section id="pillars" className="bg-[var(--navy)] py-24 text-[var(--cream)]">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <Reveal><p className="eyebrow"><span className="gold-rule" />Our Pillars</p></Reveal>
+              <Reveal delay={100}>
+                <h2 className="mt-3 max-w-xl font-display text-4xl font-medium sm:text-5xl">
+                  Five values. One brotherhood.
+                </h2>
+              </Reveal>
+            </div>
+          </div>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            {PILLARS.map((p, i) => (
+              <Reveal key={p.title} delay={i * 80}>
+                <div className="group h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:bg-[var(--gold)]/10 hover:shadow-[0_10px_40px_-10px_rgba(200,162,75,0.55)]">
+                  <div className="font-display text-sm uppercase tracking-widest text-[var(--gold)] transition-colors group-hover:text-[var(--gold-soft)]">
+                    0{i + 1}
+                  </div>
+                  <h3 className="mt-4 font-display text-2xl font-medium transition-colors group-hover:text-[var(--gold)]">{p.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--cream)]/70 transition-colors group-hover:text-[var(--cream)]">{p.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* DOI */}
       <section id="doi" className="bg-[var(--navy)] py-24 text-[var(--cream)]">
         <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-[minmax(0,1fr)_320px]">
