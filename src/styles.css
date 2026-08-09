@@ -286,3 +286,33 @@
   }
 }
 
+
+/* --- Metallic "Private Screening" cards --- */
+@utility metal-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+@utility metal-card {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.55) 50%, transparent 65%);
+    transform: translateX(-120%);
+    transition: transform 0.9s ease;
+    pointer-events: none;
+  }
+  &:hover::after {
+    transform: translateX(120%);
+  }
+}
+@utility metal-bronze {
+  background-image: linear-gradient(135deg, #4a2a18 0%, #8c5a33 22%, #d79b62 45%, #a3653a 60%, #6b3d22 80%, #c98a52 100%);
+}
+@utility metal-silver {
+  background-image: linear-gradient(135deg, #3a3f46 0%, #7f8790 20%, #dfe4e9 45%, #9aa2ab 62%, #565c64 80%, #c3c9d0 100%);
+}
+@utility metal-gold {
+  background-image: linear-gradient(135deg, #4a3a10 0%, #9c7a24 20%, #f0d68c 45%, #c9a84c 62%, #7a5f18 80%, #e6c76e 100%);
+}
