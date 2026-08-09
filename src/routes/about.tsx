@@ -110,7 +110,7 @@ function About() {
       </section>
 
       {/* PILLARS */}
-      <section id="pillars" className="relative bg-[var(--cream)] py-24 text-[var(--navy)]">
+      <section id="pillars" className="relative bg-[var(--navy-deep)] py-24 text-[var(--cream)]">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/60 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/60 to-transparent" />
         <div className="mx-auto max-w-7xl px-6">
@@ -128,12 +128,12 @@ function About() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {PILLARS.map((p, i) => (
               <Reveal key={p.title} delay={i * 80}>
-                <div className="group h-full rounded-2xl border border-[var(--navy)]/10 bg-white p-6 shadow-[0_8px_30px_-15px_rgba(10,31,68,0.12)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_10px_40px_-10px_rgba(200,162,75,0.35)]">
+                <div className="group h-full rounded-2xl border border-white/10 bg-[var(--navy)]/40 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:bg-[var(--navy)]/60 hover:shadow-[0_10px_40px_-10px_rgba(200,162,75,0.35)]">
                   <div className="font-display text-sm uppercase tracking-widest text-[var(--gold)] transition-colors">
                     0{i + 1}
                   </div>
-                  <h3 className="mt-4 font-display text-2xl font-medium text-[var(--navy)] transition-colors">{p.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--navy)]/70 transition-colors">{p.text}</p>
+                  <h3 className="mt-4 font-display text-2xl font-medium text-[var(--cream)] transition-colors">{p.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--cream)]/70 transition-colors">{p.text}</p>
                 </div>
               </Reveal>
             ))}
