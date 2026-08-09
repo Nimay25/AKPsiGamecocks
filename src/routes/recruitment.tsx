@@ -301,7 +301,7 @@ function CurtainHero() {
           style={{ opacity: contentP }}
         >
           <div className="mt-8">
-            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[var(--gold)] bg-black/70 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)] shadow-[0_0_20px_rgba(212,175,55,0.35)] backdrop-blur-sm">
+            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[var(--gold)] bg-black px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)] shadow-[0_0_20px_rgba(212,175,55,0.35)]">
               <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.9)]" /> <span className="pt-0.5">Now Casting</span>
             </div>
           </div>
