@@ -3,7 +3,7 @@ import { ArrowRight, Award, Building2, Instagram } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import auditionsNeon from "@/assets/auditions-neon.png.asset.json";
 
-import heroCampus from "@/assets/photos/chapter-mckissick.jpg";
+import heroGroup from "@/assets/hero-group.png.asset.json";
 import gallery1 from "@/assets/photos/brothers-house.jpg";
 import gallery2 from "@/assets/photos/pledge-roses-1.jpg";
 import gallery3 from "@/assets/photos/pledge-roses-2.jpg";
@@ -46,8 +46,8 @@ function Home() {
       {/* HERO */}
       <section className="relative isolate min-h-[100svh] overflow-hidden">
         <img
-          src={heroCampus}
-          alt="AKPSI brothers in business professional attire on USC's historic campus"
+          src={heroGroup.url}
+          alt="Alpha Kappa Psi Beta Upsilon chapter photo on the steps in business professional attire"
           width={1920}
           height={1280}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
