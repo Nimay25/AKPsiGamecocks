@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
 });
 
 const PILLARS = [
-  { title: "Brotherhood", text: "An extensive network of principled peers and mentors." },
+  { title: "Brotherhood", text: "An extensive network of principled peers and mentors built through shared work, mentorship programs, and bonds that stand the test of time." },
   { title: "Integrity", text: "Maintaining high ethical standards in all facets of life." },
   { title: "Service", text: "Improving the communities around us all across the globe." },
   { title: "Unity", text: "Every major. Every background. One chapter." },
