@@ -103,32 +103,14 @@ function Recruitment() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-3">
             {SCHEDULE.map((e, i) => (
-              <Reveal key={e.title} delay={i * 80}>
-                <div className="group relative rounded-2xl border border-[var(--gold)]/30 bg-gradient-to-br from-white/[0.04] to-transparent p-6 transition hover:border-[var(--gold)]/70 hover:-translate-y-1">
-                  {/* ticket perforation */}
-                  <div className="absolute -left-2 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-[var(--ink)] border border-[var(--gold)]/30" />
-                  <div className="absolute -right-2 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-[var(--ink)] border border-[var(--gold)]/30" />
-                  <div className="flex items-center justify-between">
-                    <Clapperboard className="h-5 w-5 text-[var(--gold)]" />
-                    <span className="font-mono text-xs text-[var(--cream)]/50">EVENT #{(i + 1).toString().padStart(2, "0")}</span>
-                  </div>
-                  <h3 className="mt-4 font-display text-2xl">{e.title}</h3>
-                  <div className="mt-2 flex items-baseline gap-2 font-mono text-sm">
-                    <span className="text-[var(--gold)]">{e.date}</span>
-                    <span className="text-[var(--cream)]/40">·</span>
-                    <span className="text-[var(--cream)]/70">{e.time}</span>
-                  </div>
-                  <p className="mt-3 text-sm text-[var(--cream)]/70">{e.desc}</p>
-                  <div className="mt-6 flex items-center justify-between border-t border-dashed border-[var(--gold)]/30 pt-4 text-xs">
-                    <span className="text-[var(--gold)] uppercase tracking-widest">{e.dress}</span>
-                    <span className="text-[var(--cream)]/40">USC Campus</span>
-                  </div>
-                </div>
+              <Reveal key={e.title} delay={i * 80} className="h-full">
+                <ScheduleCard e={e} i={i} />
               </Reveal>
             ))}
           </div>
+
         </div>
       </section>
 
