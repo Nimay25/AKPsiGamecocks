@@ -12,8 +12,8 @@ export function SiteFooter() {
             </div>
             <p className="mt-3 max-w-md text-sm text-[var(--cream)]/70">
               USC's premier co-ed professional business fraternity. Developing
-              principled business leaders since 1904 — rechartered at South
-              Carolina in 2007.
+              principled business leaders nationally since 1904; at South
+              Carolina since 2007.
             </p>
             <div className="mt-6 flex gap-3">
               {/* EDIT: real social links */}
@@ -41,7 +41,11 @@ export function SiteFooter() {
           <div>
             <div className="eyebrow">Get in touch</div>
             <ul className="mt-4 space-y-2 text-sm text-[var(--cream)]/80">
-              <li>akpsibetaupsilon@gmail.com {/* EDIT */}</li>
+              <li>
+                <a href="mailto:soakpsi@mailbox.sc.edu" className="hover:text-[var(--gold)]">
+                  Get in Touch → soakpsi@mailbox.sc.edu
+                </a>
+              </li>
               <li>University of South Carolina</li>
               <li>Columbia, SC</li>
             </ul>
