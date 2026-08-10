@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
-import { Linkedin, Search } from "lucide-react";
+import { useMemo, useRef, useState } from "react";
+import { Linkedin, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import darlaMoore from "@/assets/darla-moore.jpg.asset.json";
 
@@ -19,12 +19,12 @@ export const Route = createFileRoute("/brothers")({
 });
 
 const EBOARD = [
-  { name: "John Doe", role: "President", brief: "Placeholder · '26 · Placeholder bio." },
-  { name: "Jane Doe", role: "VP Finance", brief: "Placeholder · '26 · Placeholder bio." },
-  { name: "John Smith", role: "VP Education", brief: "Placeholder · '26 · Placeholder bio." },
-  { name: "Jane Smith", role: "VP Recruitment", brief: "Placeholder · '27 · Placeholder bio." },
-  { name: "Alex Doe", role: "VP Member Resources", brief: "Placeholder · '26 · Placeholder bio." },
-  { name: "Sam Doe", role: "VP Service", brief: "Placeholder · '27 · Placeholder bio." },
+  { name: "John Doe", role: "President" },
+  { name: "Jane Doe", role: "VP Finance" },
+  { name: "John Smith", role: "VP Education" },
+  { name: "Jane Smith", role: "VP Recruitment" },
+  { name: "Alex Doe", role: "VP Member Resources" },
+  { name: "Sam Doe", role: "VP Service" },
 ];
 
 const LEADERSHIP = [
@@ -39,18 +39,48 @@ const LEADERSHIP = [
 ];
 
 const BROTHERS = [
-  "John Doe '27", "Jane Doe '26", "John Smith '28", "Jane Smith '27",
-  "Alex Doe '26", "Sam Doe '28", "Chris Doe '27", "Pat Doe '26",
-  "Taylor Doe '28", "Jordan Doe '27", "Morgan Doe '26", "Casey Doe '28",
-  "Riley Doe '27", "Avery Doe '26", "Quinn Doe '28", "Reese Doe '27",
+  { name: "John Doe", pc: "Beta Omicron" },
+  { name: "Jane Doe", pc: "Beta Xi" },
+  { name: "John Smith", pc: "Beta Nu" },
+  { name: "Jane Smith", pc: "Beta Mu" },
+  { name: "Alex Doe", pc: "Beta Lambda" },
+  { name: "Sam Doe", pc: "Beta Kappa" },
+  { name: "Chris Doe", pc: "Beta Iota" },
+  { name: "Pat Doe", pc: "Beta Theta" },
+  { name: "Taylor Doe", pc: "Beta Omicron" },
+  { name: "Jordan Doe", pc: "Beta Xi" },
+  { name: "Morgan Doe", pc: "Beta Nu" },
+  { name: "Casey Doe", pc: "Beta Mu" },
+  { name: "Riley Doe", pc: "Beta Lambda" },
+  { name: "Avery Doe", pc: "Beta Kappa" },
+  { name: "Quinn Doe", pc: "Beta Iota" },
+  { name: "Reese Doe", pc: "Beta Theta" },
 ];
 
 const PLEDGE_CLASSES = [
-  { term: "Fall 2025", count: 22 },
-  { term: "Spring 2025", count: 19 },
-  { term: "Fall 2024", count: 24 },
-  { term: "Spring 2024", count: 17 },
-  { term: "Fall 2023", count: 21 },
+  { term: "Fall 2026", pc: "Beta Omicron", theme: "Hollywood" },
+  { term: "Spring 2026", pc: "Beta Xi", theme: "The Beatles" },
+  { term: "Fall 2025", pc: "Beta Nu", theme: "Shark Tank" },
+  { term: "Spring 2025", pc: "Beta Mu", theme: "Space Jam" },
+  { term: "Fall 2024", pc: "Beta Lambda", theme: "Festival" },
+  { term: "Spring 2024", pc: "Beta Kappa", theme: "Golf" },
+  { term: "Fall 2023", pc: "Beta Iota", theme: "Golden Ticket" },
+  { term: "Spring 2023", pc: "Beta Theta", theme: "Monopoly" },
+  { term: "Fall 2022", pc: "Beta Eta", theme: "Postcard" },
+  { term: "Spring 2022", pc: "Beta Zeta", theme: "Aliens" },
+  { term: "Fall 2021", pc: "Beta Epsilon", theme: "NCAA / ESPN" },
+  { term: "Spring 2021", pc: "Beta Delta", theme: "Reaching New Heights" },
+  { term: "Fall 2020", pc: "Beta Gamma", theme: "Play Your Cards Right" },
+  { term: "Spring 2020", pc: "Beta Beta", theme: "Survivor" },
+  { term: "Fall 2019", pc: "Beta Alpha", theme: "Stranger Things" },
+  { term: "Spring 2019", pc: "Alpha Omega", theme: "Find Your Perfect Playlist" },
+  { term: "Fall 2018", pc: "Alpha Psi", theme: "The Voice" },
+  { term: "Spring 2018", pc: "Alpha Chi", theme: "Light the Fire" },
+  { term: "Fall 2017", pc: "Alpha Phi", theme: "Find Your Greatness" },
+  { term: "Spring 2017", pc: "Alpha Upsilon", theme: "Think Different" },
+  { term: "Fall 2016", pc: "Alpha Tau", theme: "Invest in Yourself" },
+  { term: "Spring 2016", pc: "Alpha Sigma", theme: "The Wolf of Greene Street" },
+  { term: "Fall 2015", pc: "Alpha Rho", theme: "I'm a Business, Man" },
 ];
 
 function Brothers() {
@@ -99,23 +129,7 @@ function Brothers() {
       </Section>
 
       <Section eyebrow="History" title="Pledge Classes" bg="navy">
-        <div className="space-y-6">
-          {PLEDGE_CLASSES.map((p, i) => (
-            <Reveal key={p.term} variant="fade" delay={i * 80}>
-              <div className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:bg-white/[0.06] sm:grid-cols-[200px_minmax(0,1fr)_auto]">
-                <div className="aspect-[16/9] sm:aspect-[3/2] rounded-xl bg-gradient-to-br from-[var(--navy-deep)] to-[var(--ink)] grid place-items-center text-[var(--gold)]/30 font-display text-2xl sm:col-span-1 col-span-2">
-                  Class Photo
-                </div>
-                <div className="min-w-0">
-                  <p className="eyebrow">{p.term}</p>
-                  <h3 className="mt-2 font-display text-2xl">{p.count} new brothers initiated</h3>
-                  <p className="mt-1 text-sm text-[var(--cream)]/65">Placeholder class description.</p>
-                </div>
-                <span className="hidden text-[var(--gold)] font-display text-xl sm:block">→</span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <PledgeCarousel />
       </Section>
     </>
   );
@@ -139,8 +153,8 @@ function Section({ eyebrow, title, bg, children }: { eyebrow: string; title: str
   );
 }
 
-function BrotherCard({ name, role, brief, delay = 0 }: { name: string; role: string; brief?: string; delay?: number }) {
-  const initials = name.split(" ").map(n => n[0]).join("").slice(0,2);
+function BrotherCard({ name, role, delay = 0 }: { name: string; role: string; delay?: number }) {
+  const initials = name.split(" ").map(n => n[0]).join("").slice(0, 2);
   return (
     <Reveal variant="fade" delay={delay}>
       <article className="group rounded-2xl border border-[var(--border)] bg-white p-5 transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]">
@@ -150,10 +164,6 @@ function BrotherCard({ name, role, brief, delay = 0 }: { name: string; role: str
         <div className="mt-5">
           <p className="text-xs uppercase tracking-widest text-[var(--gold)]">{role}</p>
           <h3 className="mt-1 font-display text-xl text-[var(--navy)]">{name}</h3>
-          {brief && <p className="mt-2 text-sm text-[var(--navy)]/70">{brief}</p>}
-          <a href="#" aria-label={`${name} on LinkedIn`} className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-[var(--navy)]/60 hover:text-[var(--gold)]">
-            <Linkedin className="h-3.5 w-3.5" /> LinkedIn
-          </a>
         </div>
       </article>
     </Reveal>
@@ -163,7 +173,7 @@ function BrotherCard({ name, role, brief, delay = 0 }: { name: string; role: str
 function ActiveBrothers() {
   const [query, setQuery] = useState("");
   const filtered = useMemo(
-    () => BROTHERS.filter(b => b.toLowerCase().includes(query.toLowerCase())),
+    () => BROTHERS.filter(b => `${b.name} ${b.pc}`.toLowerCase().includes(query.toLowerCase())),
     [query]
   );
   return (
@@ -179,17 +189,83 @@ function ActiveBrothers() {
           />
         </div>
       </Reveal>
-      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {filtered.map((b, i) => (
-          <Reveal key={b} variant="fade" delay={i * 40}>
-            <div className="flex items-center justify-between rounded-xl border border-[var(--border)] bg-white px-5 py-4 hover:border-[var(--gold)] transition">
-              <span className="text-[var(--navy)] truncate">{b}</span>
-              <Linkedin className="h-4 w-4 text-[var(--navy)]/50 shrink-0" />
-            </div>
-          </Reveal>
-        ))}
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {filtered.map((b, i) => {
+          const initials = b.name.split(" ").map(n => n[0]).join("").slice(0, 2);
+          return (
+            <Reveal key={b.name + i} variant="fade" delay={i * 40}>
+              <article className="rounded-2xl border border-[var(--border)] bg-white p-4 transition hover:-translate-y-1 hover:border-[var(--gold)]">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)]">
+                  <div className="absolute inset-0 grid place-items-center font-display text-5xl text-[var(--gold)]/40">{initials}</div>
+                </div>
+                <div className="mt-4 flex items-center justify-between gap-3">
+                  <p className="min-w-0 truncate text-sm text-[var(--navy)]">
+                    <span className="font-medium">{b.name}</span>
+                    <span className="text-[var(--navy)]/40"> | </span>
+                    <span className="text-[var(--navy)]/70">{b.pc}</span>
+                  </p>
+                  <a href="#" aria-label={`${b.name} on LinkedIn`} className="shrink-0 text-[var(--navy)]/50 hover:text-[var(--gold)]">
+                    <Linkedin className="h-4 w-4" />
+                  </a>
+                </div>
+              </article>
+            </Reveal>
+          );
+        })}
         {filtered.length === 0 && <p className="text-sm text-[var(--navy)]/60">No matches.</p>}
       </div>
     </>
+  );
+}
+
+function PledgeCarousel() {
+  const railRef = useRef<HTMLDivElement>(null);
+  const scrollBy = (dir: number) => {
+    const el = railRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.8, 900), behavior: "smooth" });
+  };
+  return (
+    <div className="relative">
+      <div className="mb-6 flex justify-end gap-3">
+        <button
+          type="button"
+          onClick={() => scrollBy(-1)}
+          aria-label="Previous pledge classes"
+          className="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-[var(--cream)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button
+          type="button"
+          onClick={() => scrollBy(1)}
+          aria-label="Next pledge classes"
+          className="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-[var(--cream)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+      <div
+        ref={railRef}
+        className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {PLEDGE_CLASSES.map((p) => (
+          <figure
+            key={p.pc}
+            className="w-[280px] shrink-0 snap-start sm:w-[360px]"
+          >
+            <div className="aspect-[3/2] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[var(--navy-deep)] to-[var(--ink)] grid place-items-center font-display text-xl text-[var(--gold)]/30">
+              Class Photo
+            </div>
+            <figcaption className="mt-4">
+              <p className="font-display text-lg text-[var(--cream)]">
+                {p.term} <span className="text-[var(--cream)]/40">|</span> <span className="text-[var(--gold)]">{p.pc}</span>
+              </p>
+              <p className="mt-1 text-xs uppercase tracking-widest text-[var(--cream)]/55">{p.theme}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
   );
 }
