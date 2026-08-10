@@ -29,13 +29,14 @@ const PILLARS = [
 ];
 
 const FAQS = [
-  { q: "What is Alpha Kappa Psi?", a: "Alpha Kappa Psi is the oldest and largest co-ed professional business fraternity in the United States, founded in 1904. Beta Upsilon is our chapter at the University of South Carolina." },
-  { q: "Who can join?", a: "Any USC student in good academic standing, of any major or year. We welcome candidates from every college on campus." },
-  { q: "Is it only for business majors?", a: "No — about a third of our brothers are non-business majors. We value intellectual diversity, not your transcript header." },
-  { q: "What's the time commitment?", a: "Pledging requires roughly 8–10 hours per week. Active membership averages 4–6 hours, with optional events and committees." },
-  { q: "Is there a GPA requirement?", a: "AKPSI requires a 2.75 cumulative GPA to join and remain active." },
-  { q: "What about dues?", a: "Dues cover national fees, professional events, formal, and chapter operations. Specific amounts and payment plans are reviewed during rush." },
-  { q: "How do I rush?", a: "Visit our Recruitment page for the full Fall 2026 schedule, dress guide, and application link." },
+  {
+    q: "Why Alpha Kappa Psi?",
+    a: "While this means something different to every brother, Alpha Kappa Psi is:\n\n• The most successful professional business fraternity at the University of South Carolina, winning the #1 professional organization award nineteen years running.\n• Our brothers and alumni are deeply entrenched in the professional world, from traditional placements in investment banking and Big Four consulting to law, public health, sports management, and technology. If you have an interest, we have someone with the experience to get you there.\n• We pride ourselves on organizational and study-specific diversity, being open to all majors: simply put, business is better when high achieving individuals of ALL disciplines can learn from one another.",
+  },
+  { q: "Who can join?", a: "Alpha Kappa Psi is open to all University of South Carolina students, regardless of major or organizational involvement." },
+  { q: "Is it only for business majors?", a: "No—about [X]% of our brothers are non-business majors. We look for driven candidates, regardless of major or industry focus." },
+  { q: "How do I rush?", a: "Visit our Recruitment page for the full Fall 2026 schedule, dress guide, and application link!" },
+  { q: "What do I get out of joining?", a: "You join a lifelong network of principled business leaders. Members gain access to mentorship from alumni across every industry, professional development workshops, interview prep, exclusive recruiting events, leadership opportunities, and a tight-knit community that supports you long after graduation." },
 ];
 
 function About() {
@@ -199,6 +200,7 @@ function About() {
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
+  const lines = a.split("\n").filter(Boolean);
   return (
     <div>
       <button
@@ -210,7 +212,18 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       </button>
       <div className={`grid transition-all duration-300 ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
         <div className="overflow-hidden">
-          <p className="px-6 pb-6 text-[var(--navy)]/75 leading-relaxed">{a}</p>
+          <div className="px-6 pb-6 text-[var(--navy)]/75 leading-relaxed space-y-3">
+            {lines.map((line, i) =>
+              line.startsWith("•") ? (
+                <div key={i} className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+                  <span>{line.replace(/^•\s*/, "")}</span>
+                </div>
+              ) : (
+                <p key={i}>{line}</p>
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>
