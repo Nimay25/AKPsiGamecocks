@@ -82,15 +82,11 @@ function About() {
                   professional development, service, and a brotherhood of
                   driven peers from every major on campus.
                 </p>
-                <p className="text-sm text-[var(--navy)]/60 italic">
-                  Stats below refresh each semester — current figures are
-                  placeholder for this redesign.
-                </p>
               </div>
               <div className="mt-10 grid grid-cols-3 gap-6">
                 {[
                   { n: "150+", l: "Active Brothers" },
-                  { n: "3.81", l: "Average GPA" },
+                  { n: "3.91", l: "Average GPA" },
                   { n: "71%", l: "Out-of-State" },
                 ].map((s) => (
                   <div key={s.l} className="border-t border-[var(--gold)]/40 pt-4">
