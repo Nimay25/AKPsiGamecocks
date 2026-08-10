@@ -40,6 +40,16 @@ const FAQS = [
 ];
 
 function About() {
+  const [nimayClicks, setNimayClicks] = useState(0);
+  const handleNimayClick = () => {
+    const next = nimayClicks + 1;
+    setNimayClicks(next);
+    if (next >= 15) {
+      window.open("https://www.instagram.com/nimay_anki", "_blank", "noopener,noreferrer");
+      setNimayClicks(0);
+    }
+  };
+
   return (
     <>
       <section className="relative pt-40 pb-20 text-[var(--cream)] overflow-hidden min-h-[80vh] flex items-end">
