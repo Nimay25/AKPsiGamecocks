@@ -200,6 +200,7 @@ function About() {
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
+  const lines = a.split("\n").filter(Boolean);
   return (
     <div>
       <button
@@ -211,7 +212,18 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       </button>
       <div className={`grid transition-all duration-300 ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
         <div className="overflow-hidden">
-          <p className="px-6 pb-6 text-[var(--navy)]/75 leading-relaxed">{a}</p>
+          <div className="px-6 pb-6 text-[var(--navy)]/75 leading-relaxed space-y-3">
+            {lines.map((line, i) =>
+              line.startsWith("•") ? (
+                <div key={i} className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+                  <span>{line.replace(/^•\s*/, "")}</span>
+                </div>
+              ) : (
+                <p key={i}>{line}</p>
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>
