@@ -41,10 +41,11 @@ export function Reveal({ children, delay = 0, className = "", as: Tag = "div", v
   );
 }
 
-export function CountUp({ to, duration = 1800, suffix = "", prefix = "" }: { to: number; duration?: number; suffix?: string; prefix?: string }) {
+export function CountUp({ to, duration = 1800, suffix = "", prefix = "", decimals = 0 }: { to: number; duration?: number; suffix?: string; prefix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const [value, setValue] = useState(0);
   const started = useRef(false);
+  const factor = Math.pow(10, decimals);
 
   useEffect(() => {
     const el = ref.current;
@@ -56,7 +57,7 @@ export function CountUp({ to, duration = 1800, suffix = "", prefix = "" }: { to:
         const tick = (now: number) => {
           const p = Math.min(1, (now - start) / duration);
           const eased = 1 - Math.pow(1 - p, 3);
-          setValue(Math.round(to * eased));
+          setValue(Math.round(to * eased * factor) / factor);
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
@@ -64,7 +65,7 @@ export function CountUp({ to, duration = 1800, suffix = "", prefix = "" }: { to:
     }, { threshold: 0.4 });
     io.observe(el);
     return () => io.disconnect();
-  }, [to, duration]);
+  }, [to, duration, factor]);
 
-  return <span ref={ref}>{prefix}{value.toLocaleString()}{suffix}</span>;
+  return <span ref={ref}>{prefix}{value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}</span>;
 }

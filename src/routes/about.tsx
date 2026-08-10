@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import aboutBrothers from "@/assets/photos/pledge-roses-1.jpg";
 import mooreAtrium from "@/assets/moore-atrium.jpg.asset.json";
 import doiDirector from "@/assets/doi-director.jpg.asset.json";
-import { Reveal } from "@/components/Reveal";
+import { Reveal, CountUp } from "@/components/Reveal";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -85,12 +85,14 @@ function About() {
               </div>
               <div className="mt-10 grid grid-cols-3 gap-6">
                 {[
-                  { n: "150+", l: "Active Brothers" },
-                  { n: "3.91", l: "Average GPA" },
-                  { n: "71%", l: "Out-of-State" },
+                  { n: 150, suffix: "+", l: "Active Brothers" },
+                  { n: 3.91, suffix: "", l: "Average GPA", decimals: 2 },
+                  { n: 71, suffix: "%", l: "Out-of-State" },
                 ].map((s) => (
                   <div key={s.l} className="border-t border-[var(--gold)]/40 pt-4">
-                    <div className="font-display text-3xl text-[var(--navy)]">{s.n}</div>
+                    <div className="font-display text-3xl text-[var(--navy)] tabular-nums">
+                      <CountUp to={s.n} suffix={s.suffix} decimals={s.decimals ?? 0} />
+                    </div>
                     <div className="mt-1 text-xs uppercase tracking-widest text-[var(--navy)]/60">{s.l}</div>
                   </div>
                 ))}
