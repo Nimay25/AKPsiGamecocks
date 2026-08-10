@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { Linkedin, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { bySection } from "@/lib/roster";
 import darlaMoore from "@/assets/darla-moore.jpg.asset.json";
 
 export const Route = createFileRoute("/brothers")({
@@ -18,44 +19,10 @@ export const Route = createFileRoute("/brothers")({
   component: Brothers,
 });
 
-const EBOARD = [
-  { name: "John Doe", role: "President" },
-  { name: "Jane Doe", role: "VP Finance" },
-  { name: "John Smith", role: "VP Education" },
-  { name: "Jane Smith", role: "VP Recruitment" },
-  { name: "Alex Doe", role: "VP Member Resources" },
-  { name: "Sam Doe", role: "VP Service" },
-];
-
-const LEADERSHIP = [
-  { name: "Placeholder One", role: "Director of Alumni Relations", group: "Director" },
-  { name: "Placeholder Two", role: "Director of Recruitment", group: "Director" },
-  { name: "Placeholder Three", role: "Director of Professional Development", group: "Director" },
-  { name: "Placeholder Four", role: "Chair, Brotherhood", group: "Chair" },
-  { name: "Placeholder Five", role: "Chair, Case Competition", group: "Chair" },
-  { name: "Placeholder Six", role: "Chair, Community Service", group: "Chair" },
-  { name: "Placeholder Seven", role: "Chair, Finance", group: "Chair" },
-  { name: "Placeholder Eight", role: "Chair, Marketing", group: "Chair" },
-];
-
-const BROTHERS = [
-  { name: "John Doe", pc: "Beta Omicron" },
-  { name: "Jane Doe", pc: "Beta Xi" },
-  { name: "John Smith", pc: "Beta Nu" },
-  { name: "Jane Smith", pc: "Beta Mu" },
-  { name: "Alex Doe", pc: "Beta Lambda" },
-  { name: "Sam Doe", pc: "Beta Kappa" },
-  { name: "Chris Doe", pc: "Beta Iota" },
-  { name: "Pat Doe", pc: "Beta Theta" },
-  { name: "Taylor Doe", pc: "Beta Omicron" },
-  { name: "Jordan Doe", pc: "Beta Xi" },
-  { name: "Morgan Doe", pc: "Beta Nu" },
-  { name: "Casey Doe", pc: "Beta Mu" },
-  { name: "Riley Doe", pc: "Beta Lambda" },
-  { name: "Avery Doe", pc: "Beta Kappa" },
-  { name: "Quinn Doe", pc: "Beta Iota" },
-  { name: "Reese Doe", pc: "Beta Theta" },
-];
+const EBOARD = bySection("eboard");
+const DIRECTORS = bySection("director");
+const CHAIRS = bySection("chair");
+const BROTHERS = bySection("brother");
 
 const PLEDGE_CLASSES = [
   { term: "Fall 2026", pc: "Beta Omicron", theme: "Hollywood" },
@@ -105,22 +72,18 @@ function Brothers() {
 
       <Section eyebrow="Leadership" title="Executive Board" bg="cream">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {EBOARD.map((b, i) => <BrotherCard key={b.name} {...b} delay={i * 60} />)}
+          {EBOARD.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
         </div>
       </Section>
 
       <Section eyebrow="Operations" title="Leadership Team" bg="white">
         <h3 className="font-display text-xl text-[var(--navy)]">Directors</h3>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {LEADERSHIP.filter(l => l.group === "Director").map((b, i) => (
-            <BrotherCard key={b.name} {...b} delay={i * 60} />
-          ))}
+          {DIRECTORS.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
         </div>
         <h3 className="mt-16 font-display text-xl text-[var(--navy)]">Chairs</h3>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {LEADERSHIP.filter(l => l.group === "Chair").map((b, i) => (
-            <BrotherCard key={b.name} {...b} delay={i * 60} />
-          ))}
+          {CHAIRS.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
         </div>
       </Section>
 
@@ -173,7 +136,7 @@ function BrotherCard({ name, role, delay = 0 }: { name: string; role: string; de
 function ActiveBrothers() {
   const [query, setQuery] = useState("");
   const filtered = useMemo(
-    () => BROTHERS.filter(b => `${b.name} ${b.pc}`.toLowerCase().includes(query.toLowerCase())),
+    () => BROTHERS.filter(b => `${b.name} ${b.pledgeClass}`.toLowerCase().includes(query.toLowerCase())),
     [query]
   );
   return (
@@ -189,29 +152,27 @@ function ActiveBrothers() {
           />
         </div>
       </Reveal>
-      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {filtered.map((b, i) => {
-          const initials = b.name.split(" ").map(n => n[0]).join("").slice(0, 2);
-          return (
-            <Reveal key={b.name + i} variant="fade" delay={i * 40}>
-              <article className="rounded-2xl border border-[var(--border)] bg-white p-4 transition hover:-translate-y-1 hover:border-[var(--gold)]">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)]">
-                  <div className="absolute inset-0 grid place-items-center font-display text-5xl text-[var(--gold)]/40">{initials}</div>
-                </div>
-                <div className="mt-4 flex items-center justify-between gap-3">
-                  <p className="min-w-0 truncate text-sm text-[var(--navy)]">
-                    <span className="font-medium">{b.name}</span>
-                    <span className="text-[var(--navy)]/40"> | </span>
-                    <span className="text-[var(--navy)]/70">{b.pc}</span>
-                  </p>
-                  <a href="#" aria-label={`${b.name} on LinkedIn`} className="shrink-0 text-[var(--navy)]/50 hover:text-[var(--gold)]">
-                    <Linkedin className="h-4 w-4" />
-                  </a>
-                </div>
-              </article>
-            </Reveal>
-          );
-        })}
+      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {filtered.map((b, i) => (
+          <Reveal key={b.name + i} variant="fade" delay={i * 40}>
+            <div className="flex items-center justify-between gap-3 rounded-xl border border-[var(--border)] bg-white px-5 py-4 transition hover:border-[var(--gold)]">
+              <p className="min-w-0 truncate text-sm text-[var(--navy)]">
+                <span className="font-medium">{b.name}</span>
+                <span className="text-[var(--navy)]/40"> | </span>
+                <span className="text-[var(--navy)]/70">{b.pledgeClass}</span>
+              </p>
+              <a
+                href={b.linkedin || "#"}
+                target={b.linkedin ? "_blank" : undefined}
+                rel={b.linkedin ? "noreferrer" : undefined}
+                aria-label={`${b.name} on LinkedIn`}
+                className="shrink-0 text-[var(--navy)]/50 hover:text-[var(--gold)]"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </div>
+          </Reveal>
+        ))}
         {filtered.length === 0 && <p className="text-sm text-[var(--navy)]/60">No matches.</p>}
       </div>
     </>
@@ -219,51 +180,57 @@ function ActiveBrothers() {
 }
 
 function PledgeCarousel() {
-  const railRef = useRef<HTMLDivElement>(null);
-  const scrollBy = (dir: number) => {
-    const el = railRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.8, 900), behavior: "smooth" });
-  };
+  const [i, setI] = useState(0);
+  const total = PLEDGE_CLASSES.length;
+  const current = PLEDGE_CLASSES[i]!;
+  const go = (dir: number) => setI((prev) => (prev + dir + total) % total);
+
   return (
-    <div className="relative">
-      <div className="mb-6 flex justify-end gap-3">
+    <div className="mx-auto max-w-4xl">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--navy-deep)] to-[var(--ink)]">
+        <div className="grid aspect-[16/9] place-items-center font-display text-2xl text-[var(--gold)]/30">
+          Class Photo
+        </div>
         <button
           type="button"
-          onClick={() => scrollBy(-1)}
-          aria-label="Previous pledge classes"
-          className="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-[var(--cream)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+          onClick={() => go(-1)}
+          aria-label="Previous pledge class"
+          className="absolute left-4 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/50 text-[var(--cream)] backdrop-blur transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
         <button
           type="button"
-          onClick={() => scrollBy(1)}
-          aria-label="Next pledge classes"
-          className="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-[var(--cream)] transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+          onClick={() => go(1)}
+          aria-label="Next pledge class"
+          className="absolute right-4 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/50 text-[var(--cream)] backdrop-blur transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
       </div>
-      <div
-        ref={railRef}
-        className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {PLEDGE_CLASSES.map((p) => (
-          <figure
+
+      <div className="mt-6 flex flex-wrap items-baseline justify-between gap-3">
+        <p className="font-display text-2xl text-[var(--cream)]">
+          {current.term} <span className="text-[var(--cream)]/40">|</span>{" "}
+          <span className="text-[var(--gold)]">{current.pc}</span>
+        </p>
+        <p className="text-xs uppercase tracking-widest text-[var(--cream)]/55">{current.theme}</p>
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {PLEDGE_CLASSES.map((p, idx) => (
+          <button
             key={p.pc}
-            className="w-[280px] shrink-0 snap-start sm:w-[360px]"
+            type="button"
+            onClick={() => setI(idx)}
+            className={`rounded-full border px-3 py-1.5 text-xs transition ${
+              idx === i
+                ? "border-[var(--gold)] text-[var(--gold)]"
+                : "border-white/15 text-[var(--cream)]/60 hover:border-white/40"
+            }`}
           >
-            <div className="aspect-[3/2] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[var(--navy-deep)] to-[var(--ink)] grid place-items-center font-display text-xl text-[var(--gold)]/30">
-              Class Photo
-            </div>
-            <figcaption className="mt-4">
-              <p className="font-display text-lg text-[var(--cream)]">
-                {p.term} <span className="text-[var(--cream)]/40">|</span> <span className="text-[var(--gold)]">{p.pc}</span>
-              </p>
-              <p className="mt-1 text-xs uppercase tracking-widest text-[var(--cream)]/55">{p.theme}</p>
-            </figcaption>
-          </figure>
+            {p.term}
+          </button>
         ))}
       </div>
     </div>
