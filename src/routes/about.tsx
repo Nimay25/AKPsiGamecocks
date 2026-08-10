@@ -40,6 +40,16 @@ const FAQS = [
 ];
 
 function About() {
+  const [nimayClicks, setNimayClicks] = useState(0);
+  const handleNimayClick = () => {
+    const next = nimayClicks + 1;
+    setNimayClicks(next);
+    if (next >= 15) {
+      window.open("https://www.instagram.com/nimay_anki", "_blank", "noopener,noreferrer");
+      setNimayClicks(0);
+    }
+  };
+
   return (
     <>
       <section className="relative pt-40 pb-20 text-[var(--cream)] overflow-hidden min-h-[80vh] flex items-end">
@@ -163,7 +173,11 @@ function About() {
             </Reveal>
           </div>
           <Reveal delay={200}>
-            <figure className="relative mx-auto w-full max-w-[320px]">
+            <figure
+              className="relative mx-auto w-full max-w-[320px]"
+              onClick={handleNimayClick}
+              aria-hidden="true"
+            >
               <div className="rounded-2xl border-4 border-[var(--gold)] p-1.5 shadow-[0_25px_60px_-25px_rgba(0,0,0,0.7)]">
                 <div className="overflow-hidden rounded-xl border border-[var(--gold)]/60">
                   <img
