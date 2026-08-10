@@ -1,3 +1,18 @@
+/**
+ * ROSTER DATA PIPELINE
+ *
+ * The Brothers page is powered by src/data/roster.csv.
+ * Vite imports the raw CSV here and parses it at build time, so the finished
+ * site contains only the parsed data — the CSV itself is never served to
+ * visitors and cannot be edited by the public.
+ *
+ * To update members:
+ *   1. Edit src/data/roster.csv in your editor (or Excel/Sheets, then paste back).
+ *   2. Commit and push to GitHub.
+ *   3. Redeploy on Vercel (or your host). The new build will pick up the CSV.
+ *
+ * Note: This is NOT a live database. Changes only appear after a new deploy.
+ */
 import rosterCsv from "@/data/roster.csv?raw";
 
 export type RosterSection = "eboard" | "director" | "chair" | "brother";

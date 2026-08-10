@@ -1,3 +1,9 @@
+// ROSTER MAINTENANCE GUIDE
+// This CSV drives the Brothers page. Edit it in your editor, then rebuild + redeploy.
+// It is compiled into the site at build time, so live visitors cannot download or modify it.
+// section: eboard | director | chair | brother
+// role:    only required for eboard/director/chair (leave blank for brothers)
+// linkedin: full URL, e.g. https://www.linkedin.com/in/johndoe
 section,name,role,pledge_class,linkedin
 eboard,John Doe,President,Beta Nu,
 eboard,Jane Doe,VP Finance,Beta Mu,
