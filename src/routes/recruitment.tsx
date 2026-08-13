@@ -176,11 +176,11 @@ function Recruitment() {
       <FilmDivider />
 
       {/* Dress Guide */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Wardrobe</p></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-3 font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">How to dress!</h2>
+            <h2 className="mt-3 font-display text-3xl font-medium text-[var(--navy)] sm:text-4xl md:text-5xl">How to dress!</h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-4 max-w-2xl text-[var(--navy)]/70">
@@ -189,13 +189,14 @@ function Recruitment() {
           </Reveal>
 
           {/* Business Professional */}
-          <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
+          <div className="mt-10 grid gap-8 md:mt-16 md:gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
             <Reveal>
-              <div className="grid grid-cols-2 gap-4">
-                <img src={dressPro1.url} alt="Brothers in business professional attire" className="col-span-2 aspect-[4/3] w-full rounded-2xl object-contain bg-[var(--cream)] shadow-[var(--shadow-soft)]" />
-                <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="col-span-2 aspect-[16/9] w-full rounded-2xl object-cover shadow-[var(--shadow-soft)]" />
+              <div className="grid gap-4 lg:sticky lg:top-24">
+                <img src={dressPro1.url} alt="Brothers in business professional attire" className="aspect-[4/5] w-full rounded-2xl object-cover object-top shadow-[var(--shadow-soft)] sm:aspect-[4/3]" />
+                <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="aspect-[16/10] w-full rounded-2xl object-cover object-top shadow-[var(--shadow-soft)] sm:aspect-[16/9]" />
               </div>
             </Reveal>
+
             <Reveal delay={100}>
               <div>
                 <p className="eyebrow"><span className="gold-rule" />Business Professional</p>
