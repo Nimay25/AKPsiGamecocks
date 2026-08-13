@@ -418,6 +418,56 @@ function CurtainHero() {
   );
 }
 
+function WardrobeCarousel({ images }: { images: { url: string; alt: string }[] }) {
+  const [idx, setIdx] = useState(0);
+  const next = () => setIdx((i) => (i + 1) % images.length);
+  const prev = () => setIdx((i) => (i - 1 + images.length) % images.length);
+
+  return (
+    <div className="relative overflow-hidden rounded-2xl bg-[var(--cream)] shadow-[var(--shadow-soft)] aspect-[4/3]">
+      <div
+        className="flex h-full transition-transform duration-500 ease-out"
+        style={{ transform: `translateX(-${idx * 100}%)` }}
+      >
+        {images.map((img) => (
+          <div key={img.url} className="h-full w-full shrink-0">
+            <img src={img.url} alt={img.alt} className="h-full w-full object-contain" />
+          </div>
+        ))}
+      </div>
+
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={prev}
+            aria-label="Previous wardrobe photo"
+            className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-[var(--navy)]/80 p-2 text-[var(--gold)] backdrop-blur-sm transition hover:bg-[var(--navy)]"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next wardrobe photo"
+            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-[var(--navy)]/80 p-2 text-[var(--gold)] backdrop-blur-sm transition hover:bg-[var(--navy)]"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                aria-label={`Go to wardrobe photo ${i + 1}`}
+                className={`h-2 w-2 rounded-full transition ${i === idx ? "bg-[var(--gold)]" : "bg-white/60 hover:bg-white"}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 type ScheduleEvent = (typeof SCHEDULE)[number];
 
 const TIER_STYLES: Record<string, { metal: string; label: string; ink: string; sub: string; rule: string }> = {
