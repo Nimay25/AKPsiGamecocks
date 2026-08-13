@@ -63,8 +63,8 @@ function Recruitment() {
       <FilmDivider />
 
       {/* Why Rush */}
-      <section className="bg-[var(--cream)] py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="bg-[var(--cream)] py-14 md:py-28">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Why Rush</p></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-3 max-w-3xl font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">
@@ -148,11 +148,11 @@ function Recruitment() {
       </section>
 
       {/* Schedule */}
-      <section className="bg-[var(--ink)] py-24 text-[var(--cream)]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--ink)] py-16 md:py-24 text-[var(--cream)]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Fall 2026</p></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-3 font-display text-4xl font-medium sm:text-5xl">
+            <h2 className="mt-3 font-display text-3xl font-medium sm:text-4xl md:text-5xl">
               Rush Schedule: The Filmstrip.
             </h2>
           </Reveal>
@@ -176,11 +176,11 @@ function Recruitment() {
       <FilmDivider />
 
       {/* Dress Guide */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-white py-16 md:py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Wardrobe</p></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-3 font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">How to dress!</h2>
+            <h2 className="mt-3 font-display text-3xl font-medium text-[var(--navy)] sm:text-4xl md:text-5xl">How to dress!</h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-4 max-w-2xl text-[var(--navy)]/70">
@@ -189,13 +189,14 @@ function Recruitment() {
           </Reveal>
 
           {/* Business Professional */}
-          <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
+          <div className="mt-10 grid gap-8 md:mt-16 md:gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
             <Reveal>
-              <div className="grid grid-cols-2 gap-4">
-                <img src={dressPro1.url} alt="Brothers in business professional attire" className="col-span-2 aspect-[4/3] w-full rounded-2xl object-contain bg-[var(--cream)] shadow-[var(--shadow-soft)]" />
-                <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="col-span-2 aspect-[16/9] w-full rounded-2xl object-cover shadow-[var(--shadow-soft)]" />
+              <div className="grid gap-4 lg:sticky lg:top-24">
+                <img src={dressPro1.url} alt="Brothers in business professional attire" className="aspect-[4/5] w-full rounded-2xl object-cover object-top shadow-[var(--shadow-soft)] sm:aspect-[4/3]" />
+                <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="aspect-[16/10] w-full rounded-2xl object-cover object-top shadow-[var(--shadow-soft)] sm:aspect-[16/9]" />
               </div>
             </Reveal>
+
             <Reveal delay={100}>
               <div>
                 <p className="eyebrow"><span className="gold-rule" />Business Professional</p>
@@ -247,7 +248,7 @@ function Recruitment() {
 
 
       {/* FAQ */}
-      <section className="bg-[var(--cream)] py-24">
+      <section className="bg-[var(--cream)] py-16 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Recruitment FAQ</p></Reveal>
           <Reveal delay={100}>
@@ -260,13 +261,13 @@ function Recruitment() {
       </section>
 
       {/* Closing CTAs */}
-      <section className="relative overflow-hidden bg-[var(--ink)] py-24 text-[var(--cream)]">
+      <section className="relative overflow-hidden bg-[var(--ink)] py-16 md:py-24 text-[var(--cream)]">
         <div className="absolute inset-x-0 top-0 marquee-bulbs h-5 opacity-60" />
         <div className="absolute inset-x-0 bottom-0 marquee-bulbs h-5 opacity-60" />
-        <div className="mx-auto max-w-4xl px-6 text-center">
+        <div className="mx-auto max-w-4xl px-5 sm:px-6 text-center">
           <Reveal><Ticket className="mx-auto h-10 w-10 text-[var(--gold)]" /></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-4 font-display text-5xl font-medium sm:text-6xl">
+            <h2 className="mt-4 font-display text-4xl font-medium sm:text-5xl md:text-6xl">
               Your <span className="italic text-[var(--gold)]">audition</span> awaits.
             </h2>
           </Reveal>
@@ -337,7 +338,7 @@ function CurtainHero() {
 
         {/* HERO content */}
         <div
-          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 pt-52 pb-24 text-center transition-opacity"
+          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-5 pt-36 pb-16 text-center transition-opacity sm:px-6 sm:pt-52 sm:pb-24"
           style={{ opacity: contentP }}
         >
           <div className="mt-8">
@@ -345,7 +346,7 @@ function CurtainHero() {
               <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.9)]" /> <span className="pt-0.5">Now Casting</span>
             </div>
           </div>
-          <h1 className="mt-8 font-display text-5xl font-medium leading-[0.95] sm:text-7xl lg:text-8xl">
+          <h1 className="mt-8 font-display text-4xl font-medium leading-[0.95] sm:text-6xl md:text-7xl lg:text-8xl">
             Alpha Kappa Psi
             <span className="block mt-3 text-[var(--gold)] italic">Fall 2026 Rush.</span>
           </h1>

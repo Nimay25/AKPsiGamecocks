@@ -60,10 +60,10 @@ function Brothers() {
           aria-hidden
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" aria-hidden />
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal variant="fade"><p className="eyebrow"><span className="gold-rule" />The Brotherhood</p></Reveal>
           <Reveal variant="fade" delay={100}>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl">
+            <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-tight sm:text-6xl md:text-7xl">
               The brothers behind <span className="italic text-[var(--gold)]">Alpha Kappa Psi</span>.
             </h1>
           </Reveal>
@@ -102,11 +102,11 @@ function Section({ eyebrow, title, bg, children }: { eyebrow: string; title: str
   const bgClass = bg === "cream" ? "bg-[var(--cream)]" : bg === "white" ? "bg-white" : "bg-[var(--navy)] text-[var(--cream)]";
   const titleColor = bg === "navy" ? "text-[var(--cream)]" : "text-[var(--navy)]";
   return (
-    <section className={`${bgClass} py-24`}>
-      <div className="mx-auto max-w-7xl px-6">
+    <section className={`${bgClass} py-16 md:py-24`}>
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <Reveal variant="fade"><p className="eyebrow"><span className="gold-rule" />{eyebrow}</p></Reveal>
         <Reveal variant="fade" delay={100}>
-          <h2 className={`mt-3 font-display text-4xl font-medium sm:text-5xl ${titleColor}`}>{title}</h2>
+          <h2 className={`mt-3 font-display text-3xl font-medium sm:text-4xl md:text-5xl ${titleColor}`}>{title}</h2>
         </Reveal>
         <Reveal variant="fade" delay={200}>
           <div className="mt-12">{children}</div>

@@ -62,7 +62,7 @@ function Home() {
             </p>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[0.95] text-[var(--cream)] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 max-w-4xl font-display text-4xl font-medium leading-[0.95] text-[var(--cream)] sm:text-5xl md:text-6xl lg:text-7xl">
               Alpha Kappa Psi
               <span className="block text-[var(--gold)] italic font-normal">Beta Upsilon.</span>
             </h1>
@@ -90,7 +90,7 @@ function Home() {
 
       {/* AWARD BADGE BAND */}
       <section className="bg-[var(--navy)] py-14 text-[var(--cream)]">
-        <div className="mx-auto max-w-5xl px-6 text-center">
+        <div className="mx-auto max-w-5xl px-5 sm:px-6 text-center">
           <Reveal>
             <Award className="mx-auto h-10 w-10 text-[var(--gold)]" />
           </Reveal>
@@ -107,8 +107,8 @@ function Home() {
       </section>
 
       {/* STATS */}
-      <section className="bg-[var(--cream)] py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--cream)] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="grid gap-10 sm:grid-cols-3 mx-auto max-w-5xl">
             {[
               { n: 150, suffix: "+", label: "Active Brothers" },
@@ -133,13 +133,13 @@ function Home() {
 
 
       {/* PILLARS PREVIEW */}
-      <section className="bg-[var(--navy)] py-24 text-[var(--cream)]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--navy)] py-16 md:py-24 text-[var(--cream)]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <Reveal><p className="eyebrow"><span className="gold-rule" />Our Pillars</p></Reveal>
               <Reveal delay={100}>
-                <h2 className="mt-3 max-w-xl font-display text-4xl font-medium sm:text-5xl">
+                <h2 className="mt-3 max-w-xl font-display text-3xl font-medium sm:text-4xl md:text-5xl">
                   Five values. One brotherhood.
                 </h2>
               </Reveal>
@@ -173,9 +173,9 @@ function Home() {
         href="https://instagram.com/akpsigamecocks"
         target="_blank"
         rel="noreferrer"
-        className="block bg-[var(--cream)] py-24 transition-colors hover:bg-[var(--cream)]/90"
+        className="block bg-[var(--cream)] py-16 md:py-24 transition-colors hover:bg-[var(--cream)]/90"
       >
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="eyebrow"><span className="gold-rule" />Latest</p>
@@ -267,7 +267,7 @@ function RushCtaSweep() {
           <div className="mx-auto max-w-4xl">
             <Building2 className="mx-auto h-9 w-9 text-[var(--gold)]" />
             <p className="mt-4 eyebrow">Now Casting</p>
-            <h2 className="mt-3 font-display text-5xl font-medium sm:text-6xl">
+            <h2 className="mt-3 font-display text-4xl font-medium sm:text-5xl md:text-6xl">
               Fall 2026 <span className="italic text-[var(--gold)]">Rush.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--cream)]/75">

@@ -35,10 +35,10 @@ function Contact() {
           <img src={contactClassroom.url} alt="Classroom at the Darla Moore School of Business" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/80 via-[var(--navy)]/60 to-[var(--navy)]/85" />
         </div>
-        <div className="mx-auto max-w-7xl px-6 w-full">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 w-full">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Contact</p></Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
+            <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-tight sm:text-6xl md:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
               Say <span className="italic text-[var(--gold)]">hello</span>.
             </h1>
           </Reveal>
@@ -51,7 +51,7 @@ function Contact() {
         </div>
       </section>
 
-      <section className="bg-[var(--cream)] py-24">
+      <section className="bg-[var(--cream)] py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
           <Reveal>
             <ContactForm />

@@ -30,10 +30,10 @@ function Alumni() {
       <section className="relative overflow-hidden bg-[var(--navy)] pt-40 pb-20 text-[var(--cream)]">
         <img src={alumniMap.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/70 via-[var(--navy)]/60 to-[var(--navy)]/90" />
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Alumni</p></Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl">
+            <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-tight sm:text-6xl md:text-7xl">
               Once a brother, <span className="italic text-[var(--gold)]">always</span>.
             </h1>
           </Reveal>
@@ -41,11 +41,11 @@ function Alumni() {
       </section>
 
       {/* Network map */}
-      <section className="bg-[var(--navy-deep)] py-24 text-[var(--cream)]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--navy-deep)] py-16 md:py-24 text-[var(--cream)]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />The Network</p></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-3 max-w-2xl font-display text-4xl font-medium sm:text-5xl">
+            <h2 className="mt-3 max-w-2xl font-display text-3xl font-medium sm:text-4xl md:text-5xl">
               500+ brothers. 40 states. One chapter family.
             </h2>
           </Reveal>
@@ -70,8 +70,8 @@ function Alumni() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-[var(--cream)] py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--cream)] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Their Words</p></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-3 font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">
@@ -100,7 +100,7 @@ function Alumni() {
       </section>
 
       {/* Stay Connected */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
           <Reveal>
             <div>
