@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
 import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQuotes";
-import logosSheet from "@/assets/employer-logos.png.asset.json";
+import { EmployerLogoWall } from "@/components/EmployerLogoWall";
 
 const TICKER_SPEED_PX_PER_SEC = 140;
 
@@ -63,80 +63,10 @@ function useTickerAnimation(enabled: boolean) {
   return { ref, style };
 }
 
-const PRIVATE_EMPLOYERS = [
-  "EY",
-  "PwC",
-  "Chick-fil-A",
-  "Special Olympics",
-  "FCC",
-  "Fifth Circuit Solicitor's Office",
-  "Richland County",
-  "Kershaw County",
-];
-
 const PLACEHOLDER_SYMBOLS = [
   "BAC", "WFC", "JPM", "GS", "GM", "BA", "KO", "HSBC", "PIPR",
   "MSFT", "BLK", "XOM", "ALLY", "CFG", "JEF", "D", "LRLCY",
 ];
-
-// Logo sheet is a 3-col × 5-row grid of transparent PNG logos.
-// col: 0 = left, 1 = center, 2 = right   |   row: 0 = top → 4 = bottom
-type LogoCell = { col: 0 | 1 | 2; row: 0 | 1 | 2 | 3 | 4; label: string };
-
-const LEFT_LOGOS: LogoCell[] = [
-  { col: 0, row: 0, label: "EY" },
-  { col: 0, row: 1, label: "General Motors" },
-  { col: 0, row: 2, label: "Chick-fil-A" },
-  { col: 0, row: 3, label: "FCC" },
-  { col: 0, row: 4, label: "Special Olympics" },
-];
-
-const RIGHT_LOGOS: LogoCell[] = [
-  { col: 2, row: 0, label: "Wells Fargo" },
-  { col: 2, row: 1, label: "Goldman Sachs" },
-  { col: 2, row: 2, label: "Coca-Cola" },
-  { col: 2, row: 3, label: "HSBC" },
-  { col: 2, row: 4, label: "Boeing" },
-];
-
-// Drifting logo tile. `depth` controls how strongly it reacts to the cursor.
-function LogoTile({
-  cell,
-  depth,
-  delay,
-  duration,
-  pointer,
-}: {
-  cell: LogoCell;
-  depth: number;
-  delay: number;
-  duration: number;
-  pointer: { x: number; y: number };
-}) {
-  return (
-    <div
-      className="baw-float group pointer-events-auto"
-      style={{
-        animation: `baw-float ${duration}s ease-in-out ${delay}s infinite`,
-        willChange: "transform",
-      }}
-    >
-      <div
-        role="img"
-        aria-label={cell.label}
-        className="h-16 w-28 sm:h-20 sm:w-36 lg:h-24 lg:w-44 opacity-70 transition-all duration-500 ease-out hover:opacity-100 hover:scale-110"
-        style={{
-          backgroundImage: `url(${logosSheet.url})`,
-          backgroundSize: "300% 500%",
-          backgroundPosition: `${cell.col * 50}% ${cell.row * 25}%`,
-          backgroundRepeat: "no-repeat",
-          transform: `translate3d(${pointer.x * depth}px, ${pointer.y * depth}px, 0)`,
-          filter: "drop-shadow(0 10px 26px rgba(0,0,0,0.6))",
-        }}
-      />
-    </div>
-  );
-}
 
 function QuotePill({ q }: { q: LiveQuote }) {
   const up = q.change > 0;
@@ -202,48 +132,6 @@ export function BrothersAtWork() {
   const rail = quotes.length > 0 ? [...quotes, ...quotes] : null;
   const placeholderRail = [...PLACEHOLDER_SYMBOLS, ...PLACEHOLDER_SYMBOLS];
 
-  // Cursor parallax: normalized -1..1 offsets, smoothed via CSS transitions.
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const onMove = (e: MouseEvent) => {
-      const r = el.getBoundingClientRect();
-      setPointer({
-        x: ((e.clientX - r.left) / r.width - 0.5) * 2,
-        y: ((e.clientY - r.top) / r.height - 0.5) * 2,
-      });
-    };
-    const onLeave = () => setPointer({ x: 0, y: 0 });
-    el.addEventListener("mousemove", onMove);
-    el.addEventListener("mouseleave", onLeave);
-    return () => {
-      el.removeEventListener("mousemove", onMove);
-      el.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
-
-  const renderRail = (cells: LogoCell[], side: "l" | "r") => (
-    <div
-      className={`pointer-events-none absolute inset-y-0 ${
-        side === "l" ? "left-0 pl-4 lg:pl-10" : "right-0 pr-4 lg:pr-10"
-      } hidden md:flex flex-col items-center justify-around py-10 z-10`}
-    >
-      {cells.map((cell, i) => (
-        <LogoTile
-          key={`${side}-${cell.label}`}
-          cell={cell}
-          depth={8 + ((i * 5) % 14)}
-          delay={i * 1.3 + (side === "r" ? 0.7 : 0)}
-          duration={11 + i * 1.7}
-          pointer={pointer}
-        />
-      ))}
-    </div>
-  );
-
   return (
     <section
       id="brothers-at-work"
@@ -253,12 +141,9 @@ export function BrothersAtWork() {
       {/* Ticker bar */}
       <TickerBar rail={rail ?? placeholderRail} />
 
-      {/* Floating logo field + centered content */}
-      <div ref={wrapRef} className="relative min-h-[85svh] overflow-hidden">
-        {renderRail(LEFT_LOGOS, "l")}
-        {renderRail(RIGHT_LOGOS, "r")}
-
-        <div className="relative z-0 flex min-h-[85svh] items-center justify-center px-6 py-24">
+      {/* Headline + employer logo wall */}
+      <div className="relative overflow-hidden py-20 sm:py-24">
+        <div className="relative z-0 px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="led-text text-xs sm:text-sm uppercase tracking-[0.4em] led-glow-amber">
               ● LIVE · POWERED BY REAL DATA
@@ -275,22 +160,6 @@ export function BrothersAtWork() {
               Real-time markets. Real Carolina AKΨ placements.
             </p>
 
-            <div className="mt-10">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-white/45">
-                Brothers also at
-              </p>
-              <ul className="mt-4 flex flex-wrap justify-center gap-x-3 gap-y-2">
-                {PRIVATE_EMPLOYERS.map((name) => (
-                  <li
-                    key={name}
-                    className="cursor-default rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-xs sm:text-sm text-white/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#ffc857] hover:bg-[#ffc857]/15 hover:text-[#ffc857] hover:shadow-[0_0_20px_rgba(255,200,87,0.45)]"
-                  >
-                    {name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {loading && (
               <div className="mt-8 text-[10px] uppercase tracking-[0.3em] text-white/40">
                 Connecting to markets…
@@ -299,20 +168,9 @@ export function BrothersAtWork() {
           </div>
         </div>
 
-        {/* Mobile: compact drifting strip below content */}
-        <div className="md:hidden absolute inset-x-0 bottom-4 flex justify-center gap-3 px-4">
-          {[...LEFT_LOGOS.slice(0, 3), ...RIGHT_LOGOS.slice(0, 3)].map((cell, i) => (
-            <LogoTile
-              key={`m-${cell.label}`}
-              cell={cell}
-              depth={0}
-              delay={i * 0.9}
-              duration={12 + i}
-              pointer={{ x: 0, y: 0 }}
-            />
-          ))}
-        </div>
+        <EmployerLogoWall />
       </div>
+
     </section>
   );
 }

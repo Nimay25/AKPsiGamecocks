@@ -235,17 +235,32 @@
     0 0 14px rgba(255, 200, 87, 0.4);
 }
 
-/* Gentle drifting motion for the Brothers @ Work logo field */
-@keyframes baw-float {
-  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
-  25%  { transform: translate3d(6px, -10px, 0) rotate(0.6deg); }
-  50%  { transform: translate3d(-4px, -16px, 0) rotate(-0.4deg); }
-  75%  { transform: translate3d(-8px, -6px, 0) rotate(0.3deg); }
-  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+/* Employer logo plates — periodic shine sweep */
+@keyframes logo-shine {
+  0%   { transform: translateX(-140%) skewX(-18deg); opacity: 0; }
+  6%   { opacity: 0.85; }
+  26%  { transform: translateX(140%) skewX(-18deg); opacity: 0; }
+  100% { transform: translateX(140%) skewX(-18deg); opacity: 0; }
+}
+.logo-shine {
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 35%,
+    rgba(255, 240, 200, 0.9) 50%,
+    rgba(255, 255, 255, 0.05) 65%,
+    transparent 100%
+  );
+  width: 45%;
+  animation: logo-shine 7s ease-in-out infinite;
+}
+.logo-plate:hover .logo-shine {
+  animation-duration: 1.6s;
 }
 @media (prefers-reduced-motion: reduce) {
-  .baw-float { animation: none !important; }
+  .logo-shine { animation: none !important; opacity: 0; }
 }
+
 
 
 
