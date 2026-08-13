@@ -424,7 +424,7 @@ function WardrobeCarousel({ images }: { images: { url: string; alt: string }[] }
   const prev = () => setIdx((i) => (i - 1 + images.length) % images.length);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-[var(--cream)] shadow-[var(--shadow-soft)] aspect-[4/3]">
+    <div className="relative overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-soft)] aspect-[2/3]">
       <div
         className="flex h-full transition-transform duration-500 ease-out"
         style={{ transform: `translateX(-${idx * 100}%)` }}
