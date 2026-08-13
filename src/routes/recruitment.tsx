@@ -191,9 +191,13 @@ function Recruitment() {
           {/* Business Professional */}
           <div className="mt-10 grid gap-8 md:mt-16 md:gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
             <Reveal>
-              <div className="grid gap-4 lg:sticky lg:top-24">
-                <img src={dressPro1.url} alt="Brothers in business professional attire" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
-                <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
+              <div className="lg:sticky lg:top-24">
+                <WardrobeCarousel
+                  images={[
+                    { url: dressPro1.url, alt: "Brothers in business professional attire" },
+                    { url: dressPro2.url, alt: "Brothers in business professional attire — group" },
+                  ]}
+                />
               </div>
             </Reveal>
 
