@@ -141,9 +141,9 @@ export function BrothersAtWork() {
       {/* Ticker bar */}
       <TickerBar rail={rail ?? placeholderRail} />
 
-      {/* Floating logo field + centered content */}
-      <div className="relative min-h-[85svh] overflow-hidden">
-        <div className="relative z-0 flex min-h-[85svh] items-center justify-center px-6 py-24">
+      {/* Headline + employer logo wall */}
+      <div className="relative overflow-hidden py-20 sm:py-24">
+        <div className="relative z-0 px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="led-text text-xs sm:text-sm uppercase tracking-[0.4em] led-glow-amber">
               ● LIVE · POWERED BY REAL DATA
@@ -168,7 +168,9 @@ export function BrothersAtWork() {
           </div>
         </div>
 
+        <EmployerLogoWall />
       </div>
+
     </section>
   );
 }
