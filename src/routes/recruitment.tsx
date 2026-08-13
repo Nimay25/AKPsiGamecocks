@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Ticket, Clapperboard, Film, ChevronDown, ArrowRight } from "lucide-react";
+import { Ticket, Clapperboard, Film, ChevronDown, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import heroMarquee from "@/assets/recruitment-hero.jpg";
 import curtainsImg from "@/assets/theater-curtains.png";
 import dressPro1 from "@/assets/dress-pro-1.png.asset.json";
@@ -191,9 +191,13 @@ function Recruitment() {
           {/* Business Professional */}
           <div className="mt-10 grid gap-8 md:mt-16 md:gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
             <Reveal>
-              <div className="grid gap-4 lg:sticky lg:top-24">
-                <img src={dressPro1.url} alt="Brothers in business professional attire" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
-                <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
+              <div className="lg:sticky lg:top-24">
+                <WardrobeCarousel
+                  images={[
+                    { url: dressPro1.url, alt: "Brothers in business professional attire" },
+                    { url: dressPro2.url, alt: "Brothers in business professional attire — group" },
+                  ]}
+                />
               </div>
             </Reveal>
 
@@ -411,6 +415,56 @@ function CurtainHero() {
         </div>
       </div>
     </section>
+  );
+}
+
+function WardrobeCarousel({ images }: { images: { url: string; alt: string }[] }) {
+  const [idx, setIdx] = useState(0);
+  const next = () => setIdx((i) => (i + 1) % images.length);
+  const prev = () => setIdx((i) => (i - 1 + images.length) % images.length);
+
+  return (
+    <div className="relative overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-soft)] aspect-[2/3]">
+      <div
+        className="flex h-full transition-transform duration-500 ease-out"
+        style={{ transform: `translateX(-${idx * 100}%)` }}
+      >
+        {images.map((img) => (
+          <div key={img.url} className="h-full w-full shrink-0">
+            <img src={img.url} alt={img.alt} className="h-full w-full object-contain" />
+          </div>
+        ))}
+      </div>
+
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={prev}
+            aria-label="Previous wardrobe photo"
+            className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-[var(--navy)]/80 p-2 text-[var(--gold)] backdrop-blur-sm transition hover:bg-[var(--navy)]"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next wardrobe photo"
+            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-[var(--navy)]/80 p-2 text-[var(--gold)] backdrop-blur-sm transition hover:bg-[var(--navy)]"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                aria-label={`Go to wardrobe photo ${i + 1}`}
+                className={`h-2 w-2 rounded-full transition ${i === idx ? "bg-[var(--gold)]" : "bg-white/60 hover:bg-white"}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 
