@@ -150,15 +150,15 @@ function Recruitment() {
       {/* Schedule */}
       <section className="bg-[var(--ink)] py-24 text-[var(--cream)]">
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal><p className="eyebrow"><span className="gold-rule" />Rush Schedule</p></Reveal>
+          <Reveal><p className="eyebrow"><span className="gold-rule" />Fall 2026</p></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-3 font-display text-4xl font-medium sm:text-5xl">
-              The filmstrip.
+              Rush Schedule: The Filmstrip.
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-4 max-w-xl text-[var(--cream)]/70">
-              Six scenes. One week. All events on USC's campus unless noted.
+              Six auditions. One week. Will you make the cast?
             </p>
           </Reveal>
 
