@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
 import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQuotes";
-import { EmployerLogoWall } from "@/components/EmployerLogoWall";
+import { EmployerLogoWall, EmployerLogoRail } from "@/components/EmployerLogoWall";
 
 const TICKER_SPEED_PX_PER_SEC = 140;
 
@@ -141,9 +141,12 @@ export function BrothersAtWork() {
       {/* Ticker bar */}
       <TickerBar rail={rail ?? placeholderRail} />
 
-      {/* Headline + employer logo wall */}
-      <div className="relative overflow-hidden py-20 sm:py-24">
-        <div className="relative z-0 px-6">
+      {/* Floating logo rails + centered content */}
+      <div className="relative min-h-[92svh] overflow-hidden py-20 sm:py-24">
+        <EmployerLogoRail side="left" />
+        <EmployerLogoRail side="right" />
+
+        <div className="relative z-0 flex min-h-[70svh] items-center px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="led-text text-xs sm:text-sm uppercase tracking-[0.4em] led-glow-amber">
               ● LIVE · POWERED BY REAL DATA

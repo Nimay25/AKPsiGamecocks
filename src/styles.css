@@ -315,3 +315,15 @@
 @utility metal-gold {
   background-image: linear-gradient(135deg, #4a3a10 0%, #9c7a24 20%, #f0d68c 45%, #c9a84c 62%, #7a5f18 80%, #e6c76e 100%);
 }
+
+/* Gentle drifting motion for the Brothers @ Work floating logo rails */
+@keyframes baw-float {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+  25%  { transform: translate3d(6px, -10px, 0) rotate(0.6deg); }
+  50%  { transform: translate3d(-4px, -16px, 0) rotate(-0.4deg); }
+  75%  { transform: translate3d(-8px, -6px, 0) rotate(0.3deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .baw-float { animation: none !important; }
+}
