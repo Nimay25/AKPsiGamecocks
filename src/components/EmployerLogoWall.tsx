@@ -106,13 +106,13 @@ export function EmployerLogoOrbit() {
           const dx = x - pointer.current.x;
           const dy = y - pointer.current.y;
           const d = Math.hypot(dx, dy);
-          const R = 220;
+          const R = 160;
           if (d < R && d > 0.001) {
             const f = (1 - d / R) ** 2;
-            x += (dx / d) * f * 70;
-            y += (dy / d) * f * 70;
-            scale += f * 0.22;
-            opacity = Math.min(1, opacity + f * 0.45);
+            x += (dx / d) * f * 28;
+            y += (dy / d) * f * 28;
+            scale += f * 0.12;
+            opacity = Math.min(1, opacity + f * 0.25);
           }
         }
 
