@@ -36,12 +36,12 @@ function primaryCta() {
 }
 
 const SCHEDULE = [
-  { title: "Info Session", dress: "Business Casual", desc: "Get an inside look at AKPSI — what we do, who we are, and what rush looks like.", date: "Aug 27", time: "7:00 PM", tier: null },
-  { title: "Speed Dating", dress: "Business Casual", desc: "Quick, low-pressure intros with the brotherhood — meet as many brothers as you can.", date: "Aug 31", time: "TBA", tier: null },
-  { title: "Mingling", dress: "Business Casual", desc: "Relaxed hangout to keep the conversations going and get to know brothers deeper.", date: "Sep 1", time: "TBA", tier: null },
-  { title: "Case Competition", dress: "Business Professional", desc: "Team up on a real business case and present your recommendation to a panel.", date: "Sep 2", time: "TBA", tier: "bronze" },
-  { title: "Passion Pitch", dress: "Business Professional", desc: "Three minutes, one story — pitch what drives you.", date: "Sep 3", time: "TBA", tier: "silver" },
-  { title: "Final Interview", dress: "Business Professional", desc: "One-on-one conversations with active brothers to close out the process.", date: "Sep 4", time: "TBA", tier: "gold" },
+  { title: "Info Session", dress: "Casual", date: "Aug 27", time: "7-8:30pm", location: "Russell House 207", tier: null },
+  { title: "Speed Dating", dress: "Business Casual", date: "Aug 31", time: "7-9pm", location: "Pastides Alumni Center", tier: null },
+  { title: "Mingling", dress: "Business Casual", date: "Sep 1", time: "7-9pm", location: "Russell House 207", tier: null },
+  { title: "Case Competition", dress: "Business Professional", date: "Sep 2", time: "Private Screening", location: "Invite Only", tier: "bronze" },
+  { title: "Passion Pitch", dress: "Business Professional", date: "Sep 3", time: "Private Screening", location: "Invite Only", tier: "silver" },
+  { title: "Final Interview", dress: "Business Professional", date: "Sep 4", time: "Private Screening", location: "Invite Only", tier: "gold" },
 ] as const;
 
 
