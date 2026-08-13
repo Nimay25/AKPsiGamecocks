@@ -58,27 +58,87 @@ export function EmployerLogo({
   );
 }
 
-/** Floating side rails: logos drift gently along the left and right edges, behind the headline. */
-export function EmployerLogoRail({ side }: { side: "left" | "right" }) {
-  const half = Math.ceil(EMPLOYER_LOGOS.length / 2);
-  const logos =
-    side === "left" ? EMPLOYER_LOGOS.slice(0, half) : EMPLOYER_LOGOS.slice(half);
+/** Slow clockwise orbit of logos around the headline, with gentle mouse influence. */
+export function EmployerLogoOrbit() {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const pointer = useRef<{ x: number; y: number; active: boolean }>({ x: 0, y: 0, active: false });
+
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const n = EMPLOYER_LOGOS.length;
+    const start = performance.now();
+    let raf = 0;
+
+    const onMove = (e: PointerEvent) => {
+      const r = wrap.getBoundingClientRect();
+      pointer.current = { x: e.clientX - r.left - r.width / 2, y: e.clientY - r.top - r.height / 2, active: true };
+    };
+    const onLeave = () => (pointer.current.active = false);
+    window.addEventListener("pointermove", onMove, { passive: true });
+    window.addEventListener("pointerleave", onLeave);
+
+    const tick = (now: number) => {
+      const r = wrap.getBoundingClientRect();
+      const rx = r.width * 0.36;
+      const ry = r.height * 0.36;
+      const t = reduce ? 0 : (now - start) / 1000;
+
+      for (let i = 0; i < n; i++) {
+        const el = itemRefs.current[i];
+        if (!el) continue;
+        // clockwise stream, slow
+        const a = (i / n) * Math.PI * 2 + t * 0.052;
+        // gentle organic wobble so it doesn't read as a rigid wheel
+        const wob = Math.sin(t * 0.35 + i * 1.7) * 16;
+        let x = Math.cos(a) * (rx + wob);
+        let y = Math.sin(a) * (ry + wob * 0.6);
+
+        const depth = (Math.sin(a) + 1) / 2; // 0 back .. 1 front
+        let scale = 0.82 + depth * 0.3;
+        let opacity = 0.42 + depth * 0.4;
+
+        if (pointer.current.active) {
+          const dx = x - pointer.current.x;
+          const dy = y - pointer.current.y;
+          const d = Math.hypot(dx, dy);
+          const R = 220;
+          if (d < R && d > 0.001) {
+            const f = (1 - d / R) ** 2;
+            x += (dx / d) * f * 70;
+            y += (dy / d) * f * 70;
+            scale += f * 0.22;
+            opacity = Math.min(1, opacity + f * 0.45);
+          }
+        }
+
+        el.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), 0) scale(${scale.toFixed(3)})`;
+        el.style.opacity = opacity.toFixed(3);
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerleave", onLeave);
+    };
+  }, []);
 
   return (
-    <div
-      className={`pointer-events-none absolute inset-y-0 z-0 hidden w-[22%] flex-col items-center justify-around py-8 md:flex ${
-        side === "left" ? "left-0 pl-4 lg:pl-10" : "right-0 pr-4 lg:pr-10"
-      }`}
-    >
-      {logos.map((logo, i) => (
+    <div ref={wrapRef} className="pointer-events-none absolute inset-0 z-0 hidden md:block">
+      {EMPLOYER_LOGOS.map((logo, i) => (
         <div
           key={logo.name}
-          className="baw-float pointer-events-auto flex items-center justify-center"
-          style={{
-            animation: `baw-float ${12 + i * 1.6}s ease-in-out ${
-              i * 1.1 + (side === "right" ? 0.7 : 0)
-            }s infinite`,
+          ref={(el) => {
+            itemRefs.current[i] = el;
           }}
+          className="absolute left-1/2 top-1/2 will-change-transform"
+          style={{ transition: "opacity 300ms ease" }}
         >
           <EmployerLogo logo={logo} compact />
         </div>
@@ -86,6 +146,7 @@ export function EmployerLogoRail({ side }: { side: "left" | "right" }) {
     </div>
   );
 }
+
 
 /** Mobile fallback: quiet grid of the same floating logos. */
 export function EmployerLogoWall() {
