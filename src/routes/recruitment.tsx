@@ -36,12 +36,12 @@ function primaryCta() {
 }
 
 const SCHEDULE = [
-  { title: "Info Session", dress: "Business Casual", desc: "Get an inside look at AKPSI — what we do, who we are, and what rush looks like.", date: "Aug 27", time: "7:00 PM", tier: null },
-  { title: "Speed Dating", dress: "Business Casual", desc: "Quick, low-pressure intros with the brotherhood — meet as many brothers as you can.", date: "Aug 31", time: "TBA", tier: null },
-  { title: "Mingling", dress: "Business Casual", desc: "Relaxed hangout to keep the conversations going and get to know brothers deeper.", date: "Sep 1", time: "TBA", tier: null },
-  { title: "Case Competition", dress: "Business Professional", desc: "Team up on a real business case and present your recommendation to a panel.", date: "Sep 2", time: "TBA", tier: "bronze" },
-  { title: "Passion Pitch", dress: "Business Professional", desc: "Three minutes, one story — pitch what drives you.", date: "Sep 3", time: "TBA", tier: "silver" },
-  { title: "Final Interview", dress: "Business Professional", desc: "One-on-one conversations with active brothers to close out the process.", date: "Sep 4", time: "TBA", tier: "gold" },
+  { title: "Info Session", dress: "Casual", date: "Aug 27", time: "7-8:30pm", location: "Russell House 207", tier: null },
+  { title: "Speed Dating", dress: "Business Casual", date: "Aug 31", time: "7-9pm", location: "Pastides Alumni Center", tier: null },
+  { title: "Mingling", dress: "Business Casual", date: "Sep 1", time: "7-9pm", location: "Russell House 207", tier: null },
+  { title: "Case Competition", dress: "Business Professional", date: "Sep 2", time: "Private Screening", location: "Invite Only", tier: "bronze" },
+  { title: "Passion Pitch", dress: "Business Professional", date: "Sep 3", time: "Private Screening", location: "Invite Only", tier: "silver" },
+  { title: "Final Interview", dress: "Business Professional", date: "Sep 4", time: "Private Screening", location: "Invite Only", tier: "gold" },
 ] as const;
 
 
@@ -150,15 +150,15 @@ function Recruitment() {
       {/* Schedule */}
       <section className="bg-[var(--ink)] py-24 text-[var(--cream)]">
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal><p className="eyebrow"><span className="gold-rule" />Rush Schedule</p></Reveal>
+          <Reveal><p className="eyebrow"><span className="gold-rule" />Fall 2026</p></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-3 font-display text-4xl font-medium sm:text-5xl">
-              The filmstrip.
+              Rush Schedule: The Filmstrip.
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-4 max-w-xl text-[var(--cream)]/70">
-              Six scenes. One week. All events on USC's campus unless noted.
+              Six auditions. One week. Will you make the cast?
             </p>
           </Reveal>
 
@@ -444,10 +444,9 @@ function ScheduleCard({ e, i }: { e: ScheduleEvent; i: number }) {
           <span className="opacity-50">·</span>
           <span className="opacity-80">{e.time}</span>
         </div>
-        <p className={`relative mt-3 mb-5 text-sm ${tier.sub}`}>{e.desc}</p>
         <div className={`relative mt-auto flex items-center justify-between border-t pt-4 text-xs ${tier.rule} ${tier.ink}`}>
           <span className="uppercase tracking-widest font-semibold">{e.dress}</span>
-          <span className="opacity-70">USC Campus</span>
+          <span className="opacity-70">{e.location}</span>
         </div>
       </div>
     );
@@ -467,10 +466,9 @@ function ScheduleCard({ e, i }: { e: ScheduleEvent; i: number }) {
         <span className="text-[var(--cream)]/40">·</span>
         <span className="text-[var(--cream)]/70">{e.time}</span>
       </div>
-      <p className="mt-3 text-sm text-[var(--cream)]/70">{e.desc}</p>
       <div className="mt-auto flex items-center justify-between border-t border-dashed border-[var(--gold)]/30 pt-4 text-xs">
         <span className="text-[var(--gold)] uppercase tracking-widest">{e.dress}</span>
-        <span className="text-[var(--cream)]/40">USC Campus</span>
+        <span className="text-[var(--cream)]/40">{e.location}</span>
       </div>
     </div>
   );
