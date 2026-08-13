@@ -180,12 +180,11 @@ function Recruitment() {
         <div className="mx-auto max-w-7xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Wardrobe</p></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-3 font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">Dress Guide.</h2>
+            <h2 className="mt-3 font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">How to dress!</h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-4 max-w-2xl text-[var(--navy)]/70">
-              Two dress codes. Three ways to wear them. Pick whichever style fits you —
-              show up polished and comfortable.
+              If you have any doubt–lean professional.
             </p>
           </Reveal>
 
@@ -200,16 +199,16 @@ function Recruitment() {
             <Reveal delay={100}>
               <div>
                 <p className="eyebrow"><span className="gold-rule" />Business Professional</p>
-                <h3 className="mt-3 font-display text-3xl text-[var(--navy)]">Think conservative.</h3>
-                <p className="mt-3 text-[var(--navy)]/75">Navy, black, grey, or nude suit — jacket matches pants or skirt. Closed-toe shoes, minimal jewelry, polished throughout.</p>
+                <h3 className="mt-3 font-display text-3xl text-[var(--navy)]">Think Conservative.</h3>
+                <p className="mt-3 text-[var(--navy)]/75">Navy, black, grey, or nude suit. Jacket should match pants or skirt. Closed-toe shoes, minimalistic jewelry and no overly-flashy jewelry.</p>
                 <div className="mt-6 space-y-5">
                   {[
-                    { name: "Feminine", body: "Soft-colored blouse or button-down under a matching blazer. Navy, black, grey, or brown dress pants or knee-length skirt. Closed-toe nude or black flats/pumps under 3 inches. One simple necklace, bracelet, or ring." },
-                    { name: "Masculine", body: "Solid or subtly patterned button-down with a matching suit jacket. Solid or subtly patterned tie that complements the suit. Matching pants and belt. Brown or black loafers or dress shoes. Watch, simple ring — nothing loud." },
-                    { name: "Gender-neutral", body: "Matched suit — jacket, pants, and belt in one palette. Soft solid or subtly patterned button-down. Closed-toe brown or black loafers or dress shoes. Keep accessories minimal so nothing distracts from your presence." },
+                    { name: "Feminine", body: "Soft-colored blouse or button-down under a matching blazer. Well-fitted dress pants or knee-length skirt. Closed-toe nude or black flats or pumps no higher than 3-inches." },
+                    { name: "Masculine", body: "Crisp, collared button-down in solid or subtle patterns with a matching suit jacket and pants. Solid or subtly patterned tie that complements the suit and brown or black loafers or dress shoes that match the belt." },
+                    { name: "Gender-Neutral", body: "Matched suit — jacket, pants, and belt in one palette. Soft solid or subtly patterned button-down. Closed-toe brown or black loafers or dress shoes. Keep accessories minimal so nothing distracts from your presence." },
                   ].map((s) => (
                     <div key={s.name} className="rounded-xl border border-[var(--border)] bg-[var(--cream)] p-5">
-                      <dt className="text-xs uppercase tracking-widest text-[var(--gold)]">{s.name} style</dt>
+                      <dt className="text-xs uppercase tracking-widest text-[var(--gold)]">{s.name} Style</dt>
                       <dd className="mt-2 text-sm leading-relaxed text-[var(--navy)]/80">{s.body}</dd>
                     </div>
                   ))}
@@ -223,16 +222,16 @@ function Recruitment() {
             <Reveal>
               <div>
                 <p className="eyebrow"><span className="gold-rule" />Business Casual</p>
-                <h3 className="mt-3 font-display text-3xl text-[var(--navy)]">Think moderate.</h3>
-                <p className="mt-3 text-[var(--navy)]/75">Brighter colors, subtle patterns, a complementary blazer or cardigan. Clean, put-together, and a little more you.</p>
+                <h3 className="mt-3 font-display text-3xl text-[var(--navy)]">Think Moderate.</h3>
+                <p className="mt-3 text-[var(--navy)]/75">Brighter colors, subtle patterns, a complementary blazer or sweater. Clean and put together, but a little more flexible.</p>
                 <div className="mt-6 space-y-5">
                   {[
-                    { name: "Feminine", body: "Colored or patterned blouse, button-down, or dress paired with a blazer, sweater, or cardigan. Ankle-length pants or knee-length skirt. Flats or heels under 4 inches. Statement jewelry that completes the look." },
-                    { name: "Masculine", body: "Colored or patterned long-sleeve button-down under a navy, black, grey, or nude blazer. Nude or colored khakis or suit pants with a belt. Brown or black dress shoes. Patterned socks welcome. Watch, simple ring." },
-                    { name: "Gender-neutral", body: "Clean, put-together top — colored or subtly patterned — with pants that complement (khaki, nude, black, or grey) and a matching belt. Dress shoes that don't distract. Fun socks encouraged. Minimal jewelry." },
+                    { name: "Feminine", body: "Colored or patterned blouse, button down, or dress paired with a blazer, sweater, or cardigan. Pair with colored or patterned ankle-length pants or knee-length skirt. Any type of peep-toe or close-toed shoes, flats or heels four inches or less." },
+                    { name: "Masculine", body: "Button-up or button-down in plain, neutral colors or pattern paired with a blazer. Neutral or colored khaki or suit pants with belt and matching dress shoes." },
+                    { name: "Gender-Neutral", body: "Clean, put-together top — colored or subtly patterned — with pants that complement (khaki, nude, black, or grey) and a matching belt. Dress shoes that don't distract. Fun socks encouraged. Minimal jewelry." },
                   ].map((s) => (
                     <div key={s.name} className="rounded-xl border border-[var(--border)] bg-[var(--cream)] p-5">
-                      <dt className="text-xs uppercase tracking-widest text-[var(--gold)]">{s.name} style</dt>
+                      <dt className="text-xs uppercase tracking-widest text-[var(--gold)]">{s.name} Style</dt>
                       <dd className="mt-2 text-sm leading-relaxed text-[var(--navy)]/80">{s.body}</dd>
                     </div>
                   ))}
