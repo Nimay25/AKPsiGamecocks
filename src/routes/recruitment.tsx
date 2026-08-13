@@ -47,10 +47,44 @@ const SCHEDULE = [
 
 
 const FAQ = [
-  { q: "Do I need to be a business major?", a: "Not at all. We recruit across every college at USC." },
-  { q: "Is there a GPA requirement?", a: "A 2.75 cumulative GPA is required to join and stay active." },
-  { q: "How should I prepare for the case competition?", a: "Read the prompt carefully, structure your recommendation around a clear problem statement, lean on quantitative reasoning, and rehearse the delivery. We value clarity and confidence over jargon." },
-  { q: "Who do I contact with questions?", a: "Email Sam Nakamura (Director of Recruitment) at recruitment@akpsiuofsc.com or Jordan Williams (VPR) at vpr@akpsiuofsc.com. {/* EDIT */}" },
+  {
+    q: "What will I do at recruitment?",
+    a: (
+      <>
+        <p>Recruitment consists of an AKPSI-only info session and five nights of rush; two open-invite events and three invite-only events.</p>
+        <p className="mt-3">Our first two nights, speed dating and mingling, consist of conversations and questions from brothers and other rushees. These nights allow brothers to get first-looks at possible new members in a conversational format, making meaningful connections from the start.</p>
+        <p className="mt-3">Our invite-only events consist of a case competition, passion pitch, and final interview. Each night is meant to narrow down the most well-rounded candidates, looking for teamwork, character, and authenticity.</p>
+      </>
+    ),
+  },
+  {
+    q: "Do I need to attend every night of rush?",
+    a: (
+      <>
+        <p>While the info session and first two nights are optional, we encourage all rushees to attend each night to get the most looks possible from our brothers.</p>
+        <p className="mt-3">If there are any extenuating circumstances, please reach out to: <a href="mailto:recruitment@akpsigamecocks.com" className="text-[var(--gold)] underline underline-offset-2 hover:no-underline">recruitment@akpsigamecocks.com</a></p>
+      </>
+    ),
+  },
+  { q: "Do I need to be a business major?", a: "No–around one seventh of our brothers are non-business majors. We look for driven candidates, regardless of major or industry focus." },
+  { q: "Is there a GPA requirement?", a: "Still looking for this" },
+  {
+    q: "How should I prepare for the case competition?",
+    a: (
+      <>
+        <p>Come ready to showcase your teamwork and problem-solving skills! While we can’t tell you the format for case competition, viewing sites like <a href="https://managementconsulted.com" target="_blank" rel="noreferrer" className="text-[var(--gold)] underline underline-offset-2 hover:no-underline">managementconsulted.com</a> or <a href="https://hackingthecaseinterview.com" target="_blank" rel="noreferrer" className="text-[var(--gold)] underline underline-offset-2 hover:no-underline">hackingthecaseinterview.com</a> can help with general structure, terminology, and principles.</p>
+        <p className="mt-3">Our case competition is designed so that anyone, regardless of casing experience, major, or year, can solve the business problem given–it is up to you to work well in your team!</p>
+      </>
+    ),
+  },
+  {
+    q: "Who do I contact with questions?",
+    a: (
+      <>
+        <p>Please reach out to <a href="mailto:recruitment@akpsigamecocks.com" className="text-[var(--gold)] underline underline-offset-2 hover:no-underline">recruitment@akpsigamecocks.com</a> for any recruitment-related questions, or go to our <a href="/contact" className="text-[var(--gold)] underline underline-offset-2 hover:no-underline">Contact page</a> for more.</p>
+      </>
+    ),
+  },
 ];
 
 function Recruitment() {
