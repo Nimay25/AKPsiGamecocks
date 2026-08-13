@@ -240,7 +240,7 @@ function Recruitment() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <img src={dressCasual.url} alt="Brothers in business casual attire in front of the AKPSI house" className="w-full rounded-2xl object-cover shadow-[var(--shadow-soft)]" />
+              <img src={dressCasual.url} alt="Brothers in business casual attire in front of the AKPSI house" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
             </Reveal>
           </div>
         </div>
