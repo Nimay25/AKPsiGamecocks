@@ -38,15 +38,14 @@ export const EMPLOYER_LOGOS: Employer[] = [
 export function EmployerLogo({ logo, index = 0 }: { logo: Employer; index?: number }) {
   return (
     <figure
-      className="logo-plate group relative flex h-24 items-center justify-center overflow-hidden rounded-2xl border border-white/12 bg-white/[0.06] px-5 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#ffc857]/60 hover:bg-white/[0.1] sm:h-28"
+      className="logo-plate group relative flex h-24 items-center justify-center overflow-hidden rounded-2xl border border-white/15 bg-white px-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.9)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#ffc857] hover:shadow-[0_0_34px_-4px_rgba(255,200,87,0.55)] sm:h-28"
       style={{ animationDelay: `${(index % 8) * 0.45}s` }}
     >
       <img
         src={logo.url}
         alt={`${logo.name} logo`}
         loading="lazy"
-        className="relative z-10 max-h-14 w-auto max-w-[80%] object-contain opacity-90 grayscale transition-all duration-500 group-hover:scale-[1.06] group-hover:opacity-100 group-hover:grayscale-0 sm:max-h-16"
-        style={{ mixBlendMode: "screen" }}
+        className="relative z-10 max-h-14 w-auto max-w-[82%] object-contain transition-transform duration-500 group-hover:scale-[1.07] sm:max-h-16"
       />
       <span className="logo-shine pointer-events-none absolute inset-0 z-20" aria-hidden="true" />
       <figcaption className="sr-only">{logo.name}</figcaption>
