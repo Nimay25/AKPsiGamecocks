@@ -81,7 +81,7 @@ function Brothers() {
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {DIRECTORS.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
         </div>
-        <h3 className="mt-16 font-display text-xl text-[var(--navy)]">Chairs</h3>
+        <h3 className="mt-16 font-display text-xl text-[var(--navy)]">Appointed Positions</h3>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CHAIRS.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
         </div>
