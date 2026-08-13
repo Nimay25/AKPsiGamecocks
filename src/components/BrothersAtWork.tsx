@@ -223,20 +223,7 @@ export function BrothersAtWork() {
       className="relative bg-black text-white"
     >
       {/* Ticker bar */}
-      <div
-        className="relative overflow-hidden bg-black border-y border-[#ff3b3b]/50"
-        style={{ boxShadow: "0 0 60px rgba(255,60,60,0.35), inset 0 0 60px rgba(255,60,60,0.25)" }}
-      >
-        <div className="flex items-center py-4 whitespace-nowrap animate-baw-ticker w-max">
-          {(rail ?? placeholderRail).map((item, i) =>
-            typeof item === "string" ? (
-              <PlaceholderPill key={`p-${i}`} symbol={item} />
-            ) : (
-              <QuotePill key={`o-${item.symbol}-${i}`} q={item} />
-            ),
-          )}
-        </div>
-      </div>
+      <TickerBar rail={rail ?? placeholderRail} />
 
       {/* Floating logo field + centered content */}
       <div ref={wrapRef} className="relative min-h-[85svh] overflow-hidden">
