@@ -57,7 +57,7 @@ function About() {
           <img src={mooreAtrium.url} alt="Darla Moore School of Business atrium" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/85 via-[var(--navy)]/70 to-[var(--navy)]/90" />
         </div>
-        <div className="mx-auto max-w-7xl px-6 w-full">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 w-full">
           <Reveal>
             <p className="eyebrow"><span className="gold-rule" />About</p>
           </Reveal>
@@ -72,7 +72,7 @@ function About() {
 
 
       {/* Our Chapter */}
-      <section id="chapter" className="bg-[var(--cream)] py-24">
+      <section id="chapter" className="bg-[var(--cream)] py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2">
           <Reveal>
             <div>
@@ -119,10 +119,10 @@ function About() {
       </section>
 
       {/* PILLARS */}
-      <section id="pillars" className="relative bg-[var(--navy-deep)] py-24 text-[var(--cream)]">
+      <section id="pillars" className="relative bg-[var(--navy-deep)] py-16 md:py-24 text-[var(--cream)]">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/60 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/60 to-transparent" />
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <Reveal><p className="eyebrow"><span className="gold-rule" />Our Pillars</p></Reveal>
@@ -151,7 +151,7 @@ function About() {
       </section>
 
       {/* DOI */}
-      <section id="doi" className="bg-[var(--navy)] py-24 text-[var(--cream)]">
+      <section id="doi" className="bg-[var(--navy)] py-16 md:py-24 text-[var(--cream)]">
         <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div>
             <Reveal><p className="eyebrow"><span className="gold-rule" />Diversity, Opportunity &amp; Inclusion</p></Reveal>
@@ -195,7 +195,7 @@ function About() {
 
 
       {/* FAQ */}
-      <section id="faq" className="bg-[var(--cream)] py-24">
+      <section id="faq" className="bg-[var(--cream)] py-16 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />FAQ</p></Reveal>
           <Reveal delay={100}>

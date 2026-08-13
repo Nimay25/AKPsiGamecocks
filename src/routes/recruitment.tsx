@@ -63,8 +63,8 @@ function Recruitment() {
       <FilmDivider />
 
       {/* Why Rush */}
-      <section className="bg-[var(--cream)] py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="bg-[var(--cream)] py-14 md:py-28">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Why Rush</p></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-3 max-w-3xl font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">
@@ -148,8 +148,8 @@ function Recruitment() {
       </section>
 
       {/* Schedule */}
-      <section className="bg-[var(--ink)] py-24 text-[var(--cream)]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--ink)] py-16 md:py-24 text-[var(--cream)]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Fall 2026</p></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-3 font-display text-4xl font-medium sm:text-5xl">
@@ -176,7 +176,7 @@ function Recruitment() {
       <FilmDivider />
 
       {/* Dress Guide */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-16 md:py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Wardrobe</p></Reveal>
           <Reveal delay={100}>
@@ -248,7 +248,7 @@ function Recruitment() {
 
 
       {/* FAQ */}
-      <section className="bg-[var(--cream)] py-24">
+      <section className="bg-[var(--cream)] py-16 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Recruitment FAQ</p></Reveal>
           <Reveal delay={100}>
@@ -261,10 +261,10 @@ function Recruitment() {
       </section>
 
       {/* Closing CTAs */}
-      <section className="relative overflow-hidden bg-[var(--ink)] py-24 text-[var(--cream)]">
+      <section className="relative overflow-hidden bg-[var(--ink)] py-16 md:py-24 text-[var(--cream)]">
         <div className="absolute inset-x-0 top-0 marquee-bulbs h-5 opacity-60" />
         <div className="absolute inset-x-0 bottom-0 marquee-bulbs h-5 opacity-60" />
-        <div className="mx-auto max-w-4xl px-6 text-center">
+        <div className="mx-auto max-w-4xl px-5 sm:px-6 text-center">
           <Reveal><Ticket className="mx-auto h-10 w-10 text-[var(--gold)]" /></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-4 font-display text-5xl font-medium sm:text-6xl">

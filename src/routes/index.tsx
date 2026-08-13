@@ -90,7 +90,7 @@ function Home() {
 
       {/* AWARD BADGE BAND */}
       <section className="bg-[var(--navy)] py-14 text-[var(--cream)]">
-        <div className="mx-auto max-w-5xl px-6 text-center">
+        <div className="mx-auto max-w-5xl px-5 sm:px-6 text-center">
           <Reveal>
             <Award className="mx-auto h-10 w-10 text-[var(--gold)]" />
           </Reveal>
@@ -107,8 +107,8 @@ function Home() {
       </section>
 
       {/* STATS */}
-      <section className="bg-[var(--cream)] py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--cream)] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="grid gap-10 sm:grid-cols-3 mx-auto max-w-5xl">
             {[
               { n: 150, suffix: "+", label: "Active Brothers" },
@@ -133,8 +133,8 @@ function Home() {
 
 
       {/* PILLARS PREVIEW */}
-      <section className="bg-[var(--navy)] py-24 text-[var(--cream)]">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--navy)] py-16 md:py-24 text-[var(--cream)]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <Reveal><p className="eyebrow"><span className="gold-rule" />Our Pillars</p></Reveal>
@@ -173,9 +173,9 @@ function Home() {
         href="https://instagram.com/akpsigamecocks"
         target="_blank"
         rel="noreferrer"
-        className="block bg-[var(--cream)] py-24 transition-colors hover:bg-[var(--cream)]/90"
+        className="block bg-[var(--cream)] py-16 md:py-24 transition-colors hover:bg-[var(--cream)]/90"
       >
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="eyebrow"><span className="gold-rule" />Latest</p>
