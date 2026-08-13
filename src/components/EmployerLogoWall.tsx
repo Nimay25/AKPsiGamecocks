@@ -1,18 +1,18 @@
-import ey from "@/assets/logos/ey.png.asset.json";
-import pwc from "@/assets/logos/pwc.png.asset.json";
-import gs from "@/assets/logos/gs.png.asset.json";
-import jpm from "@/assets/logos/jpm.png.asset.json";
-import boa from "@/assets/logos/boa.png.asset.json";
-import wf from "@/assets/logos/wf.png.asset.json";
-import hsbc from "@/assets/logos/hsbc.png.asset.json";
-import ps from "@/assets/logos/ps.png.asset.json";
-import boeing from "@/assets/logos/boeing.png.asset.json";
-import gm from "@/assets/logos/gm.png.asset.json";
-import cc from "@/assets/logos/cc.png.asset.json";
-import chicki from "@/assets/logos/chicki.png.asset.json";
-import so from "@/assets/logos/so.png.asset.json";
-import fcc from "@/assets/logos/fcc.png.asset.json";
-import fifth from "@/assets/logos/5.png.asset.json";
+import ey from "@/assets/logos-t/ey.png.asset.json";
+import pwc from "@/assets/logos-t/pwc.png.asset.json";
+import gs from "@/assets/logos-t/gs.png.asset.json";
+import jpm from "@/assets/logos-t/jpm.png.asset.json";
+import boa from "@/assets/logos-t/boa.png.asset.json";
+import wf from "@/assets/logos-t/wf.png.asset.json";
+import hsbc from "@/assets/logos-t/hsbc.png.asset.json";
+import ps from "@/assets/logos-t/ps.png.asset.json";
+import boeing from "@/assets/logos-t/boeing.png.asset.json";
+import gm from "@/assets/logos-t/gm.png.asset.json";
+import cc from "@/assets/logos-t/cc.png.asset.json";
+import chicki from "@/assets/logos-t/chicki.png.asset.json";
+import so from "@/assets/logos-t/so.png.asset.json";
+import fcc from "@/assets/logos-t/fcc.png.asset.json";
+import fifth from "@/assets/logos-t/5.png.asset.json";
 
 type Employer = { name: string; url: string };
 
@@ -34,38 +34,31 @@ export const EMPLOYER_LOGOS: Employer[] = [
   { name: "Fifth Circuit Solicitor's Office", url: fifth.url },
 ];
 
-/** A single employer logo on its own polished plate with a shine sweep. */
+/** A single free-floating employer logo — no plate, no card. */
 export function EmployerLogo({
   logo,
-  index = 0,
   compact = false,
 }: {
   logo: Employer;
-  index?: number;
   compact?: boolean;
 }) {
   return (
-    <figure
-      className={`logo-plate group relative flex items-center justify-center overflow-hidden rounded-2xl border border-white/15 bg-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.9)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#ffc857] hover:shadow-[0_0_34px_-4px_rgba(255,200,87,0.55)] ${
-        compact ? "h-16 w-40 px-4 lg:h-20 lg:w-48" : "h-24 px-5 sm:h-28"
+    <img
+      src={logo.url}
+      alt={`${logo.name} logo`}
+      loading="lazy"
+      className={`w-auto object-contain opacity-80 transition-all duration-500 hover:scale-110 hover:opacity-100 ${
+        compact ? "max-h-12 max-w-[150px] lg:max-h-14 lg:max-w-[180px]" : "max-h-14 max-w-[70%]"
       }`}
-      style={{ animationDelay: `${(index % 8) * 0.45}s` }}
-    >
-      <img
-        src={logo.url}
-        alt={`${logo.name} logo`}
-        loading="lazy"
-        className={`relative z-10 w-auto max-w-[82%] object-contain transition-transform duration-500 group-hover:scale-[1.07] ${
-          compact ? "max-h-10 lg:max-h-12" : "max-h-14 sm:max-h-16"
-        }`}
-      />
-      <span className="logo-shine pointer-events-none absolute inset-0 z-20" aria-hidden="true" />
-      <figcaption className="sr-only">{logo.name}</figcaption>
-    </figure>
+      style={{
+        filter:
+          "brightness(1.35) contrast(1.05) drop-shadow(0 0 12px rgba(255,255,255,0.28)) drop-shadow(0 6px 18px rgba(0,0,0,0.6))",
+      }}
+    />
   );
 }
 
-/** Floating side rails: logos drift gently along the left and right edges. */
+/** Floating side rails: logos drift gently along the left and right edges, behind the headline. */
 export function EmployerLogoRail({ side }: { side: "left" | "right" }) {
   const half = Math.ceil(EMPLOYER_LOGOS.length / 2);
   const logos =
@@ -73,41 +66,39 @@ export function EmployerLogoRail({ side }: { side: "left" | "right" }) {
 
   return (
     <div
-      aria-hidden="false"
-      className={`pointer-events-none absolute inset-y-0 z-10 hidden flex-col items-center justify-around py-10 md:flex ${
+      className={`pointer-events-none absolute inset-y-0 z-0 hidden w-[22%] flex-col items-center justify-around py-8 md:flex ${
         side === "left" ? "left-0 pl-4 lg:pl-10" : "right-0 pr-4 lg:pr-10"
       }`}
     >
       {logos.map((logo, i) => (
         <div
           key={logo.name}
-          className="baw-float pointer-events-auto"
+          className="baw-float pointer-events-auto flex items-center justify-center"
           style={{
             animation: `baw-float ${12 + i * 1.6}s ease-in-out ${
               i * 1.1 + (side === "right" ? 0.7 : 0)
             }s infinite`,
           }}
         >
-          <EmployerLogo logo={logo} index={i + (side === "right" ? 4 : 0)} compact />
+          <EmployerLogo logo={logo} compact />
         </div>
       ))}
     </div>
   );
 }
 
-/** Mobile fallback: simple grid of the same plates. */
+/** Mobile fallback: quiet grid of the same floating logos. */
 export function EmployerLogoWall() {
   return (
     <div className="mx-auto mt-12 max-w-3xl px-6 md:hidden">
       <p className="text-center text-[11px] uppercase tracking-[0.35em] text-white/45">
         Where our brothers work
       </p>
-      <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-        {EMPLOYER_LOGOS.map((logo, i) => (
-          <EmployerLogo key={logo.name} logo={logo} index={i} />
+      <div className="mt-8 grid grid-cols-3 place-items-center gap-x-6 gap-y-8">
+        {EMPLOYER_LOGOS.map((logo) => (
+          <EmployerLogo key={logo.name} logo={logo} />
         ))}
       </div>
     </div>
   );
 }
-
