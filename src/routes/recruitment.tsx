@@ -192,8 +192,8 @@ function Recruitment() {
           <div className="mt-10 grid gap-8 md:mt-16 md:gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
             <Reveal>
               <div className="grid gap-4 lg:sticky lg:top-24">
-                <img src={dressPro1.url} alt="Brothers in business professional attire" className="aspect-[4/5] w-full rounded-2xl object-cover object-top shadow-[var(--shadow-soft)] sm:aspect-[4/3]" />
-                <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="aspect-[16/10] w-full rounded-2xl object-cover object-top shadow-[var(--shadow-soft)] sm:aspect-[16/9]" />
+                <img src={dressPro1.url} alt="Brothers in business professional attire" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
+                <img src={dressPro2.url} alt="Brothers in business professional attire — group" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
               </div>
             </Reveal>
 
@@ -240,7 +240,7 @@ function Recruitment() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <img src={dressCasual.url} alt="Brothers in business casual attire in front of the AKPSI house" className="w-full rounded-2xl object-cover shadow-[var(--shadow-soft)]" />
+              <img src={dressCasual.url} alt="Brothers in business casual attire in front of the AKPSI house" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
             </Reveal>
           </div>
         </div>
