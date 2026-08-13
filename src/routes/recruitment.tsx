@@ -572,7 +572,7 @@ function FilmDivider() {
   );
 }
 
-function FAQItem({ q, a }: { q: string; a: string }) {
+function FAQItem({ q, a }: { q: string; a: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
     <div>
@@ -582,7 +582,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       </button>
       <div className={`grid transition-all duration-300 ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
         <div className="overflow-hidden">
-          <p className="px-6 pb-6 text-[var(--navy)]/75 leading-relaxed">{a}</p>
+          <div className="px-6 pb-6 text-[var(--navy)]/75 leading-relaxed">{a}</div>
         </div>
       </div>
     </div>
