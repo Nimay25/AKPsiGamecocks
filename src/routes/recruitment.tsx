@@ -338,7 +338,7 @@ function CurtainHero() {
 
         {/* HERO content */}
         <div
-          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 pt-52 pb-24 text-center transition-opacity"
+          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-5 pt-36 pb-16 text-center transition-opacity sm:px-6 sm:pt-52 sm:pb-24"
           style={{ opacity: contentP }}
         >
           <div className="mt-8">
