@@ -52,7 +52,12 @@ function parseCsv(text: string): string[][] {
 }
 
 function loadRoster(): RosterMember[] {
-  const [header, ...rows] = parseCsv(rosterCsv);
+  // Strip the "//" guide comments at the top of the CSV before parsing.
+  const cleaned = rosterCsv
+    .split("\n")
+    .filter((line) => !line.trim().startsWith("//"))
+    .join("\n");
+  const [header, ...rows] = parseCsv(cleaned);
   if (!header) return [];
   const idx = (key: string) => header.findIndex((h) => h.trim().toLowerCase() === key);
   const iSection = idx("section");
