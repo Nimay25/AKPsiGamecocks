@@ -22,8 +22,18 @@ export const Route = createFileRoute("/recruitment")({
   component: Recruitment,
 });
 
-const APPLY_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfCgCYZZ8K5KUr3uVBS8XOXzayMvuNbqIZ1XZAC8yRIBwwDmA/viewform";
+const INTEREST_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdIa5t7v2V8rRZnS7kRX45UBErzlWMh0bIEZJg80e0c7zz2Fw/viewform";
 const REMIND_URL = "https://www.remind.com/join/akpsi2025";
+
+// Before August 17, 2026 the primary CTA is the Coffee Chat/Interest Form.
+// On or after that date it switches to the Fall 2026 Rush application (same link this cycle).
+const RUSH_OPENS_AT = new Date("2026-08-17T00:00:00-04:00");
+function primaryCta() {
+  const now = new Date();
+  return now >= RUSH_OPENS_AT
+    ? { text: "Apply for Fall 2026 Rush", href: INTEREST_FORM_URL }
+    : { text: "Fall 2026 Coffee Chat/Interest Form", href: INTEREST_FORM_URL };
+}
 
 const SCHEDULE = [
   { title: "Info Session", dress: "Business Casual", desc: "Get an inside look at AKPSI — what we do, who we are, and what rush looks like.", date: "Aug 27", time: "7:00 PM", tier: null },
@@ -214,13 +224,12 @@ function Recruitment() {
           </Reveal>
           <Reveal delay={200}>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <a href={APPLY_URL} target="_blank" rel="noreferrer" className="btn-gold btn-gold-hover">
-                Apply for Fall 2026 Rush
+              <a href={primaryCta().href} target="_blank" rel="noreferrer" className="btn-gold btn-gold-hover">
+                {primaryCta().text}
               </a>
               <a href={REMIND_URL} target="_blank" rel="noreferrer" className="btn-gold btn-gold-hover">
                 Get Rush Text Updates
               </a>
-              {/* EDIT: swap links each cycle */}
             </div>
           </Reveal>
         </div>
@@ -293,13 +302,13 @@ function CurtainHero() {
             <span className="block mt-3 text-[var(--gold)] italic">Fall 2026 Rush.</span>
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-lg text-[var(--cream)]/85 sm:text-xl">
-            AKPSI is going full Hollywood. Bring your best outfits, lots of
-            popcorn, and your friends when we roll out the red carpet this
-            semester.
+            AKPSI is bringing Hollywood to the Soda City. Bring your best outfits,
+            lots of popcorn, and your friends when we roll out the red carpet
+            this semester!
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href={APPLY_URL} target="_blank" rel="noreferrer" className="btn-gold btn-gold-hover">
-              Apply for Fall 2026 <ArrowRight className="h-4 w-4" />
+            <a href={primaryCta().href} target="_blank" rel="noreferrer" className="btn-gold btn-gold-hover">
+              {primaryCta().text} <ArrowRight className="h-4 w-4" />
             </a>
             <a href={REMIND_URL} target="_blank" rel="noreferrer" className="btn-outline-light hover:bg-white/10">
               Get Rush Text Updates
