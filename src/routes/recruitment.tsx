@@ -181,31 +181,6 @@ function Recruitment() {
         </div>
       </section>
 
-      {/* Schedule */}
-      <section className="bg-[var(--ink)] py-16 md:py-24 text-[var(--cream)]">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6">
-          <Reveal><p className="eyebrow"><span className="gold-rule" />Fall 2026</p></Reveal>
-          <Reveal delay={100}>
-            <h2 className="mt-3 font-display text-3xl font-medium sm:text-4xl md:text-5xl">
-              Rush Schedule: The Filmstrip.
-            </h2>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="mt-4 max-w-xl text-[var(--cream)]/70">
-              Six auditions. One week. Will you make the cast?
-            </p>
-          </Reveal>
-
-          <div className="mt-12 grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {SCHEDULE.map((e, i) => (
-              <Reveal key={e.title} delay={i * 80} className="h-full">
-                <ScheduleCard e={e} i={i} />
-              </Reveal>
-            ))}
-          </div>
-
-        </div>
-      </section>
 
       <FilmDivider />
 
