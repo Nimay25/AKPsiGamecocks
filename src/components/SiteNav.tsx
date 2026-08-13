@@ -1,7 +1,8 @@
 import { Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/photos/akpsi-logo.png";
+import logoAsset from "@/assets/akpsi-logo-hd.png.asset.json";
+const logo = logoAsset.url;
 
 const links = [
   { to: "/", label: "Home" },
