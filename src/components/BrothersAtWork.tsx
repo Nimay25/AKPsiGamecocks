@@ -3,6 +3,66 @@ import { ArrowDown, ArrowUp, Minus } from "lucide-react";
 import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQuotes";
 import logosSheet from "@/assets/employer-logos.png.asset.json";
 
+const TICKER_SPEED_PX_PER_SEC = 140;
+
+function useTickerAnimation(enabled: boolean) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [style, setStyle] = useState<{ transform?: string }>({});
+  const startRef = useRef<number>(0);
+  const offsetRef = useRef<number>(0);
+  const rafRef = useRef<number>(0);
+  const widthRef = useRef<number>(0);
+
+  useEffect(() => {
+    if (!enabled) return;
+    const el = ref.current;
+    if (!el) return;
+
+    const measure = () => {
+      // Content is duplicated, so the seamless loop point is half the scroll width.
+      widthRef.current = el.scrollWidth / 2;
+    };
+    measure();
+
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+
+    startRef.current = performance.now() - offsetRef.current;
+
+    const tick = (now: number) => {
+      if (!widthRef.current) {
+        rafRef.current = requestAnimationFrame(tick);
+        return;
+      }
+      const elapsed = now - startRef.current;
+      const loopDistance = widthRef.current;
+      const loopDurationMs = (loopDistance / TICKER_SPEED_PX_PER_SEC) * 1000;
+      const progress = (elapsed % loopDurationMs) / loopDurationMs;
+      const x = -progress * loopDistance;
+      offsetRef.current = elapsed % loopDurationMs;
+      setStyle({ transform: `translate3d(${x}px, 0, 0)` });
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") {
+        startRef.current = performance.now() - offsetRef.current;
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      ro.disconnect();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [enabled]);
+
+  return { ref, style };
+}
+
 const PRIVATE_EMPLOYERS = [
   "EY",
   "PwC",
@@ -107,6 +167,34 @@ function PlaceholderPill({ symbol }: { symbol: string }) {
   );
 }
 
+function TickerBar({ rail }: { rail: (LiveQuote | string)[] }) {
+  const { ref, style } = useTickerAnimation(true);
+  return (
+    <div
+      className="relative overflow-hidden bg-black border-y border-[#ff3b3b]/50"
+      style={{ boxShadow: "0 0 60px rgba(255,60,60,0.35), inset 0 0 60px rgba(255,60,60,0.25)" }}
+    >
+      <div
+        ref={ref}
+        className="flex items-center py-4 whitespace-nowrap w-max"
+        style={{
+          ...style,
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+        }}
+      >
+        {rail.map((item, i) =>
+          typeof item === "string" ? (
+            <PlaceholderPill key={`p-${i}`} symbol={item} />
+          ) : (
+            <QuotePill key={`o-${item.symbol}-${i}`} q={item} />
+          ),
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function BrothersAtWork() {
   const { quotes, loading } = useLiveQuotes();
   const marketOpen = isUSMarketOpen();
@@ -163,20 +251,7 @@ export function BrothersAtWork() {
       className="relative bg-black text-white"
     >
       {/* Ticker bar */}
-      <div
-        className="relative overflow-hidden bg-black border-y border-[#ff3b3b]/50"
-        style={{ boxShadow: "0 0 60px rgba(255,60,60,0.35), inset 0 0 60px rgba(255,60,60,0.25)" }}
-      >
-        <div className="flex items-center py-4 whitespace-nowrap animate-baw-ticker w-max">
-          {(rail ?? placeholderRail).map((item, i) =>
-            typeof item === "string" ? (
-              <PlaceholderPill key={`p-${i}`} symbol={item} />
-            ) : (
-              <QuotePill key={`o-${item.symbol}-${i}`} q={item} />
-            ),
-          )}
-        </div>
-      </div>
+      <TickerBar rail={rail ?? placeholderRail} />
 
       {/* Floating logo field + centered content */}
       <div ref={wrapRef} className="relative min-h-[85svh] overflow-hidden">
