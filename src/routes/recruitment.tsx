@@ -444,10 +444,9 @@ function ScheduleCard({ e, i }: { e: ScheduleEvent; i: number }) {
           <span className="opacity-50">·</span>
           <span className="opacity-80">{e.time}</span>
         </div>
-        <p className={`relative mt-3 mb-5 text-sm ${tier.sub}`}>{e.desc}</p>
         <div className={`relative mt-auto flex items-center justify-between border-t pt-4 text-xs ${tier.rule} ${tier.ink}`}>
           <span className="uppercase tracking-widest font-semibold">{e.dress}</span>
-          <span className="opacity-70">USC Campus</span>
+          <span className="opacity-70">{e.location}</span>
         </div>
       </div>
     );
@@ -467,10 +466,9 @@ function ScheduleCard({ e, i }: { e: ScheduleEvent; i: number }) {
         <span className="text-[var(--cream)]/40">·</span>
         <span className="text-[var(--cream)]/70">{e.time}</span>
       </div>
-      <p className="mt-3 text-sm text-[var(--cream)]/70">{e.desc}</p>
       <div className="mt-auto flex items-center justify-between border-t border-dashed border-[var(--gold)]/30 pt-4 text-xs">
         <span className="text-[var(--gold)] uppercase tracking-widest">{e.dress}</span>
-        <span className="text-[var(--cream)]/40">USC Campus</span>
+        <span className="text-[var(--cream)]/40">{e.location}</span>
       </div>
     </div>
   );
