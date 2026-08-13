@@ -167,6 +167,34 @@ function PlaceholderPill({ symbol }: { symbol: string }) {
   );
 }
 
+function TickerBar({ rail }: { rail: (LiveQuote | string)[] }) {
+  const { ref, style } = useTickerAnimation(true);
+  return (
+    <div
+      className="relative overflow-hidden bg-black border-y border-[#ff3b3b]/50"
+      style={{ boxShadow: "0 0 60px rgba(255,60,60,0.35), inset 0 0 60px rgba(255,60,60,0.25)" }}
+    >
+      <div
+        ref={ref}
+        className="flex items-center py-4 whitespace-nowrap w-max"
+        style={{
+          ...style,
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+        }}
+      >
+        {rail.map((item, i) =>
+          typeof item === "string" ? (
+            <PlaceholderPill key={`p-${i}`} symbol={item} />
+          ) : (
+            <QuotePill key={`o-${item.symbol}-${i}`} q={item} />
+          ),
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function BrothersAtWork() {
   const { quotes, loading } = useLiveQuotes();
   const marketOpen = isUSMarketOpen();
