@@ -88,8 +88,9 @@ function Recruitment() {
           <Reveal delay={200}>
             <p className="mt-4 max-w-2xl text-[var(--navy)]/75 leading-relaxed">
               Pledging AKPSI is a transformative semester of professional
-              workshops, mentorship from older brothers, real case work, and
-              friendships that outlast every internship line on your resume.
+              workshops, mentorship from older brothers, case competitions, and
+              friendships that outlast every bullet point on your resume.
+              Here are a few tips from our recruitment team as you come out to rush!
             </p>
           </Reveal>
 
