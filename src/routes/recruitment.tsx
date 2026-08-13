@@ -564,7 +564,7 @@ function ScheduleCard({ e, i }: { e: ScheduleEvent; i: number }) {
 function FilmDivider() {
 
   return (
-    <div className="relative h-10 bg-[var(--ink)] mt-8">
+    <div className="relative h-10 bg-[var(--ink)]">
       <div className="film-strip absolute inset-x-0 top-0 h-10 opacity-70" />
       <Film className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 text-[var(--gold)]" />
     </div>
