@@ -45,20 +45,6 @@ const SCHEDULE = [
 ] as const;
 
 
-const TESTIMONIALS = [
-  {
-    quote: "Don't just think about how you want to be remembered during rush, think about who you want to become after. AKPsi opens the door to so many opportunities to grow professionally, academically, and personally, and you don't need to have it all figured out yet. Be curious, ask questions, and look for the people who inspire you to become a better version of yourself. Recruitment is just the beginning, so embrace everything you can learn from it and get excited about where it might take you!",
-    who: "Ariana Conroy, Director of Outreach",
-  },
-  {
-    quote: "The best advice for recruitment I can give is to be yourself. This organization is so incredible because of the diverse group of genuine, hard-working individuals that want to help each other succeed. We are so excited to get to know all of the rushees!",
-    who: "Amanda Collins, VP of Recruitment",
-  },
-  {
-    quote: "As someone who rushed twice, always come in with the mindset of being your best self. Being confident and authentic makes all the difference in these five days–I know it changed everything for me. Oh, and please, remember to have fun!",
-    who: "Tim Woodley, Director of Rush",
-  },
-];
 
 const FAQ = [
   { q: "Do I need to be a business major?", a: "Not at all. We recruit across every college at USC." },
@@ -77,8 +63,8 @@ function Recruitment() {
       <FilmDivider />
 
       {/* Why Rush */}
-      <section className="bg-[var(--cream)] py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-[var(--cream)] py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Why Rush</p></Reveal>
           <Reveal delay={100}>
             <h2 className="mt-3 max-w-3xl font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">
@@ -94,16 +80,69 @@ function Recruitment() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <blockquote className="relative h-full rounded-2xl border border-[var(--border)] bg-white p-8 shadow-[var(--shadow-soft)]">
-                  <div className="absolute -top-3 -left-2 font-display text-6xl text-[var(--gold)]">&ldquo;</div>
-                  <p className="relative text-[var(--navy)] leading-relaxed">{t.quote}</p>
-                  <footer className="mt-6 text-xs uppercase tracking-widest text-[var(--navy)]/60">— {t.who}</footer>
-                </blockquote>
-              </Reveal>
-            ))}
+          {/* Ariana */}
+          <div className="mt-14 grid gap-8 lg:grid-cols-2 items-center">
+            <Reveal>
+              <div className="aspect-[4/3] rounded-2xl bg-[var(--navy)]/5 flex items-center justify-center border border-[var(--border)]">
+                <Clapperboard className="h-12 w-12 text-[var(--gold)]/40" />
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="relative">
+                <span className="absolute -top-4 -left-2 font-display text-6xl text-[var(--gold)]/20">&ldquo;</span>
+                <p className="relative text-[var(--navy)] leading-relaxed">
+                  Don't just think about how you want to be remembered during rush, think about who you want to become after. AKPsi opens the door to so many opportunities to grow professionally, academically, and personally, and you don't need to have it all figured out yet. Be curious, ask questions, and look for the people who inspire you to become a better version of yourself. Recruitment is just the beginning, so embrace everything you can learn from it and get excited about where it might take you!
+                </p>
+                <div className="mt-4 flex items-center gap-3">
+                  <div className="h-px w-8 bg-[var(--gold)]" />
+                  <p className="text-xs uppercase tracking-widest text-[var(--navy)]/60">
+                    <span className="font-semibold text-[var(--navy)]">Ariana Conroy</span> — Director of Outreach
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Amanda */}
+          <div className="mt-14 grid gap-8 lg:grid-cols-2 items-center">
+            <Reveal className="order-2 lg:order-1">
+              <div className="relative">
+                <span className="absolute -top-4 -left-2 font-display text-6xl text-[var(--gold)]/20">&ldquo;</span>
+                <p className="relative text-[var(--navy)] leading-relaxed">
+                  The best advice for recruitment I can give is to be yourself. This organization is so incredible because of the diverse group of genuine, hard-working individuals that want to help each other succeed. We are so excited to get to know all of the rushees!
+                </p>
+                <div className="mt-4 flex items-center gap-3">
+                  <div className="h-px w-8 bg-[var(--gold)]" />
+                  <p className="text-xs uppercase tracking-widest text-[var(--navy)]/60">
+                    <span className="font-semibold text-[var(--navy)]">Amanda Collins</span> — VP of Recruitment
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={100} className="order-1 lg:order-2">
+              <div className="aspect-[4/3] rounded-2xl bg-[var(--navy)]/5 flex items-center justify-center border border-[var(--border)]">
+                <Film className="h-12 w-12 text-[var(--gold)]/40" />
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Tim */}
+          <div className="mt-14 max-w-3xl mx-auto text-center">
+            <Reveal>
+              <div className="aspect-[21/9] rounded-2xl bg-[var(--navy)]/5 flex items-center justify-center border border-[var(--border)] mb-6">
+                <Ticket className="h-10 w-10 text-[var(--gold)]/40" />
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <p className="text-xl md:text-2xl font-display italic text-[var(--navy)] leading-relaxed">
+                As someone who rushed twice, always come in with the mindset of being your best self. Being confident and authentic makes all the difference in these five days–I know it changed everything for me. Oh, and please, remember to have fun!
+              </p>
+              <div className="mt-5 flex flex-col items-center">
+                <div className="w-12 h-px bg-[var(--gold)] mb-3" />
+                <span className="font-semibold text-[var(--navy)]">Tim Woodley</span>
+                <span className="text-xs uppercase tracking-widest text-[var(--navy)]/60">Director of Rush</span>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
