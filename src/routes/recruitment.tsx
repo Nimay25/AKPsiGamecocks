@@ -374,12 +374,12 @@ function CurtainHero() {
         {/* red carpet + marquee bulbs */}
         <div className="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-red-900 via-red-600 to-red-900 z-30" />
         <div className="absolute inset-x-0 top-3 marquee-bulbs h-5 flicker opacity-80 z-30" />
-        <div className="absolute inset-x-0 bottom-3 marquee-bulbs h-5 flicker opacity-80 z-30" />
+        <div className="absolute inset-x-0 bottom-0 marquee-bulbs h-5 flicker opacity-80 z-30" />
         <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-r from-red-900 via-red-600 to-red-900 z-30" />
 
         {/* HERO content */}
         <div
-          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-5 pt-36 pb-16 text-center transition-opacity sm:px-6 sm:pt-52 sm:pb-24"
+          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-5 pt-36 pb-28 text-center transition-opacity sm:px-6 sm:pt-52 sm:pb-40"
           style={{ opacity: contentP }}
         >
           <div className="mt-8">
@@ -568,7 +568,7 @@ function ScheduleCard({ e, i }: { e: ScheduleEvent; i: number }) {
 function FilmDivider() {
 
   return (
-    <div className="relative h-10 bg-[var(--ink)]">
+    <div className="relative h-10 bg-[var(--ink)] mt-8">
       <div className="film-strip absolute inset-x-0 top-0 h-10 opacity-70" />
       <Film className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 text-[var(--gold)]" />
     </div>
