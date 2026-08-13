@@ -45,20 +45,6 @@ const SCHEDULE = [
 ] as const;
 
 
-const TESTIMONIALS = [
-  {
-    quote: "Don't just think about how you want to be remembered during rush, think about who you want to become after. AKPsi opens the door to so many opportunities to grow professionally, academically, and personally, and you don't need to have it all figured out yet. Be curious, ask questions, and look for the people who inspire you to become a better version of yourself. Recruitment is just the beginning, so embrace everything you can learn from it and get excited about where it might take you!",
-    who: "Ariana Conroy, Director of Outreach",
-  },
-  {
-    quote: "The best advice for recruitment I can give is to be yourself. This organization is so incredible because of the diverse group of genuine, hard-working individuals that want to help each other succeed. We are so excited to get to know all of the rushees!",
-    who: "Amanda Collins, VP of Recruitment",
-  },
-  {
-    quote: "As someone who rushed twice, always come in with the mindset of being your best self. Being confident and authentic makes all the difference in these five days–I know it changed everything for me. Oh, and please, remember to have fun!",
-    who: "Tim Woodley, Director of Rush",
-  },
-];
 
 const FAQ = [
   { q: "Do I need to be a business major?", a: "Not at all. We recruit across every college at USC." },
