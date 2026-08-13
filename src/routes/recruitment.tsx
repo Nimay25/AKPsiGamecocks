@@ -67,7 +67,6 @@ const FAQ = [
     ),
   },
   { q: "Do I need to be a business major?", a: "No–around one seventh of our brothers are non-business majors. We look for driven candidates, regardless of major or industry focus." },
-  { q: "Is there a GPA requirement?", a: "Still looking for this" },
   {
     q: "How should I prepare for the case competition?",
     a: (
@@ -208,9 +207,6 @@ function Recruitment() {
           </div>
         </div>
       </section>
-
-
-      <FilmDivider />
 
       {/* Dress Guide */}
       <section className="bg-white py-16 md:py-16 md:py-24">
@@ -379,7 +375,7 @@ function CurtainHero() {
 
         {/* HERO content */}
         <div
-          className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-5 pt-36 pb-28 text-center transition-opacity sm:px-6 sm:pt-52 sm:pb-40"
+          className="relative z-40 mx-auto flex h-full max-w-6xl flex-col justify-center px-5 pt-36 pb-28 text-center transition-opacity sm:px-6 sm:pt-52 sm:pb-40"
           style={{ opacity: contentP }}
         >
           <div className="mt-8">
