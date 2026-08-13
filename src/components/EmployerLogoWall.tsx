@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import ey from "@/assets/logos-t/ey.png.asset.json";
 import pwc from "@/assets/logos-t/pwc.png.asset.json";
 import gs from "@/assets/logos-t/gs.png.asset.json";
@@ -48,7 +49,7 @@ export function EmployerLogo({
       alt={`${logo.name} logo`}
       loading="lazy"
       className={`w-auto object-contain opacity-80 transition-all duration-500 hover:scale-110 hover:opacity-100 ${
-        compact ? "max-h-12 max-w-[150px] lg:max-h-14 lg:max-w-[180px]" : "max-h-14 max-w-[70%]"
+        compact ? "max-h-16 max-w-[190px] lg:max-h-20 lg:max-w-[230px]" : "max-h-14 max-w-[70%]"
       }`}
       style={{
         filter:

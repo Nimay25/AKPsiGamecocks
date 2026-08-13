@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
 import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQuotes";
-import { EmployerLogoWall, EmployerLogoRail } from "@/components/EmployerLogoWall";
+import { EmployerLogoWall, EmployerLogoOrbit } from "@/components/EmployerLogoWall";
 
 const TICKER_SPEED_PX_PER_SEC = 140;
 
@@ -143,8 +143,7 @@ export function BrothersAtWork() {
 
       {/* Floating logo rails + centered content */}
       <div className="relative min-h-[92svh] overflow-hidden py-20 sm:py-24">
-        <EmployerLogoRail side="left" />
-        <EmployerLogoRail side="right" />
+        <EmployerLogoOrbit />
 
         <div className="relative z-0 flex min-h-[70svh] items-center px-6">
           <div className="mx-auto max-w-3xl text-center">
