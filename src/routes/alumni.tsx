@@ -45,27 +45,28 @@ function Alumni() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />The Network</p></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-3 max-w-2xl font-display text-3xl font-medium sm:text-4xl md:text-5xl">
-              500+ brothers. 40 states. One chapter family.
+            <h2 className="mt-3 max-w-3xl font-display text-3xl font-medium sm:text-4xl md:text-5xl">
+              550+ brothers. 30 states; 15 countries.
             </h2>
           </Reveal>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
-              { title: "Employers", items: ["JPMorgan", "EY", "PwC", "Goldman Sachs", "Boeing", "Wells Fargo", "Bank of America", "PepsiCo"] },
-              { title: "Grad Schools", items: ["Wharton", "Booth", "Darden", "Kenan-Flagler", "Duke Fuqua", "Tuck", "Ross"] },
-              { title: "Industries", items: ["Investment Banking", "Consulting", "Tech", "Marketing", "Operations", "Public Policy", "Law"] },
+              { title: "Employers", items: ["JPMorgan", "McKinsey & Co.", "EY", "PwC", "Bank of America", "KPMG", "Deloitte", "Wells Fargo", "Goldman Sachs", "The Boeing Company", "Apple", "Amazon", "PepsiCo"] },
+              { title: "Graduate Schools", items: ["Wharton (University of Pennsylvania)", "Columbia Business School", "Harvard Law School", "Fuqua School of Business (Duke)", "SC Johnson (Cornell University)", "Stern (New York University)", "McDonough (Georgetown University)", "Bayes Business School (University of London)", "ESCP Europe", "Charles University in Prague", "Robert H. Smith (University of Maryland)", "D'Amore-McKim (Northeastern University)", "Medical University of South Carolina", "George Washington University & GW Law School", "American University & Washington College of Law", "Elon University School of Law", "Clemson University"] },
+              { title: "Industries", items: ["Investment Banking", "Consulting", "Marketing", "Defense", "Entrepreneurship", "Sourcing", "Consumer Goods", "Law", "HR Management", "Sports and Television", "Corporate Finance"] },
             ].map((c, i) => (
               <Reveal key={c.title} delay={i * 100}>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
+                <div className="h-full rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
                   <h3 className="font-display text-xl text-[var(--gold)]">{c.title}</h3>
-                  <ul className="mt-4 space-y-2 text-sm text-[var(--cream)]/85">
+                  <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[var(--cream)]/85">
                     {c.items.map((x) => <li key={x}>· {x}</li>)}
                   </ul>
                 </div>
               </Reveal>
             ))}
           </div>
+
         </div>
       </section>
 
