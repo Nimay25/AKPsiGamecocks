@@ -312,9 +312,9 @@ function Recruitment() {
           <Reveal delay={200}>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a href={primaryCta().href} target="_blank" rel="noreferrer" className="btn-gold btn-gold-hover">
-                {primaryCta().text}
+                {primaryCta().text} <ArrowRight className="h-4 w-4" />
               </a>
-              <a href={REMIND_URL} target="_blank" rel="noreferrer" className="btn-gold btn-gold-hover">
+              <a href={REMIND_URL} target="_blank" rel="noreferrer" className="btn-outline-light hover:bg-white/10">
                 Get Rush Text Updates
               </a>
             </div>
