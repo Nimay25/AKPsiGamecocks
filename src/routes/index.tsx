@@ -62,7 +62,7 @@ function Home() {
             </p>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[0.95] text-[var(--cream)] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 max-w-4xl font-display text-4xl font-medium leading-[0.95] text-[var(--cream)] sm:text-5xl md:text-6xl lg:text-7xl">
               Alpha Kappa Psi
               <span className="block text-[var(--gold)] italic font-normal">Beta Upsilon.</span>
             </h1>
@@ -139,7 +139,7 @@ function Home() {
             <div>
               <Reveal><p className="eyebrow"><span className="gold-rule" />Our Pillars</p></Reveal>
               <Reveal delay={100}>
-                <h2 className="mt-3 max-w-xl font-display text-4xl font-medium sm:text-5xl">
+                <h2 className="mt-3 max-w-xl font-display text-3xl font-medium sm:text-4xl md:text-5xl">
                   Five values. One brotherhood.
                 </h2>
               </Reveal>
@@ -267,7 +267,7 @@ function RushCtaSweep() {
           <div className="mx-auto max-w-4xl">
             <Building2 className="mx-auto h-9 w-9 text-[var(--gold)]" />
             <p className="mt-4 eyebrow">Now Casting</p>
-            <h2 className="mt-3 font-display text-5xl font-medium sm:text-6xl">
+            <h2 className="mt-3 font-display text-4xl font-medium sm:text-5xl md:text-6xl">
               Fall 2026 <span className="italic text-[var(--gold)]">Rush.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--cream)]/75">

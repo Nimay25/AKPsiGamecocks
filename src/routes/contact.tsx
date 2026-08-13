@@ -38,7 +38,7 @@ function Contact() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6 w-full">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Contact</p></Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
+            <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-tight sm:text-6xl md:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
               Say <span className="italic text-[var(--gold)]">hello</span>.
             </h1>
           </Reveal>

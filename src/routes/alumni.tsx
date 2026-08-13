@@ -33,7 +33,7 @@ function Alumni() {
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Alumni</p></Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-tight sm:text-7xl">
+            <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-tight sm:text-6xl md:text-7xl">
               Once a brother, <span className="italic text-[var(--gold)]">always</span>.
             </h1>
           </Reveal>
@@ -45,7 +45,7 @@ function Alumni() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />The Network</p></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-3 max-w-2xl font-display text-4xl font-medium sm:text-5xl">
+            <h2 className="mt-3 max-w-2xl font-display text-3xl font-medium sm:text-4xl md:text-5xl">
               500+ brothers. 40 states. One chapter family.
             </h2>
           </Reveal>

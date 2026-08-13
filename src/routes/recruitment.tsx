@@ -152,7 +152,7 @@ function Recruitment() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Fall 2026</p></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-3 font-display text-4xl font-medium sm:text-5xl">
+            <h2 className="mt-3 font-display text-3xl font-medium sm:text-4xl md:text-5xl">
               Rush Schedule: The Filmstrip.
             </h2>
           </Reveal>
@@ -267,7 +267,7 @@ function Recruitment() {
         <div className="mx-auto max-w-4xl px-5 sm:px-6 text-center">
           <Reveal><Ticket className="mx-auto h-10 w-10 text-[var(--gold)]" /></Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-4 font-display text-5xl font-medium sm:text-6xl">
+            <h2 className="mt-4 font-display text-4xl font-medium sm:text-5xl md:text-6xl">
               Your <span className="italic text-[var(--gold)]">audition</span> awaits.
             </h2>
           </Reveal>
@@ -346,7 +346,7 @@ function CurtainHero() {
               <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.9)]" /> <span className="pt-0.5">Now Casting</span>
             </div>
           </div>
-          <h1 className="mt-8 font-display text-5xl font-medium leading-[0.95] sm:text-7xl lg:text-8xl">
+          <h1 className="mt-8 font-display text-4xl font-medium leading-[0.95] sm:text-6xl md:text-7xl lg:text-8xl">
             Alpha Kappa Psi
             <span className="block mt-3 text-[var(--gold)] italic">Fall 2026 Rush.</span>
           </h1>

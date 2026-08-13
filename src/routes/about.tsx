@@ -62,7 +62,7 @@ function About() {
             <p className="eyebrow"><span className="gold-rule" />About</p>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-4 max-w-4xl font-display text-5xl font-medium leading-[1.1] sm:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
+            <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-[1.1] sm:text-6xl md:text-7xl drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
               Shaping{"\u00a0"}people,{"\u00a0"}<br />Shaping{"\u00a0"}business{"\u00a0"}<span className="text-[var(--gold)]"> since 2007</span>
             </h1>
             <div className="mt-8 h-1 w-24 bg-[var(--gold)]" />
@@ -127,7 +127,7 @@ function About() {
             <div>
               <Reveal><p className="eyebrow"><span className="gold-rule" />Our Pillars</p></Reveal>
               <Reveal delay={100}>
-                <h2 className="mt-3 max-w-xl font-display text-4xl font-medium sm:text-5xl">
+                <h2 className="mt-3 max-w-xl font-display text-3xl font-medium sm:text-4xl md:text-5xl">
                   Five values. One brotherhood.
                 </h2>
               </Reveal>
@@ -156,7 +156,7 @@ function About() {
           <div>
             <Reveal><p className="eyebrow"><span className="gold-rule" />Diversity, Opportunity &amp; Inclusion</p></Reveal>
             <Reveal delay={100}>
-              <h2 className="mt-4 font-display text-4xl font-medium sm:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-medium sm:text-4xl md:text-5xl">
                 Every brother belongs here.
               </h2>
             </Reveal>

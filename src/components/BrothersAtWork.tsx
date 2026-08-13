@@ -193,7 +193,7 @@ export function BrothersAtWork() {
                 </span>
               )}
             </p>
-            <h2 className="mt-6 font-display text-5xl sm:text-7xl lg:text-8xl font-medium leading-none">
+            <h2 className="mt-6 font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-none">
               BROTHERS <span className="led-glow-amber">@</span> WORK
             </h2>
             <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-white/65">
