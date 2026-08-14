@@ -106,11 +106,11 @@ function Alumni() {
                   <p className="font-display text-xl leading-relaxed text-[var(--navy)]">&ldquo;{t.q}&rdquo;</p>
                   <footer className="mt-6 flex items-center gap-3 border-t border-[var(--border)] pt-4 text-sm">
                     <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--navy)] text-[var(--gold)] font-display">
-                      {t.who.split(" ").map(w => w[0]).slice(0,2).join("")}
+                      {t.name.split(" ").map((w: string) => w[0]).slice(0,2).join("")}
                     </div>
                     <div>
-                      <div className="font-semibold text-[var(--navy)]">{t.who}</div>
-                      <div className="text-[var(--navy)]/60 text-xs">{t.role}</div>
+                      <div className="font-semibold text-[var(--navy)]">{t.name} <span className="text-[var(--navy)]/60 font-normal">'{t.year.slice(-2)}</span></div>
+                      {t.role && <div className="text-[var(--navy)]/60 text-xs">{t.role}</div>}
                     </div>
                   </footer>
                 </blockquote>
