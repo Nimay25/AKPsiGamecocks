@@ -78,12 +78,12 @@ function Contact() {
               <div className="mt-10 space-y-3 text-sm text-[var(--navy)]/80">
                 <div className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-[var(--gold)]" />
-                  <a href="mailto:akpsibetaupsilon@gmail.com" className="hover:text-[var(--gold)]">akpsibetaupsilon@gmail.com</a>
+                  <a href="mailto:soakpsi@mailbox.sc.edu" className="hover:text-[var(--gold)]">soakpsi@mailbox.sc.edu</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Instagram className="h-4 w-4 text-[var(--gold)]" />
-                  <a href="https://instagram.com/akpsi_usc" className="hover:text-[var(--gold)]" target="_blank" rel="noreferrer">
-                    @akpsi_usc
+                  <a href="https://instagram.com/akpsigamecocks" className="hover:text-[var(--gold)]" target="_blank" rel="noreferrer">
+                    @akpsigamecocks
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
