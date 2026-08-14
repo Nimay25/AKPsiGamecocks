@@ -18,10 +18,30 @@ export const Route = createFileRoute("/alumni")({
 });
 
 const QUOTES = [
-  { q: "AKPSI taught me how to interview before I even had something to interview for.", who: "Maya Chen '21", role: "Senior Analyst, JPMorgan" },
-  { q: "My favorite memory is bid day on the steps with my pledge class — still my closest friends.", who: "Justin Park '20", role: "Strategy, Boeing" },
-  { q: "Say yes to everything pledging asks of you. The relationships are the entire point.", who: "Sophie Reyes '22", role: "Consultant, EY" },
-  { q: "I've hired three Beta Upsilon brothers since graduating. The pipeline is real.", who: "Tyler Brooks '18", role: "VP, Wells Fargo" },
+  {
+    q: "AKPsi equipped me with the skills to feel confident in any room, which improved my ability to lead others in a variety of situations. The brothers showed me the importance of lifelong learning, helping me to excel in my new job, where I can soak up knowledge like a sponge and feel confident suggesting new ideas to the team, despite being the youngest person on it.",
+    name: "Ryan St. Clair",
+    year: "2026",
+    role: "",
+  },
+  {
+    q: "AKPsi was home during a time when everything felt new and unfamiliar. What started as a group of strangers quickly became a brotherhood built on trust, support, and genuine connection. The impact of AKPsi extends far beyond my college years — it shaped how I approach my professional life and taught me the importance of community, mentorship, and building authentic relationships in the workplace.",
+    name: "Ahmed Yousfi",
+    year: "2023",
+    role: "",
+  },
+  {
+    q: "Among many things, AKPsi taught me that building and maintaining relationships is one of the most crucial yet rewarding skills to develop. I recommend taking the time to intentionally foster relationships in all areas of life.",
+    name: "Sophia Arias",
+    year: "2026",
+    role: "",
+  },
+  {
+    q: "The most important experience I gained from my time in AKPsi pertains to the impact of networking. Whether through brother interviews or mock job prep scenarios, the skills I gained have had a direct positive impact on my career trajectory since entering the workforce. The value of building and maintaining connections cannot be overstated.",
+    name: "Nick Nicholson",
+    year: "2020",
+    role: "",
+  },
 ];
 
 function Alumni() {
@@ -86,11 +106,11 @@ function Alumni() {
                   <p className="font-display text-xl leading-relaxed text-[var(--navy)]">&ldquo;{t.q}&rdquo;</p>
                   <footer className="mt-6 flex items-center gap-3 border-t border-[var(--border)] pt-4 text-sm">
                     <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--navy)] text-[var(--gold)] font-display">
-                      {t.who.split(" ").map(w => w[0]).slice(0,2).join("")}
+                      {t.name.split(" ").map((w: string) => w[0]).slice(0,2).join("")}
                     </div>
                     <div>
-                      <div className="font-semibold text-[var(--navy)]">{t.who}</div>
-                      <div className="text-[var(--navy)]/60 text-xs">{t.role}</div>
+                      <div className="font-semibold text-[var(--navy)]">{t.name} <span className="text-[var(--navy)]/60 font-normal">'{t.year.slice(-2)}</span></div>
+                      {t.role && <div className="text-[var(--navy)]/60 text-xs">{t.role}</div>}
                     </div>
                   </footer>
                 </blockquote>
