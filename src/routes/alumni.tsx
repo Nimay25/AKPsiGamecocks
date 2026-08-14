@@ -143,11 +143,9 @@ function Alumni() {
             <div className="rounded-2xl border border-[var(--gold)]/40 bg-gradient-to-br from-[var(--cream)] to-white p-8 shadow-[var(--shadow-soft)]">
               <Heart className="h-7 w-7 text-[var(--gold)]" />
               <p className="eyebrow mt-4">Give Back</p>
-              <h3 className="mt-2 font-display text-3xl text-[var(--navy)]">The Crone Scholarship</h3>
+              <h3 className="mt-2 font-display text-3xl text-[var(--navy)]">Wilson A. Crone Exceptional Character Award</h3>
               <p className="mt-4 text-[var(--navy)]/75 leading-relaxed">
-                The Crone Scholarship supports Beta Upsilon brothers pursuing
-                professional development and educational opportunities. Every
-                gift, of every size, opens a door for a future brother.
+                The Beta Upsilon chapter of Alpha Kappa Psi invites our alumni to contribute towards the Wilson A. Crone Exceptional Character Award. This scholarship supports Beta Upsilon brothers pursuing professional development and educational opportunities. A gift of any size opens the door for our brothers. Click “Donate” to learn more about Wilson’s legacy and character.
               </p>
               <a href="https://www.gofundme.com/f/donate-to-the-wilson-a-crone-exceptional-character-award" target="_blank" rel="noopener noreferrer" className="mt-6 btn-gold btn-gold-hover">Donate</a>
             </div>
