@@ -18,13 +18,12 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-// EDIT: real names and emails
 const DIRECTORY = [
-  { role: "President", name: "Alexandra Reed", email: "president@akpsiuofsc.com" },
-  { role: "VP Finance", name: "Marcus Chen", email: "vpf@akpsiuofsc.com" },
-  { role: "VP Education", name: "Priya Patel", email: "vpe@akpsiuofsc.com" },
-  { role: "VP Recruitment", name: "Jordan Williams", email: "vpr@akpsiuofsc.com" },
-  { role: "Director of Alumni Relations", name: "Riley Thompson", email: "alumni@akpsiuofsc.com" },
+  { role: "President", name: "Grace Johnson", email: "akpsipresident.by@gmail.com" },
+  { role: "VP of Finance", name: "Cooper Johnston", email: "akpsifinance.by@gmail.com" },
+  { role: "VP of Recruitment", name: "Amanda Collins", email: "recruitment@akpsigamecocks.com" },
+  { role: "Director of Alumni Relations", name: "Sven Nielsen", email: "akpsi.bu.alumni@gmail.com" },
+  { role: "Director of Inter-Chapter Relations", name: "Gabriel Giusti", email: "connectbetaupsilon@gmail.com" },
 ];
 
 function Contact() {
