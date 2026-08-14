@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, Mail, ExternalLink } from "lucide-react";
+import { Heart, Mail } from "lucide-react";
 import alumniMap from "@/assets/alumni-graduation.jpg.asset.json";
 import { Reveal } from "@/components/Reveal";
 
