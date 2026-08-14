@@ -99,48 +99,113 @@ function Contact() {
   );
 }
 
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxufqjtd1aHoNNhuAzK-ObjCA_aYNAuivzXHeagTYgYk_nMTsqnUGYcXO5AVQlaJ4oJ7Q/exec";
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
 function ContactForm() {
-  const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+  const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [k]: e.target.value });
+    if (errors[k]) setErrors((prev) => ({ ...prev, [k]: "" }));
+  };
 
-  const onSubmit = (e: React.FormEvent) => {
+  const validate = () => {
+    const next: Record<string, string> = {};
+    if (!form.name.trim()) next.name = "Please enter your name.";
+    if (!form.email.trim()) next.email = "Please enter your email.";
+    else if (!isValidEmail(form.email)) next.email = "Please enter a valid email address.";
+    if (!form.subject.trim()) next.subject = "Please enter a subject.";
+    if (!form.message.trim()) next.message = "Please enter a message.";
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Open user's mail client as a simple, dependency-free handler.
-    // EDIT: wire to a real form handler (Formspree, edge function, etc.)
-    const body = `Name: ${form.name}%0AEmail: ${form.email}%0A%0A${encodeURIComponent(form.message)}`;
-    window.location.href = `mailto:akpsibetaupsilon@gmail.com?subject=${encodeURIComponent(form.subject || "Website inquiry")}&body=${body}`;
-    setSent(true);
+    if (!validate()) return;
+    setStatus("sending");
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          subject: form.subject.trim(),
+          message: form.message.trim(),
+        }),
+      });
+      setForm({ name: "", email: "", subject: "", message: "" });
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
-    <form onSubmit={onSubmit} className="rounded-2xl border border-[var(--border)] bg-white p-8 shadow-[var(--shadow-soft)]">
+    <form onSubmit={onSubmit} className="rounded-2xl border border-[var(--border)] bg-white p-8 shadow-[var(--shadow-soft)]" noValidate>
       <p className="eyebrow"><span className="gold-rule" />Send a Message</p>
       <h2 className="mt-3 font-display text-3xl text-[var(--navy)] sm:text-4xl">Get in touch.</h2>
 
       <div className="mt-8 space-y-5">
-        <Field label="Name" value={form.name} onChange={update("name")} required />
-        <Field label="Email" type="email" value={form.email} onChange={update("email")} required />
-        <Field label="Subject" value={form.subject} onChange={update("subject")} />
+        <Field label="Name" value={form.name} onChange={update("name")} error={errors.name} />
+        <Field label="Email" type="email" value={form.email} onChange={update("email")} error={errors.email} />
+        <Field label="Subject" value={form.subject} onChange={update("subject")} error={errors.subject} />
         <div>
           <label className="text-xs uppercase tracking-widest text-[var(--navy)]/60">Message</label>
           <textarea
             value={form.message}
             onChange={update("message")}
             rows={5}
-            required
             maxLength={2000}
             className="mt-2 w-full rounded-xl border border-[var(--border)] bg-[var(--cream)]/40 px-4 py-3 text-sm outline-none focus:border-[var(--gold)]"
+            aria-invalid={!!errors.message}
           />
+          {errors.message && <p className="mt-1 text-xs text-red-600">{errors.message}</p>}
         </div>
       </div>
 
-      <button type="submit" className="mt-8 btn-gold btn-gold-hover">
-        <Send className="h-4 w-4" /> {sent ? "Opened mail client" : "Send Message"}
+      <button type="submit" disabled={status === "sending"} className="mt-8 btn-gold btn-gold-hover disabled:opacity-60 disabled:cursor-not-allowed">
+        <Send className="h-4 w-4" />
+        {status === "sending" ? "Sending…" : status === "success" ? "Sent" : "Send Message"}
       </button>
+
+      {status === "success" && (
+        <p className="mt-4 text-sm text-green-700">Thanks — we'll be in touch soon.</p>
+      )}
+      {status === "error" && (
+        <p className="mt-4 text-sm text-red-700">
+          Something went wrong. Please email us directly at{" "}
+          <a href="mailto:soakpsi@mailbox.sc.edu" className="underline hover:text-[var(--gold)]">soakpsi@mailbox.sc.edu</a>.
+        </p>
+      )}
     </form>
+  );
+}
+
+function Field({
+  label,
+  error,
+  ...props
+}: React.InputHTMLAttributes<HTMLInputElement> & { label: string; error?: string }) {
+  return (
+    <div>
+      <label className="text-xs uppercase tracking-widest text-[var(--navy)]/60">{label}</label>
+      <input
+        {...props}
+        maxLength={200}
+        className="mt-2 w-full rounded-xl border border-[var(--border)] bg-[var(--cream)]/40 px-4 py-3 text-sm outline-none focus:border-[var(--gold)]"
+        aria-invalid={!!error}
+      />
+      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
+    </div>
   );
 }
 
