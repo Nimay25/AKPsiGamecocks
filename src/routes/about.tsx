@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import aboutBrothers from "@/assets/photos/pledge-roses-1.jpg";
 import mooreAtrium from "@/assets/moore-atrium.jpg.asset.json";
-import doiDirector from "@/assets/doi-director.jpg.asset.json";
+import doiDirector from "@/assets/doi-director-2.jpg.asset.json";
 import { Reveal, CountUp } from "@/components/Reveal";
 
 export const Route = createFileRoute("/about")({
