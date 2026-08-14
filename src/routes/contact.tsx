@@ -209,15 +209,3 @@ function Field({
   );
 }
 
-function Field({ label, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: string }) {
-  return (
-    <div>
-      <label className="text-xs uppercase tracking-widest text-[var(--navy)]/60">{label}</label>
-      <input
-        {...props}
-        maxLength={200}
-        className="mt-2 w-full rounded-xl border border-[var(--border)] bg-[var(--cream)]/40 px-4 py-3 text-sm outline-none focus:border-[var(--gold)]"
-      />
-    </div>
-  );
-}
