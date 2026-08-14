@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, Mail, ExternalLink } from "lucide-react";
+import { Heart, Mail } from "lucide-react";
 import alumniMap from "@/assets/alumni-graduation.jpg.asset.json";
 import { Reveal } from "@/components/Reveal";
 
@@ -126,23 +126,14 @@ function Alumni() {
           <Reveal>
             <div>
               <p className="eyebrow"><span className="gold-rule" />Stay Connected</p>
-              <h2 className="mt-3 font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">Alumni Mentorship Program.</h2>
+              <h2 className="mt-3 font-display text-4xl font-medium text-[var(--navy)] sm:text-5xl">Alumni mentorship program.</h2>
               <p className="mt-4 text-[var(--navy)]/75 leading-relaxed">
-                Our alumni mentorship pairs brothers across decades — helping
-                actives navigate recruiting, grad school, and career inflection
-                points. Reach out to get matched.
+                Our alumni mentorship program allows brothers to learn from alumni with similar career goals–helping members navigate recruiting, grad school, and career inflection points. Reach out to get matched!
               </p>
-              <div className="mt-8 space-y-3 text-sm">
-                <div className="flex items-center gap-3">
+              <div className="mt-8 text-sm">
+                <a href="mailto:akpsi.bu.alumni@gmail.com" className="inline-flex items-center gap-3 text-[var(--navy)] hover:text-[var(--gold)]">
                   <Mail className="h-4 w-4 text-[var(--gold)]" />
-                  <span>Riley Thompson, Director of Alumni Relations — alumni@akpsiuofsc.com</span>
-                  {/* EDIT */}
-                </div>
-                <a href="#" className="inline-flex items-center gap-2 text-[var(--navy)] hover:text-[var(--gold)]">
-                  <ExternalLink className="h-4 w-4 text-[var(--gold)]" /> AKPSI Beta Upsilon Alumni Facebook
-                </a>
-                <a href="#" className="inline-flex items-center gap-2 text-[var(--navy)] hover:text-[var(--gold)]">
-                  <ExternalLink className="h-4 w-4 text-[var(--gold)]" /> Alumni Weekend — info coming soon
+                  <span>Sven Nielsen, Director of Alumni Relations — akpsi.bu.alumni@gmail.com</span>
                 </a>
               </div>
             </div>
