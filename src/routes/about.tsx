@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import aboutBrothers from "@/assets/photos/pledge-roses-1.jpg";
 import mooreAtrium from "@/assets/moore-atrium.jpg.asset.json";
-import doiDirector from "@/assets/doi-director.jpg.asset.json";
+import doiDirector from "@/assets/doi-director-2.jpg.asset.json";
 import { Reveal, CountUp } from "@/components/Reveal";
 
 export const Route = createFileRoute("/about")({
@@ -173,22 +173,7 @@ function About() {
             </Reveal>
           </div>
           <Reveal delay={200}>
-            <figure
-              className="relative mx-auto w-full max-w-[320px]"
-              onClick={handleNimayClick}
-              aria-hidden="true"
-            >
-              <div className="rounded-2xl border-4 border-[var(--gold)] p-1.5 shadow-[0_25px_60px_-25px_rgba(0,0,0,0.7)]">
-                <div className="overflow-hidden rounded-xl border border-[var(--gold)]/60">
-                  <img
-                    src={doiDirector.url}
-                    alt="Director of Diversity, Opportunity and Inclusion"
-                    className="aspect-[4/5] w-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </figure>
+            <DirectorPortrait onClick={handleNimayClick} />
           </Reveal>
         </div>
       </section>
@@ -209,6 +194,65 @@ function About() {
         </div>
       </section>
     </>
+  );
+}
+
+function DirectorPortrait({ onClick }: { onClick: () => void }) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [p, setP] = useState(0.5);
+
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = ref.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const t = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+      setP(Math.min(1, Math.max(0, t)));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const shift = -60 + p * 220;
+
+  return (
+    <figure
+      ref={ref as React.RefObject<HTMLElement>}
+      className="relative mx-auto w-full max-w-[320px]"
+      onClick={onClick}
+      aria-hidden="true"
+    >
+      <div className="rounded-2xl border-4 border-[var(--gold)] p-1.5 shadow-[0_25px_60px_-25px_rgba(0,0,0,0.7)]">
+        <div className="relative overflow-hidden rounded-xl border border-[var(--gold)]/60">
+          <img
+            src={doiDirector.url}
+            alt="Director of Diversity, Opportunity and Inclusion"
+            className="aspect-[4/5] w-full object-cover"
+            loading="lazy"
+          />
+          <div
+            className="pointer-events-none absolute inset-y-[-30%] w-[45%] rotate-12 mix-blend-screen"
+            style={{
+              left: `${shift}%`,
+              background:
+                "linear-gradient(90deg, transparent, rgba(255,255,255,0.10) 35%, rgba(255,240,200,0.28) 50%, rgba(255,255,255,0.10) 65%, transparent)",
+              filter: "blur(6px)",
+            }}
+          />
+        </div>
+      </div>
+    </figure>
   );
 }
 
