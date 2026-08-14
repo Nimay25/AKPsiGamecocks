@@ -173,22 +173,7 @@ function About() {
             </Reveal>
           </div>
           <Reveal delay={200}>
-            <figure
-              className="relative mx-auto w-full max-w-[320px]"
-              onClick={handleNimayClick}
-              aria-hidden="true"
-            >
-              <div className="rounded-2xl border-4 border-[var(--gold)] p-1.5 shadow-[0_25px_60px_-25px_rgba(0,0,0,0.7)]">
-                <div className="overflow-hidden rounded-xl border border-[var(--gold)]/60">
-                  <img
-                    src={doiDirector.url}
-                    alt="Director of Diversity, Opportunity and Inclusion"
-                    className="aspect-[4/5] w-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </figure>
+            <DirectorPortrait onClick={handleNimayClick} />
           </Reveal>
         </div>
       </section>
