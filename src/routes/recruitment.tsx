@@ -227,8 +227,8 @@ function Recruitment() {
               <div className="lg:sticky lg:top-24">
                 <WardrobeCarousel
                   images={[
-                    { url: dressPro1, alt: "Brothers in business professional attire" },
-                    { url: dressPro2, alt: "Brothers in business professional attire — group" },
+                    { url: dressPro1, alt: "Brothers accepting the Alpha Kappa Psi Certificate of Excellence award" },
+                    { url: dressPro2, alt: "Brothers at the campus involvement fair" },
                   ]}
                 />
               </div>
