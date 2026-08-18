@@ -144,9 +144,17 @@ function Recruitment() {
           {/* Ariana */}
           <div className="mt-14 grid gap-8 lg:grid-cols-2 items-center">
             <Reveal>
-              <div className="aspect-[4/3] rounded-2xl bg-[var(--navy)]/5 flex items-center justify-center border border-[var(--border)]">
-                <Clapperboard className="h-12 w-12 text-[var(--gold)]/40" />
-              </div>
+              <figure className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
+                <img
+                  src={quoteImg1.url}
+                  alt="Beta Upsilon brothers accepting the Alpha Kappa Psi Certificate of Excellence"
+                  width={1206}
+                  height={801}
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-auto w-full"
+                />
+              </figure>
             </Reveal>
             <Reveal delay={100}>
               <div className="relative">
