@@ -73,7 +73,7 @@ function Alumni() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
               { title: "Employers", items: ["JPMorgan", "McKinsey & Co.", "EY", "PwC", "Bank of America", "KPMG", "Deloitte", "Wells Fargo", "Goldman Sachs", "The Boeing Company", "Apple", "Amazon", "PepsiCo"] },
-              { title: "Graduate Schools", items: ["Wharton (University of Pennsylvania)", "Columbia Business School", "Harvard Law School", "Fuqua School of Business (Duke)", "SC Johnson (Cornell University)", "Stern (New York University)", "McDonough (Georgetown University)", "Bayes Business School (University of London)", "ESCP Europe", "Charles University in Prague", "Robert H. Smith (University of Maryland)", "D'Amore-McKim (Northeastern University)", "Medical University of South Carolina", "George Washington University & GW Law School", "American University & Washington College of Law", "Elon University School of Law", "Clemson University"] },
+              { title: "Graduate Schools", items: ["Wharton (UPenn)", "Columbia Business School", "Harvard Law School", "Stanford Graduate School of Business", "Fuqua School of Business (Duke)", "SC Johnson (Cornell)", "Stern (NYU)", "McDonough (Georgetown)", "D'Amore-McKim (Northeastern)", "Bayes Business School (City, University of London)", "ESCP Europe", "Charles University in Prague", "Medical University of South Carolina"] },
               { title: "Industries", items: ["Investment Banking", "Consulting", "Marketing", "Defense", "Entrepreneurship", "Sourcing", "Consumer Goods", "Law", "HR Management", "Sports and Television", "Corporate Finance"] },
             ].map((c, i) => (
               <Reveal key={c.title} delay={i * 100}>
