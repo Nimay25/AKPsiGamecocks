@@ -24,7 +24,10 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Voted #1 professional business fraternity at USC for 18 consecutive years. Develop professionalism, leadership, and lifelong networks." },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: heroGroup, fetchpriority: "high" },
+    ],
   }),
   component: Home,
 });
@@ -50,6 +53,8 @@ function Home() {
           alt="Alpha Kappa Psi Beta Upsilon chapter photo on the steps in business professional attire"
           width={1920}
           height={1280}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--navy-deep)]/85 via-[var(--navy)]/70 to-[var(--navy)]/90" />
