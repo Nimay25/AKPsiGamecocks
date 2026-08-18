@@ -6,6 +6,9 @@ import curtainsImg from "@/assets/theater-curtains.png";
 import dressPro1 from "@/assets/dress-pro-1.webp";
 import dressPro2 from "@/assets/dress-pro-2.webp";
 import dressCasual from "@/assets/dress-casual.webp";
+import quoteImg1 from "@/assets/IMG_0338-2.webp.asset.json";
+import quoteImg2 from "@/assets/IMG_0332-2.webp.asset.json";
+import quoteImg3 from "@/assets/IMG_0336-2.webp.asset.json";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/recruitment")({
@@ -144,9 +147,17 @@ function Recruitment() {
           {/* Ariana */}
           <div className="mt-14 grid gap-8 lg:grid-cols-2 items-center">
             <Reveal>
-              <div className="aspect-[4/3] rounded-2xl bg-[var(--navy)]/5 flex items-center justify-center border border-[var(--border)]">
-                <Clapperboard className="h-12 w-12 text-[var(--gold)]/40" />
-              </div>
+              <figure className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
+                <img
+                  src={quoteImg1.url}
+                  alt="Beta Upsilon brothers accepting the Alpha Kappa Psi Certificate of Excellence"
+                  width={1206}
+                  height={801}
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-auto w-full"
+                />
+              </figure>
             </Reveal>
             <Reveal delay={100}>
               <div className="relative">
@@ -181,18 +192,34 @@ function Recruitment() {
               </div>
             </Reveal>
             <Reveal delay={100} className="order-1 lg:order-2">
-              <div className="aspect-[4/3] rounded-2xl bg-[var(--navy)]/5 flex items-center justify-center border border-[var(--border)]">
-                <Film className="h-12 w-12 text-[var(--gold)]/40" />
-              </div>
+              <figure className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
+                <img
+                  src={quoteImg2.url}
+                  alt="Brothers at the USC organization fair under a balloon arch"
+                  width={1206}
+                  height={896}
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-auto w-full"
+                />
+              </figure>
             </Reveal>
           </div>
 
           {/* Tim */}
           <div className="mt-14 max-w-3xl mx-auto text-center">
             <Reveal>
-              <div className="aspect-[21/9] rounded-2xl bg-[var(--navy)]/5 flex items-center justify-center border border-[var(--border)] mb-6">
-                <Ticket className="h-10 w-10 text-[var(--gold)]/40" />
-              </div>
+              <figure className="mb-6 overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
+                <img
+                  src={quoteImg3.url}
+                  alt="Graduating Alpha Kappa Psi brothers on stage at USC commencement"
+                  width={1206}
+                  height={889}
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-auto w-full"
+                />
+              </figure>
             </Reveal>
             <Reveal delay={100}>
               <p className="text-xl md:text-2xl font-display italic text-[var(--navy)] leading-relaxed">
