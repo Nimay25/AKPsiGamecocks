@@ -205,11 +205,6 @@
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
 }
-@utility led-text {
-  font-family: ui-monospace, "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
-}
 @utility led-glow-up {
   color: #34f5a3;
   text-shadow:
