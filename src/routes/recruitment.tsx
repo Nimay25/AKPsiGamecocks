@@ -402,17 +402,24 @@ function CurtainHero() {
           </div>
         </div>
 
-        {/* Curtain valance (top) — always visible, sits above curtain panels */}
-        <div
-          className="pointer-events-none absolute left-1/2 top-3 z-20 h-[38%] w-[120%] -translate-x-1/2 bg-no-repeat"
-          style={{
-            backgroundImage: `url(${curtainsImg})`,
-            backgroundSize: "100% auto",
-            backgroundPosition: "center top",
-            WebkitMaskImage: "linear-gradient(to bottom, #000 55%, transparent 100%)",
-            maskImage: "linear-gradient(to bottom, #000 55%, transparent 100%)",
-          }}
-        />
+        {/* Curtain valance (top) — always visible, sits above curtain panels.
+            Built from two mirrored halves of the same crop so it is perfectly symmetrical. */}
+        <div className="pointer-events-none absolute left-1/2 top-3 z-20 flex h-[38%] w-[120%] -translate-x-1/2">
+          {[0, 1].map((side) => (
+            <div
+              key={side}
+              className="h-full w-1/2 bg-no-repeat"
+              style={{
+                backgroundImage: `url(${curtainsImg})`,
+                backgroundSize: "200% auto",
+                backgroundPosition: "left top",
+                transform: side === 1 ? "scaleX(-1)" : undefined,
+                WebkitMaskImage: "linear-gradient(to bottom, #000 55%, transparent 100%)",
+                maskImage: "linear-gradient(to bottom, #000 55%, transparent 100%)",
+              }}
+            />
+          ))}
+        </div>
 
         {/* Left curtain panel */}
         <div
@@ -426,18 +433,19 @@ function CurtainHero() {
             filter: "drop-shadow(8px 0 24px rgba(0,0,0,0.55))",
           }}
         />
-        {/* Right curtain panel */}
+        {/* Right curtain panel — mirrored copy of the left crop so both sides match exactly */}
         <div
           className="pointer-events-none absolute top-0 right-0 z-20 h-full w-[62%] will-change-transform"
           style={{
-            transform: `translateX(${eased * 102}%)`,
+            transform: `translateX(${eased * 102}%) scaleX(-1)`,
             backgroundImage: `url(${curtainsImg})`,
             backgroundSize: "170% 115%",
-            backgroundPosition: "right center",
+            backgroundPosition: "left center",
             backgroundRepeat: "no-repeat",
             filter: "drop-shadow(-8px 0 24px rgba(0,0,0,0.55))",
           }}
         />
+
 
         {/* Scroll hint */}
         <div
