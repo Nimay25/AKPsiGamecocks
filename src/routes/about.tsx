@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import aboutBrothers from "@/assets/photos/pledge-roses-1.jpg";
-import mooreAtrium from "@/assets/moore-atrium.jpg.asset.json";
-import doiDirector from "@/assets/doi-director-2.jpg.asset.json";
+import aboutBrothers from "@/assets/photos/pledge-roses-1.webp";
+import mooreAtrium from "@/assets/moore-atrium.webp";
+import doiDirector from "@/assets/doi-director-2.webp";
 import { Reveal, CountUp } from "@/components/Reveal";
 
 export const Route = createFileRoute("/about")({
@@ -54,7 +54,7 @@ function About() {
     <>
       <section className="relative pt-40 pb-20 text-[var(--cream)] overflow-hidden min-h-[80vh] flex items-end">
         <div className="absolute inset-0 -z-10">
-          <img src={mooreAtrium.url} alt="Darla Moore School of Business atrium" className="h-full w-full object-cover" />
+          <img src={mooreAtrium} alt="Darla Moore School of Business atrium" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/85 via-[var(--navy)]/70 to-[var(--navy)]/90" />
         </div>
         <div className="mx-auto max-w-7xl px-5 sm:px-6 w-full">
@@ -236,7 +236,7 @@ function DirectorPortrait({ onClick }: { onClick: () => void }) {
       <div className="rounded-2xl border-4 border-[var(--gold)] p-1.5 shadow-[0_25px_60px_-25px_rgba(0,0,0,0.7)]">
         <div className="relative overflow-hidden rounded-xl border border-[var(--gold)]/60">
           <img
-            src={doiDirector.url}
+            src={doiDirector}
             alt="Director of Diversity, Opportunity and Inclusion"
             className="aspect-[4/5] w-full object-cover"
             loading="lazy"

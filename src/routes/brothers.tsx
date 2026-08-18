@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { Linkedin, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { bySection } from "@/lib/roster";
-import darlaMoore from "@/assets/darla-moore.jpg.asset.json";
+import darlaMoore from "@/assets/darla-moore.webp";
 
 export const Route = createFileRoute("/brothers")({
   head: () => ({
@@ -56,7 +56,7 @@ function Brothers() {
       <section className="relative pt-40 pb-20 text-[var(--cream)] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${darlaMoore.url})` }}
+          style={{ backgroundImage: `url(${darlaMoore})` }}
           aria-hidden
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" aria-hidden />

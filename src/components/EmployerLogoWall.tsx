@@ -1,38 +1,38 @@
 import { useEffect, useRef } from "react";
-import ey from "@/assets/logos-t/ey.png.asset.json";
-import pwc from "@/assets/logos-t/pwc.png.asset.json";
-import gs from "@/assets/logos-t/gs.png.asset.json";
-import jpm from "@/assets/logos-t/jpm.png.asset.json";
-import boa from "@/assets/logos-t/boa.png.asset.json";
-import wf from "@/assets/logos-t/wf.png.asset.json";
-import hsbc from "@/assets/logos-t/hsbc.png.asset.json";
-import ps from "@/assets/logos-t/ps.png.asset.json";
-import boeing from "@/assets/logos-t/boeing.png.asset.json";
-import gm from "@/assets/logos-t/gm.png.asset.json";
-import cc from "@/assets/logos-t/cc.png.asset.json";
-import chicki from "@/assets/logos-t/chicki.png.asset.json";
-import so from "@/assets/logos-t/so.png.asset.json";
-import fcc from "@/assets/logos-t/fcc.png.asset.json";
-import fifth from "@/assets/logos-t/5.png.asset.json";
+import ey from "@/assets/logos-t/ey.webp";
+import pwc from "@/assets/logos-t/pwc.webp";
+import gs from "@/assets/logos-t/gs.webp";
+import jpm from "@/assets/logos-t/jpm.webp";
+import boa from "@/assets/logos-t/boa.webp";
+import wf from "@/assets/logos-t/wf.webp";
+import hsbc from "@/assets/logos-t/hsbc.webp";
+import ps from "@/assets/logos-t/ps.webp";
+import boeing from "@/assets/logos-t/boeing.webp";
+import gm from "@/assets/logos-t/gm.webp";
+import cc from "@/assets/logos-t/cc.webp";
+import chicki from "@/assets/logos-t/chicki.webp";
+import so from "@/assets/logos-t/so.webp";
+import fcc from "@/assets/logos-t/fcc.webp";
+import fifth from "@/assets/logos-t/5.webp";
 
 type Employer = { name: string; url: string };
 
 export const EMPLOYER_LOGOS: Employer[] = [
-  { name: "EY", url: ey.url },
-  { name: "PwC", url: pwc.url },
-  { name: "Goldman Sachs", url: gs.url },
-  { name: "J.P. Morgan", url: jpm.url },
-  { name: "Bank of America", url: boa.url },
-  { name: "Wells Fargo", url: wf.url },
-  { name: "HSBC", url: hsbc.url },
-  { name: "Piper Sandler", url: ps.url },
-  { name: "Boeing", url: boeing.url },
-  { name: "General Motors", url: gm.url },
-  { name: "Coca-Cola", url: cc.url },
-  { name: "Chick-fil-A", url: chicki.url },
-  { name: "Special Olympics", url: so.url },
-  { name: "FCC", url: fcc.url },
-  { name: "Fifth Circuit Solicitor's Office", url: fifth.url },
+  { name: "EY", url: ey },
+  { name: "PwC", url: pwc },
+  { name: "Goldman Sachs", url: gs },
+  { name: "J.P. Morgan", url: jpm },
+  { name: "Bank of America", url: boa },
+  { name: "Wells Fargo", url: wf },
+  { name: "HSBC", url: hsbc },
+  { name: "Piper Sandler", url: ps },
+  { name: "Boeing", url: boeing },
+  { name: "General Motors", url: gm },
+  { name: "Coca-Cola", url: cc },
+  { name: "Chick-fil-A", url: chicki },
+  { name: "Special Olympics", url: so },
+  { name: "FCC", url: fcc },
+  { name: "Fifth Circuit Solicitor's Office", url: fifth },
 ];
 
 /** A single free-floating employer logo — no plate, no card. */

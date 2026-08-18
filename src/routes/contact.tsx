@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, MapPin, Instagram, Send } from "lucide-react";
-import contactClassroom from "@/assets/contact-classroom.jpg.asset.json";
+import contactClassroom from "@/assets/contact-classroom.webp";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/contact")({
@@ -31,7 +31,7 @@ function Contact() {
     <>
       <section className="relative overflow-hidden pt-40 pb-20 text-[var(--cream)] min-h-[70vh] flex items-end">
         <div className="absolute inset-0 -z-10">
-          <img src={contactClassroom.url} alt="Classroom at the Darla Moore School of Business" className="h-full w-full object-cover" />
+          <img src={contactClassroom} alt="Classroom at the Darla Moore School of Business" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/80 via-[var(--navy)]/60 to-[var(--navy)]/85" />
         </div>
         <div className="mx-auto max-w-7xl px-5 sm:px-6 w-full">
