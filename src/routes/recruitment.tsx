@@ -6,6 +6,9 @@ import curtainsImg from "@/assets/theater-curtains.png";
 import dressPro1 from "@/assets/dress-pro-1.webp";
 import dressPro2 from "@/assets/dress-pro-2.webp";
 import dressCasual from "@/assets/dress-casual.webp";
+import quoteImg1 from "@/assets/IMG_0338-2.webp.asset.json";
+import quoteImg2 from "@/assets/IMG_0332-2.webp.asset.json";
+import quoteImg3 from "@/assets/IMG_0336-2.webp.asset.json";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/recruitment")({
