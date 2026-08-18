@@ -192,9 +192,17 @@ function Recruitment() {
               </div>
             </Reveal>
             <Reveal delay={100} className="order-1 lg:order-2">
-              <div className="aspect-[4/3] rounded-2xl bg-[var(--navy)]/5 flex items-center justify-center border border-[var(--border)]">
-                <Film className="h-12 w-12 text-[var(--gold)]/40" />
-              </div>
+              <figure className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
+                <img
+                  src={quoteImg2.url}
+                  alt="Brothers at the USC organization fair under a balloon arch"
+                  width={1206}
+                  height={896}
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-auto w-full"
+                />
+              </figure>
             </Reveal>
           </div>
 
