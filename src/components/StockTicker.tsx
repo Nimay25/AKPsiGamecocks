@@ -1,10 +1,16 @@
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
 import { useLiveQuotes, isUSMarketOpen, type LiveQuote } from "@/hooks/useLiveQuotes";
+import { useTickerAnimation } from "@/hooks/useTickerAnimation";
 
 // Slim, always-on site-wide ticker. Public companies only — feeds from the
 // same shared `useLiveQuotes` source as the Brothers @ Work hero section,
 // so the two never disagree. Private/non-profit employers are shown in the
 // hero section's "Brothers also at" strip, never here.
+//
+// Requested additions that are publicly traded:
+//   JPMorgan (JPM), Bank of America (BAC), Wells Fargo (WFC),
+//   Goldman Sachs (GS), Boeing (BA), Apple (AAPL), Amazon (AMZN), PepsiCo (PEP).
+// Private partnerships (no public ticker): McKinsey & Co., EY, PwC, KPMG, Deloitte.
 
 type Placeholder = { kind: "placeholder"; symbol: string; name: string };
 type Real = { kind: "real" } & LiveQuote;
@@ -14,8 +20,11 @@ const PLACEHOLDERS: Placeholder[] = [
   { kind: "placeholder", symbol: "WFC",  name: "Wells Fargo" },
   { kind: "placeholder", symbol: "JPM",  name: "JPMorgan Chase" },
   { kind: "placeholder", symbol: "GS",   name: "Goldman Sachs" },
-  { kind: "placeholder", symbol: "GM",   name: "General Motors" },
   { kind: "placeholder", symbol: "BA",   name: "Boeing" },
+  { kind: "placeholder", symbol: "AAPL", name: "Apple" },
+  { kind: "placeholder", symbol: "AMZN", name: "Amazon" },
+  { kind: "placeholder", symbol: "PEP",  name: "PepsiCo" },
+  { kind: "placeholder", symbol: "GM",   name: "General Motors" },
   { kind: "placeholder", symbol: "KO",   name: "Coca-Cola" },
   { kind: "placeholder", symbol: "HSBC", name: "HSBC" },
   { kind: "placeholder", symbol: "PIPR", name: "Piper Sandler" },
@@ -24,6 +33,7 @@ const PLACEHOLDERS: Placeholder[] = [
 export function StockTicker() {
   const { quotes } = useLiveQuotes();
   const marketOpen = isUSMarketOpen();
+  const { ref, style } = useTickerAnimation(true);
 
   const real: Real[] = quotes.map((q) => ({ kind: "real", ...q }));
   const loop: (Real | Placeholder)[] =
@@ -40,7 +50,15 @@ export function StockTicker() {
           </span>
         )}
       </div>
-      <div className="flex animate-ticker-fast whitespace-nowrap py-3 pl-56">
+      <div
+        ref={ref}
+        className="flex whitespace-nowrap py-3 pl-56"
+        style={{
+          ...style,
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+        }}
+      >
         {loop.map((q, i) => {
           if (q.kind === "placeholder") {
             return (

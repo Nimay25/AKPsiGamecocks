@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// Public-traded employers only. Private firms (EY, PwC, Chick-fil-A,
-// Special Olympics, gov/judicial roles) are handled separately as a
-// static "Brothers also at:" strip in the UI.
+// Public-traded employers only. Private firms (McKinsey & Co., EY, PwC,
+// KPMG, Deloitte, Chick-fil-A, Special Olympics, gov/judicial roles) are
+// handled separately as a static "Brothers also at:" strip in the UI.
 const SYMBOLS: { symbol: string; name: string }[] = [
   { symbol: "BAC",  name: "Bank of America" },
   { symbol: "GM",   name: "General Motors" },

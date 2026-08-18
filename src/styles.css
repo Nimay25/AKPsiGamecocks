@@ -198,19 +198,8 @@
 }
 
 /* LED ticker — used by the Brothers @ Work scroll-reveal section
-   and the slim site-wide ticker bar. */
-@keyframes ticker-fast {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@utility animate-ticker-fast {
-  animation: ticker-fast 28s linear infinite;
-  will-change: transform;
-}
-@utility animate-ticker-hero {
-  animation: ticker-fast 38s linear infinite;
-  will-change: transform;
-}
+   and the slim site-wide ticker bar. Both tickers are now driven by
+   requestAnimationFrame at a locked 140 px/s for perfectly consistent speed. */
 @utility led-text {
   font-family: ui-monospace, "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
   font-variant-numeric: tabular-nums;
