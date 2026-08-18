@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "/" },
-      { rel: "preload", as: "image", href: heroGroup, fetchpriority: "high" },
+      { rel: "preload", as: "image", href: heroGroup, fetchPriority: "high" },
     ],
   }),
   component: Home,
