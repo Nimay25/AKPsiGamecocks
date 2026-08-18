@@ -209,9 +209,17 @@ function Recruitment() {
           {/* Tim */}
           <div className="mt-14 max-w-3xl mx-auto text-center">
             <Reveal>
-              <div className="aspect-[21/9] rounded-2xl bg-[var(--navy)]/5 flex items-center justify-center border border-[var(--border)] mb-6">
-                <Ticket className="h-10 w-10 text-[var(--gold)]/40" />
-              </div>
+              <figure className="mb-6 overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
+                <img
+                  src={quoteImg3.url}
+                  alt="Graduating Alpha Kappa Psi brothers on stage at USC commencement"
+                  width={1206}
+                  height={889}
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-auto w-full"
+                />
+              </figure>
             </Reveal>
             <Reveal delay={100}>
               <p className="text-xl md:text-2xl font-display italic text-[var(--navy)] leading-relaxed">
