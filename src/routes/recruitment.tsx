@@ -227,8 +227,8 @@ function Recruitment() {
               <div className="lg:sticky lg:top-24">
                 <WardrobeCarousel
                   images={[
-                    { url: dressPro1, alt: "Brothers in business professional attire" },
-                    { url: dressPro2, alt: "Brothers in business professional attire — group" },
+                    { url: dressPro1, alt: "Brothers accepting the Alpha Kappa Psi Certificate of Excellence award" },
+                    { url: dressPro2, alt: "Brothers at the campus involvement fair" },
                   ]}
                 />
               </div>
@@ -277,7 +277,7 @@ function Recruitment() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <img src={dressCasual} alt="Brothers in business casual attire in front of the AKPSI house" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
+              <img src={dressCasual} alt="Graduating Alpha Kappa Psi brothers in caps, gowns, and AKPsi stoles" className="block h-auto w-full rounded-2xl bg-white shadow-[var(--shadow-soft)]" loading="lazy" />
             </Reveal>
           </div>
         </div>
@@ -465,14 +465,14 @@ function WardrobeCarousel({ images }: { images: { url: string; alt: string }[] }
   const prev = () => setIdx((i) => (i - 1 + images.length) % images.length);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-soft)] aspect-[2/3]">
+    <div className="relative overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-soft)] aspect-[3/2]">
       <div
         className="flex h-full transition-transform duration-500 ease-out"
         style={{ transform: `translateX(-${idx * 100}%)` }}
       >
         {images.map((img) => (
           <div key={img.url} className="h-full w-full shrink-0">
-            <img src={img.url} alt={img.alt} className="h-full w-full object-contain" />
+            <img src={img.url} alt={img.alt} className="h-full w-full object-contain" loading="lazy" />
           </div>
         ))}
       </div>
