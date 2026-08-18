@@ -1,15 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Building2, Instagram } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import auditionsNeon from "@/assets/auditions-neon.png.asset.json";
+import auditionsNeon from "@/assets/auditions-neon.webp";
 
-import heroGroup from "@/assets/hero-group.png.asset.json";
+import heroGroup from "@/assets/hero-group.webp";
 import gallery1 from "@/assets/photos/brothers-house.jpg";
-import gallery2 from "@/assets/photos/pledge-roses-1.jpg";
-import gallery3 from "@/assets/photos/pledge-roses-2.jpg";
-import gallery4 from "@/assets/photos/pledge-stairs.jpg";
-import gallery5 from "@/assets/photos/marquee-real.jpg";
-import gallery6 from "@/assets/photos/chapter-mckissick.jpg";
+import gallery2 from "@/assets/photos/pledge-roses-1.webp";
+import gallery3 from "@/assets/photos/pledge-roses-2.webp";
+import gallery4 from "@/assets/photos/pledge-stairs.webp";
+import gallery5 from "@/assets/photos/marquee-real.webp";
+import gallery6 from "@/assets/photos/chapter-mckissick.webp";
 import { Reveal, CountUp } from "@/components/Reveal";
 import { BrothersAtWork } from "@/components/BrothersAtWork";
 
@@ -24,7 +24,10 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Voted #1 professional business fraternity at USC for 18 consecutive years. Develop professionalism, leadership, and lifelong networks." },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: heroGroup, fetchPriority: "high" },
+    ],
   }),
   component: Home,
 });
@@ -46,10 +49,12 @@ function Home() {
       {/* HERO */}
       <section className="relative isolate min-h-[100svh] overflow-hidden">
         <img
-          src={heroGroup.url}
+          src={heroGroup}
           alt="Alpha Kappa Psi Beta Upsilon chapter photo on the steps in business professional attire"
           width={1920}
           height={1280}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--navy-deep)]/85 via-[var(--navy)]/70 to-[var(--navy)]/90" />
@@ -283,7 +288,7 @@ function RushCtaSweep() {
         {/* Auditions neon sweep */}
         <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
           <img
-            src={auditionsNeon.url}
+            src={auditionsNeon}
             alt="Neon auditions sign"
             className="h-auto w-[45vw] max-w-[560px] will-change-transform drop-shadow-[0_0_40px_rgba(255,40,80,0.55)]"
             style={{

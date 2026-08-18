@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Mail } from "lucide-react";
-import alumniMap from "@/assets/alumni-graduation.jpg.asset.json";
+import alumniMap from "@/assets/alumni-graduation.webp";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/alumni")({
@@ -48,7 +48,7 @@ function Alumni() {
   return (
     <>
       <section className="relative overflow-hidden bg-[var(--navy)] pt-40 pb-20 text-[var(--cream)]">
-        <img src={alumniMap.url} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" loading="lazy" />
+        <img src={alumniMap} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/70 via-[var(--navy)]/60 to-[var(--navy)]/90" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
           <Reveal><p className="eyebrow"><span className="gold-rule" />Alumni</p></Reveal>

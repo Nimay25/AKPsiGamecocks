@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { Ticket, Clapperboard, Film, ChevronDown, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import heroMarquee from "@/assets/recruitment-hero.jpg";
 import curtainsImg from "@/assets/theater-curtains.png";
-import dressPro1 from "@/assets/dress-pro-1.png.asset.json";
-import dressPro2 from "@/assets/dress-pro-2.png.asset.json";
-import dressCasual from "@/assets/dress-casual.png.asset.json";
+import dressPro1 from "@/assets/dress-pro-1.webp";
+import dressPro2 from "@/assets/dress-pro-2.webp";
+import dressCasual from "@/assets/dress-casual.webp";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/recruitment")({
@@ -227,8 +227,8 @@ function Recruitment() {
               <div className="lg:sticky lg:top-24">
                 <WardrobeCarousel
                   images={[
-                    { url: dressPro1.url, alt: "Brothers in business professional attire" },
-                    { url: dressPro2.url, alt: "Brothers in business professional attire — group" },
+                    { url: dressPro1, alt: "Brothers in business professional attire" },
+                    { url: dressPro2, alt: "Brothers in business professional attire — group" },
                   ]}
                 />
               </div>
@@ -277,7 +277,7 @@ function Recruitment() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <img src={dressCasual.url} alt="Brothers in business casual attire in front of the AKPSI house" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
+              <img src={dressCasual} alt="Brothers in business casual attire in front of the AKPSI house" className="block h-auto w-full rounded-2xl shadow-[var(--shadow-soft)]" />
             </Reveal>
           </div>
         </div>
