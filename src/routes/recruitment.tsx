@@ -25,7 +25,7 @@ export const Route = createFileRoute("/recruitment")({
   component: Recruitment,
 });
 
-const INTEREST_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdIa5t7v2V8rRZnS7kRX45UBErzlWMh0bIEZJg80e0c7zz2Fw/viewform";
+const INTEREST_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe7bavmuwOrYLJ0LmOh_WJv5IBCCt-n6Q5unlKJusXLlgN2lg/viewform?usp=preview";
 const REMIND_URL = "https://www.remind.com/join/akpsi2025";
 
 // Before August 17, 2026 the primary CTA is the Coffee Chat/Interest Form.
