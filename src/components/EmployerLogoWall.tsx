@@ -44,20 +44,33 @@ export function EmployerLogo({
   compact?: boolean;
 }) {
   return (
-    <img
-      src={logo.url}
-      alt={`${logo.name} logo`}
-      loading="lazy"
-      className={`w-auto object-contain opacity-80 transition-all duration-500 hover:scale-110 hover:opacity-100 ${
-        compact ? "max-h-16 max-w-[190px] lg:max-h-20 lg:max-w-[230px]" : "max-h-14 max-w-[70%]"
-      }`}
-      style={{
-        filter:
-          "brightness(1.35) contrast(1.05) drop-shadow(0 0 12px rgba(255,255,255,0.28)) drop-shadow(0 6px 18px rgba(0,0,0,0.6))",
-      }}
-    />
+    <span className="relative inline-flex items-center justify-center">
+      {/* soft light halo so dark logos stay legible on black */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-[-18%] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(255,255,255,0.38), rgba(255,255,255,0.16) 55%, rgba(255,255,255,0) 78%)",
+          filter: "blur(10px)",
+        }}
+      />
+      <img
+        src={logo.url}
+        alt={`${logo.name} logo`}
+        loading="lazy"
+        className={`relative w-auto object-contain opacity-95 transition-all duration-500 hover:scale-110 hover:opacity-100 ${
+          compact ? "max-h-16 max-w-[190px] lg:max-h-20 lg:max-w-[230px]" : "max-h-14 max-w-[70%]"
+        }`}
+        style={{
+          filter:
+            "brightness(1.5) contrast(1.15) saturate(1.1) drop-shadow(0 0 1px rgba(255,255,255,0.95)) drop-shadow(0 0 4px rgba(255,255,255,0.7)) drop-shadow(0 0 14px rgba(255,255,255,0.35))",
+        }}
+      />
+    </span>
   );
 }
+
 
 /** Slow clockwise orbit of logos around the headline, with gentle mouse influence. */
 export function EmployerLogoOrbit() {
