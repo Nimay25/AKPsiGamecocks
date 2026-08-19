@@ -20,8 +20,7 @@ export const Route = createFileRoute("/brothers")({
 });
 
 const EBOARD = bySection("eboard");
-const DIRECTORS = bySection("director");
-const CHAIRS = bySection("chair");
+const LEADERSHIP = [...bySection("director"), ...bySection("chair")];
 const BROTHERS = bySection("brother");
 
 const PLEDGE_CLASSES = [
@@ -77,13 +76,8 @@ function Brothers() {
       </Section>
 
       <Section eyebrow="Operations" title="Leadership Team" bg="white">
-        <h3 className="font-display text-xl text-[var(--navy)]">Elected Positions</h3>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {DIRECTORS.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
-        </div>
-        <h3 className="mt-16 font-display text-xl text-[var(--navy)]">Appointed Positions</h3>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {CHAIRS.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {LEADERSHIP.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
         </div>
       </Section>
 
