@@ -250,7 +250,9 @@ function PledgeCarousel() {
           {current.term} <span className="text-[var(--cream)]/40">|</span>{" "}
           <span className="text-[var(--gold)]">{current.pc}</span>
         </p>
-        <p className="text-xs uppercase tracking-widest text-[var(--cream)]/55">{current.theme}</p>
+        <p className="text-xs uppercase tracking-widest text-[var(--cream)]/55">
+          Rush Theme: <span className="text-[var(--cream)]/85">{current.theme}</span>
+        </p>
       </div>
 
       <div className="mt-6 flex flex-wrap gap-2">
