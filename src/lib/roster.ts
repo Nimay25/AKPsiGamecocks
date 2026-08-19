@@ -23,6 +23,7 @@ export type RosterMember = {
   role: string;
   pledgeClass: string;
   linkedin: string;
+  headshot: string;
 };
 
 /** Minimal CSV parser: handles quoted fields and commas inside quotes. */
