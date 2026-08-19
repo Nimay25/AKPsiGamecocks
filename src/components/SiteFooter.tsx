@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram } from "lucide-react";
 import logoAsset from "@/assets/akpsi-sc-logo.png.asset.json";
 const logo = logoAsset.url;
 
@@ -19,13 +19,9 @@ export function SiteFooter() {
               Carolina since 2007.
             </p>
             <div className="mt-6 flex gap-3">
-              {/* EDIT: real social links */}
-              <a href="https://instagram.com/akpsi_usc" target="_blank" rel="noreferrer"
+              <a href="https://instagram.com/akpsigamecocks" target="_blank" rel="noreferrer"
                  className="grid h-10 w-10 place-items-center rounded-full border border-white/15 hover:bg-[var(--gold)] hover:text-[var(--navy)] transition">
                 <Instagram className="h-4 w-4" />
-              </a>
-              <a href="#" className="grid h-10 w-10 place-items-center rounded-full border border-white/15 hover:bg-[var(--gold)] hover:text-[var(--navy)] transition">
-                <Linkedin className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -46,7 +42,7 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2 text-sm text-[var(--cream)]/80">
               <li>
                 <a href="mailto:soakpsi@mailbox.sc.edu" className="hover:text-[var(--gold)]">
-                  Get in Touch → soakpsi@mailbox.sc.edu
+                  soakpsi@mailbox.sc.edu
                 </a>
               </li>
               <li>University of South Carolina</li>
