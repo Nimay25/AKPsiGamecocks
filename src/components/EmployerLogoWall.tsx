@@ -142,6 +142,11 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
       window.addEventListener("pointerleave", onLeave);
     }
 
+    // eased pointer + per-logo push, so cursor reactions glide instead of snapping
+    const smooth = { x: 0, y: 0 };
+    const push = Array.from({ length: n }, () => ({ x: 0, y: 0, f: 0 }));
+    let last = start;
+
     const tick = (now: number) => {
       const r = wrap.getBoundingClientRect();
       // shrink the whole system down on narrow screens so it still reads as a ring
@@ -149,32 +154,50 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
       const rx = r.width * radiusX;
       const ry = r.height * radiusY;
       const t = reduce ? 0 : (now - start) / 1000;
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      const ease = 1 - Math.exp(-dt * 5); // time-based lerp factor
+
+      smooth.x += (pointer.current.x - smooth.x) * ease;
+      smooth.y += (pointer.current.y - smooth.y) * ease;
 
       for (let i = 0; i < n; i++) {
         const el = itemRefs.current[i];
         if (!el) continue;
         const a = (i / n) * Math.PI * 2 + phase + t * speed;
         const wob = Math.sin(t * 0.35 + i * 1.7) * 16 * fit;
-        let x = Math.cos(a) * (rx + wob);
-        let y = Math.sin(a) * (ry + wob * 0.6);
+        const bx = Math.cos(a) * (rx + wob);
+        const by = Math.sin(a) * (ry + wob * 0.6);
 
         const depth = (Math.sin(a) + 1) / 2; // 0 back .. 1 front
-        let scale = (0.86 + depth * 0.24) * fit;
-        let opacity = minOpacity + depth * (1 - minOpacity);
+        const baseScale = (0.86 + depth * 0.24) * fit;
+        const baseOpacity = minOpacity + depth * (1 - minOpacity);
 
+        // target push away from the cursor (gentle, capped)
+        let tx = 0;
+        let ty = 0;
+        let tf = 0;
         if (!coarse && pointer.current.active) {
-          const dx = x - pointer.current.x;
-          const dy = y - pointer.current.y;
+          const dx = bx - smooth.x;
+          const dy = by - smooth.y;
           const d = Math.hypot(dx, dy);
-          const R = 160;
+          const R = 190;
           if (d < R && d > 0.001) {
-            const f = (1 - d / R) ** 2;
-            x += (dx / d) * f * 28;
-            y += (dy / d) * f * 28;
-            scale += f * 0.12;
-            opacity = Math.min(1, opacity + f * 0.25);
+            tf = (1 - d / R) ** 2;
+            tx = (dx / d) * tf * 14;
+            ty = (dy / d) * tf * 14;
           }
         }
+
+        const p = push[i];
+        p.x += (tx - p.x) * ease;
+        p.y += (ty - p.y) * ease;
+        p.f += (tf - p.f) * ease;
+
+        const x = bx + p.x;
+        const y = by + p.y;
+        const scale = baseScale + p.f * 0.06;
+        const opacity = Math.min(1, baseOpacity + p.f * 0.15);
 
         el.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), 0) scale(${scale.toFixed(3)})`;
         el.style.opacity = opacity.toFixed(3);
