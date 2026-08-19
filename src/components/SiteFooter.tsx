@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin } from "lucide-react";
-import logoAsset from "@/assets/akpsi-logo-hd.webp";
+import logoAsset from "@/assets/akpsi-sc-logo.png.asset.json";
+const logo = logoAsset.url;
 
 export function SiteFooter() {
   return (
@@ -8,9 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-8">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
-            <span className="mb-4 grid h-14 w-14 place-items-center rounded-xl bg-[var(--cream)] p-2">
-              <img src={logoAsset} alt="Alpha Kappa Psi Beta Upsilon logo" className="h-full w-full object-contain" />
-            </span>
+            <img src={logo} alt="Alpha Kappa Psi Beta Upsilon logo" className="mb-4 h-14 w-auto object-contain drop-shadow-sm" />
             <div className="font-display text-2xl font-semibold">
               Alpha Kappa Psi <span className="text-[var(--gold)]">·</span> Beta Upsilon
             </div>
