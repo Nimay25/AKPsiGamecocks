@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Mail } from "lucide-react";
-import alumniMap from "@/assets/alumni-graduation.webp";
+import alumniHeroAsset from "@/assets/alumni-hero.png.asset.json";
+const alumniMap = alumniHeroAsset.url;
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/alumni")({
