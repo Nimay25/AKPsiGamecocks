@@ -1,8 +1,8 @@
 import { Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoAsset from "@/assets/akpsi-logo-hd.webp";
-const logo = logoAsset;
+import logoAsset from "@/assets/akpsi-sc-logo.png.asset.json";
+const logo = logoAsset.url;
 
 const links = [
   { to: "/", label: "Home" },
@@ -43,9 +43,13 @@ export function SiteNav() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
           <Link to="/" className="flex items-center gap-3 group">
-            <span className="grid h-10 w-10 place-items-center rounded-md bg-[var(--cream)] p-1.5">
-              <img src={logo} alt="AKPSI" className="h-full w-full object-contain" />
-            </span>
+            <img
+              src={logo}
+              alt="AKPSI"
+              className="h-14 w-auto object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
+              width={447}
+              height={447}
+            />
             <span className="font-display text-lg font-semibold tracking-tight text-[var(--cream)]">
               AKΨ <span className="text-[var(--gold)]">·</span> Beta Upsilon
             </span>
