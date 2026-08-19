@@ -4,7 +4,7 @@
 // section: eboard | director | brother
 // role:    only required for eboard/director (leave blank for brothers)
 // linkedin: full URL, e.g. https://www.linkedin.com/in/johndoe
-section,name,role,pledge_class,linkedin
+section,name,role,pledge_class,linkedin,headshot
 eboard,Grace Johnson,President,,
 eboard,Charles Faletti,VP of Internal Affairs,,
 eboard,Quinn Lovette,VP of Professionalism,,
