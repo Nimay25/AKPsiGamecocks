@@ -78,14 +78,14 @@ function Brothers() {
       </section>
 
       <Section eyebrow="Leadership" title="Executive Board" bg="cream">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {EBOARD.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
+        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
+          {EBOARD.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} pledgeClass={b.pledgeClass} headshot={b.headshot} linkedin={b.linkedin} delay={i * 40} />)}
         </div>
       </Section>
 
       <Section eyebrow="Operations" title="Leadership Team" bg="white">
-        <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {LEADERSHIP.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} compact />)}
+        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
+          {LEADERSHIP.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} pledgeClass={b.pledgeClass} headshot={b.headshot} linkedin={b.linkedin} delay={i * 40} />)}
         </div>
       </Section>
 
@@ -118,18 +118,48 @@ function Section({ eyebrow, title, bg, className = "", children }: { eyebrow: st
   );
 }
 
-function BrotherCard({ name, role, delay = 0, compact = false }: { name: string; role: string; delay?: number; compact?: boolean }) {
+function BrotherCard({
+  name,
+  role,
+  pledgeClass,
+  headshot,
+  linkedin,
+  delay = 0,
+}: {
+  name: string;
+  role?: string;
+  pledgeClass?: string;
+  headshot?: string;
+  linkedin?: string;
+  delay?: number;
+}) {
   const initials = name.split(" ").map(n => n[0]).join("").slice(0, 2);
+  const label = role || pledgeClass || "";
   return (
     <Reveal variant="fade" delay={delay}>
-      <article className={`group rounded-2xl border border-[var(--border)] bg-white transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] ${compact ? "p-3" : "p-5"}`}>
-        <div className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] ${compact ? "aspect-[1/1]" : "aspect-[4/5]"}`}>
-          <div className={`absolute inset-0 grid place-items-center font-display text-[var(--gold)]/40 ${compact ? "text-4xl" : "text-6xl"}`}>{initials}</div>
+      <article className="group flex flex-col rounded-xl border border-[var(--border)] bg-white p-2.5 transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]">
+        <div className="relative aspect-square overflow-hidden rounded-lg bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)]">
+          {headshot ? (
+            <img src={headshot} alt={name} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
+          ) : (
+            <div className="absolute inset-0 grid place-items-center font-display text-3xl text-[var(--gold)]/40">{initials}</div>
+          )}
         </div>
-        <div className={compact ? "mt-3" : "mt-5"}>
-          <p className={`uppercase tracking-widest text-[var(--gold)] ${compact ? "text-[10px]" : "text-xs"}`}>{role}</p>
-          <h3 className={`mt-1 font-display text-[var(--navy)] ${compact ? "text-base" : "text-xl"}`}>{name}</h3>
+        <div className="mt-2.5 flex flex-1 flex-col items-center text-center">
+          <h3 className="font-display text-sm font-medium leading-tight text-[var(--navy)]">{name}</h3>
+          <div className="my-1.5 h-px w-8 bg-[var(--gold)]/60" />
+          <p className="text-[10px] uppercase tracking-widest text-[var(--navy)]/50">Beta</p>
+          {label && <p className="mt-0.5 text-[10px] uppercase tracking-widest text-[var(--gold)]">{label}</p>}
         </div>
+        <a
+          href={linkedin || "#"}
+          target={linkedin ? "_blank" : undefined}
+          rel={linkedin ? "noreferrer" : undefined}
+          aria-label={`${name} on LinkedIn`}
+          className="mx-auto mt-1 flex h-7 w-7 items-center justify-center rounded-full text-[var(--navy)]/40 transition hover:bg-[var(--gold)]/10 hover:text-[var(--gold)]"
+        >
+          <Linkedin className="h-3.5 w-3.5" />
+        </a>
       </article>
     </Reveal>
   );
@@ -154,26 +184,16 @@ function ActiveBrothers() {
           />
         </div>
       </Reveal>
-      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-8 grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
         {filtered.map((b, i) => (
-          <Reveal key={b.name + i} variant="fade" delay={i * 40}>
-            <div className="flex items-center justify-between gap-3 rounded-xl border border-[var(--border)] bg-white px-5 py-4 transition hover:border-[var(--gold)]">
-              <p className="min-w-0 truncate text-sm text-[var(--navy)]">
-                <span className="font-medium">{b.name}</span>
-                <span className="text-[var(--navy)]/40"> | </span>
-                <span className="text-[var(--navy)]/70">{b.pledgeClass}</span>
-              </p>
-              <a
-                href={b.linkedin || "#"}
-                target={b.linkedin ? "_blank" : undefined}
-                rel={b.linkedin ? "noreferrer" : undefined}
-                aria-label={`${b.name} on LinkedIn`}
-                className="shrink-0 text-[var(--navy)]/50 hover:text-[var(--gold)]"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </div>
-          </Reveal>
+          <BrotherCard
+            key={b.name + i}
+            name={b.name}
+            pledgeClass={b.pledgeClass}
+            headshot={b.headshot}
+            linkedin={b.linkedin}
+            delay={i * 30}
+          />
         ))}
         {filtered.length === 0 && <p className="text-sm text-[var(--navy)]/60">No matches.</p>}
       </div>

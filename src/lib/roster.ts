@@ -23,6 +23,7 @@ export type RosterMember = {
   role: string;
   pledgeClass: string;
   linkedin: string;
+  headshot: string;
 };
 
 /** Minimal CSV parser: handles quoted fields and commas inside quotes. */
@@ -65,6 +66,7 @@ function loadRoster(): RosterMember[] {
   const iRole = idx("role");
   const iPc = idx("pledge_class");
   const iLi = idx("linkedin");
+  const iHeadshot = idx("headshot");
 
   return rows.map((r) => ({
     section: (r[iSection] ?? "brother").trim() as RosterSection,
@@ -72,6 +74,7 @@ function loadRoster(): RosterMember[] {
     role: (r[iRole] ?? "").trim(),
     pledgeClass: (r[iPc] ?? "").trim(),
     linkedin: (r[iLi] ?? "").trim(),
+    headshot: (r[iHeadshot] ?? "").trim(),
   })).filter((m) => m.name !== "");
 }
 
