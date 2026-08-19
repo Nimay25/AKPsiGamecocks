@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram } from "lucide-react";
 import logoAsset from "@/assets/akpsi-sc-logo.png.asset.json";
 const logo = logoAsset.url;
 
