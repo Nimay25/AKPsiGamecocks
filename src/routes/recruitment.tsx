@@ -26,7 +26,7 @@ export const Route = createFileRoute("/recruitment")({
 });
 
 const INTEREST_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe7bavmuwOrYLJ0LmOh_WJv5IBCCt-n6Q5unlKJusXLlgN2lg/viewform?usp=preview";
-const REMIND_URL = "https://www.remind.com/join/akpsi2025";
+const REMIND_URL = "https://instagram.com/akpsigamecocks";
 
 // Before August 17, 2026 the primary CTA is the Coffee Chat/Interest Form.
 // On or after that date it switches to the Fall 2026 Rush application (same link this cycle).
@@ -341,7 +341,7 @@ function Recruitment() {
                 {primaryCta().text} <ArrowRight className="h-4 w-4" />
               </a>
               <a href={REMIND_URL} target="_blank" rel="noreferrer" className="btn-outline-light hover:bg-white/10">
-                Get Rush Text Updates
+                Want to Stay Updated?
               </a>
             </div>
           </Reveal>
@@ -424,7 +424,7 @@ function CurtainHero() {
               {primaryCta().text} <ArrowRight className="h-4 w-4" />
             </a>
             <a href={REMIND_URL} target="_blank" rel="noreferrer" className="btn-outline-light hover:bg-white/10">
-              Get Rush Text Updates
+              Want to Stay Updated?
             </a>
           </div>
         </div>
