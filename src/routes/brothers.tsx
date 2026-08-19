@@ -78,14 +78,14 @@ function Brothers() {
       </section>
 
       <Section eyebrow="Leadership" title="Executive Board" bg="cream">
-        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
-          {EBOARD.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} pledgeClass={b.pledgeClass} headshot={b.headshot} linkedin={b.linkedin} delay={i * 40} />)}
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {EBOARD.map((b, i) => <BrotherCard size="lg" key={b.name + b.role} name={b.name} role={b.role} pledgeClass={b.pledgeClass} headshot={b.headshot} linkedin={b.linkedin} delay={i * 40} />)}
         </div>
       </Section>
 
       <Section eyebrow="Operations" title="Leadership Team" bg="white">
-        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
-          {LEADERSHIP.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} pledgeClass={b.pledgeClass} headshot={b.headshot} linkedin={b.linkedin} delay={i * 40} />)}
+        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+          {LEADERSHIP.map((b, i) => <BrotherCard size="md" key={b.name + b.role} name={b.name} role={b.role} pledgeClass={b.pledgeClass} headshot={b.headshot} linkedin={b.linkedin} delay={i * 40} />)}
         </div>
       </Section>
 
