@@ -184,26 +184,16 @@ function ActiveBrothers() {
           />
         </div>
       </Reveal>
-      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-8 grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8">
         {filtered.map((b, i) => (
-          <Reveal key={b.name + i} variant="fade" delay={i * 40}>
-            <div className="flex items-center justify-between gap-3 rounded-xl border border-[var(--border)] bg-white px-5 py-4 transition hover:border-[var(--gold)]">
-              <p className="min-w-0 truncate text-sm text-[var(--navy)]">
-                <span className="font-medium">{b.name}</span>
-                <span className="text-[var(--navy)]/40"> | </span>
-                <span className="text-[var(--navy)]/70">{b.pledgeClass}</span>
-              </p>
-              <a
-                href={b.linkedin || "#"}
-                target={b.linkedin ? "_blank" : undefined}
-                rel={b.linkedin ? "noreferrer" : undefined}
-                aria-label={`${b.name} on LinkedIn`}
-                className="shrink-0 text-[var(--navy)]/50 hover:text-[var(--gold)]"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </div>
-          </Reveal>
+          <BrotherCard
+            key={b.name + i}
+            name={b.name}
+            pledgeClass={b.pledgeClass}
+            headshot={b.headshot}
+            linkedin={b.linkedin}
+            delay={i * 30}
+          />
         ))}
         {filtered.length === 0 && <p className="text-sm text-[var(--navy)]/60">No matches.</p>}
       </div>
