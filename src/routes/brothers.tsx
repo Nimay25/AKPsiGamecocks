@@ -20,8 +20,7 @@ export const Route = createFileRoute("/brothers")({
 });
 
 const EBOARD = bySection("eboard");
-const DIRECTORS = bySection("director");
-const CHAIRS = bySection("chair");
+const LEADERSHIP = [...bySection("director"), ...bySection("chair")];
 const BROTHERS = bySection("brother");
 
 const PLEDGE_CLASSES = [
