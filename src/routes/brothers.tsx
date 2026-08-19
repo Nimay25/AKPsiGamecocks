@@ -196,47 +196,49 @@ function PledgeCarousel() {
   }, [photos]);
 
   return (
-    <div className="mx-auto max-w-4xl">
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--navy-deep)] to-[var(--ink)]">
-        <div className="relative aspect-[4/3] sm:aspect-[16/10]">
-          {PC_PHOTOS.map((src, idx) => (
-            <img
-              key={src}
-              src={src}
-              alt="Alpha Kappa Psi pledge class photo"
-              loading={idx === 0 ? "eager" : "lazy"}
-              className="absolute inset-0 h-full w-full object-contain transition-opacity duration-700"
-              style={{ opacity: idx === photo ? 1 : 0 }}
-            />
-          ))}
+    <div className="mx-auto max-w-5xl">
+      <div className="flex justify-center">
+        <div className="relative inline-block">
+          <img
+            key={PC_PHOTOS[photo]}
+            src={PC_PHOTOS[photo]}
+            alt="Alpha Kappa Psi pledge class photo"
+            className="block h-auto w-auto max-h-[min(52vh,460px)] max-w-full rounded-2xl animate-[fadeIn_0.6s_ease]"
+          />
+          {/* preload remaining photos */}
+          <div className="hidden">
+            {PC_PHOTOS.map((src) => (
+              <img key={src} src={src} alt="" loading="lazy" />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => goPhoto(-1)}
+            aria-label="Previous photo"
+            className="absolute left-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/50 text-[var(--cream)] backdrop-blur transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => goPhoto(1)}
+            aria-label="Next photo"
+            className="absolute right-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/50 text-[var(--cream)] backdrop-blur transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={() => goPhoto(-1)}
-          aria-label="Previous photo"
-          className="absolute left-4 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/50 text-[var(--cream)] backdrop-blur transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <button
-          type="button"
-          onClick={() => goPhoto(1)}
-          aria-label="Next photo"
-          className="absolute right-4 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/50 text-[var(--cream)] backdrop-blur transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
       </div>
 
       {/* photo thumbnails */}
-      <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
+      <div className="mt-4 flex justify-center gap-2 overflow-x-auto pb-1">
         {PC_PHOTOS.map((src, idx) => (
           <button
             key={src}
             type="button"
             onClick={() => setPhoto(idx)}
             aria-label={`Show photo ${idx + 1}`}
-            className={`h-16 w-24 shrink-0 overflow-hidden rounded-lg border transition ${
+            className={`h-14 w-20 shrink-0 overflow-hidden rounded-lg border transition ${
               idx === photo ? "border-[var(--gold)] opacity-100" : "border-white/15 opacity-60 hover:opacity-90"
             }`}
           >
@@ -244,6 +246,7 @@ function PledgeCarousel() {
           </button>
         ))}
       </div>
+
 
       <div className="mt-8 flex flex-wrap items-baseline justify-between gap-3">
         <p className="font-display text-2xl text-[var(--cream)]">
