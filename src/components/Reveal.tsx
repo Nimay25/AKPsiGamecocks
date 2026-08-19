@@ -22,7 +22,12 @@ export function Reveal({ children, delay = 0, className = "", as: Tag = "div", v
           io.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      // Tall blocks (e.g. the full Leadership Team grid) can never reach a 15%
+      // intersection ratio in a short viewport, so scale the threshold down.
+      {
+        threshold: Math.min(0.15, (window.innerHeight * 0.15) / Math.max(el.offsetHeight, 1)),
+        rootMargin: "0px 0px -40px 0px",
+      }
     );
     io.observe(el);
     return () => io.disconnect();
