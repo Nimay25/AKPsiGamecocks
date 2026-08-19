@@ -99,11 +99,11 @@ function Alumni() {
               How AKPSI prepared us.
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid items-stretch gap-6 md:grid-cols-2">
             {QUOTES.map((t, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <blockquote className="rounded-2xl border border-[var(--border)] bg-white p-8 shadow-[var(--shadow-soft)]">
-                  <p className="font-display text-xl leading-relaxed text-[var(--navy)]">&ldquo;{t.q}&rdquo;</p>
+              <Reveal key={i} delay={i * 80} className="h-full">
+                <blockquote className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-white p-8 shadow-[var(--shadow-soft)]">
+                  <p className="flex-1 font-display text-xl leading-relaxed text-[var(--navy)]">&ldquo;{t.q}&rdquo;</p>
                   <footer className="mt-6 flex items-center gap-3 border-t border-[var(--border)] pt-4 text-sm">
                     <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--navy)] text-[var(--gold)] font-display">
                       {t.name.split(" ").map((w: string) => w[0]).slice(0,2).join("")}
