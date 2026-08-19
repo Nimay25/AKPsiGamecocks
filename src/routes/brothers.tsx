@@ -1,9 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Linkedin, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { bySection } from "@/lib/roster";
 import darlaMoore from "@/assets/darla-moore.webp";
+import pc1 from "@/assets/pc/thumbnail-img-4178_orig_1.jpg.asset.json";
+import pc2 from "@/assets/pc/20241026-095236-bf5f16_orig_1.jpeg.asset.json";
+import pc3 from "@/assets/pc/pc-photo_orig_2.jpeg.asset.json";
+import pc4 from "@/assets/pc/img-2660_orig_1.jpg.asset.json";
+import pc5 from "@/assets/pc/img-2659_orig_1.jpg.asset.json";
+import pc6 from "@/assets/pc/screenshot-2023-06-26-at-9-14-17-am_orig.png.asset.json";
+
+const PC_PHOTOS: string[] = [pc1.url, pc2.url, pc3.url, pc4.url, pc5.url, pc6.url];
 
 export const Route = createFileRoute("/brothers")({
   head: () => ({
@@ -76,8 +84,8 @@ function Brothers() {
       </Section>
 
       <Section eyebrow="Operations" title="Leadership Team" bg="white">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {LEADERSHIP.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} />)}
+        <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {LEADERSHIP.map((b, i) => <BrotherCard key={b.name + b.role} name={b.name} role={b.role} delay={i * 60} compact />)}
         </div>
       </Section>
 
@@ -110,17 +118,17 @@ function Section({ eyebrow, title, bg, children }: { eyebrow: string; title: str
   );
 }
 
-function BrotherCard({ name, role, delay = 0 }: { name: string; role: string; delay?: number }) {
+function BrotherCard({ name, role, delay = 0, compact = false }: { name: string; role: string; delay?: number; compact?: boolean }) {
   const initials = name.split(" ").map(n => n[0]).join("").slice(0, 2);
   return (
     <Reveal variant="fade" delay={delay}>
-      <article className="group rounded-2xl border border-[var(--border)] bg-white p-5 transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)]">
-          <div className="absolute inset-0 grid place-items-center font-display text-6xl text-[var(--gold)]/40">{initials}</div>
+      <article className={`group rounded-2xl border border-[var(--border)] bg-white transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] ${compact ? "p-3" : "p-5"}`}>
+        <div className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] ${compact ? "aspect-[1/1]" : "aspect-[4/5]"}`}>
+          <div className={`absolute inset-0 grid place-items-center font-display text-[var(--gold)]/40 ${compact ? "text-4xl" : "text-6xl"}`}>{initials}</div>
         </div>
-        <div className="mt-5">
-          <p className="text-xs uppercase tracking-widest text-[var(--gold)]">{role}</p>
-          <h3 className="mt-1 font-display text-xl text-[var(--navy)]">{name}</h3>
+        <div className={compact ? "mt-3" : "mt-5"}>
+          <p className={`uppercase tracking-widest text-[var(--gold)] ${compact ? "text-[10px]" : "text-xs"}`}>{role}</p>
+          <h3 className={`mt-1 font-display text-[var(--navy)] ${compact ? "text-base" : "text-xl"}`}>{name}</h3>
         </div>
       </article>
     </Reveal>
