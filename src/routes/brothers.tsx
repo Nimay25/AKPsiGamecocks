@@ -93,7 +93,7 @@ function Brothers() {
         <ActiveBrothers />
       </Section>
 
-      <Section eyebrow="History" title="Pledge Classes" bg="navy">
+      <Section eyebrow="History" title="Pledge Classes" bg="navy" className="pb-8 md:pb-12">
         <PledgeCarousel />
       </Section>
     </>
