@@ -68,7 +68,7 @@ function loadRoster(): RosterMember[] {
   const iLi = idx("linkedin");
   const iHeadshot = idx("headshot");
 
-  return rows.map((r) => ({
+  const members = rows.map((r) => ({
     section: (r[iSection] ?? "brother").trim() as RosterSection,
     name: (r[iName] ?? "").trim(),
     role: (r[iRole] ?? "").trim(),
@@ -76,7 +76,23 @@ function loadRoster(): RosterMember[] {
     linkedin: (r[iLi] ?? "").trim(),
     headshot: (r[iHeadshot] ?? "").trim(),
   })).filter((m) => m.name !== "");
+
+  // Exec/leadership rows omit LinkedIn + pledge class; inherit them from the
+  // matching "brother" row so every card links correctly.
+  const byName = new Map<string, RosterMember>();
+  for (const m of members) {
+    if (m.section === "brother") byName.set(m.name.toLowerCase(), m);
+  }
+  for (const m of members) {
+    const base = byName.get(m.name.toLowerCase());
+    if (!base || base === m) continue;
+    if (!m.linkedin) m.linkedin = base.linkedin;
+    if (!m.pledgeClass) m.pledgeClass = base.pledgeClass;
+    if (!m.headshot) m.headshot = base.headshot;
+  }
+  return members;
 }
+
 
 export const ROSTER = loadRoster();
 export const bySection = (section: RosterSection) => ROSTER.filter((m) => m.section === section);
