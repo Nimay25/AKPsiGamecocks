@@ -17,7 +17,6 @@ import fifth from "@/assets/logos-t/5.webp";
 import appleAsset from "@/assets/logos-t/apple.svg.asset.json";
 import amazonAsset from "@/assets/logos-t/amazon.svg.asset.json";
 import kpmgAsset from "@/assets/logos-t/kpmg.svg.asset.json";
-import deloitteAsset from "@/assets/logos-t/deloitte.svg.asset.json";
 import mckinseyAsset from "@/assets/logos-t/mckinsey.svg.asset.json";
 import pepsiAsset from "@/assets/logos-t/pepsi.svg.asset.json";
 
