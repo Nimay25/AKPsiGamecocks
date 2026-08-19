@@ -113,7 +113,7 @@ export function EmployerLogoOrbit() {
 
         const depth = (Math.sin(a) + 1) / 2; // 0 back .. 1 front
         let scale = 0.82 + depth * 0.3;
-        let opacity = 0.42 + depth * 0.4;
+        let opacity = 0.72 + depth * 0.28;
 
         if (pointer.current.active) {
           const dx = x - pointer.current.x;
