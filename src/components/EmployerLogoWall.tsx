@@ -48,15 +48,14 @@ export const EMPLOYER_LOGOS: Employer[] = [
 
 /** Outer ring — counter-clockwise, wide oval that drifts past the edges. */
 export const OUTER_EMPLOYER_LOGOS: Employer[] = [
-  { name: "McKinsey & Company", url: mckinseyAsset.url, scale: 1.0, invert: true },
-  { name: "Deloitte", url: deloitteAsset.url, scale: 1.0, invert: true },
-  { name: "KPMG", url: kpmgAsset.url, scale: 1.0 },
-  { name: "Apple", url: appleAsset.url, scale: 0.8, invert: true },
-  { name: "Amazon", url: amazonAsset.url, scale: 0.95, invert: true },
-  { name: "PepsiCo", url: pepsiAsset.url, scale: 0.8 },
-  { name: "Special Olympics", url: so, scale: 0.95 },
-  { name: "FCC", url: fcc, scale: 0.85 },
-  { name: "Fifth Circuit Solicitor's Office", url: fifth, scale: 0.85 },
+  { name: "McKinsey & Company", url: mckinseyAsset.url, scale: 0.95, invert: true },
+  { name: "KPMG", url: kpmgAsset.url, scale: 1.05 },
+  { name: "Apple", url: appleAsset.url, scale: 1.5, invert: true },
+  { name: "Amazon", url: amazonAsset.url, scale: 0.9, invert: true },
+  { name: "PepsiCo", url: pepsiAsset.url, scale: 1.45 },
+  { name: "Special Olympics", url: so, scale: 1.1 },
+  { name: "FCC", url: fcc, scale: 0.95 },
+  { name: "Fifth Circuit Solicitor's Office", url: fifth, scale: 0.95 },
 ];
 
 /** Every logo, for the mobile grid. */
