@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Linkedin, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { bySection } from "@/lib/roster";
+import { headshotFocus } from "@/lib/headshotFocus";
 import darlaMoore from "@/assets/darla-moore.webp";
 import pc1 from "@/assets/pc/thumbnail-img-4178_orig_1.jpg.asset.json";
 import pc2 from "@/assets/pc/20241026-095236-bf5f16_orig_1.jpeg.asset.json";
@@ -144,7 +145,13 @@ function BrotherCard({
       <article className={`group flex flex-col rounded-xl border border-[var(--border)] bg-white transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] ${isLg ? "p-4" : isMd ? "p-3" : "p-2"}`}>
         <div className={`relative overflow-hidden rounded-lg bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] ${isLg ? "aspect-[4/5]" : "aspect-square"}`}>
           {headshot ? (
-            <img src={headshot} alt={name} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
+            <img
+              src={headshot}
+              alt={name}
+              style={{ objectPosition: headshotFocus(headshot, isLg) ?? "50% 42%" }}
+              className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
           ) : (
             <div className={`absolute inset-0 grid place-items-center font-display text-[var(--gold)]/40 ${isLg ? "text-5xl" : isMd ? "text-4xl" : "text-3xl"}`}>{initials}</div>
           )}
