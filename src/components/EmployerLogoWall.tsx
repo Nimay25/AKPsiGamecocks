@@ -60,10 +60,12 @@ export const OUTER_EMPLOYER_LOGOS: Employer[] = [
 /** Every logo, for the mobile grid. */
 export const ALL_EMPLOYER_LOGOS: Employer[] = [...EMPLOYER_LOGOS, ...OUTER_EMPLOYER_LOGOS];
 
+/* Keep brand colors true: no brightness/contrast/saturation shifts —
+   legibility comes from a soft white glow behind the mark only. */
 const BASE_FILTER =
-  "brightness(1.5) contrast(1.15) saturate(1.1) drop-shadow(0 0 1px rgba(255,255,255,0.95)) drop-shadow(0 0 4px rgba(255,255,255,0.7)) drop-shadow(0 0 14px rgba(255,255,255,0.35))";
+  "drop-shadow(0 0 2px rgba(255,255,255,0.55)) drop-shadow(0 0 10px rgba(255,255,255,0.25))";
 const INVERT_FILTER =
-  "invert(1) brightness(1.15) contrast(1.05) drop-shadow(0 0 4px rgba(0,0,0,0.55))";
+  "invert(1) drop-shadow(0 0 3px rgba(0,0,0,0.45))";
 
 /** A single free-floating employer logo — no plate, no card. */
 export function EmployerLogo({
@@ -83,7 +85,7 @@ export function EmployerLogo({
         className="pointer-events-none absolute inset-[-22%] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(255,255,255,0.34), rgba(255,255,255,0.14) 55%, rgba(255,255,255,0) 78%)",
+            "radial-gradient(closest-side, rgba(255,255,255,0.26), rgba(255,255,255,0.10) 55%, rgba(255,255,255,0) 78%)",
           filter: "blur(10px)",
         }}
       />
@@ -204,13 +206,13 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
 export function EmployerLogoOrbit() {
   return (
     <>
-      <Orbit logos={EMPLOYER_LOGOS} radiusX={0.34} radiusY={0.34} speed={0.052} size={62} />
+      <Orbit logos={EMPLOYER_LOGOS} radiusX={0.30} radiusY={0.31} speed={0.052} size={58} />
       <Orbit
         logos={OUTER_EMPLOYER_LOGOS}
-        radiusX={0.46}
-        radiusY={0.44}
+        radiusX={0.52}
+        radiusY={0.475}
         speed={-0.036}
-        size={60}
+        size={56}
         phase={0.4}
         minOpacity={0.6}
       />
