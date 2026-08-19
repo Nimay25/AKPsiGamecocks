@@ -155,15 +155,18 @@ function BrotherCard({
           <p className={`uppercase tracking-widest text-[var(--navy)]/50 ${isLg ? "text-xs" : "text-[10px]"}`}>Beta</p>
           {label && <p className={`uppercase tracking-widest text-[var(--gold)] ${isLg ? "mt-1 text-xs" : isMd ? "mt-0.5 text-[11px]" : "mt-0.5 text-[10px]"}`}>{label}</p>}
         </div>
-        <a
-          href={linkedin || "#"}
-          target={linkedin ? "_blank" : undefined}
-          rel={linkedin ? "noreferrer" : undefined}
-          aria-label={`${name} on LinkedIn`}
-          className={`mx-auto flex items-center justify-center rounded-full text-[var(--navy)]/40 transition hover:bg-[var(--gold)]/10 hover:text-[var(--gold)] ${isLg ? "mt-2 h-9 w-9" : isMd ? "mt-1.5 h-8 w-8" : "mt-1 h-7 w-7"}`}
-        >
-          <Linkedin className={`${isLg ? "h-4 w-4" : isMd ? "h-3.5 w-3.5" : "h-3 w-3"}`} />
-        </a>
+        {linkedin && (
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${name} on LinkedIn`}
+            className={`mx-auto flex items-center justify-center rounded-full text-[var(--navy)]/40 transition hover:bg-[var(--gold)]/10 hover:text-[var(--gold)] ${isLg ? "mt-2 h-9 w-9" : isMd ? "mt-1.5 h-8 w-8" : "mt-1 h-7 w-7"}`}
+          >
+            <Linkedin className={`${isLg ? "h-4 w-4" : isMd ? "h-3.5 w-3.5" : "h-3 w-3"}`} />
+          </a>
+        )}
+
       </article>
     </Reveal>
   );
