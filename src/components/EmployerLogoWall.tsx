@@ -17,7 +17,6 @@ import fifth from "@/assets/logos-t/5.webp";
 import appleAsset from "@/assets/logos-t/apple.svg.asset.json";
 import amazonAsset from "@/assets/logos-t/amazon.svg.asset.json";
 import kpmgAsset from "@/assets/logos-t/kpmg.svg.asset.json";
-import deloitteAsset from "@/assets/logos-t/deloitte.svg.asset.json";
 import mckinseyAsset from "@/assets/logos-t/mckinsey.svg.asset.json";
 import pepsiAsset from "@/assets/logos-t/pepsi.svg.asset.json";
 
@@ -48,15 +47,14 @@ export const EMPLOYER_LOGOS: Employer[] = [
 
 /** Outer ring — counter-clockwise, wide oval that drifts past the edges. */
 export const OUTER_EMPLOYER_LOGOS: Employer[] = [
-  { name: "McKinsey & Company", url: mckinseyAsset.url, scale: 1.0, invert: true },
-  { name: "Deloitte", url: deloitteAsset.url, scale: 1.0, invert: true },
-  { name: "KPMG", url: kpmgAsset.url, scale: 1.0 },
-  { name: "Apple", url: appleAsset.url, scale: 0.8, invert: true },
-  { name: "Amazon", url: amazonAsset.url, scale: 0.95, invert: true },
-  { name: "PepsiCo", url: pepsiAsset.url, scale: 0.8 },
-  { name: "Special Olympics", url: so, scale: 0.95 },
-  { name: "FCC", url: fcc, scale: 0.85 },
-  { name: "Fifth Circuit Solicitor's Office", url: fifth, scale: 0.85 },
+  { name: "McKinsey & Company", url: mckinseyAsset.url, scale: 0.95, invert: true },
+  { name: "KPMG", url: kpmgAsset.url, scale: 1.05 },
+  { name: "Apple", url: appleAsset.url, scale: 1.5, invert: true },
+  { name: "Amazon", url: amazonAsset.url, scale: 0.9, invert: true },
+  { name: "PepsiCo", url: pepsiAsset.url, scale: 1.45 },
+  { name: "Special Olympics", url: so, scale: 1.1 },
+  { name: "FCC", url: fcc, scale: 0.95 },
+  { name: "Fifth Circuit Solicitor's Office", url: fifth, scale: 0.95 },
 ];
 
 /** Every logo, for the mobile grid. */
@@ -209,10 +207,10 @@ export function EmployerLogoOrbit() {
       <Orbit logos={EMPLOYER_LOGOS} radiusX={0.34} radiusY={0.34} speed={0.052} size={62} />
       <Orbit
         logos={OUTER_EMPLOYER_LOGOS}
-        radiusX={0.58}
-        radiusY={0.56}
+        radiusX={0.46}
+        radiusY={0.44}
         speed={-0.036}
-        size={58}
+        size={60}
         phase={0.4}
         minOpacity={0.6}
       />
