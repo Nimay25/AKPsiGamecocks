@@ -116,9 +116,9 @@ function Home() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="grid gap-10 sm:grid-cols-3 mx-auto max-w-5xl">
             {[
-              { n: 150, suffix: "+", label: "Active Brothers" },
-              { n: 90, suffix: "%+", label: "Internship Placement" },
-              { n: 500, suffix: "+", label: "Alumni Network" },
+              { n: 110, suffix: "+", label: "Active Brothers" },
+              { n: 92, suffix: "%+", label: "Internship Placement" },
+              { n: 550, suffix: "+", label: "Alumni Network" },
             ].map((s, i) => (
               <Reveal key={s.label} delay={i * 100}>
                 <div className="border-t border-[var(--gold)]/40 pt-6">
