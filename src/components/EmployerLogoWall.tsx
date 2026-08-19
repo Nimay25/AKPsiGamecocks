@@ -209,10 +209,10 @@ export function EmployerLogoOrbit() {
       <Orbit logos={EMPLOYER_LOGOS} radiusX={0.34} radiusY={0.34} speed={0.052} size={62} />
       <Orbit
         logos={OUTER_EMPLOYER_LOGOS}
-        radiusX={0.58}
-        radiusY={0.56}
+        radiusX={0.46}
+        radiusY={0.44}
         speed={-0.036}
-        size={58}
+        size={60}
         phase={0.4}
         minOpacity={0.6}
       />
