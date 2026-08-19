@@ -93,18 +93,18 @@ function Brothers() {
         <ActiveBrothers />
       </Section>
 
-      <Section eyebrow="History" title="Pledge Classes" bg="navy">
+      <Section eyebrow="History" title="Pledge Classes" bg="navy" className="pb-8 md:pb-12">
         <PledgeCarousel />
       </Section>
     </>
   );
 }
 
-function Section({ eyebrow, title, bg, children }: { eyebrow: string; title: string; bg: "cream" | "white" | "navy"; children: React.ReactNode }) {
+function Section({ eyebrow, title, bg, className = "", children }: { eyebrow: string; title: string; bg: "cream" | "white" | "navy"; className?: string; children: React.ReactNode }) {
   const bgClass = bg === "cream" ? "bg-[var(--cream)]" : bg === "white" ? "bg-white" : "bg-[var(--navy)] text-[var(--cream)]";
   const titleColor = bg === "navy" ? "text-[var(--cream)]" : "text-[var(--navy)]";
   return (
-    <section className={`${bgClass} py-16 md:py-24`}>
+    <section className={`${bgClass} py-16 md:py-24 ${className}`}>
       <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <Reveal variant="fade"><p className="eyebrow"><span className="gold-rule" />{eyebrow}</p></Reveal>
         <Reveal variant="fade" delay={100}>
