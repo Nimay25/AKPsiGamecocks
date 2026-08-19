@@ -125,6 +125,7 @@ function BrotherCard({
   headshot,
   linkedin,
   delay = 0,
+  size = "sm",
 }: {
   name: string;
   role?: string;
@@ -132,33 +133,36 @@ function BrotherCard({
   headshot?: string;
   linkedin?: string;
   delay?: number;
+  size?: "lg" | "md" | "sm";
 }) {
   const initials = name.split(" ").map(n => n[0]).join("").slice(0, 2);
   const label = role || pledgeClass || "";
+  const isLg = size === "lg";
+  const isMd = size === "md";
   return (
     <Reveal variant="fade" delay={delay}>
-      <article className="group flex flex-col rounded-xl border border-[var(--border)] bg-white p-2.5 transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]">
-        <div className="relative aspect-square overflow-hidden rounded-lg bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)]">
+      <article className={`group flex flex-col rounded-xl border border-[var(--border)] bg-white transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] ${isLg ? "p-4" : isMd ? "p-3" : "p-2"}`}>
+        <div className={`relative overflow-hidden rounded-lg bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] ${isLg ? "aspect-[4/5]" : "aspect-square"}`}>
           {headshot ? (
             <img src={headshot} alt={name} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
           ) : (
-            <div className="absolute inset-0 grid place-items-center font-display text-3xl text-[var(--gold)]/40">{initials}</div>
+            <div className={`absolute inset-0 grid place-items-center font-display text-[var(--gold)]/40 ${isLg ? "text-5xl" : isMd ? "text-4xl" : "text-3xl"}`}>{initials}</div>
           )}
         </div>
-        <div className="mt-2.5 flex flex-1 flex-col items-center text-center">
-          <h3 className="font-display text-sm font-medium leading-tight text-[var(--navy)]">{name}</h3>
-          <div className="my-1.5 h-px w-8 bg-[var(--gold)]/60" />
-          <p className="text-[10px] uppercase tracking-widest text-[var(--navy)]/50">Beta</p>
-          {label && <p className="mt-0.5 text-[10px] uppercase tracking-widest text-[var(--gold)]">{label}</p>}
+        <div className={`flex flex-1 flex-col items-center text-center ${isLg ? "mt-4" : isMd ? "mt-3" : "mt-2"}`}>
+          <h3 className={`font-display font-medium leading-tight text-[var(--navy)] ${isLg ? "text-lg" : isMd ? "text-base" : "text-sm"}`}>{name}</h3>
+          <div className={`h-px bg-[var(--gold)]/60 ${isLg ? "my-2 w-12" : isMd ? "my-1.5 w-10" : "my-1 w-8"}`} />
+          <p className={`uppercase tracking-widest text-[var(--navy)]/50 ${isLg ? "text-xs" : "text-[10px]"}`}>Beta</p>
+          {label && <p className={`uppercase tracking-widest text-[var(--gold)] ${isLg ? "mt-1 text-xs" : isMd ? "mt-0.5 text-[11px]" : "mt-0.5 text-[10px]"}`}>{label}</p>}
         </div>
         <a
           href={linkedin || "#"}
           target={linkedin ? "_blank" : undefined}
           rel={linkedin ? "noreferrer" : undefined}
           aria-label={`${name} on LinkedIn`}
-          className="mx-auto mt-1 flex h-7 w-7 items-center justify-center rounded-full text-[var(--navy)]/40 transition hover:bg-[var(--gold)]/10 hover:text-[var(--gold)]"
+          className={`mx-auto flex items-center justify-center rounded-full text-[var(--navy)]/40 transition hover:bg-[var(--gold)]/10 hover:text-[var(--gold)] ${isLg ? "mt-2 h-9 w-9" : isMd ? "mt-1.5 h-8 w-8" : "mt-1 h-7 w-7"}`}
         >
-          <Linkedin className="h-3.5 w-3.5" />
+          <Linkedin className={`${isLg ? "h-4 w-4" : isMd ? "h-3.5 w-3.5" : "h-3 w-3"}`} />
         </a>
       </article>
     </Reveal>
