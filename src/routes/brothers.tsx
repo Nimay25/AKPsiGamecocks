@@ -173,37 +173,71 @@ function ActiveBrothers() {
   );
 }
 
+/** Photo carousel runs independently of the pledge-class selector. */
 function PledgeCarousel() {
   const [i, setI] = useState(0);
+  const [photo, setPhoto] = useState(0);
   const total = PLEDGE_CLASSES.length;
   const current = PLEDGE_CLASSES[i]!;
-  const go = (dir: number) => setI((prev) => (prev + dir + total) % total);
+  const photos = PC_PHOTOS.length;
+  const goPhoto = (dir: number) => setPhoto((p) => (p + dir + photos) % photos);
+
+  useEffect(() => {
+    const id = setInterval(() => setPhoto((p) => (p + 1) % photos), 5000);
+    return () => clearInterval(id);
+  }, [photos]);
 
   return (
     <div className="mx-auto max-w-4xl">
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--navy-deep)] to-[var(--ink)]">
-        <div className="grid aspect-[16/9] place-items-center font-display text-2xl text-[var(--gold)]/30">
-          Class Photo
+        <div className="relative aspect-[4/3] sm:aspect-[16/10]">
+          {PC_PHOTOS.map((src, idx) => (
+            <img
+              key={src}
+              src={src}
+              alt="Alpha Kappa Psi pledge class photo"
+              loading={idx === 0 ? "eager" : "lazy"}
+              className="absolute inset-0 h-full w-full object-contain transition-opacity duration-700"
+              style={{ opacity: idx === photo ? 1 : 0 }}
+            />
+          ))}
         </div>
         <button
           type="button"
-          onClick={() => go(-1)}
-          aria-label="Previous pledge class"
+          onClick={() => goPhoto(-1)}
+          aria-label="Previous photo"
           className="absolute left-4 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/50 text-[var(--cream)] backdrop-blur transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
         <button
           type="button"
-          onClick={() => go(1)}
-          aria-label="Next pledge class"
+          onClick={() => goPhoto(1)}
+          aria-label="Next photo"
           className="absolute right-4 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-black/50 text-[var(--cream)] backdrop-blur transition hover:border-[var(--gold)] hover:text-[var(--gold)]"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-baseline justify-between gap-3">
+      {/* photo thumbnails */}
+      <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
+        {PC_PHOTOS.map((src, idx) => (
+          <button
+            key={src}
+            type="button"
+            onClick={() => setPhoto(idx)}
+            aria-label={`Show photo ${idx + 1}`}
+            className={`h-16 w-24 shrink-0 overflow-hidden rounded-lg border transition ${
+              idx === photo ? "border-[var(--gold)] opacity-100" : "border-white/15 opacity-60 hover:opacity-90"
+            }`}
+          >
+            <img src={src} alt="" loading="lazy" className="h-full w-full object-cover" />
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-8 flex flex-wrap items-baseline justify-between gap-3">
         <p className="font-display text-2xl text-[var(--cream)]">
           {current.term} <span className="text-[var(--cream)]/40">|</span>{" "}
           <span className="text-[var(--gold)]">{current.pc}</span>
@@ -227,6 +261,7 @@ function PledgeCarousel() {
           </button>
         ))}
       </div>
+      <p className="sr-only">{total} pledge classes</p>
     </div>
   );
 }
