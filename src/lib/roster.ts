@@ -66,6 +66,7 @@ function loadRoster(): RosterMember[] {
   const iRole = idx("role");
   const iPc = idx("pledge_class");
   const iLi = idx("linkedin");
+  const iHeadshot = idx("headshot");
 
   return rows.map((r) => ({
     section: (r[iSection] ?? "brother").trim() as RosterSection,
@@ -73,6 +74,7 @@ function loadRoster(): RosterMember[] {
     role: (r[iRole] ?? "").trim(),
     pledgeClass: (r[iPc] ?? "").trim(),
     linkedin: (r[iLi] ?? "").trim(),
+    headshot: (r[iHeadshot] ?? "").trim(),
   })).filter((m) => m.name !== "");
 }
 
