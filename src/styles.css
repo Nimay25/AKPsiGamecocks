@@ -316,3 +316,8 @@
 @media (prefers-reduced-motion: reduce) {
   .baw-float { animation: none !important; }
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
