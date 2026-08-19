@@ -126,6 +126,8 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
     if (!wrap) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // touch / coarse pointer devices: no cursor repulsion at all
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
     const n = logos.length;
     const start = performance.now();
     let raf = 0;
@@ -135,11 +137,15 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
       pointer.current = { x: e.clientX - r.left - r.width / 2, y: e.clientY - r.top - r.height / 2, active: true };
     };
     const onLeave = () => (pointer.current.active = false);
-    window.addEventListener("pointermove", onMove, { passive: true });
-    window.addEventListener("pointerleave", onLeave);
+    if (!coarse) {
+      window.addEventListener("pointermove", onMove, { passive: true });
+      window.addEventListener("pointerleave", onLeave);
+    }
 
     const tick = (now: number) => {
       const r = wrap.getBoundingClientRect();
+      // shrink the whole system down on narrow screens so it still reads as a ring
+      const fit = Math.min(1, Math.max(0.52, r.width / 900));
       const rx = r.width * radiusX;
       const ry = r.height * radiusY;
       const t = reduce ? 0 : (now - start) / 1000;
@@ -148,15 +154,15 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
         const el = itemRefs.current[i];
         if (!el) continue;
         const a = (i / n) * Math.PI * 2 + phase + t * speed;
-        const wob = Math.sin(t * 0.35 + i * 1.7) * 16;
+        const wob = Math.sin(t * 0.35 + i * 1.7) * 16 * fit;
         let x = Math.cos(a) * (rx + wob);
         let y = Math.sin(a) * (ry + wob * 0.6);
 
         const depth = (Math.sin(a) + 1) / 2; // 0 back .. 1 front
-        let scale = 0.86 + depth * 0.24;
+        let scale = (0.86 + depth * 0.24) * fit;
         let opacity = minOpacity + depth * (1 - minOpacity);
 
-        if (pointer.current.active) {
+        if (!coarse && pointer.current.active) {
           const dx = x - pointer.current.x;
           const dy = y - pointer.current.y;
           const d = Math.hypot(dx, dy);
@@ -185,7 +191,7 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
   }, [logos, radiusX, radiusY, speed, phase, minOpacity]);
 
   return (
-    <div ref={wrapRef} className="pointer-events-none absolute inset-0 z-0 hidden md:block">
+    <div ref={wrapRef} className="pointer-events-none absolute inset-0 z-0">
       {logos.map((logo, i) => (
         <div
           key={logo.name}
@@ -220,18 +226,7 @@ export function EmployerLogoOrbit() {
   );
 }
 
-/** Mobile fallback: quiet grid of the same floating logos. */
+/** The orbit now runs on every screen size, so the old mobile grid is retired. */
 export function EmployerLogoWall() {
-  return (
-    <div className="mx-auto mt-12 max-w-3xl px-6 md:hidden">
-      <p className="text-center text-[11px] uppercase tracking-[0.35em] text-white/45">
-        Where our brothers work
-      </p>
-      <div className="mt-8 grid grid-cols-3 place-items-center gap-x-6 gap-y-8">
-        {ALL_EMPLOYER_LOGOS.map((logo) => (
-          <EmployerLogo key={logo.name} logo={logo} size={40} />
-        ))}
-      </div>
-    </div>
-  );
+  return null;
 }
