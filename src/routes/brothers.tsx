@@ -140,9 +140,12 @@ function BrotherCard({
   const label = role || pledgeClass || "";
   const isLg = size === "lg";
   const isMd = size === "md";
+  const nameBox = isLg ? "min-h-[3.5rem]" : isMd ? "min-h-[3rem]" : "min-h-[2.5rem]";
+  const roleBox = isLg ? "min-h-[2.5rem]" : isMd ? "min-h-[2.25rem]" : "min-h-[2rem]";
+  const iconBox = isLg ? "mt-2 h-9 w-9" : isMd ? "mt-1.5 h-8 w-8" : "mt-1 h-7 w-7";
   return (
-    <Reveal variant="fade" delay={delay}>
-      <article className={`group flex flex-col rounded-xl border border-[var(--border)] bg-white transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] ${isLg ? "p-4" : isMd ? "p-3" : "p-2"}`}>
+    <Reveal variant="fade" delay={delay} className="h-full">
+      <article className={`group flex h-full flex-col rounded-xl border border-[var(--border)] bg-white transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] ${isLg ? "p-4" : isMd ? "p-3" : "p-2"}`}>
         <div className={`relative overflow-hidden rounded-lg bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] ${isLg ? "aspect-[4/5]" : "aspect-square"}`}>
           {headshot ? (
             <img
@@ -157,23 +160,34 @@ function BrotherCard({
           )}
         </div>
         <div className={`flex flex-1 flex-col items-center text-center ${isLg ? "mt-4" : isMd ? "mt-3" : "mt-2"}`}>
-          <h3 className={`font-display font-medium leading-tight text-[var(--navy)] ${isLg ? "text-lg" : isMd ? "text-base" : "text-sm"}`}>{name}</h3>
+          <div className={`flex items-center justify-center ${nameBox}`}>
+            <h3 className={`line-clamp-2 font-display font-medium leading-tight text-[var(--navy)] ${isLg ? "text-lg" : isMd ? "text-base" : "text-sm"}`}>{name}</h3>
+          </div>
           <div className={`h-px bg-[var(--gold)]/60 ${isLg ? "my-2 w-12" : isMd ? "my-1.5 w-10" : "my-1 w-8"}`} />
           <p className={`uppercase tracking-widest text-[var(--navy)]/50 ${isLg ? "text-xs" : "text-[10px]"}`}>Beta</p>
-          {label && <p className={`uppercase tracking-widest text-[var(--gold)] ${isLg ? "mt-1 text-xs" : isMd ? "mt-0.5 text-[11px]" : "mt-0.5 text-[10px]"}`}>{label}</p>}
+          <div className={`flex items-center justify-center ${roleBox}`}>
+            {label ? (
+              <p className={`line-clamp-2 uppercase tracking-widest text-[var(--gold)] ${isLg ? "mt-1 text-xs" : isMd ? "mt-0.5 text-[11px]" : "mt-0.5 text-[10px]"}`}>{label}</p>
+            ) : (
+              <span className="block" />
+            )}
+          </div>
         </div>
-        {linkedin && (
-          <a
-            href={linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${name} on LinkedIn`}
-            className={`mx-auto flex items-center justify-center rounded-full text-[var(--navy)]/40 transition hover:bg-[var(--gold)]/10 hover:text-[var(--gold)] ${isLg ? "mt-2 h-9 w-9" : isMd ? "mt-1.5 h-8 w-8" : "mt-1 h-7 w-7"}`}
-          >
-            <Linkedin className={`${isLg ? "h-4 w-4" : isMd ? "h-3.5 w-3.5" : "h-3 w-3"}`} />
-          </a>
-        )}
-
+        <div className={`mx-auto flex ${iconBox} items-center justify-center`}>
+          {linkedin ? (
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${name} on LinkedIn`}
+              className="flex h-full w-full items-center justify-center rounded-full text-[var(--navy)]/40 transition hover:bg-[var(--gold)]/10 hover:text-[var(--gold)]"
+            >
+              <Linkedin className={`${isLg ? "h-4 w-4" : isMd ? "h-3.5 w-3.5" : "h-3 w-3"}`} />
+            </a>
+          ) : (
+            <span className="block" />
+          )}
+        </div>
       </article>
     </Reveal>
   );
