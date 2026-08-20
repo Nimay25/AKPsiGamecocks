@@ -80,11 +80,20 @@ function loadRoster(): RosterMember[] {
   // Exec/leadership rows omit LinkedIn + pledge class; inherit them from the
   // matching "brother" row so every card links correctly.
   const byName = new Map<string, RosterMember>();
+  // Fallback key tolerates nicknames/spellings (e.g. "Chris" vs "Christopher").
+  const key2 = (n: string) => {
+    const parts = n.toLowerCase().split(/\s+/).filter(Boolean);
+    const last = parts[parts.length - 1] ?? "";
+    return `${parts[0]?.[0] ?? ""}|${last}`;
+  };
+  const byLoose = new Map<string, RosterMember>();
   for (const m of members) {
-    if (m.section === "brother") byName.set(m.name.toLowerCase(), m);
+    if (m.section !== "brother") continue;
+    byName.set(m.name.toLowerCase(), m);
+    byLoose.set(key2(m.name), m);
   }
   for (const m of members) {
-    const base = byName.get(m.name.toLowerCase());
+    const base = byName.get(m.name.toLowerCase()) ?? byLoose.get(key2(m.name));
     if (!base || base === m) continue;
     if (!m.linkedin) m.linkedin = base.linkedin;
     if (!m.pledgeClass) m.pledgeClass = base.pledgeClass;
