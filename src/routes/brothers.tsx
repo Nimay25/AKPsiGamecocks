@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Linkedin, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { bySection } from "@/lib/roster";
-import { headshotFocus } from "@/lib/headshotFocus";
+import { headshotCropStyle } from "@/lib/headshotFocus";
 import darlaMoore from "@/assets/darla-moore.webp";
 import pc1 from "@/assets/pc/thumbnail-img-4178_orig_1.jpg.asset.json";
 import pc2 from "@/assets/pc/20241026-095236-bf5f16_orig_1.jpeg.asset.json";
@@ -148,8 +148,8 @@ function BrotherCard({
             <img
               src={headshot}
               alt={name}
-              style={{ objectPosition: headshotFocus(headshot, isLg) ?? "50% 42%" }}
-              className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+              style={headshotCropStyle(headshot, isLg)}
+              className="max-w-none object-cover transition duration-300 group-hover:scale-105"
               loading="lazy"
             />
           ) : (
