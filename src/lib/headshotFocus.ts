@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 // Auto-generated: face-aware crop rects [x, y, w, h] as fractions of the source image.
 // sq = square head-and-shoulders crop; lg = 4:5 wider, fuller-body crop (Exec Board).
 export type CropRect = [number, number, number, number];
@@ -112,7 +114,7 @@ export function headshotSlug(url: string): string {
 }
 
 /** Absolute-positioning styles that render an exact face-aware crop of the image. */
-export function headshotCropStyle(url: string, large: boolean): React.CSSProperties {
+export function headshotCropStyle(url: string, large: boolean): CSSProperties {
   const rect = HEADSHOT_CROP[headshotSlug(url)];
   if (!rect) return { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 30%" };
   const [x, y, w, h] = large ? rect.lg : rect.sq;
