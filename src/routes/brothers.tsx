@@ -164,7 +164,7 @@ function BrotherCard({
             <h3 className={`line-clamp-2 font-display font-medium leading-tight text-[var(--navy)] ${isLg ? "text-lg" : isMd ? "text-base" : "text-sm"}`}>{name}</h3>
           </div>
           <div className={`h-px bg-[var(--gold)]/60 ${isLg ? "my-2 w-12" : isMd ? "my-1.5 w-10" : "my-1 w-8"}`} />
-          <p className={`uppercase tracking-widest text-[var(--navy)]/50 ${isLg ? "text-xs" : "text-[10px]"}`}>Beta</p>
+
           <div className={`flex items-center justify-center ${roleBox}`}>
             {label ? (
               <p className={`line-clamp-2 uppercase tracking-widest text-[var(--gold)] ${isLg ? "mt-1 text-xs" : isMd ? "mt-0.5 text-[11px]" : "mt-0.5 text-[10px]"}`}>{label}</p>

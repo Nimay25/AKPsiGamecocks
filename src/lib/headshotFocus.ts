@@ -105,6 +105,13 @@ export const HEADSHOT_CROP: Record<string, { sq: CropRect; lg: CropRect }> = {
   "xavier-gouttierre": { sq: [0.1684, 0.0851, 0.7027, 0.4682], lg: [0.0, 0.1058, 1.0, 0.8328] },
   "zach-shores": { sq: [0.0461, 0.0, 0.9118, 0.9875], lg: [0.1327, 0.0, 0.7387, 1.0] },
   "zachary-tabler": { sq: [0.264, 0.3023, 0.454, 0.3025], lg: [0.1278, 0.3023, 0.7264, 0.605] },
+  "ryan-trahan": { sq: [0.33, 0.03, 0.38, 0.475], lg: [0.24, 0.05, 0.55, 0.859] },
+  "jesse-hisiger": { sq: [0.2, 0.13, 0.55, 0.437], lg: [0.13, 0.1, 0.7, 0.695] },
+  "james-toner": { sq: [0.22, 0.2, 0.6, 0.4065], lg: [0.08, 0.16, 0.85, 0.72] },
+  "olivia-mcgowan": { sq: [0.23, 0.16, 0.55, 0.366], lg: [0.08, 0.13, 0.85, 0.707] },
+  "marie-zeballos": { sq: [0.3, 0.22, 0.45, 0.3] , lg: [0.13, 0.19, 0.8, 0.667] },
+  "daniel-campos-anzaldua": { sq: [0.08, 0.08, 0.85, 0.5655], lg: [0.0, 0.05, 1.0, 0.8316] },
+  "luke-ribar": { sq: [0.3, 0.19, 0.4, 0.2667], lg: [0.12, 0.15, 0.75, 0.625] },
 };
 
 /** Extract the asset slug (filename without extension) from a headshot URL. */
