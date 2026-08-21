@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Linkedin, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { bySection } from "@/lib/roster";
-import { headshotCropStyle } from "@/lib/headshotFocus";
+import { Headshot, CropEditorBar } from "@/components/Headshot";
 import darlaMoore from "@/assets/darla-moore.webp";
 import pc1 from "@/assets/pc/thumbnail-img-4178_orig_1.jpg.asset.json";
 import pc2 from "@/assets/pc/20241026-095236-bf5f16_orig_1.jpeg.asset.json";
@@ -97,6 +97,8 @@ function Brothers() {
       <Section eyebrow="History" title="Pledge Classes" bg="navy" className="pb-8 md:pb-12">
         <PledgeCarousel />
       </Section>
+
+      <CropEditorBar />
     </>
   );
 }
@@ -148,13 +150,7 @@ function BrotherCard({
       <article className={`group flex h-full flex-col rounded-xl border border-[var(--border)] bg-white transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] ${isLg ? "p-4" : isMd ? "p-3" : "p-2"}`}>
         <div className={`relative overflow-hidden rounded-lg bg-gradient-to-br from-[var(--navy)] to-[var(--navy-deep)] ${isLg ? "aspect-[4/5]" : "aspect-square"}`}>
           {headshot ? (
-            <img
-              src={headshot}
-              alt={name}
-              style={headshotCropStyle(headshot, isLg)}
-              className="max-w-none object-cover transition duration-300 group-hover:scale-105"
-              loading="lazy"
-            />
+            <Headshot url={headshot} name={name} isLg={isLg} className="group-hover:scale-105" />
           ) : (
             <div className={`absolute inset-0 grid place-items-center font-display text-[var(--gold)]/40 ${isLg ? "text-5xl" : isMd ? "text-4xl" : "text-3xl"}`}>{initials}</div>
           )}
