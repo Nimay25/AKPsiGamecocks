@@ -72,8 +72,7 @@ export function Headshot({ url, name, isLg, className = "" }: { url: string; nam
       e.preventDefault();
       const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 100 : 1);
       const [x, y, w, h] = ensureRect();
-      let s = Math.exp(dy * 0.0015);
-      s = clamp(s, 0.05 / Math.min(w, h) > 0 ? 0.5 : 0.5, 2);
+      const s = clamp(Math.exp(dy * 0.0015), 0.5, 2);
       let nw = w * s;
       let nh = h * s;
       const cap = Math.min(1 / nw, 1 / nh, 1);
