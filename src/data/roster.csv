@@ -5,145 +5,145 @@
 // role:    only required for eboard/director (leave blank for brothers)
 // linkedin: full URL, e.g. https://www.linkedin.com/in/johndoe
 section,name,role,pledge_class,linkedin,headshot
-eboard,Grace Johnson,President,,,/__l5e/assets-v1/0c88ce05-37f6-4356-9c74-8bf568646018/grace-johnson.webp
-eboard,Charles Faletti,VP of Internal Affairs,,,/__l5e/assets-v1/f140f4f5-3240-4183-bed6-ffb543b84f4b/charles-faletti.webp
-eboard,Quinn Lovette,VP of Professionalism,,,/__l5e/assets-v1/0e5119b6-be17-4c57-bbeb-9d057d8b672f/quinn-lovette.webp
-eboard,Cooper Johnston,VP of Finance,,,/__l5e/assets-v1/eccaa620-ad70-488f-8349-ba209dad73e0/cooper-johnson.webp
-eboard,Gavin Farbman,VP of External Affairs,,,/__l5e/assets-v1/be3d2306-8030-4a1b-8bb9-0bca519ab9f1/gavin-farbman.webp
-eboard,Amanda Collins,VP of Recruitment,,,/__l5e/assets-v1/25cd83e6-67f8-4dec-8d29-582d8fe02a77/amanda-collins.webp
-director,Nandini Wagle,Director of Membership,,,/__l5e/assets-v1/7f406bc5-b472-41bc-86e1-7e5ce745bf30/nandini-wagle.webp
-director,Nimay Ankireddypalli,Director of DOI,,,/__l5e/assets-v1/e95ebcd3-be8d-44a7-a291-db082e5ec71e/nimay-ankireddypalli.webp
-director,Chris Roselli,Director of Networking,,,/__l5e/assets-v1/3397d101-5a52-445e-b3b4-cadfa495765e/christopher-roselli.webp
-director,Arav Patel,Director of Risk Management,,,/__l5e/assets-v1/ea99a1bb-ef2a-4359-b118-8ee822026c73/arav-patel.webp
-director,Timothy Woodley,Director of Rush,,,/__l5e/assets-v1/5265b1d0-2c40-4d27-af4e-5891d4a82d25/timothy-woodley.webp
-director,Evan Richelson,Director of Marketing,,,/__l5e/assets-v1/ebc6ff51-0e99-4bdd-bdc4-e14c1a33e194/evan-richelson.webp
-director,Tyler Sperry,Director of Marketing,,,/__l5e/assets-v1/804b0089-8c9b-4371-8948-6e5b645ba255/tyler-sperry.webp
-director,Emma Blanton,Master of Rituals,,,/__l5e/assets-v1/7cb5d563-1f2d-489f-9049-6ab9c77e4b82/emma-blanton.webp
+eboard,Grace Johnson,President,,,/headshots/grace-johnson.webp
+eboard,Charles Faletti,VP of Internal Affairs,,,/headshots/charles-faletti.webp
+eboard,Quinn Lovette,VP of Professionalism,,,/headshots/quinn-lovette.webp
+eboard,Cooper Johnston,VP of Finance,,,/headshots/cooper-johnson.webp
+eboard,Gavin Farbman,VP of External Affairs,,,/headshots/gavin-farbman.webp
+eboard,Amanda Collins,VP of Recruitment,,,/headshots/amanda-collins.webp
+director,Nandini Wagle,Director of Membership,,,/headshots/nandini-wagle.webp
+director,Nimay Ankireddypalli,Director of DOI,,,/headshots/nimay-ankireddypalli.webp
+director,Chris Roselli,Director of Networking,,,/headshots/christopher-roselli.webp
+director,Arav Patel,Director of Risk Management,,,/headshots/arav-patel.webp
+director,Timothy Woodley,Director of Rush,,,/headshots/timothy-woodley.webp
+director,Evan Richelson,Director of Marketing,,,/headshots/evan-richelson.webp
+director,Tyler Sperry,Director of Marketing,,,/headshots/tyler-sperry.webp
+director,Emma Blanton,Master of Rituals,,,/headshots/emma-blanton.webp
 director,Ryan Trahan,Parliamentarian,,,
-director,Ainsley McConnell,Historian,,,/__l5e/assets-v1/83094052-a154-4d7e-9581-e68f71c4273c/ainsley-mcconnell-v2.webp
-director,Charles Gless,Intramural Chair,,,/__l5e/assets-v1/e7952528-78de-4505-a8c1-354d4fa22618/charles-gless.webp
-director,Jordan Hadel,Academic Chair,,,/__l5e/assets-v1/de8b45a2-2169-4dfe-96f2-f3d29da9e9c2/jordan-hadel.webp
-director,Archer Atwood,Social Chair,,,/__l5e/assets-v1/ae6b8291-0f17-454f-9c0e-45c0690568dd/archer-atwood.webp
-director,Tyler Paluzzi,Social Chair,,,/__l5e/assets-v1/54c67672-b63e-4e23-bcf8-937c4a8099a3/tyler-paluzzi-v2.webp
-director,Connor Salvesen,Merchandise Chair,,,/__l5e/assets-v1/ecd4504f-0af5-455a-9f7e-b2e7ca8ad6f4/connor-salvesen.webp
-director,Grace Howell,Merchandise Chair,,,/__l5e/assets-v1/3c3030f0-2163-493b-97e9-e9b8ae6def1a/grace-howell.webp
-director,Ethan Hill,Alpha Fund Chair,,,/__l5e/assets-v1/3ea3d029-f8f8-4934-a451-e76a563b40af/ethan-hill.webp
-director,Julian Coletta,Alpha Fund Chair,,,/__l5e/assets-v1/99135476-b02c-4217-88af-6b4e70b76a93/julian-coleta.webp
-director,Tanner Torrey,Chaplain,,,/__l5e/assets-v1/17afc77b-c1c9-47a6-845c-5fde536ba98f/tanner-torrey.webp
-director,Rafael Freitas,Warden,,,/__l5e/assets-v1/7f107970-d7b8-40b7-8a37-83b900dba863/rafael-freitas.webp
-director,Sven Nielsen,Director of Alumni Relations,,,/__l5e/assets-v1/40bef868-d764-4a34-ad94-61561157c31f/sven-nielsen.webp
-director,Gabriel Giusti,Inter-Chapter Relations Chair,,,/__l5e/assets-v1/1b2d17b0-b037-4489-b5e4-93503b63f0e8/gabriel-giusti.webp
-director,Kathleen Greenwell,Philanthropy Chair,,,/__l5e/assets-v1/57e995ed-7d0f-4c31-a5fb-03ae78cc4ccb/kathleen-greenwell.webp
-director,Ariana Conroy,Director of Outreach,,,/__l5e/assets-v1/bb7f6c65-3a41-4ff1-9ff2-a74d5b052875/ariana-conroy.webp
-director,Ava Mollaghan,Service Chair,,,/__l5e/assets-v1/edfbf3b4-367b-4a7d-bb6e-9088eade7a2b/ava-mollaghan.webp
-director,Connor Autera,Service Chair,,,/__l5e/assets-v1/dc92eab7-cd86-49f2-b155-0c1dfeb78ff2/connor-autera.webp
-director,Audrey Prafder,Scholarship and Fundraising Chair,,,/__l5e/assets-v1/4334e566-957e-44bc-8db2-7bf6fffcb084/audrey-prafder.webp
-brother,Julia Perri,,Beta Kappa,https://www.linkedin.com/in/julia-g-perri/,/__l5e/assets-v1/fd099c9c-3379-4e1c-9520-91a2c027bacd/julia-perri.webp
-brother,Forest Fairey,,Beta Mu,https://www.linkedin.com/in/forestfairey/,/__l5e/assets-v1/6b902165-9665-4d8d-8518-b28bbd863164/forest-fairey.webp
-brother,Brooke Thurman,,Beta Kappa,https://www.linkedin.com/in/brooke-thurman2005/,/__l5e/assets-v1/b9c7658b-0a29-47fb-bbfe-256738a557aa/brooke-thurman.webp
-brother,Isaac Cherry II,,Beta Xi,https://www.linkedin.com/in/isaac-chery-ii/,/__l5e/assets-v1/2ac9adeb-f96b-4d46-a367-ad1fb0f2ecc0/isaac-cherry-ii.webp
-brother,Ashley Reynolds,,Beta Kappa,https://www.linkedin.com/in/ashleysreynolds/,/__l5e/assets-v1/d54ee200-7eab-4e68-aae3-9c06c1400215/ashley-reynolds.webp
-brother,Cooper Johnston,,Beta Kappa,https://www.linkedin.com/in/cooper-johnston/,/__l5e/assets-v1/eccaa620-ad70-488f-8349-ba209dad73e0/cooper-johnson.webp
-brother,Ava Mollaghan,,Beta Kappa,https://www.linkedin.com/in/avamollaghan/,/__l5e/assets-v1/edfbf3b4-367b-4a7d-bb6e-9088eade7a2b/ava-mollaghan.webp
-brother,Gavin Farbman,,Beta Kappa,https://www.linkedin.com/in/gavin-farbman/,/__l5e/assets-v1/be3d2306-8030-4a1b-8bb9-0bca519ab9f1/gavin-farbman.webp
-brother,Hailey Hicks,,Beta Lambda,https://www.linkedin.com/in/hailey-hicks-/,/__l5e/assets-v1/eec1c699-e88f-41ed-a6d4-9be3b6fcde5a/hailey-hicks.webp
-brother,Ahmed Elmahdi,,Beta Lambda,https://www.linkedin.com/in/ahmed-elmahdi/,/__l5e/assets-v1/7f7b284f-96ee-4473-bd53-91d21d1aac6e/ahmed-elmahdi.webp
-brother,Amanda Collins,,Beta Lambda,https://www.linkedin.com/in/amanda-ccollins/,/__l5e/assets-v1/25cd83e6-67f8-4dec-8d29-582d8fe02a77/amanda-collins.webp
-brother,Neha Adusumilli,,Beta Mu,https://www.linkedin.com/in/neha-adusumilli-085bb7290/,/__l5e/assets-v1/dae8da28-b330-46ab-b319-d01dd0052d22/neha-adusumilli.webp
-brother,Preston de Jong,,Beta Mu,https://www.linkedin.com/in/preston-dj/,/__l5e/assets-v1/69640233-ef61-453e-8d85-1a8ea38d12b7/preston-de-jong.webp
-brother,Emme Muller,,Beta Lambda,https://www.linkedin.com/in/maryellen-emme-muller-987478330/,/__l5e/assets-v1/a0b8b52c-2ba8-4533-8992-c5bf95f31955/emme-muller.webp
-brother,Carson Jones,,Beta Mu,https://www.linkedin.com/in/carsonjones28/,/__l5e/assets-v1/50fb9a51-d05d-4fcb-97df-dfb8e4f6fdf2/carson-jones.webp
-brother,Grace Johnson,,Beta Kappa,https://www.linkedin.com/in/grace-k-johnson/,/__l5e/assets-v1/0c88ce05-37f6-4356-9c74-8bf568646018/grace-johnson.webp
-brother,Tommy Marvin,,Beta Lambda,https://www.linkedin.com/in/tommymarvin/,/__l5e/assets-v1/3748a570-3df9-4fd9-b71f-5841b0ac2aa9/tommy-marvin.webp
-brother,Eunwoo Choi,,Beta Nu,https://www.linkedin.com/in/eunwoo-choi/,/__l5e/assets-v1/f178e08f-9e53-488f-b36a-ba1077457d37/eunwoo-choi.webp
-brother,Evan Richelson,,Beta Nu,https://www.linkedin.com/in/evan-richelson/,/__l5e/assets-v1/ebc6ff51-0e99-4bdd-bdc4-e14c1a33e194/evan-richelson.webp
-brother,Gabriel Hafner,,Beta Xi,https://www.linkedin.com/in/ghaf12/,/__l5e/assets-v1/5c7a9e52-8821-400d-954e-4f7681976633/gabriel-hafner.webp
-brother,Lucas Bruns,,Beta Lambda,https://www.linkedin.com/in/lucas-bruns/,/__l5e/assets-v1/af46ed0c-7a98-4e8a-b588-23991b9bdfec/lucas-bruns.webp
-brother,Quinn Lovette,,Beta Kappa,https://www.linkedin.com/in/quinn-lovette/,/__l5e/assets-v1/0e5119b6-be17-4c57-bbeb-9d057d8b672f/quinn-lovette.webp
-brother,Carys Collin,,Beta Nu,https://www.linkedin.com/in/caryscollin/,/__l5e/assets-v1/d8b30adf-2e16-4c00-8bea-52e3e1962cdd/carys-collin-v2.webp
-brother,Stergos Trintis,,Beta Lambda,https://www.linkedin.com/in/stergos-trintis/,/__l5e/assets-v1/5b2fe949-b2d8-4394-9660-7d9819409a31/stergos-trintis.webp
-brother,Charles Faletti,,Beta Kappa,https://www.linkedin.com/in/charlesfaletti/,/__l5e/assets-v1/f140f4f5-3240-4183-bed6-ffb543b84f4b/charles-faletti.webp
-brother,Darya Tchavdarova,,Beta Mu,https://www.linkedin.com/in/daryatchavdarova/,/__l5e/assets-v1/7127b90f-f8c6-43ba-a746-34b336720970/darya-tchavdarova.webp
-brother,Jackson Dellafiora,,Beta Mu,https://www.linkedin.com/in/jackson-dellafiora/,/__l5e/assets-v1/a8656812-4d17-4915-8f8b-b04fb68f9e95/jackson-dellafiora.webp
-brother,Rafael Freitas,,Beta Kappa,https://www.linkedin.com/in/rafael-restano-freitas/,/__l5e/assets-v1/7f107970-d7b8-40b7-8a37-83b900dba863/rafael-freitas.webp
-brother,Jackson Clapp,,Beta Mu,https://www.linkedin.com/in/jacksonclapp/,/__l5e/assets-v1/24e84b3b-603b-46bf-a722-e6413678ebef/jackson-clapp.webp
-brother,Samuel Kelchner,,Beta Nu,https://www.linkedin.com/in/samuel-kelchner/,/__l5e/assets-v1/57f069aa-741c-427e-a6b2-c04539186dad/samuel-kelchner.webp
-brother,Charles Gless,,Beta Nu,https://www.linkedin.com/in/charles-gless/,/__l5e/assets-v1/e7952528-78de-4505-a8c1-354d4fa22618/charles-gless.webp
-brother,Zachary Tabler,,Beta Nu,https://www.linkedin.com/in/tabler-zachary/,/__l5e/assets-v1/92d8b68f-9b33-43c2-8cf0-7d166ffa379f/zachary-tabler.webp
-brother,Jordan Hadel,,Beta Xi,https://www.linkedin.com/in/jordan-hadel/,/__l5e/assets-v1/de8b45a2-2169-4dfe-96f2-f3d29da9e9c2/jordan-hadel.webp
+director,Ainsley McConnell,Historian,,,/headshots/ainsley-mcconnell-v2.webp
+director,Charles Gless,Intramural Chair,,,/headshots/charles-gless.webp
+director,Jordan Hadel,Academic Chair,,,/headshots/jordan-hadel.webp
+director,Archer Atwood,Social Chair,,,/headshots/archer-atwood.webp
+director,Tyler Paluzzi,Social Chair,,,/headshots/tyler-paluzzi-v2.webp
+director,Connor Salvesen,Merchandise Chair,,,/headshots/connor-salvesen.webp
+director,Grace Howell,Merchandise Chair,,,/headshots/grace-howell.webp
+director,Ethan Hill,Alpha Fund Chair,,,/headshots/ethan-hill.webp
+director,Julian Coletta,Alpha Fund Chair,,,/headshots/julian-coleta.webp
+director,Tanner Torrey,Chaplain,,,/headshots/tanner-torrey.webp
+director,Rafael Freitas,Warden,,,/headshots/rafael-freitas.webp
+director,Sven Nielsen,Director of Alumni Relations,,,/headshots/sven-nielsen.webp
+director,Gabriel Giusti,Inter-Chapter Relations Chair,,,/headshots/gabriel-giusti.webp
+director,Kathleen Greenwell,Philanthropy Chair,,,/headshots/kathleen-greenwell.webp
+director,Ariana Conroy,Director of Outreach,,,/headshots/ariana-conroy.webp
+director,Ava Mollaghan,Service Chair,,,/headshots/ava-mollaghan.webp
+director,Connor Autera,Service Chair,,,/headshots/connor-autera.webp
+director,Audrey Prafder,Scholarship and Fundraising Chair,,,/headshots/audrey-prafder.webp
+brother,Julia Perri,,Beta Kappa,https://www.linkedin.com/in/julia-g-perri/,/headshots/julia-perri.webp
+brother,Forest Fairey,,Beta Mu,https://www.linkedin.com/in/forestfairey/,/headshots/forest-fairey.webp
+brother,Brooke Thurman,,Beta Kappa,https://www.linkedin.com/in/brooke-thurman2005/,/headshots/brooke-thurman.webp
+brother,Isaac Cherry II,,Beta Xi,https://www.linkedin.com/in/isaac-chery-ii/,/headshots/isaac-cherry-ii.webp
+brother,Ashley Reynolds,,Beta Kappa,https://www.linkedin.com/in/ashleysreynolds/,/headshots/ashley-reynolds.webp
+brother,Cooper Johnston,,Beta Kappa,https://www.linkedin.com/in/cooper-johnston/,/headshots/cooper-johnson.webp
+brother,Ava Mollaghan,,Beta Kappa,https://www.linkedin.com/in/avamollaghan/,/headshots/ava-mollaghan.webp
+brother,Gavin Farbman,,Beta Kappa,https://www.linkedin.com/in/gavin-farbman/,/headshots/gavin-farbman.webp
+brother,Hailey Hicks,,Beta Lambda,https://www.linkedin.com/in/hailey-hicks-/,/headshots/hailey-hicks.webp
+brother,Ahmed Elmahdi,,Beta Lambda,https://www.linkedin.com/in/ahmed-elmahdi/,/headshots/ahmed-elmahdi.webp
+brother,Amanda Collins,,Beta Lambda,https://www.linkedin.com/in/amanda-ccollins/,/headshots/amanda-collins.webp
+brother,Neha Adusumilli,,Beta Mu,https://www.linkedin.com/in/neha-adusumilli-085bb7290/,/headshots/neha-adusumilli.webp
+brother,Preston de Jong,,Beta Mu,https://www.linkedin.com/in/preston-dj/,/headshots/preston-de-jong.webp
+brother,Emme Muller,,Beta Lambda,https://www.linkedin.com/in/maryellen-emme-muller-987478330/,/headshots/emme-muller.webp
+brother,Carson Jones,,Beta Mu,https://www.linkedin.com/in/carsonjones28/,/headshots/carson-jones.webp
+brother,Grace Johnson,,Beta Kappa,https://www.linkedin.com/in/grace-k-johnson/,/headshots/grace-johnson.webp
+brother,Tommy Marvin,,Beta Lambda,https://www.linkedin.com/in/tommymarvin/,/headshots/tommy-marvin.webp
+brother,Eunwoo Choi,,Beta Nu,https://www.linkedin.com/in/eunwoo-choi/,/headshots/eunwoo-choi.webp
+brother,Evan Richelson,,Beta Nu,https://www.linkedin.com/in/evan-richelson/,/headshots/evan-richelson.webp
+brother,Gabriel Hafner,,Beta Xi,https://www.linkedin.com/in/ghaf12/,/headshots/gabriel-hafner.webp
+brother,Lucas Bruns,,Beta Lambda,https://www.linkedin.com/in/lucas-bruns/,/headshots/lucas-bruns.webp
+brother,Quinn Lovette,,Beta Kappa,https://www.linkedin.com/in/quinn-lovette/,/headshots/quinn-lovette.webp
+brother,Carys Collin,,Beta Nu,https://www.linkedin.com/in/caryscollin/,/headshots/carys-collin-v2.webp
+brother,Stergos Trintis,,Beta Lambda,https://www.linkedin.com/in/stergos-trintis/,/headshots/stergos-trintis.webp
+brother,Charles Faletti,,Beta Kappa,https://www.linkedin.com/in/charlesfaletti/,/headshots/charles-faletti.webp
+brother,Darya Tchavdarova,,Beta Mu,https://www.linkedin.com/in/daryatchavdarova/,/headshots/darya-tchavdarova.webp
+brother,Jackson Dellafiora,,Beta Mu,https://www.linkedin.com/in/jackson-dellafiora/,/headshots/jackson-dellafiora.webp
+brother,Rafael Freitas,,Beta Kappa,https://www.linkedin.com/in/rafael-restano-freitas/,/headshots/rafael-freitas.webp
+brother,Jackson Clapp,,Beta Mu,https://www.linkedin.com/in/jacksonclapp/,/headshots/jackson-clapp.webp
+brother,Samuel Kelchner,,Beta Nu,https://www.linkedin.com/in/samuel-kelchner/,/headshots/samuel-kelchner.webp
+brother,Charles Gless,,Beta Nu,https://www.linkedin.com/in/charles-gless/,/headshots/charles-gless.webp
+brother,Zachary Tabler,,Beta Nu,https://www.linkedin.com/in/tabler-zachary/,/headshots/zachary-tabler.webp
+brother,Jordan Hadel,,Beta Xi,https://www.linkedin.com/in/jordan-hadel/,/headshots/jordan-hadel.webp
 
-brother,Audrey Prafder,,Beta Mu,https://www.linkedin.com/in/audreyprafder/,/__l5e/assets-v1/4334e566-957e-44bc-8db2-7bf6fffcb084/audrey-prafder.webp
-brother,Sophia Chapmann,,Beta Nu,https://www.linkedin.com/in/sophiachapman1/,/__l5e/assets-v1/56a59b91-ee2d-474d-96e5-2e4d55f7a2a7/sophia-chapmann.webp
-brother,Livia Mennella,,Beta Nu,https://www.linkedin.com/in/liviamennella/,/__l5e/assets-v1/cce4db8f-12e8-4edb-9dea-16ad0233b758/livia-mennella.webp
-brother,Connor Salvesen,,Beta Xi,https://www.linkedin.com/in/connorsalvesen/,/__l5e/assets-v1/ecd4504f-0af5-455a-9f7e-b2e7ca8ad6f4/connor-salvesen.webp
-brother,Ved Patel,,Beta Iota,https://www.linkedin.com/in/ved-patel05/,/__l5e/assets-v1/7b10f852-1e39-4509-8f6f-ea913cbf247d/ved-patel.webp
-brother,Kathleen Greenwell,,Beta Nu,https://www.linkedin.com/in/kate-greenwell1/,/__l5e/assets-v1/57e995ed-7d0f-4c31-a5fb-03ae78cc4ccb/kathleen-greenwell.webp
-brother,Jack Kwait,,Beta Xi,https://www.linkedin.com/in/jack-kwait/,/__l5e/assets-v1/5d9eb24c-4526-4ced-8e34-2db87d5e51a7/jack-kwait.webp
-brother,Ainsley McConnell,,Beta Xi,https://www.linkedin.com/in/ainsley-mcconnell/,/__l5e/assets-v1/83094052-a154-4d7e-9581-e68f71c4273c/ainsley-mcconnell-v2.webp
-brother,Christopher Roselli,,Beta Nu,https://www.linkedin.com/in/croselli21/,/__l5e/assets-v1/3397d101-5a52-445e-b3b4-cadfa495765e/christopher-roselli.webp
-brother,Erica De Lapi,,Beta Nu,https://www.linkedin.com/in/ericadelapi/,/__l5e/assets-v1/e69e189a-144e-4ab9-8969-ca79c1ed5626/erica-de-lapi.webp
-brother,Ian Kirsch,,Beta Iota,https://www.linkedin.com/in/iankirsch/,/__l5e/assets-v1/c2439abc-5de0-48f0-a052-72cc9912bbe6/ian-kirsch.webp
-brother,Nimay Ankireddypalli,,Beta Nu,https://www.linkedin.com/in/nimayankireddypalli/,/__l5e/assets-v1/e95ebcd3-be8d-44a7-a291-db082e5ec71e/nimay-ankireddypalli.webp
-brother,Quintan Boyle,,Beta Kappa,https://www.linkedin.com/in/quintan-boyle/,/__l5e/assets-v1/cf2b5fdc-7ca9-4ca0-9ac2-66423d6a7aa6/quintan-boyle.webp
-brother,Ethan Hill,,Beta Nu,https://www.linkedin.com/in/ethan-k-hill/,/__l5e/assets-v1/3ea3d029-f8f8-4934-a451-e76a563b40af/ethan-hill.webp
-brother,Amelia Garman,,Beta Xi,https://www.linkedin.com/in/amelia-garman1910/,/__l5e/assets-v1/ed1f6959-72f6-4879-8d9b-88a78e51dc66/amelia-garman.webp
-brother,Maxwell Byrd,,Beta Xi,https://www.linkedin.com/in/maxwell-byrd/,/__l5e/assets-v1/29bfa3b8-5738-4859-9883-5e51177f9e43/maxwell-byrd.webp
-brother,William Beasley,,Beta Xi,https://www.linkedin.com/in/william-m-beasley/,/__l5e/assets-v1/96cfc70f-91d9-4e17-81bc-ef38b19d46a0/william-beasley.webp
-brother,David Gerth,,Beta Iota,https://www.linkedin.com/in/davidcgerth/,/__l5e/assets-v1/fef6760e-47c9-4b7b-9b68-d8c3078793a7/david-gerth.webp
-brother,Madyson Somerville,,Beta Xi,https://www.linkedin.com/in/madysonsomerville/,/__l5e/assets-v1/14b4ba3b-7a8d-4ecc-ada8-eafe1e641118/madyson-somerville.webp
-brother,Preston Schlagheck,,Beta Mu,https://www.linkedin.com/in/preston-schlagheck/,/__l5e/assets-v1/8d241b69-86d6-4910-a941-06a1fa2db909/preston-schlagheck.webp
-brother,Michael Keenan,,Beta Xi,https://www.linkedin.com/in/michael-keenan2709/,/__l5e/assets-v1/16b4570e-abdc-475a-9703-c4efa08c5709/michael-keenan.webp
-brother,Gabriel Giusti,,Beta Lambda,https://www.linkedin.com/in/gabegiusti/,/__l5e/assets-v1/1b2d17b0-b037-4489-b5e4-93503b63f0e8/gabriel-giusti.webp
-brother,Harrison Davis,,Beta Nu,https://www.linkedin.com/in/harrison-davis05/,/__l5e/assets-v1/2090ecc7-3ad9-40ca-906e-c4ad4ad52c89/harrison-davis.webp
-brother,Julia Judkins,,Beta Mu,https://www.linkedin.com/in/juliajudkins/,/__l5e/assets-v1/084250e4-b38a-4ca8-a3ac-5b8938b4cc17/julia-judkins.webp
-brother,Charlie Heidt,,Beta Xi,https://www.linkedin.com/in/charlieheidt/,/__l5e/assets-v1/6b9854f2-9eed-4254-a88a-d9f5f835e235/charlie-heidt.webp
-brother,Julian Coletta,,Beta Nu,https://www.linkedin.com/in/julian-coletta23/,/__l5e/assets-v1/99135476-b02c-4217-88af-6b4e70b76a93/julian-coleta.webp
-brother,Kayla Richer,,Beta Mu,https://www.linkedin.com/in/kaylaricher/,/__l5e/assets-v1/13912e09-1751-45ae-8a23-acdd8bc02480/kayla-richer.webp
-brother,Hannah Grispo,,Beta Xi,https://www.linkedin.com/in/hannah-grispo/,/__l5e/assets-v1/dc2d3e46-cc8a-417a-b54c-6f97376acfc4/hannah-grispo.webp
-brother,Gracyn Vaughn,,Beta Mu,https://www.linkedin.com/in/gracynvaughn/,/__l5e/assets-v1/c2cd5e47-68c2-4f1c-9c73-041ece232642/gracyn-vaughn.webp
-brother,Emme Stacey,,Beta Nu,https://www.linkedin.com/in/emmestacey/,/__l5e/assets-v1/839de804-853d-4f7b-964e-243ddb7668b6/emme-stacey.webp
-brother,Casey Nguyen,,Beta Mu,https://www.linkedin.com/in/tran-nguyen-columbiasc/,/__l5e/assets-v1/b4ee8567-67ed-4c2b-87ca-15e56f324568/casey-nguyen.webp
-brother,Anish Ghana,,Beta Kappa,https://www.linkedin.com/in/anishghana/,/__l5e/assets-v1/1bf9ad11-6d2d-4f54-91c0-3505c8611edd/anish-ghana.webp
-brother,Lillie Hecker,,Beta Mu,https://www.linkedin.com/in/lillie-hecker/,/__l5e/assets-v1/ade26602-b9c8-44ee-91bc-5569827a7c2b/lillie-hecker.webp
-brother,Rylan Schnitker,,Beta Nu,https://www.linkedin.com/in/rylanschnitker/,/__l5e/assets-v1/0cf80509-8a54-4e67-8e7b-22fb13c7fe22/rylan-schnitker.webp
-brother,Tanner Torrey,,Beta Lambda,https://www.linkedin.com/in/tanner-torrey/,/__l5e/assets-v1/17afc77b-c1c9-47a6-845c-5fde536ba98f/tanner-torrey.webp
-brother,Ariana Conroy,,Beta Mu,https://www.linkedin.com/in/arianaiconroy/,/__l5e/assets-v1/bb7f6c65-3a41-4ff1-9ff2-a74d5b052875/ariana-conroy.webp
-brother,Gavin Van Riel,,Beta Nu,https://www.linkedin.com/in/gavinvanriel/,/__l5e/assets-v1/1fd4c323-a398-45af-934c-9ce8e21fbc38/gavin-van-riel.webp
-brother,Jacob Lotter,,Beta Iota,https://www.linkedin.com/in/jacob-lotter/,/__l5e/assets-v1/254ccae4-71ce-48f3-ac16-9e720efac01b/jacob-lotter.webp
-brother,Gabriella Puterbaugh,,Beta Xi,https://www.linkedin.com/in/gabriella-puterbaugh-6b420b328/,/__l5e/assets-v1/3d9bccb0-e7fa-4f27-babb-01897f1abc92/gabriella-puterbaugh.webp
-brother,Grace Howell,,Beta Xi,https://www.linkedin.com/in/gracemthowell/,/__l5e/assets-v1/3c3030f0-2163-493b-97e9-e9b8ae6def1a/grace-howell.webp
-brother,Annalise Erhart,,Beta Mu,https://www.linkedin.com/in/annaliseerhart/,/__l5e/assets-v1/80b8cbe2-1bfc-4a5e-92a8-1344b05fb6ab/annalise-erhart.webp
-brother,Ava LaCorte,,Beta Mu,https://www.linkedin.com/in/avalacorte/,/__l5e/assets-v1/d8d5c79f-113a-40c8-a7a7-2fcff524bf05/ava-lacorte.webp
-brother,Xavier Gouttierre,,Beta Nu,https://www.linkedin.com/in/xaviergouttierre/,/__l5e/assets-v1/bd98a1f4-e09f-4225-a585-f62327f4f5d0/xavier-gouttierre.webp
-brother,Dalton Kahl,,Beta Kappa,https://www.linkedin.com/in/jamesdkahl/,/__l5e/assets-v1/d529da7f-bc4d-43ae-a985-2aa3db0a85c3/dalton-kahl.webp
-brother,Katharine Sniffen,,Beta Nu,https://www.linkedin.com/in/katharine-sniffen/,/__l5e/assets-v1/4d714c45-b03a-471f-9db8-88f02f90a6ef/katharine-sniffen.webp
-brother,Daniel Grajzl,,Beta Mu,https://www.linkedin.com/in/daniel-grajzl/,/__l5e/assets-v1/9fa97fb6-0ade-4f4f-a09a-358ca250da71/daniel-grajzl.webp
-brother,Luka Sorel,,Beta Xi,https://www.linkedin.com/in/luka-sorel/,/__l5e/assets-v1/aeab8334-2593-439b-830d-832996b89155/luka-sorel.webp
-brother,Sven Nielsen,,Beta Mu,https://www.linkedin.com/in/sven-nielsen/,/__l5e/assets-v1/40bef868-d764-4a34-ad94-61561157c31f/sven-nielsen.webp
-brother,Olivia Myers,,Beta Lambda,https://www.linkedin.com/in/oliviamyers-/,/__l5e/assets-v1/7ba8b970-57a6-4958-9d27-bed832dde34c/olivia-myers.webp
-brother,Brianna Minneci,,Beta Nu,https://www.linkedin.com/in/brianna-minneci/,/__l5e/assets-v1/31cb53f1-052f-4fee-96d6-9b20c44ac058/brianna-minneci-v2.webp
-brother,Ellison Skinner,,Beta Lambda,https://www.linkedin.com/in/ellisonskinner/,/__l5e/assets-v1/e98a9589-338e-4c9c-867b-d3e18135c652/ellison-skinner.webp
-brother,Emmet Johnson,,Beta Lambda,https://www.linkedin.com/in/emmetdjohnson/,/__l5e/assets-v1/08f32de0-1d6b-41be-ad30-8ec95ab77d8d/emmet-johnson.webp
-brother,Ryan Ayers,,Beta Iota,https://www.linkedin.com/in/wesleyayersjr/,/__l5e/assets-v1/2b11b221-64a0-4ccb-8b6d-0f99b9898a4a/ryan-ayers.webp
-brother,Ryan Conniff,,Beta Mu,https://www.linkedin.com/in/ryan-conniff/,/__l5e/assets-v1/20e109da-6146-4d0f-9e69-f4822a4238eb/ryan-conniff.webp
-brother,Aidan Welch,,Beta Lambda,https://www.linkedin.com/in/aidanwelch070205/,/__l5e/assets-v1/54226bf4-4fb0-4b89-a3d9-3cf2cd334e21/aidan-welch.webp
-brother,Nandini Wagle,,Beta Lambda,https://www.linkedin.com/in/nandini-wagle/,/__l5e/assets-v1/7f406bc5-b472-41bc-86e1-7e5ce745bf30/nandini-wagle.webp
-brother,Emma Blanton,,Beta Lambda,https://www.linkedin.com/in/emma-blanton/,/__l5e/assets-v1/7cb5d563-1f2d-489f-9049-6ab9c77e4b82/emma-blanton.webp
-brother,Tate Sweatt,,Beta Iota,https://www.linkedin.com/in/tate717/,/__l5e/assets-v1/9f77e239-8b85-4e3a-9266-bc4a1e2138c5/tate-sweatt.webp
-brother,Timothy Woodley,,Beta Lambda,https://www.linkedin.com/in/timothywoodley/,/__l5e/assets-v1/5265b1d0-2c40-4d27-af4e-5891d4a82d25/timothy-woodley.webp
-brother,Tyler Sperry,,Beta Nu,https://www.linkedin.com/in/tylersperry1/,/__l5e/assets-v1/804b0089-8c9b-4371-8948-6e5b645ba255/tyler-sperry.webp
-brother,Archer Atwood,,Beta Nu,https://www.linkedin.com/in/archer-atwood/,/__l5e/assets-v1/ae6b8291-0f17-454f-9c0e-45c0690568dd/archer-atwood.webp
-brother,Tyler Paluzzi,,Beta Mu,https://www.linkedin.com/in/tylerpaluzzi/,/__l5e/assets-v1/54c67672-b63e-4e23-bcf8-937c4a8099a3/tyler-paluzzi-v2.webp
-brother,Zach Shores,,Beta Nu,https://www.linkedin.com/in/zach-shores-09434a345/,/__l5e/assets-v1/05eb1cc6-294f-4297-949f-409304de8923/zach-shores.webp
-brother,Arav Patel,,Beta Iota,https://www.linkedin.com/in/aravpatel1/,/__l5e/assets-v1/ea99a1bb-ef2a-4359-b118-8ee822026c73/arav-patel.webp
-brother,Luke Ribar,,Beta Kappa,https://www.linkedin.com/in/lukeribar/,/__l5e/assets-v1/c4112d46-26c1-4af4-8d53-5734ef37c7fc/luke-ribar.webp
-brother,Connor Autera,,Beta Lambda,https://www.linkedin.com/in/connor-autera/,/__l5e/assets-v1/dc92eab7-cd86-49f2-b155-0c1dfeb78ff2/connor-autera.webp
-brother,Ryan Trahan,,Beta Lambda,https://www.linkedin.com/in/rtrahan5/,/__l5e/assets-v1/73bfae2b-e45e-4b43-95d6-3c6c0328c0e4/ryan-trahan.webp
-brother,Daniel Campos Anzaldua,,Beta Mu,https://www.linkedin.com/in/dcampos-anz/,/__l5e/assets-v1/40645eb6-3693-4c03-92f6-bf2903e2fb57/daniel-campos-anzaldua.webp
-brother,Marie Zeballos,,Beta Mu,https://www.linkedin.com/in/marie-zeballos/,/__l5e/assets-v1/b9035651-ea80-49bc-b3e6-3ab3a05ce6da/marie-zeballos.webp
-brother,Leo Brunenavs,,Beta Nu,https://www.linkedin.com/in/leobrunenavs/,/__l5e/assets-v1/4150ea6f-8694-4c84-a8e8-da3487efc9e3/leo-brunenavs.webp
-brother,Olivia McGowan,,Beta Nu,https://www.linkedin.com/in/-olivia-mcgowan/,/__l5e/assets-v1/11b77e14-8b92-4dbf-afbc-1d9713d1ee92/olivia-mcgowan.webp
-brother,Gabriella Helduser,,Beta Xi,https://www.linkedin.com/in/gabriella-helduser/,/__l5e/assets-v1/3e9452b7-8498-474c-b716-1eda747c9a58/gabriella-helduser.webp
-brother,James Toner,,Beta Xi,https://www.linkedin.com/in/jd-ton/,/__l5e/assets-v1/5fdd588c-0ae1-4e2e-8d49-ad40617773cb/james-toner.webp
-brother,Jesse Hisiger,,Beta Xi,https://www.linkedin.com/in/jesse-hisiger-12304a3aa/,/__l5e/assets-v1/feca935b-a1eb-4380-8301-e6b41c4ef39a/jesse-hisiger.webp
-brother,Sebastian Parks,,Beta Xi,https://www.linkedin.com/in/sebastianparks/,/__l5e/assets-v1/bd5cc98c-08a8-42c6-92e1-2353244084ca/sebastian-parks.webp
+brother,Audrey Prafder,,Beta Mu,https://www.linkedin.com/in/audreyprafder/,/headshots/audrey-prafder.webp
+brother,Sophia Chapmann,,Beta Nu,https://www.linkedin.com/in/sophiachapman1/,/headshots/sophia-chapmann.webp
+brother,Livia Mennella,,Beta Nu,https://www.linkedin.com/in/liviamennella/,/headshots/livia-mennella.webp
+brother,Connor Salvesen,,Beta Xi,https://www.linkedin.com/in/connorsalvesen/,/headshots/connor-salvesen.webp
+brother,Ved Patel,,Beta Iota,https://www.linkedin.com/in/ved-patel05/,/headshots/ved-patel.webp
+brother,Kathleen Greenwell,,Beta Nu,https://www.linkedin.com/in/kate-greenwell1/,/headshots/kathleen-greenwell.webp
+brother,Jack Kwait,,Beta Xi,https://www.linkedin.com/in/jack-kwait/,/headshots/jack-kwait.webp
+brother,Ainsley McConnell,,Beta Xi,https://www.linkedin.com/in/ainsley-mcconnell/,/headshots/ainsley-mcconnell-v2.webp
+brother,Christopher Roselli,,Beta Nu,https://www.linkedin.com/in/croselli21/,/headshots/christopher-roselli.webp
+brother,Erica De Lapi,,Beta Nu,https://www.linkedin.com/in/ericadelapi/,/headshots/erica-de-lapi.webp
+brother,Ian Kirsch,,Beta Iota,https://www.linkedin.com/in/iankirsch/,/headshots/ian-kirsch.webp
+brother,Nimay Ankireddypalli,,Beta Nu,https://www.linkedin.com/in/nimayankireddypalli/,/headshots/nimay-ankireddypalli.webp
+brother,Quintan Boyle,,Beta Kappa,https://www.linkedin.com/in/quintan-boyle/,/headshots/quintan-boyle.webp
+brother,Ethan Hill,,Beta Nu,https://www.linkedin.com/in/ethan-k-hill/,/headshots/ethan-hill.webp
+brother,Amelia Garman,,Beta Xi,https://www.linkedin.com/in/amelia-garman1910/,/headshots/amelia-garman.webp
+brother,Maxwell Byrd,,Beta Xi,https://www.linkedin.com/in/maxwell-byrd/,/headshots/maxwell-byrd.webp
+brother,William Beasley,,Beta Xi,https://www.linkedin.com/in/william-m-beasley/,/headshots/william-beasley.webp
+brother,David Gerth,,Beta Iota,https://www.linkedin.com/in/davidcgerth/,/headshots/david-gerth.webp
+brother,Madyson Somerville,,Beta Xi,https://www.linkedin.com/in/madysonsomerville/,/headshots/madyson-somerville.webp
+brother,Preston Schlagheck,,Beta Mu,https://www.linkedin.com/in/preston-schlagheck/,/headshots/preston-schlagheck.webp
+brother,Michael Keenan,,Beta Xi,https://www.linkedin.com/in/michael-keenan2709/,/headshots/michael-keenan.webp
+brother,Gabriel Giusti,,Beta Lambda,https://www.linkedin.com/in/gabegiusti/,/headshots/gabriel-giusti.webp
+brother,Harrison Davis,,Beta Nu,https://www.linkedin.com/in/harrison-davis05/,/headshots/harrison-davis.webp
+brother,Julia Judkins,,Beta Mu,https://www.linkedin.com/in/juliajudkins/,/headshots/julia-judkins.webp
+brother,Charlie Heidt,,Beta Xi,https://www.linkedin.com/in/charlieheidt/,/headshots/charlie-heidt.webp
+brother,Julian Coletta,,Beta Nu,https://www.linkedin.com/in/julian-coletta23/,/headshots/julian-coleta.webp
+brother,Kayla Richer,,Beta Mu,https://www.linkedin.com/in/kaylaricher/,/headshots/kayla-richer.webp
+brother,Hannah Grispo,,Beta Xi,https://www.linkedin.com/in/hannah-grispo/,/headshots/hannah-grispo.webp
+brother,Gracyn Vaughn,,Beta Mu,https://www.linkedin.com/in/gracynvaughn/,/headshots/gracyn-vaughn.webp
+brother,Emme Stacey,,Beta Nu,https://www.linkedin.com/in/emmestacey/,/headshots/emme-stacey.webp
+brother,Casey Nguyen,,Beta Mu,https://www.linkedin.com/in/tran-nguyen-columbiasc/,/headshots/casey-nguyen.webp
+brother,Anish Ghana,,Beta Kappa,https://www.linkedin.com/in/anishghana/,/headshots/anish-ghana.webp
+brother,Lillie Hecker,,Beta Mu,https://www.linkedin.com/in/lillie-hecker/,/headshots/lillie-hecker.webp
+brother,Rylan Schnitker,,Beta Nu,https://www.linkedin.com/in/rylanschnitker/,/headshots/rylan-schnitker.webp
+brother,Tanner Torrey,,Beta Lambda,https://www.linkedin.com/in/tanner-torrey/,/headshots/tanner-torrey.webp
+brother,Ariana Conroy,,Beta Mu,https://www.linkedin.com/in/arianaiconroy/,/headshots/ariana-conroy.webp
+brother,Gavin Van Riel,,Beta Nu,https://www.linkedin.com/in/gavinvanriel/,/headshots/gavin-van-riel.webp
+brother,Jacob Lotter,,Beta Iota,https://www.linkedin.com/in/jacob-lotter/,/headshots/jacob-lotter.webp
+brother,Gabriella Puterbaugh,,Beta Xi,https://www.linkedin.com/in/gabriella-puterbaugh-6b420b328/,/headshots/gabriella-puterbaugh.webp
+brother,Grace Howell,,Beta Xi,https://www.linkedin.com/in/gracemthowell/,/headshots/grace-howell.webp
+brother,Annalise Erhart,,Beta Mu,https://www.linkedin.com/in/annaliseerhart/,/headshots/annalise-erhart.webp
+brother,Ava LaCorte,,Beta Mu,https://www.linkedin.com/in/avalacorte/,/headshots/ava-lacorte.webp
+brother,Xavier Gouttierre,,Beta Nu,https://www.linkedin.com/in/xaviergouttierre/,/headshots/xavier-gouttierre.webp
+brother,Dalton Kahl,,Beta Kappa,https://www.linkedin.com/in/jamesdkahl/,/headshots/dalton-kahl.webp
+brother,Katharine Sniffen,,Beta Nu,https://www.linkedin.com/in/katharine-sniffen/,/headshots/katharine-sniffen.webp
+brother,Daniel Grajzl,,Beta Mu,https://www.linkedin.com/in/daniel-grajzl/,/headshots/daniel-grajzl.webp
+brother,Luka Sorel,,Beta Xi,https://www.linkedin.com/in/luka-sorel/,/headshots/luka-sorel.webp
+brother,Sven Nielsen,,Beta Mu,https://www.linkedin.com/in/sven-nielsen/,/headshots/sven-nielsen.webp
+brother,Olivia Myers,,Beta Lambda,https://www.linkedin.com/in/oliviamyers-/,/headshots/olivia-myers.webp
+brother,Brianna Minneci,,Beta Nu,https://www.linkedin.com/in/brianna-minneci/,/headshots/brianna-minneci-v2.webp
+brother,Ellison Skinner,,Beta Lambda,https://www.linkedin.com/in/ellisonskinner/,/headshots/ellison-skinner.webp
+brother,Emmet Johnson,,Beta Lambda,https://www.linkedin.com/in/emmetdjohnson/,/headshots/emmet-johnson.webp
+brother,Ryan Ayers,,Beta Iota,https://www.linkedin.com/in/wesleyayersjr/,/headshots/ryan-ayers.webp
+brother,Ryan Conniff,,Beta Mu,https://www.linkedin.com/in/ryan-conniff/,/headshots/ryan-conniff.webp
+brother,Aidan Welch,,Beta Lambda,https://www.linkedin.com/in/aidanwelch070205/,/headshots/aidan-welch.webp
+brother,Nandini Wagle,,Beta Lambda,https://www.linkedin.com/in/nandini-wagle/,/headshots/nandini-wagle.webp
+brother,Emma Blanton,,Beta Lambda,https://www.linkedin.com/in/emma-blanton/,/headshots/emma-blanton.webp
+brother,Tate Sweatt,,Beta Iota,https://www.linkedin.com/in/tate717/,/headshots/tate-sweatt.webp
+brother,Timothy Woodley,,Beta Lambda,https://www.linkedin.com/in/timothywoodley/,/headshots/timothy-woodley.webp
+brother,Tyler Sperry,,Beta Nu,https://www.linkedin.com/in/tylersperry1/,/headshots/tyler-sperry.webp
+brother,Archer Atwood,,Beta Nu,https://www.linkedin.com/in/archer-atwood/,/headshots/archer-atwood.webp
+brother,Tyler Paluzzi,,Beta Mu,https://www.linkedin.com/in/tylerpaluzzi/,/headshots/tyler-paluzzi-v2.webp
+brother,Zach Shores,,Beta Nu,https://www.linkedin.com/in/zach-shores-09434a345/,/headshots/zach-shores.webp
+brother,Arav Patel,,Beta Iota,https://www.linkedin.com/in/aravpatel1/,/headshots/arav-patel.webp
+brother,Luke Ribar,,Beta Kappa,https://www.linkedin.com/in/lukeribar/,/headshots/luke-ribar.webp
+brother,Connor Autera,,Beta Lambda,https://www.linkedin.com/in/connor-autera/,/headshots/connor-autera.webp
+brother,Ryan Trahan,,Beta Lambda,https://www.linkedin.com/in/rtrahan5/,/headshots/ryan-trahan.webp
+brother,Daniel Campos Anzaldua,,Beta Mu,https://www.linkedin.com/in/dcampos-anz/,/headshots/daniel-campos-anzaldua.webp
+brother,Marie Zeballos,,Beta Mu,https://www.linkedin.com/in/marie-zeballos/,/headshots/marie-zeballos.webp
+brother,Leo Brunenavs,,Beta Nu,https://www.linkedin.com/in/leobrunenavs/,/headshots/leo-brunenavs.webp
+brother,Olivia McGowan,,Beta Nu,https://www.linkedin.com/in/-olivia-mcgowan/,/headshots/olivia-mcgowan.webp
+brother,Gabriella Helduser,,Beta Xi,https://www.linkedin.com/in/gabriella-helduser/,/headshots/gabriella-helduser.webp
+brother,James Toner,,Beta Xi,https://www.linkedin.com/in/jd-ton/,/headshots/james-toner.webp
+brother,Jesse Hisiger,,Beta Xi,https://www.linkedin.com/in/jesse-hisiger-12304a3aa/,/headshots/jesse-hisiger.webp
+brother,Sebastian Parks,,Beta Xi,https://www.linkedin.com/in/sebastianparks/,/headshots/sebastian-parks.webp
