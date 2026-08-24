@@ -113,8 +113,10 @@ export function BrothersAtWork() {
               )}
             </p>
             <h2 className="mt-6 font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-none market-ink">
-              BROTHERS <span style={{ color: "var(--gold)" }}>@</span>{" "}
-              <span style={{ color: "var(--gold)" }}>WORK</span>
+              <span className="whitespace-nowrap">
+                BROTHERS <span style={{ color: "var(--gold)" }}>@</span>{" "}
+                <span style={{ color: "var(--gold)" }}>WORK</span>
+              </span>
             </h2>
             <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg market-muted">
               Real-time markets. Real Carolina AKΨ placements.
