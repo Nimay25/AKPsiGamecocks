@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import auditionsNeon from "@/assets/auditions-neon.webp";
 
 import heroGroup from "@/assets/hero-group.webp";
-import gallery1 from "@/assets/photos/brothers-house.jpg";
+import gallery1 from "@/assets/photos/brothers-house.webp";
 import gallery2 from "@/assets/photos/pledge-roses-1.webp";
 import gallery3 from "@/assets/photos/pledge-roses-2.webp";
 import gallery4 from "@/assets/photos/pledge-stairs.webp";
