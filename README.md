@@ -2,7 +2,7 @@
 
 Official website for the Beta Upsilon Chapter of Alpha Kappa Psi at the University of South Carolina.
 
-**Live site:** https://akpsi-beta-upsilon-site.lovable.app
+**Live site:** akpsigamecocks.com
 
 ## Overview
 
