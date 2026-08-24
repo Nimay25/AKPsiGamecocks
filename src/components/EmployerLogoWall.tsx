@@ -249,9 +249,11 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
 
     return () => {
       cancelAnimationFrame(raf);
+      ro.disconnect();
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerleave", onLeave);
     };
+
   }, [logos, radiusX, radiusY, speed, phase, minOpacity]);
 
   return (
