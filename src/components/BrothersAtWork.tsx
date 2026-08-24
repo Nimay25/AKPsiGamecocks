@@ -13,17 +13,17 @@ function QuotePill({ q }: { q: LiveQuote }) {
   const up = q.change > 0;
   const flat = q.change === 0;
   const Arrow = flat ? Minus : up ? ArrowUp : ArrowDown;
-  const tone = flat ? "market-muted" : up ? "market-up" : "market-down";
+  const tone = flat ? "text-white/55" : up ? "led-glow-up" : "led-glow-down";
   return (
     <div className="flex items-center gap-3 px-6 led-text text-sm sm:text-base">
-      <span className="market-ink font-semibold">{q.symbol}</span>
-      <span className="market-muted">{q.name}</span>
-      <span className="market-ink">${q.price.toFixed(2)}</span>
+      <span className="font-semibold text-white">{q.symbol}</span>
+      <span className="text-white/55">{q.name}</span>
+      <span className="text-white/90">${q.price.toFixed(2)}</span>
       <span className={`flex items-center gap-1 ${tone}`}>
         <Arrow className="h-3.5 w-3.5" strokeWidth={3} />
         {up ? "+" : ""}{q.change.toFixed(2)} ({up ? "+" : ""}{q.changePct.toFixed(2)}%)
       </span>
-      <span className="market-muted opacity-40">•</span>
+      <span className="text-white/25">•</span>
     </div>
   );
 }
@@ -31,9 +31,9 @@ function QuotePill({ q }: { q: LiveQuote }) {
 function PlaceholderPill({ symbol }: { symbol: string }) {
   return (
     <div className="flex items-center gap-3 px-6 led-text text-sm sm:text-base">
-      <span className="market-ink font-semibold">{symbol}</span>
-      <span className="market-muted animate-pulse">— — —</span>
-      <span className="market-muted opacity-40">•</span>
+      <span className="font-semibold text-white">{symbol}</span>
+      <span className="animate-pulse text-white/55">— — —</span>
+      <span className="text-white/25">•</span>
     </div>
   );
 }
@@ -44,9 +44,9 @@ function TickerBar({ rail }: { rail: (LiveQuote | string)[] }) {
     <div
       className="relative overflow-hidden"
       style={{
-        borderTop: "1px solid var(--market-line)",
-        borderBottom: "1px solid var(--market-line)",
-        background: "var(--market-bg)",
+        borderTop: "1px solid rgba(255,255,255,0.12)",
+        borderBottom: "1px solid rgba(255,255,255,0.12)",
+        background: "#08090b",
       }}
     >
       <div
@@ -97,7 +97,7 @@ export function BrothersAtWork() {
               className="pointer-events-none absolute -inset-y-[35%] -inset-x-[45%] -z-10"
               style={{
                 background:
-                  "radial-gradient(closest-side, var(--market-bg) 55%, color-mix(in oklab, var(--market-bg) 70%, transparent) 78%, transparent 100%)",
+                  "radial-gradient(closest-side, color-mix(in oklab, var(--market-bg) 72%, transparent) 30%, color-mix(in oklab, var(--market-bg) 32%, transparent) 62%, transparent 100%)",
               }}
             />
 
@@ -113,7 +113,8 @@ export function BrothersAtWork() {
               )}
             </p>
             <h2 className="mt-6 font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-none market-ink">
-              BROTHERS <span className="market-muted">@</span> WORK
+              BROTHERS <span style={{ color: "var(--gold)" }}>@</span>{" "}
+              <span style={{ color: "var(--gold)" }}>WORK</span>
             </h2>
             <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg market-muted">
               Real-time markets. Real Carolina AKΨ placements.
