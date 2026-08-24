@@ -120,7 +120,7 @@ function Alumni() {
                       src={t.photo}
                       alt={t.name}
                       loading="lazy"
-                      className="h-11 w-11 shrink-0 rounded-full object-cover ring-1 ring-[var(--border)]"
+                      className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-[var(--border)]"
                     />
 
                     <div>
