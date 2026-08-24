@@ -165,11 +165,25 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
       return (lo / SAMPLES) * Math.PI * 2;
     };
 
+    // measure once (and on resize) — reading layout every frame makes the orbit stutter
+    let r = wrap.getBoundingClientRect();
+    const sizes: { w: number; h: number }[] = [];
+    const measure = () => {
+      r = wrap.getBoundingClientRect();
+      for (let i = 0; i < n; i++) {
+        const el = itemRefs.current[i];
+        sizes[i] = el ? { w: el.offsetWidth, h: el.offsetHeight } : { w: 0, h: 0 };
+      }
+    };
+    measure();
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(wrap);
+
     const tick = (now: number) => {
-      const r = wrap.getBoundingClientRect();
       const fit = Math.min(1, Math.max(0.52, r.width / 900));
       const rx = r.width * radiusX;
       const ry = r.height * radiusY;
+
       const t = reduce ? 0 : (now - start) / 1000;
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
