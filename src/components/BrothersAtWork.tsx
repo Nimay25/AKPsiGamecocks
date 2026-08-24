@@ -90,8 +90,17 @@ export function BrothersAtWork() {
       <div className="relative min-h-[92svh] overflow-hidden py-20 sm:py-24">
         <EmployerLogoOrbit />
 
-        <div className="relative z-0 flex min-h-[70svh] items-center px-6">
-          <div className="mx-auto max-w-3xl text-center">
+        <div className="relative z-10 flex min-h-[70svh] items-center px-6">
+          <div className="relative mx-auto max-w-3xl text-center">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-[-18%] -z-10"
+              style={{
+                background:
+                  "radial-gradient(closest-side, var(--market-bg) 55%, color-mix(in oklab, var(--market-bg) 70%, transparent) 78%, transparent 100%)",
+              }}
+            />
+
             <p className="led-text text-xs sm:text-sm uppercase tracking-[0.4em] market-muted">
               ● LIVE · POWERED BY REAL DATA
               {!marketOpen && (
