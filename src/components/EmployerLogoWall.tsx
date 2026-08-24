@@ -1,30 +1,30 @@
 import { useEffect, useRef } from "react";
-import apple from "@/assets/logos-w/apple.webp.asset.json";
-import bankOfAmerica from "@/assets/logos-w/bank-of-america.webp.asset.json";
-import boeing from "@/assets/logos-w/boeing.webp.asset.json";
-import capitalOne from "@/assets/logos-w/capital-one.webp.asset.json";
-import deloitte from "@/assets/logos-w/deloitte.webp.asset.json";
-import esteeLauder from "@/assets/logos-w/estee-lauder.webp.asset.json";
-import ey from "@/assets/logos-w/ey.webp.asset.json";
-import foxSports from "@/assets/logos-w/fox-sports.webp.asset.json";
-import gm from "@/assets/logos-w/gm.webp.asset.json";
-import goldmanSachs from "@/assets/logos-w/goldman-sachs.webp.asset.json";
-import jefferies from "@/assets/logos-w/jefferies.webp.asset.json";
-import johnsonJohnson from "@/assets/logos-w/johnson-johnson.webp.asset.json";
-import jpmorgan from "@/assets/logos-w/jpmorgan.webp.asset.json";
-import kearney from "@/assets/logos-w/kearney.webp.asset.json";
-import kpmg from "@/assets/logos-w/kpmg.webp.asset.json";
-import loreal from "@/assets/logos-w/loreal.webp.asset.json";
-import mckinsey from "@/assets/logos-w/mckinsey.webp.asset.json";
-import microsoft from "@/assets/logos-w/microsoft.webp.asset.json";
-import morganStanley from "@/assets/logos-w/morgan-stanley.webp.asset.json";
-import pepsico from "@/assets/logos-w/pepsico.webp.asset.json";
-import pwc from "@/assets/logos-w/pwc.webp.asset.json";
-import raytheon from "@/assets/logos-w/raytheon.webp.asset.json";
-import tRowePrice from "@/assets/logos-w/t-rowe-price.webp.asset.json";
-import usBank from "@/assets/logos-w/us-bank.webp.asset.json";
-import vanguard from "@/assets/logos-w/vanguard.webp.asset.json";
-import wellsFargo from "@/assets/logos-w/wells-fargo.webp.asset.json";
+import apple from "@/assets/logos-w/apple.webp";
+import bankOfAmerica from "@/assets/logos-w/bank-of-america.webp";
+import boeing from "@/assets/logos-w/boeing.webp";
+import capitalOne from "@/assets/logos-w/capital-one.webp";
+import deloitte from "@/assets/logos-w/deloitte.webp";
+import esteeLauder from "@/assets/logos-w/estee-lauder.webp";
+import ey from "@/assets/logos-w/ey.webp";
+import foxSports from "@/assets/logos-w/fox-sports.webp";
+import gm from "@/assets/logos-w/gm.webp";
+import goldmanSachs from "@/assets/logos-w/goldman-sachs.webp";
+import jefferies from "@/assets/logos-w/jefferies.webp";
+import johnsonJohnson from "@/assets/logos-w/johnson-johnson.webp";
+import jpmorgan from "@/assets/logos-w/jpmorgan.webp";
+import kearney from "@/assets/logos-w/kearney.webp";
+import kpmg from "@/assets/logos-w/kpmg.webp";
+import loreal from "@/assets/logos-w/loreal.webp";
+import mckinsey from "@/assets/logos-w/mckinsey.webp";
+import microsoft from "@/assets/logos-w/microsoft.webp";
+import morganStanley from "@/assets/logos-w/morgan-stanley.webp";
+import pepsico from "@/assets/logos-w/pepsico.webp";
+import pwc from "@/assets/logos-w/pwc.webp";
+import raytheon from "@/assets/logos-w/raytheon.webp";
+import tRowePrice from "@/assets/logos-w/t-rowe-price.webp";
+import usBank from "@/assets/logos-w/us-bank.webp";
+import vanguard from "@/assets/logos-w/vanguard.webp";
+import wellsFargo from "@/assets/logos-w/wells-fargo.webp";
 
 type Employer = {
   name: string;
@@ -35,36 +35,36 @@ type Employer = {
 
 /** Inner ring — clockwise, tighter oval. */
 export const EMPLOYER_LOGOS: Employer[] = [
-  { name: "J.P. Morgan", url: jpmorgan.url, scale: 1.0 },
-  { name: "Goldman Sachs", url: goldmanSachs.url, scale: 0.95 },
-  { name: "Morgan Stanley", url: morganStanley.url, scale: 0.95 },
-  { name: "Bank of America", url: bankOfAmerica.url, scale: 1.15 },
-  { name: "Wells Fargo", url: wellsFargo.url, scale: 0.95 },
-  { name: "EY", url: ey.url, scale: 0.95 },
-  { name: "PwC", url: pwc.url, scale: 1.0 },
-  { name: "Deloitte", url: deloitte.url, scale: 1.1 },
-  { name: "KPMG", url: kpmg.url, scale: 1.0 },
-  { name: "McKinsey & Company", url: mckinsey.url, scale: 1.1 },
-  { name: "Kearney", url: kearney.url, scale: 1.2 },
-  { name: "Jefferies", url: jefferies.url, scale: 1.05 },
-  { name: "Capital One", url: capitalOne.url, scale: 1.05 },
+  { name: "J.P. Morgan", url: jpmorgan, scale: 1.0 },
+  { name: "Goldman Sachs", url: goldmanSachs, scale: 0.95 },
+  { name: "Morgan Stanley", url: morganStanley, scale: 0.95 },
+  { name: "Bank of America", url: bankOfAmerica, scale: 1.15 },
+  { name: "Wells Fargo", url: wellsFargo, scale: 0.95 },
+  { name: "EY", url: ey, scale: 0.95 },
+  { name: "PwC", url: pwc, scale: 1.0 },
+  { name: "Deloitte", url: deloitte, scale: 1.1 },
+  { name: "KPMG", url: kpmg, scale: 1.0 },
+  { name: "McKinsey & Company", url: mckinsey, scale: 1.1 },
+  { name: "Kearney", url: kearney, scale: 1.2 },
+  { name: "Jefferies", url: jefferies, scale: 1.05 },
+  { name: "Capital One", url: capitalOne, scale: 1.05 },
 ];
 
 /** Outer ring — counter-clockwise, wide oval. */
 export const OUTER_EMPLOYER_LOGOS: Employer[] = [
-  { name: "Apple", url: apple.url, scale: 0.85 },
-  { name: "Microsoft", url: microsoft.url, scale: 1.0 },
-  { name: "Boeing", url: boeing.url, scale: 1.2 },
-  { name: "General Motors", url: gm.url, scale: 0.8 },
-  { name: "PepsiCo", url: pepsico.url, scale: 1.05 },
-  { name: "Johnson & Johnson", url: johnsonJohnson.url, scale: 1.15 },
-  { name: "L'Oréal", url: loreal.url, scale: 1.1 },
-  { name: "Estée Lauder Companies", url: esteeLauder.url, scale: 0.95 },
-  { name: "Vanguard", url: vanguard.url, scale: 1.05 },
-  { name: "T. Rowe Price", url: tRowePrice.url, scale: 1.1 },
-  { name: "U.S. Bank", url: usBank.url, scale: 1.0 },
-  { name: "Raytheon", url: raytheon.url, scale: 1.15 },
-  { name: "Fox Sports", url: foxSports.url, scale: 0.9 },
+  { name: "Apple", url: apple, scale: 0.85 },
+  { name: "Microsoft", url: microsoft, scale: 1.0 },
+  { name: "Boeing", url: boeing, scale: 1.2 },
+  { name: "General Motors", url: gm, scale: 0.8 },
+  { name: "PepsiCo", url: pepsico, scale: 1.05 },
+  { name: "Johnson & Johnson", url: johnsonJohnson, scale: 1.15 },
+  { name: "L'Oréal", url: loreal, scale: 1.1 },
+  { name: "Estée Lauder Companies", url: esteeLauder, scale: 0.95 },
+  { name: "Vanguard", url: vanguard, scale: 1.05 },
+  { name: "T. Rowe Price", url: tRowePrice, scale: 1.1 },
+  { name: "U.S. Bank", url: usBank, scale: 1.0 },
+  { name: "Raytheon", url: raytheon, scale: 1.15 },
+  { name: "Fox Sports", url: foxSports, scale: 0.9 },
 ];
 
 /** Every logo, for any grid fallback. */
