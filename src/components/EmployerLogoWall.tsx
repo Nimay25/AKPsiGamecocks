@@ -249,23 +249,20 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
   );
 }
 
-/** Two counter-rotating rings of employer logos around the headline. */
+/** One evenly spaced ring of employer logos around the headline. */
 export function EmployerLogoOrbit() {
   return (
-    <>
-      <Orbit logos={EMPLOYER_LOGOS} radiusX={0.40} radiusY={0.33} speed={0.052} size={50} minOpacity={0.8} />
-      <Orbit
-        logos={OUTER_EMPLOYER_LOGOS}
-        radiusX={0.465}
-        radiusY={0.48}
-        speed={-0.036}
-        size={48}
-        phase={0.4}
-        minOpacity={0.72}
-      />
-    </>
+    <Orbit
+      logos={ALL_EMPLOYER_LOGOS}
+      radiusX={0.435}
+      radiusY={0.415}
+      speed={0.042}
+      size={48}
+      minOpacity={0.78}
+    />
   );
 }
+
 
 /** The orbit runs on every screen size, so the old mobile grid is retired. */
 export function EmployerLogoWall() {
