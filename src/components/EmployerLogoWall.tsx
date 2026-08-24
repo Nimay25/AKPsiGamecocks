@@ -266,7 +266,7 @@ export function EmployerLogoOrbit() {
       radiusY={0.43}
       speed={0.042}
       size={44}
-      minOpacity={0.78}
+      minOpacity={0.92}
     />
   );
 }
