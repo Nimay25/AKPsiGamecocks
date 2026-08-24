@@ -165,11 +165,25 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
       return (lo / SAMPLES) * Math.PI * 2;
     };
 
+    // measure once (and on resize) — reading layout every frame makes the orbit stutter
+    let r = wrap.getBoundingClientRect();
+    const sizes: { w: number; h: number }[] = [];
+    const measure = () => {
+      r = wrap.getBoundingClientRect();
+      for (let i = 0; i < n; i++) {
+        const el = itemRefs.current[i];
+        sizes[i] = el ? { w: el.offsetWidth, h: el.offsetHeight } : { w: 0, h: 0 };
+      }
+    };
+    measure();
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(wrap);
+
     const tick = (now: number) => {
-      const r = wrap.getBoundingClientRect();
       const fit = Math.min(1, Math.max(0.52, r.width / 900));
       const rx = r.width * radiusX;
       const ry = r.height * radiusY;
+
       const t = reduce ? 0 : (now - start) / 1000;
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
@@ -214,12 +228,13 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
         p.y += (ty - p.y) * ease;
         p.f += (tf - p.f) * ease;
 
-        // keep every mark fully inside the section
-        const box = el.getBoundingClientRect();
-        const halfW = box.width / 2;
-        const halfH = box.height / 2;
+        // keep every mark fully inside the section (cached sizes, no layout reads)
+        const box = sizes[i] ?? { w: 0, h: 0 };
+        const halfW = (box.w * baseScale) / 2;
+        const halfH = (box.h * baseScale) / 2;
         const maxX = Math.max(0, r.width / 2 - halfW - 10);
         const maxY = Math.max(0, r.height / 2 - halfH - 10);
+
         const x = Math.max(-maxX, Math.min(maxX, bx + p.x));
         const y = Math.max(-maxY, Math.min(maxY, by + p.y));
         const scale = baseScale + p.f * 0.06;
@@ -234,9 +249,11 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
 
     return () => {
       cancelAnimationFrame(raf);
+      ro.disconnect();
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerleave", onLeave);
     };
+
   }, [logos, radiusX, radiusY, speed, phase, minOpacity]);
 
   return (
@@ -248,7 +265,7 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
             itemRefs.current[i] = el;
           }}
           className="absolute left-1/2 top-1/2 will-change-transform"
-          style={{ transition: "opacity 300ms ease" }}
+          style={{ backfaceVisibility: "hidden" }}
         >
           <EmployerLogo logo={logo} size={size} />
         </div>
