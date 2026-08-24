@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Mail } from "lucide-react";
-import alumniHeroAsset from "@/assets/alumni-hero.png.asset.json";
-const alumniMap = alumniHeroAsset.url;
+import alumniHeroAsset from "@/assets/alumni-hero.png";
+const alumniMap = alumniHeroAsset;
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/alumni")({
@@ -18,10 +18,10 @@ export const Route = createFileRoute("/alumni")({
   component: Alumni,
 });
 
-import ryanPhoto from "@/assets/quotes/ryan-stclair.webp.asset.json";
-import ahmedPhoto from "@/assets/quotes/ahmed-yousfi.webp.asset.json";
-import sophiaPhoto from "@/assets/quotes/sophia-arias.webp.asset.json";
-import nickPhoto from "@/assets/quotes/nick-nicholson.webp.asset.json";
+import ryanPhoto from "@/assets/quotes/ryan-stclair.webp";
+import ahmedPhoto from "@/assets/quotes/ahmed-yousfi.webp";
+import sophiaPhoto from "@/assets/quotes/sophia-arias.webp";
+import nickPhoto from "@/assets/quotes/nick-nicholson.webp";
 
 const QUOTES = [
   {
@@ -29,28 +29,28 @@ const QUOTES = [
     name: "Ryan St. Clair",
     year: "2026",
     role: "",
-    photo: ryanPhoto.url,
+    photo: ryanPhoto,
   },
   {
     q: "AKPsi was home during a time when everything felt new and unfamiliar. What started as a group of strangers quickly became a brotherhood built on trust, support, and genuine connection. The impact of AKPsi extends far beyond my college years — it shaped how I approach my professional life and taught me the importance of community, mentorship, and building authentic relationships in the workplace.",
     name: "Ahmed Yousfi",
     year: "2023",
     role: "",
-    photo: ahmedPhoto.url,
+    photo: ahmedPhoto,
   },
   {
     q: "Among many things, AKPsi taught me that building and maintaining relationships is one of the most crucial yet rewarding skills to develop. I recommend taking the time to intentionally foster relationships in all areas of life.",
     name: "Sophia Arias",
     year: "2026",
     role: "",
-    photo: sophiaPhoto.url,
+    photo: sophiaPhoto,
   },
   {
     q: "The most important experience I gained from my time in AKPsi pertains to the impact of networking. Whether through brother interviews or mock job prep scenarios, the skills I gained have had a direct positive impact on my career trajectory since entering the workforce. The value of building and maintaining connections cannot be overstated.",
     name: "Nick Nicholson",
     year: "2020",
     role: "",
-    photo: nickPhoto.url,
+    photo: nickPhoto,
   },
 ];
 

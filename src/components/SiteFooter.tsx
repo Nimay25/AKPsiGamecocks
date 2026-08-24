@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram } from "lucide-react";
-import logoAsset from "@/assets/akpsi-sc-logo.png.asset.json";
-const logo = logoAsset.url;
+import logoAsset from "@/assets/akpsi-sc-logo.png";
+const logo = logoAsset;
 
 export function SiteFooter() {
   return (

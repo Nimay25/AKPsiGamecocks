@@ -6,9 +6,9 @@ import curtainsImg from "@/assets/theater-curtains.png";
 import dressPro1 from "@/assets/dress-pro-1.webp";
 import dressPro2 from "@/assets/dress-pro-2.webp";
 import dressCasual from "@/assets/dress-casual.webp";
-import quoteImg1 from "@/assets/IMG_0338-2.webp.asset.json";
-import quoteImg2 from "@/assets/IMG_0332-2.webp.asset.json";
-import quoteImg3 from "@/assets/IMG_0336-2.webp.asset.json";
+import quoteImg1 from "@/assets/IMG_0338-2.webp";
+import quoteImg2 from "@/assets/IMG_0332-2.webp";
+import quoteImg3 from "@/assets/IMG_0336-2.webp";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/recruitment")({
@@ -149,7 +149,7 @@ function Recruitment() {
             <Reveal>
               <figure className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
                 <img
-                  src={quoteImg1.url}
+                  src={quoteImg1}
                   alt="Beta Upsilon brothers accepting the Alpha Kappa Psi Certificate of Excellence"
                   width={1206}
                   height={801}
@@ -194,7 +194,7 @@ function Recruitment() {
             <Reveal delay={100} className="order-1 lg:order-2">
               <figure className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
                 <img
-                  src={quoteImg2.url}
+                  src={quoteImg2}
                   alt="Brothers at the USC organization fair under a balloon arch"
                   width={1206}
                   height={896}
@@ -211,7 +211,7 @@ function Recruitment() {
             <Reveal>
               <figure className="mb-6 overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]">
                 <img
-                  src={quoteImg3.url}
+                  src={quoteImg3}
                   alt="Graduating Alpha Kappa Psi brothers on stage at USC commencement"
                   width={1206}
                   height={889}

@@ -5,14 +5,14 @@ import { Reveal } from "@/components/Reveal";
 import { bySection } from "@/lib/roster";
 import { Headshot, CropEditorBar } from "@/components/Headshot";
 import darlaMoore from "@/assets/darla-moore.webp";
-import pc1 from "@/assets/pc/thumbnail-img-4178_orig_1.jpg.asset.json";
-import pc2 from "@/assets/pc/20241026-095236-bf5f16_orig_1.jpeg.asset.json";
-import pc3 from "@/assets/pc/pc-photo_orig_2.jpeg.asset.json";
-import pc4 from "@/assets/pc/img-2660_orig_1.jpg.asset.json";
-import pc5 from "@/assets/pc/img-2659_orig_1.jpg.asset.json";
-import pc6 from "@/assets/pc/screenshot-2023-06-26-at-9-14-17-am_orig.png.asset.json";
+import pc1 from "@/assets/pc/thumbnail-img-4178_orig_1.jpg";
+import pc2 from "@/assets/pc/20241026-095236-bf5f16_orig_1.jpeg";
+import pc3 from "@/assets/pc/pc-photo_orig_2.jpeg";
+import pc4 from "@/assets/pc/img-2660_orig_1.jpg";
+import pc5 from "@/assets/pc/img-2659_orig_1.jpg";
+import pc6 from "@/assets/pc/screenshot-2023-06-26-at-9-14-17-am_orig.png";
 
-const PC_PHOTOS: string[] = [pc1.url, pc2.url, pc3.url, pc4.url, pc5.url, pc6.url];
+const PC_PHOTOS: string[] = [pc1, pc2, pc3, pc4, pc5, pc6];
 
 export const Route = createFileRoute("/brothers")({
   head: () => ({
