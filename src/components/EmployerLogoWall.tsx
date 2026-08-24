@@ -215,8 +215,9 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
         p.f += (tf - p.f) * ease;
 
         // keep every mark fully inside the section
-        const halfW = el.offsetWidth / 2;
-        const halfH = el.offsetHeight / 2;
+        const box = el.getBoundingClientRect();
+        const halfW = box.width / 2;
+        const halfH = box.height / 2;
         const maxX = Math.max(0, r.width / 2 - halfW - 10);
         const maxY = Math.max(0, r.height / 2 - halfH - 10);
         const x = Math.max(-maxX, Math.min(maxX, bx + p.x));
