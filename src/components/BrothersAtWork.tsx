@@ -112,7 +112,7 @@ export function BrothersAtWork() {
                 </span>
               )}
             </p>
-            <h2 className="mt-6 font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-none market-ink">
+            <h2 className="mt-6 font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-none market-ink">
               <span className="whitespace-nowrap">
                 BROTHERS <span style={{ color: "var(--gold)" }}>@</span>{" "}
                 <span style={{ color: "var(--gold)" }}>WORK</span>
