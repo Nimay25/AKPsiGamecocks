@@ -228,12 +228,13 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
         p.y += (ty - p.y) * ease;
         p.f += (tf - p.f) * ease;
 
-        // keep every mark fully inside the section
-        const box = el.getBoundingClientRect();
-        const halfW = box.width / 2;
-        const halfH = box.height / 2;
+        // keep every mark fully inside the section (cached sizes, no layout reads)
+        const box = sizes[i] ?? { w: 0, h: 0 };
+        const halfW = (box.w * baseScale) / 2;
+        const halfH = (box.h * baseScale) / 2;
         const maxX = Math.max(0, r.width / 2 - halfW - 10);
         const maxY = Math.max(0, r.height / 2 - halfH - 10);
+
         const x = Math.max(-maxX, Math.min(maxX, bx + p.x));
         const y = Math.max(-maxY, Math.min(maxY, by + p.y));
         const scale = baseScale + p.f * 0.06;
