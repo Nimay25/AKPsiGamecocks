@@ -183,9 +183,11 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
         if (!el) continue;
         const u = i / n + (phase + t * speed) / (Math.PI * 2);
         const a = evenAngle(u, rx, ry);
-        const wob = Math.sin(t * 0.35 + i * 1.7) * 16 * fit;
-        const bx = Math.cos(a) * (rx + wob);
-        const by = Math.sin(a) * (ry + wob * 0.6);
+        const wob = Math.sin(t * 0.35 + i * 1.7) * 12 * fit;
+        // alternate the radius so neighbours never sit on the same arc
+        const zig = (i % 2 === 0 ? 1 : -1) * 34 * fit;
+        const bx = Math.cos(a) * (rx + wob + zig);
+        const by = Math.sin(a) * (ry + wob * 0.6 + zig * 0.7);
 
 
         const depth = (Math.sin(a) + 1) / 2; // 0 back .. 1 front
