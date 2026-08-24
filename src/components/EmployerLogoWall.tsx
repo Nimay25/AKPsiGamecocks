@@ -136,8 +136,9 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
 
     // even spacing along the ellipse perimeter (equal-angle bunches at the sides)
     const SAMPLES = 240;
-    const evenAngle = (u: number, rx: number, ry: number) => {
-      // build a cumulative arc-length table for this frame's radii
+    let cache: { rx: number; ry: number; cum: number[]; total: number } | null = null;
+    const table = (rx: number, ry: number) => {
+      if (cache && cache.rx === rx && cache.ry === ry) return cache;
       let total = 0;
       const cum: number[] = [0];
       for (let s = 1; s <= SAMPLES; s++) {
@@ -148,7 +149,12 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
         total += Math.hypot(dx, dy);
         cum.push(total);
       }
-      const target = ((u % 1) + 1) % 1 * total;
+      cache = { rx, ry, cum, total };
+      return cache;
+    };
+    const evenAngle = (u: number, rx: number, ry: number) => {
+      const { cum, total } = table(rx, ry);
+      const target = ((((u % 1) + 1) % 1)) * total;
       let lo = 0;
       let hi = SAMPLES;
       while (lo < hi) {
