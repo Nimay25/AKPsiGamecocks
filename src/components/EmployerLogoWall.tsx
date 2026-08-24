@@ -87,7 +87,7 @@ export function EmployerLogo({
         alt={`${logo.name} logo`}
         loading="lazy"
         className="relative w-auto object-contain transition-transform duration-500 hover:scale-110"
-        style={{ height: `${h}px`, maxWidth: `${h * 4}px` }}
+        style={{ height: `${h}px`, maxWidth: `${h * 2.6}px` }}
       />
     </span>
   );
@@ -257,7 +257,7 @@ export function EmployerLogoOrbit() {
     <Orbit
       logos={ALL_EMPLOYER_LOGOS}
       radiusX={0.435}
-      radiusY={0.415}
+      radiusY={0.45}
       speed={0.042}
       size={48}
       minOpacity={0.78}
