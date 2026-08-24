@@ -94,7 +94,7 @@ export function BrothersAtWork() {
           <div className="relative mx-auto max-w-3xl text-center">
             <span
               aria-hidden
-              className="pointer-events-none absolute inset-[-18%] -z-10"
+              className="pointer-events-none absolute -inset-y-[35%] -inset-x-[45%] -z-10"
               style={{
                 background:
                   "radial-gradient(closest-side, var(--market-bg) 55%, color-mix(in oklab, var(--market-bg) 70%, transparent) 78%, transparent 100%)",
