@@ -18,32 +18,42 @@ export const Route = createFileRoute("/alumni")({
   component: Alumni,
 });
 
+import ryanPhoto from "@/assets/quotes/ryan-stclair.webp.asset.json";
+import ahmedPhoto from "@/assets/quotes/ahmed-yousfi.webp.asset.json";
+import sophiaPhoto from "@/assets/quotes/sophia-arias.webp.asset.json";
+import nickPhoto from "@/assets/quotes/nick-nicholson.webp.asset.json";
+
 const QUOTES = [
   {
     q: "AKPsi equipped me with the skills to feel confident in any room, which improved my ability to lead others in a variety of situations. The brothers showed me the importance of lifelong learning, helping me to excel in my new job, where I can soak up knowledge like a sponge and feel confident suggesting new ideas to the team, despite being the youngest person on it.",
     name: "Ryan St. Clair",
     year: "2026",
     role: "",
+    photo: ryanPhoto.url,
   },
   {
     q: "AKPsi was home during a time when everything felt new and unfamiliar. What started as a group of strangers quickly became a brotherhood built on trust, support, and genuine connection. The impact of AKPsi extends far beyond my college years — it shaped how I approach my professional life and taught me the importance of community, mentorship, and building authentic relationships in the workplace.",
     name: "Ahmed Yousfi",
     year: "2023",
     role: "",
+    photo: ahmedPhoto.url,
   },
   {
     q: "Among many things, AKPsi taught me that building and maintaining relationships is one of the most crucial yet rewarding skills to develop. I recommend taking the time to intentionally foster relationships in all areas of life.",
     name: "Sophia Arias",
     year: "2026",
     role: "",
+    photo: sophiaPhoto.url,
   },
   {
     q: "The most important experience I gained from my time in AKPsi pertains to the impact of networking. Whether through brother interviews or mock job prep scenarios, the skills I gained have had a direct positive impact on my career trajectory since entering the workforce. The value of building and maintaining connections cannot be overstated.",
     name: "Nick Nicholson",
     year: "2020",
     role: "",
+    photo: nickPhoto.url,
   },
 ];
+
 
 function Alumni() {
   return (
@@ -106,9 +116,13 @@ function Alumni() {
                 <blockquote className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-white p-8 shadow-[var(--shadow-soft)]">
                   <p className="flex-1 font-display text-xl leading-relaxed text-[var(--navy)]">&ldquo;{t.q}&rdquo;</p>
                   <footer className="mt-6 flex items-center gap-3 border-t border-[var(--border)] pt-4 text-sm">
-                    <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--navy)] text-[var(--gold)] font-display">
-                      {t.name.split(" ").map((w: string) => w[0]).slice(0,2).join("")}
-                    </div>
+                    <img
+                      src={t.photo}
+                      alt={t.name}
+                      loading="lazy"
+                      className="h-11 w-11 shrink-0 rounded-full object-cover ring-1 ring-[var(--border)]"
+                    />
+
                     <div>
                       <div className="font-semibold text-[var(--navy)]">{t.name} <span className="text-[var(--navy)]/60 font-normal">'{t.year.slice(-2)}</span></div>
                       {t.role && <div className="text-[var(--navy)]/60 text-xs">{t.role}</div>}
