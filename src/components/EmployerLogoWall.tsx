@@ -220,13 +220,13 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
 export function EmployerLogoOrbit() {
   return (
     <>
-      <Orbit logos={EMPLOYER_LOGOS} radiusX={0.3} radiusY={0.31} speed={0.052} size={54} minOpacity={0.8} />
+      <Orbit logos={EMPLOYER_LOGOS} radiusX={0.345} radiusY={0.305} speed={0.052} size={50} minOpacity={0.8} />
       <Orbit
         logos={OUTER_EMPLOYER_LOGOS}
-        radiusX={0.5}
-        radiusY={0.46}
+        radiusX={0.455}
+        radiusY={0.445}
         speed={-0.036}
-        size={52}
+        size={48}
         phase={0.4}
         minOpacity={0.72}
       />
