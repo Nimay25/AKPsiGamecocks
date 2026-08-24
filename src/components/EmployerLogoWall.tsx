@@ -134,6 +134,31 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
     const push = Array.from({ length: n }, () => ({ x: 0, y: 0, f: 0 }));
     let last = start;
 
+    // even spacing along the ellipse perimeter (equal-angle bunches at the sides)
+    const SAMPLES = 240;
+    const evenAngle = (u: number, rx: number, ry: number) => {
+      // build a cumulative arc-length table for this frame's radii
+      let total = 0;
+      const cum: number[] = [0];
+      for (let s = 1; s <= SAMPLES; s++) {
+        const a0 = ((s - 1) / SAMPLES) * Math.PI * 2;
+        const a1 = (s / SAMPLES) * Math.PI * 2;
+        const dx = rx * (Math.cos(a1) - Math.cos(a0));
+        const dy = ry * (Math.sin(a1) - Math.sin(a0));
+        total += Math.hypot(dx, dy);
+        cum.push(total);
+      }
+      const target = ((u % 1) + 1) % 1 * total;
+      let lo = 0;
+      let hi = SAMPLES;
+      while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (cum[mid] < target) lo = mid + 1;
+        else hi = mid;
+      }
+      return (lo / SAMPLES) * Math.PI * 2;
+    };
+
     const tick = (now: number) => {
       const r = wrap.getBoundingClientRect();
       const fit = Math.min(1, Math.max(0.52, r.width / 900));
@@ -150,10 +175,12 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
       for (let i = 0; i < n; i++) {
         const el = itemRefs.current[i];
         if (!el) continue;
-        const a = (i / n) * Math.PI * 2 + phase + t * speed;
+        const u = i / n + (phase + t * speed) / (Math.PI * 2);
+        const a = evenAngle(u, rx, ry);
         const wob = Math.sin(t * 0.35 + i * 1.7) * 16 * fit;
         const bx = Math.cos(a) * (rx + wob);
         const by = Math.sin(a) * (ry + wob * 0.6);
+
 
         const depth = (Math.sin(a) + 1) / 2; // 0 back .. 1 front
         const baseScale = (0.86 + depth * 0.24) * fit;
