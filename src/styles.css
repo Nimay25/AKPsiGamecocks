@@ -250,6 +250,23 @@
   .logo-shine { animation: none !important; opacity: 0; }
 }
 
+/* Brothers @ Work — light market board tokens */
+.market-light {
+  --market-bg: oklch(0.99 0 0);
+  --market-ink: oklch(0.22 0.02 260);
+  --market-muted: oklch(0.52 0.015 260);
+  --market-line: oklch(0.9 0.005 260);
+  --market-up: oklch(0.52 0.15 152);
+  --market-down: oklch(0.55 0.19 25);
+  background: var(--market-bg);
+  color: var(--market-ink);
+}
+.market-ink { color: var(--market-ink); }
+.market-muted { color: var(--market-muted); }
+.market-up { color: var(--market-up); }
+.market-down { color: var(--market-down); }
+
+
 
 
 
