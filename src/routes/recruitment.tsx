@@ -69,7 +69,7 @@ const FAQ = [
       </>
     ),
   },
-  { q: "Do I need to be a business major?", a: "No–around one seventh of our brothers are non-business majors. We look for driven candidates, regardless of major or industry focus." },
+  { q: "Do I need to be a business major?", a: "No—plenty of our brothers are non-business majors. We look for driven candidates, regardless of major or industry focus." },
   {
     q: "How should I prepare for the case competition?",
     a: (
