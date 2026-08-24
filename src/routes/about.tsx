@@ -96,9 +96,9 @@ function About() {
               </div>
               <div className="mt-10 grid grid-cols-3 gap-6">
                 {[
-                  { n: 150, suffix: "+", l: "Active Brothers" },
-                  { n: 3.91, suffix: "", l: "Average GPA", decimals: 2 },
-                  { n: 71, suffix: "%", l: "Out-of-State" },
+                  { n: 110, suffix: "+", l: "Active Brothers" },
+                  { n: 3.88, suffix: "", l: "Average GPA", decimals: 2 },
+                  { n: 79, suffix: "%", l: "Out-of-State" },
                 ].map((s) => (
                   <div key={s.l} className="border-t border-[var(--gold)]/40 pt-4">
                     <div className="font-display text-3xl text-[var(--navy)] tabular-nums">
