@@ -1,76 +1,79 @@
 import { useEffect, useRef } from "react";
-import ey from "@/assets/logos-t/ey.webp";
-import pwc from "@/assets/logos-t/pwc.webp";
-import gs from "@/assets/logos-t/gs.webp";
-import jpm from "@/assets/logos-t/jpm.webp";
-import boa from "@/assets/logos-t/boa.webp";
-import wf from "@/assets/logos-t/wf.webp";
-import hsbc from "@/assets/logos-t/hsbc.webp";
-import ps from "@/assets/logos-t/ps.webp";
-import boeing from "@/assets/logos-t/boeing.webp";
-import gm from "@/assets/logos-t/gm.webp";
-import cc from "@/assets/logos-t/cc.webp";
-import chicki from "@/assets/logos-t/chicki.webp";
-import so from "@/assets/logos-t/so.webp";
-import fcc from "@/assets/logos-t/fcc.webp";
-import fifth from "@/assets/logos-t/5.webp";
-import appleAsset from "@/assets/logos-t/apple.svg.asset.json";
-import amazonAsset from "@/assets/logos-t/amazon.svg.asset.json";
-import kpmgAsset from "@/assets/logos-t/kpmg.svg.asset.json";
-import mckinseyAsset from "@/assets/logos-t/mckinsey.svg.asset.json";
-import pepsiAsset from "@/assets/logos-t/pepsi.svg.asset.json";
+import apple from "@/assets/logos-w/apple.webp.asset.json";
+import bankOfAmerica from "@/assets/logos-w/bank-of-america.webp.asset.json";
+import boeing from "@/assets/logos-w/boeing.webp.asset.json";
+import capitalOne from "@/assets/logos-w/capital-one.webp.asset.json";
+import deloitte from "@/assets/logos-w/deloitte.webp.asset.json";
+import esteeLauder from "@/assets/logos-w/estee-lauder.webp.asset.json";
+import ey from "@/assets/logos-w/ey.webp.asset.json";
+import foxSports from "@/assets/logos-w/fox-sports.webp.asset.json";
+import gm from "@/assets/logos-w/gm.webp.asset.json";
+import goldmanSachs from "@/assets/logos-w/goldman-sachs.webp.asset.json";
+import jefferies from "@/assets/logos-w/jefferies.webp.asset.json";
+import johnsonJohnson from "@/assets/logos-w/johnson-johnson.webp.asset.json";
+import jpmorgan from "@/assets/logos-w/jpmorgan.webp.asset.json";
+import kearney from "@/assets/logos-w/kearney.webp.asset.json";
+import kpmg from "@/assets/logos-w/kpmg.webp.asset.json";
+import loreal from "@/assets/logos-w/loreal.webp.asset.json";
+import mckinsey from "@/assets/logos-w/mckinsey.webp.asset.json";
+import microsoft from "@/assets/logos-w/microsoft.webp.asset.json";
+import morganStanley from "@/assets/logos-w/morgan-stanley.webp.asset.json";
+import pepsico from "@/assets/logos-w/pepsico.webp.asset.json";
+import pwc from "@/assets/logos-w/pwc.webp.asset.json";
+import raytheon from "@/assets/logos-w/raytheon.webp.asset.json";
+import tRowePrice from "@/assets/logos-w/t-rowe-price.webp.asset.json";
+import usBank from "@/assets/logos-w/us-bank.webp.asset.json";
+import vanguard from "@/assets/logos-w/vanguard.webp.asset.json";
+import wellsFargo from "@/assets/logos-w/wells-fargo.webp.asset.json";
 
 type Employer = {
   name: string;
   url: string;
   /** optical size correction so every mark reads at a similar visual weight */
   scale?: number;
-  /** near-black marks get inverted so they stay legible on black */
-  invert?: boolean;
 };
 
 /** Inner ring — clockwise, tighter oval. */
 export const EMPLOYER_LOGOS: Employer[] = [
-  { name: "EY", url: ey, scale: 1.05 },
-  { name: "PwC", url: pwc, scale: 1.25 },
-  { name: "Goldman Sachs", url: gs, scale: 1.05 },
-  { name: "J.P. Morgan", url: jpm, scale: 1.0 },
-  { name: "Bank of America", url: boa, scale: 0.9 },
-  { name: "Wells Fargo", url: wf, scale: 0.95 },
-  { name: "HSBC", url: hsbc, scale: 0.9 },
-  { name: "Piper Sandler", url: ps, scale: 1.05 },
-  { name: "Boeing", url: boeing, scale: 0.78 },
-  { name: "General Motors", url: gm, scale: 1.05 },
-  { name: "Coca-Cola", url: cc, scale: 0.62 },
-  { name: "Chick-fil-A", url: chicki, scale: 0.68 },
+  { name: "J.P. Morgan", url: jpmorgan.url, scale: 1.0 },
+  { name: "Goldman Sachs", url: goldmanSachs.url, scale: 0.95 },
+  { name: "Morgan Stanley", url: morganStanley.url, scale: 0.95 },
+  { name: "Bank of America", url: bankOfAmerica.url, scale: 1.15 },
+  { name: "Wells Fargo", url: wellsFargo.url, scale: 0.95 },
+  { name: "EY", url: ey.url, scale: 0.95 },
+  { name: "PwC", url: pwc.url, scale: 1.0 },
+  { name: "Deloitte", url: deloitte.url, scale: 1.1 },
+  { name: "KPMG", url: kpmg.url, scale: 1.0 },
+  { name: "McKinsey & Company", url: mckinsey.url, scale: 1.1 },
+  { name: "Kearney", url: kearney.url, scale: 1.2 },
+  { name: "Jefferies", url: jefferies.url, scale: 1.05 },
+  { name: "Capital One", url: capitalOne.url, scale: 1.05 },
 ];
 
-/** Outer ring — counter-clockwise, wide oval that drifts past the edges. */
+/** Outer ring — counter-clockwise, wide oval. */
 export const OUTER_EMPLOYER_LOGOS: Employer[] = [
-  { name: "McKinsey & Company", url: mckinseyAsset.url, scale: 0.95, invert: true },
-  { name: "KPMG", url: kpmgAsset.url, scale: 1.05 },
-  { name: "Apple", url: appleAsset.url, scale: 1.5, invert: true },
-  { name: "Amazon", url: amazonAsset.url, scale: 0.9, invert: true },
-  { name: "PepsiCo", url: pepsiAsset.url, scale: 1.45 },
-  { name: "Special Olympics", url: so, scale: 1.1 },
-  { name: "FCC", url: fcc, scale: 0.95 },
-  { name: "Fifth Circuit Solicitor's Office", url: fifth, scale: 0.95 },
+  { name: "Apple", url: apple.url, scale: 0.85 },
+  { name: "Microsoft", url: microsoft.url, scale: 1.0 },
+  { name: "Boeing", url: boeing.url, scale: 1.2 },
+  { name: "General Motors", url: gm.url, scale: 0.8 },
+  { name: "PepsiCo", url: pepsico.url, scale: 1.05 },
+  { name: "Johnson & Johnson", url: johnsonJohnson.url, scale: 1.15 },
+  { name: "L'Oréal", url: loreal.url, scale: 1.1 },
+  { name: "Estée Lauder Companies", url: esteeLauder.url, scale: 0.95 },
+  { name: "Vanguard", url: vanguard.url, scale: 1.05 },
+  { name: "T. Rowe Price", url: tRowePrice.url, scale: 1.1 },
+  { name: "U.S. Bank", url: usBank.url, scale: 1.0 },
+  { name: "Raytheon", url: raytheon.url, scale: 1.15 },
+  { name: "Fox Sports", url: foxSports.url, scale: 0.9 },
 ];
 
-/** Every logo, for the mobile grid. */
+/** Every logo, for any grid fallback. */
 export const ALL_EMPLOYER_LOGOS: Employer[] = [...EMPLOYER_LOGOS, ...OUTER_EMPLOYER_LOGOS];
 
-/* Keep brand colors true: no brightness/contrast/saturation shifts —
-   legibility comes from a soft white glow behind the mark only. */
-const BASE_FILTER =
-  "drop-shadow(0 0 2px rgba(255,255,255,0.55)) drop-shadow(0 0 10px rgba(255,255,255,0.25))";
-const INVERT_FILTER =
-  "invert(1) drop-shadow(0 0 3px rgba(0,0,0,0.45))";
-
-/** A single free-floating employer logo — no plate, no card. */
+/** A single free-floating employer logo — clean, no glow, no plate. */
 export function EmployerLogo({
   logo,
-  size = 64,
+  size = 58,
 }: {
   logo: Employer;
   /** base height in px before the per-logo optical scale */
@@ -79,26 +82,12 @@ export function EmployerLogo({
   const h = size * (logo.scale ?? 1);
   return (
     <span className="relative inline-flex items-center justify-center">
-      {/* soft light halo so dark logos stay legible on black */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-[-22%] rounded-full"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(255,255,255,0.26), rgba(255,255,255,0.10) 55%, rgba(255,255,255,0) 78%)",
-          filter: "blur(10px)",
-        }}
-      />
       <img
         src={logo.url}
         alt={`${logo.name} logo`}
         loading="lazy"
-        className="relative w-auto object-contain opacity-95 transition-transform duration-500 hover:scale-110"
-        style={{
-          height: `${h}px`,
-          maxWidth: `${h * 3.4}px`,
-          filter: logo.invert ? INVERT_FILTER : BASE_FILTER,
-        }}
+        className="relative w-auto object-contain transition-transform duration-500 hover:scale-110"
+        style={{ height: `${h}px`, maxWidth: `${h * 2.6}px` }}
       />
     </span>
   );
@@ -126,7 +115,6 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
     if (!wrap) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // touch / coarse pointer devices: no cursor repulsion at all
     const coarse = window.matchMedia("(pointer: coarse)").matches;
     const n = logos.length;
     const start = performance.now();
@@ -142,21 +130,50 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
       window.addEventListener("pointerleave", onLeave);
     }
 
-    // eased pointer + per-logo push, so cursor reactions glide instead of snapping
     const smooth = { x: 0, y: 0 };
     const push = Array.from({ length: n }, () => ({ x: 0, y: 0, f: 0 }));
     let last = start;
 
+    // even spacing along the ellipse perimeter (equal-angle bunches at the sides)
+    const SAMPLES = 240;
+    let cache: { rx: number; ry: number; cum: number[]; total: number } | null = null;
+    const table = (rx: number, ry: number) => {
+      if (cache && cache.rx === rx && cache.ry === ry) return cache;
+      let total = 0;
+      const cum: number[] = [0];
+      for (let s = 1; s <= SAMPLES; s++) {
+        const a0 = ((s - 1) / SAMPLES) * Math.PI * 2;
+        const a1 = (s / SAMPLES) * Math.PI * 2;
+        const dx = rx * (Math.cos(a1) - Math.cos(a0));
+        const dy = ry * (Math.sin(a1) - Math.sin(a0));
+        total += Math.hypot(dx, dy);
+        cum.push(total);
+      }
+      cache = { rx, ry, cum, total };
+      return cache;
+    };
+    const evenAngle = (u: number, rx: number, ry: number) => {
+      const { cum, total } = table(rx, ry);
+      const target = ((((u % 1) + 1) % 1)) * total;
+      let lo = 0;
+      let hi = SAMPLES;
+      while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (cum[mid] < target) lo = mid + 1;
+        else hi = mid;
+      }
+      return (lo / SAMPLES) * Math.PI * 2;
+    };
+
     const tick = (now: number) => {
       const r = wrap.getBoundingClientRect();
-      // shrink the whole system down on narrow screens so it still reads as a ring
       const fit = Math.min(1, Math.max(0.52, r.width / 900));
       const rx = r.width * radiusX;
       const ry = r.height * radiusY;
       const t = reduce ? 0 : (now - start) / 1000;
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
-      const ease = 1 - Math.exp(-dt * 5); // time-based lerp factor
+      const ease = 1 - Math.exp(-dt * 5);
 
       smooth.x += (pointer.current.x - smooth.x) * ease;
       smooth.y += (pointer.current.y - smooth.y) * ease;
@@ -164,16 +181,19 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
       for (let i = 0; i < n; i++) {
         const el = itemRefs.current[i];
         if (!el) continue;
-        const a = (i / n) * Math.PI * 2 + phase + t * speed;
-        const wob = Math.sin(t * 0.35 + i * 1.7) * 16 * fit;
-        const bx = Math.cos(a) * (rx + wob);
-        const by = Math.sin(a) * (ry + wob * 0.6);
+        const u = i / n + (phase + t * speed) / (Math.PI * 2);
+        const a = evenAngle(u, rx, ry);
+        const wob = Math.sin(t * 0.35 + i * 1.7) * 12 * fit;
+        // alternate the radius so neighbours never sit on the same arc
+        const zig = (i % 2 === 0 ? 1 : -1) * 34 * fit;
+        const bx = Math.cos(a) * (rx + wob + zig);
+        const by = Math.sin(a) * (ry + wob * 0.6 + zig * 0.7);
+
 
         const depth = (Math.sin(a) + 1) / 2; // 0 back .. 1 front
         const baseScale = (0.86 + depth * 0.24) * fit;
         const baseOpacity = minOpacity + depth * (1 - minOpacity);
 
-        // target push away from the cursor (gentle, capped)
         let tx = 0;
         let ty = 0;
         let tf = 0;
@@ -194,8 +214,14 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
         p.y += (ty - p.y) * ease;
         p.f += (tf - p.f) * ease;
 
-        const x = bx + p.x;
-        const y = by + p.y;
+        // keep every mark fully inside the section
+        const box = el.getBoundingClientRect();
+        const halfW = box.width / 2;
+        const halfH = box.height / 2;
+        const maxX = Math.max(0, r.width / 2 - halfW - 10);
+        const maxY = Math.max(0, r.height / 2 - halfH - 10);
+        const x = Math.max(-maxX, Math.min(maxX, bx + p.x));
+        const y = Math.max(-maxY, Math.min(maxY, by + p.y));
         const scale = baseScale + p.f * 0.06;
         const opacity = Math.min(1, baseOpacity + p.f * 0.15);
 
@@ -231,25 +257,22 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
   );
 }
 
-/** Two counter-rotating rings of employer logos around the headline. */
+/** One evenly spaced ring of employer logos around the headline. */
 export function EmployerLogoOrbit() {
   return (
-    <>
-      <Orbit logos={EMPLOYER_LOGOS} radiusX={0.30} radiusY={0.31} speed={0.052} size={58} />
-      <Orbit
-        logos={OUTER_EMPLOYER_LOGOS}
-        radiusX={0.52}
-        radiusY={0.475}
-        speed={-0.036}
-        size={56}
-        phase={0.4}
-        minOpacity={0.6}
-      />
-    </>
+    <Orbit
+      logos={ALL_EMPLOYER_LOGOS}
+      radiusX={0.395}
+      radiusY={0.43}
+      speed={0.042}
+      size={44}
+      minOpacity={0.92}
+    />
   );
 }
 
-/** The orbit now runs on every screen size, so the old mobile grid is retired. */
+
+/** The orbit runs on every screen size, so the old mobile grid is retired. */
 export function EmployerLogoWall() {
   return null;
 }
