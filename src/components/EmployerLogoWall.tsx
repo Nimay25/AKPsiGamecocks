@@ -162,7 +162,13 @@ function Orbit({ logos, radiusX, radiusY, speed, size, phase = 0, minOpacity = 0
         if (cum[mid] < target) lo = mid + 1;
         else hi = mid;
       }
-      return (lo / SAMPLES) * Math.PI * 2;
+      // interpolate inside the sample segment — snapping to samples is what made
+      // the orbit look like it was stepping around the circle
+      const i1 = Math.max(1, lo);
+      const c0 = cum[i1 - 1];
+      const c1 = cum[i1];
+      const frac = c1 > c0 ? (target - c0) / (c1 - c0) : 0;
+      return ((i1 - 1 + frac) / SAMPLES) * Math.PI * 2;
     };
 
     // measure once (and on resize) — reading layout every frame makes the orbit stutter
