@@ -44,11 +44,23 @@ function TickerBar({ rail }: { rail: (LiveQuote | string)[] }) {
     <div
       className="relative overflow-hidden"
       style={{
-        borderTop: "1px solid rgba(255,255,255,0.12)",
-        borderBottom: "1px solid rgba(255,255,255,0.12)",
+        borderTop: "1px solid rgba(220,38,38,0.55)",
+        borderBottom: "1px solid rgba(220,38,38,0.55)",
         background: "#08090b",
+        boxShadow:
+          "0 0 18px rgba(220,38,38,0.35), inset 0 1px 12px rgba(220,38,38,0.28), inset 0 -1px 12px rgba(220,38,38,0.28)",
       }}
     >
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[3px] z-10"
+        style={{ background: "linear-gradient(to bottom, rgba(239,68,68,0.9), rgba(239,68,68,0))" }}
+      />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] z-10"
+        style={{ background: "linear-gradient(to top, rgba(239,68,68,0.9), rgba(239,68,68,0))" }}
+      />
       <div
         ref={ref}
         className="flex items-center py-3.5 whitespace-nowrap w-max"
