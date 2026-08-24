@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
+import { FINNHUB_PUBLIC_KEY, TICKER_SYMBOLS } from "@/lib/marketConfig";
+
+
 export type LiveQuote = {
   symbol: string;
   name: string;
