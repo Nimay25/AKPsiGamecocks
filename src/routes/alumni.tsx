@@ -18,32 +18,42 @@ export const Route = createFileRoute("/alumni")({
   component: Alumni,
 });
 
+import ryanPhoto from "@/assets/quotes/ryan-stclair.webp.asset.json";
+import ahmedPhoto from "@/assets/quotes/ahmed-yousfi.webp.asset.json";
+import sophiaPhoto from "@/assets/quotes/sophia-arias.webp.asset.json";
+import nickPhoto from "@/assets/quotes/nick-nicholson.webp.asset.json";
+
 const QUOTES = [
   {
     q: "AKPsi equipped me with the skills to feel confident in any room, which improved my ability to lead others in a variety of situations. The brothers showed me the importance of lifelong learning, helping me to excel in my new job, where I can soak up knowledge like a sponge and feel confident suggesting new ideas to the team, despite being the youngest person on it.",
     name: "Ryan St. Clair",
     year: "2026",
     role: "",
+    photo: ryanPhoto.url,
   },
   {
     q: "AKPsi was home during a time when everything felt new and unfamiliar. What started as a group of strangers quickly became a brotherhood built on trust, support, and genuine connection. The impact of AKPsi extends far beyond my college years — it shaped how I approach my professional life and taught me the importance of community, mentorship, and building authentic relationships in the workplace.",
     name: "Ahmed Yousfi",
     year: "2023",
     role: "",
+    photo: ahmedPhoto.url,
   },
   {
     q: "Among many things, AKPsi taught me that building and maintaining relationships is one of the most crucial yet rewarding skills to develop. I recommend taking the time to intentionally foster relationships in all areas of life.",
     name: "Sophia Arias",
     year: "2026",
     role: "",
+    photo: sophiaPhoto.url,
   },
   {
     q: "The most important experience I gained from my time in AKPsi pertains to the impact of networking. Whether through brother interviews or mock job prep scenarios, the skills I gained have had a direct positive impact on my career trajectory since entering the workforce. The value of building and maintaining connections cannot be overstated.",
     name: "Nick Nicholson",
     year: "2020",
     role: "",
+    photo: nickPhoto.url,
   },
 ];
+
 
 function Alumni() {
   return (
