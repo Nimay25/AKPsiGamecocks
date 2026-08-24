@@ -256,10 +256,10 @@ export function EmployerLogoOrbit() {
   return (
     <Orbit
       logos={ALL_EMPLOYER_LOGOS}
-      radiusX={0.435}
-      radiusY={0.45}
+      radiusX={0.395}
+      radiusY={0.43}
       speed={0.042}
-      size={48}
+      size={44}
       minOpacity={0.78}
     />
   );
